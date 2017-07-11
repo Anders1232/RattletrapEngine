@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['rattlerrapengine',['RattlerrapEngine',['../md_README.html',1,'']]],
+  ['rattletrapengine',['RattletrapEngine',['../md_README.html',1,'']]],
   ['r',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
   ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
   ['rect',['Rect',['../classRect.html',1,'Rect'],['../classRect.html#a62fb6094640e8a5a9969382d404e9d5e',1,'Rect::Rect(void)'],['../classRect.html#a21e3f21b1579b6aea19ea88d89c019ef',1,'Rect::Rect(float x, float y, float w, float h)']]],
