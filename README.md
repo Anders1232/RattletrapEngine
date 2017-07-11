@@ -1,4 +1,4 @@
-# RattlerrapEngine
+# RattletrapEngine
 SDL2 Game Engine  
 
 ----------------
