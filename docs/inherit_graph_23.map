@@ -1,0 +1,12 @@
+<map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
+<area shape="rect" id="node1" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="139,56,211,83"/>
+<area shape="rect" id="node2" href="$classUIimageButton.html" title="UIimageButton" alt="" coords="271,5,381,32"/>
+<area shape="rect" id="node3" href="$classUItextButton.html" title="UItextButton" alt="" coords="278,56,374,83"/>
+<area shape="rect" id="node4" href="$classUIelement.html" title="UIelement" alt="" coords="5,107,88,133"/>
+<area shape="rect" id="node5" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="136,157,215,184"/>
+<area shape="rect" id="node9" href="$classUIimage.html" title="UIimage" alt="" coords="140,5,211,32"/>
+<area shape="rect" id="node10" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="146,107,205,133"/>
+<area shape="rect" id="node6" href="$classUIgridGroup.html" title="UIgridGroup" alt="" coords="280,107,372,133"/>
+<area shape="rect" id="node7" href="$classUIhorizontalGroup.html" title="UIhorizontalGroup" alt="" coords="263,157,389,184"/>
+<area shape="rect" id="node8" href="$classUIverticalGroup.html" title="UIverticalGroup" alt="" coords="269,208,383,235"/>
+</map>

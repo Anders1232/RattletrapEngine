@@ -1,0 +1,6 @@
+<map id="TileMap" name="TileMap">
+<area shape="rect" id="node2" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="742,5,866,32"/>
+<area shape="rect" id="node3" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="773,479,835,505"/>
+<area shape="rect" id="node4" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="487,293,543,320"/>
+<area shape="rect" id="node11" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,321,287,348"/>
+</map>

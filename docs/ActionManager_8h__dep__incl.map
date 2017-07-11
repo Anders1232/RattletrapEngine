@@ -1,0 +1,12 @@
+<map id="include/ActionManager.h" name="include/ActionManager.h">
+<area shape="rect" id="node2" href="$Camera_8h.html" title="include/Camera.h" alt="" coords="551,80,675,107"/>
+<area shape="rect" id="node11" href="$ActionManager_8cpp.html" title="src/ActionManager.cpp" alt="" coords="699,80,855,107"/>
+<area shape="rect" id="node3" href="$Animation_8cpp.html" title="src/Animation.cpp" alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node4" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="157,155,271,181"/>
+<area shape="rect" id="node5" href="$DragAndDrop_8cpp.html" title="src/DragAndDrop.cpp" alt="" coords="296,155,444,181"/>
+<area shape="rect" id="node6" href="$GameObject_8cpp.html" title="src/GameObject.cpp" alt="" coords="468,155,611,181"/>
+<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="635,155,737,181"/>
+<area shape="rect" id="node8" href="$State_8cpp.html" title="src/State.cpp" alt="" coords="761,155,861,181"/>
+<area shape="rect" id="node9" href="$TileMap_8cpp.html" title="src/TileMap.cpp" alt="" coords="886,155,1001,181"/>
+<area shape="rect" id="node10" href="$Tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="1025,155,1133,181"/>
+</map>

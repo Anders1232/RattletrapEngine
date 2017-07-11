@@ -1,0 +1,7 @@
+<map id="include/UIbutton.h" name="include/UIbutton.h">
+<area shape="rect" id="node2" href="$UIimageButton_8h.html" title="include/UIimageButton.h" alt="" coords="5,80,171,107"/>
+<area shape="rect" id="node4" href="$UItextButton_8h.html" title="include/UItextButton.h" alt="" coords="195,80,347,107"/>
+<area shape="rect" id="node6" href="$UIbutton_8cpp.html" title="src/UIbutton.cpp" alt="" coords="371,80,490,107"/>
+<area shape="rect" id="node3" href="$UIimageButton_8cpp.html" title="src/UIimageButton.cpp" alt="" coords="10,155,166,181"/>
+<area shape="rect" id="node5" href="$UItextButton_8cpp.html" title="src/UItextButton.cpp" alt="" coords="199,155,342,181"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Camera" name="Camera">
+<area shape="rect" id="node2" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="127,227,179,254"/>
+<area shape="rect" id="node4" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="250,316,344,343"/>
+<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="272,139,322,165"/>
+</map>

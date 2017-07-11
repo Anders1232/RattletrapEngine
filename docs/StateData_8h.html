@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto IDJ - Towers Of Madness: Referência do Arquivo include/StateData.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projeto IDJ - Towers Of Madness
+   </div>
+   <div id="projectbrief">TowerDefenseLovecraftnianoZombicida</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#typedef-members">Definições de Tipos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo StateData.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStateData.html">StateData</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface de comunicação entre States.  <a href="classStateData.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definições de Tipos</h2></td></tr>
+<tr class="memitem:a11e85d0fc3db733c13a8d9d030471c7d"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="StateData_8h.html#a11e85d0fc3db733c13a8d9d030471c7d">StateDataType</a></td></tr>
+<tr class="memdesc:a11e85d0fc3db733c13a8d9d030471c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo cujo objetivo é identificar qual filho de stateDataa instância de <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> é.  <a href="#a11e85d0fc3db733c13a8d9d030471c7d">Mais...</a><br /></td></tr>
+<tr class="separator:a11e85d0fc3db733c13a8d9d030471c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições dos tipos</h2>
+<a id="a11e85d0fc3db733c13a8d9d030471c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e85d0fc3db733c13a8d9d030471c7d">&#9670;&nbsp;</a></span>StateDataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef int <a class="el" href="StateData_8h.html#a11e85d0fc3db733c13a8d9d030471c7d">StateDataType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo cujo objetivo é identificar qual filho de stateDataa instância de <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> é. </p>
+<p>A ideia é a mesmo do método Is de <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a>. Porém aqui, por motivos de performance escolheu-se usar inteiros ao invés de strings para a verificação. Para manter o isolamento do código da engine ao jogo recomenda-se que o jogo que o utilizar crie o arquivo Defines.h, no qual os tipos de <a class="el" href="classStateData.html" title="Interface de comunicação entre States. ">StateData</a> podem ficar encapsulados em defines, ao invés de números mágicos. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Terça, 11 de Julho de 2017 12:47:43 para Projeto IDJ - Towers Of Madness por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

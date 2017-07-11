@@ -1,0 +1,11 @@
+<map id="include/UIimageButton.h" name="include/UIimageButton.h">
+<area shape="rect" id="node2" href="$Color_8h.html" title="Color.h" alt="" coords="557,304,621,331"/>
+<area shape="rect" id="node4" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="380,229,447,256"/>
+<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="5,304,67,331"/>
+<area shape="rect" id="node13" href="$UIimage_8h.html" title="UIimage.h" alt="" coords="264,80,347,107"/>
+<area shape="rect" id="node15" href="$UIbutton_8h.html" title="UIbutton.h" alt="" coords="68,229,151,256"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="416,453,523,480"/>
+<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="371,304,483,331"/>
+<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="138,379,201,405"/>
+<area shape="rect" id="node14" href="$UIelement_8h.html" title="UIelement.h" alt="" coords="217,155,311,181"/>
+</map>

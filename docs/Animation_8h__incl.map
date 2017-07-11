@@ -1,0 +1,12 @@
+<map id="include/Animation.h" name="include/Animation.h">
+<area shape="rect" id="node2" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="187,80,293,107"/>
+<area shape="rect" id="node12" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="484,80,551,107"/>
+<area shape="rect" id="node17" href="$Timer_8h.html" title="Timer.h" alt="" coords="575,80,641,107"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="463,304,569,331"/>
+<area shape="rect" id="node7" href="$Component_8h.html" title="Component.h" alt="" coords="190,155,290,181"/>
+<area shape="rect" id="node8" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="159,229,289,256"/>
+<area shape="rect" id="node9" href="$Rect_8h.html" title="Rect.h" alt="" coords="487,155,548,181"/>
+<area shape="rect" id="node10" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="450,229,513,256"/>
+<area shape="rect" id="node13" href="$Color_8h.html" title="Color.h" alt="" coords="860,229,924,256"/>
+<area shape="rect" id="node14" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="572,155,684,181"/>
+</map>

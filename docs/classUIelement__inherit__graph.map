@@ -1,0 +1,10 @@
+<map id="UIelement" name="UIelement">
+<area shape="rect" id="node2" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="217,80,296,107"/>
+<area shape="rect" id="node6" href="$classUIimage.html" title="UIimage" alt="" coords="429,80,500,107"/>
+<area shape="rect" id="node8" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="543,80,602,107"/>
+<area shape="rect" id="node3" href="$classUIgridGroup.html" title="UIgridGroup" alt="" coords="5,155,97,181"/>
+<area shape="rect" id="node4" href="$classUIhorizontalGroup.html" title="UIhorizontalGroup" alt="" coords="121,155,248,181"/>
+<area shape="rect" id="node5" href="$classUIverticalGroup.html" title="UIverticalGroup" alt="" coords="272,155,385,181"/>
+<area shape="rect" id="node7" href="$classUIimageButton.html" title="UIimageButton" alt="" coords="410,155,519,181"/>
+<area shape="rect" id="node9" href="$classUItextButton.html" title="UItextButton" alt="" coords="543,155,639,181"/>
+</map>

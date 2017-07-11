@@ -1,0 +1,10 @@
+<map id="include/UIverticalGroup.h" name="include/UIverticalGroup.h">
+<area shape="rect" id="node2" href="$UIelement_8h.html" title="UIelement.h" alt="" coords="260,155,353,181"/>
+<area shape="rect" id="node8" href="$Rect_8h.html" title="Rect.h" alt="" coords="71,304,132,331"/>
+<area shape="rect" id="node14" href="$UIcanvas_8h.html" title="UIcanvas.h" alt="" coords="221,80,310,107"/>
+<area shape="rect" id="node3" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="308,229,375,256"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="139,379,202,405"/>
+<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="205,453,312,480"/>
+<area shape="rect" id="node7" href="$Color_8h.html" title="Color.h" alt="" coords="227,379,291,405"/>
+<area shape="rect" id="node11" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="401,304,513,331"/>
+</map>
