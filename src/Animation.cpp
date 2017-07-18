@@ -18,7 +18,9 @@ void Animation::Update(float dt) {
 }
 
 void Animation::Render(void) {
-	sp.Render(box, rotation);
+	sp.SetWorld(box);
+	sp.SetAngle(rotation);
+	sp.Render();
 }
 
 Rect Animation::GetWorldRenderedRect(void) const {

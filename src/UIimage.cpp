@@ -35,7 +35,9 @@ void UIimage::Render(bool debugRender) const {
 	if(nullptr != sp) {
 
 		if(box.w > 0 && box.h > 0) {
-			sp->Render(box, angle, false);
+			sp->SetWorld(box);
+			sp->SetAngle(angle);
+			sp->Render();
 		}
 	} else {
 		Error("Alguma classe filha de UIimage nao foi corretamente inicializada.")

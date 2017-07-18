@@ -8,6 +8,7 @@
 #include <string>
 #include <memory>
 
+#include "Component.h"
 #include "Color.h"
 #include "Rect.h"
 
@@ -20,7 +21,7 @@
 
 	Sprite é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição na tela da imagem.
 */
-class Sprite {
+class Sprite: public Component {
 	public:
 		/**
 			\brief Cria um sprite não associado a uma imagem.
@@ -28,30 +29,13 @@ class Sprite {
 
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(void);
-		/**
-			\brief Cria um sprite válida.
-			\param file Arquivo que contém a imagem.
-			\param highlighted Checa se a sprite deve alterar a cor (highlight) quando o mouse passar em cima.
-			\param frameTime Tempo em segundos que cada imagem de um sprite sheet deve durar.
-			\param frameCount Quantas imagens tem no sprite sheet. Caso o valor seja 1 significa que é um sprite não animado.
-
-			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0. o método Open é chamado para carregar a imagem.
-		*/
-		Sprite(std::string file, bool highlighted = false, float frameTime=1, int frameCount=1);
+		Sprite(std::string file, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true, Rect initialPos= Rect());
 		/**
 			\brief Destrutor
 
 			Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito.
 		*/
 		~Sprite();
-		/**
-			\brief Carrega uma imagem.
-			\param file Arquivo que contém a imagem.
-
-			Faz uso da classe Resources para obter o ponteiro para a imagem em memória, verifica o tamanho da imagem carregada para atribuir a width e height e chama o método SetClip da imagem, levando em consideração, caso seja uma sprite animada, quantas sprites fazem parte da animação.
-		*/
-		void Open(std::string file);
 		/**
 			\brief Seleciona o recorte da imagem que deve ser renderizado.
 			\param x Ponto x inicial da imagem deve ser exibida.
@@ -73,7 +57,7 @@ class Sprite {
 			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
-		void Render(Rect world, float angle=0, bool isCoordOnWorld=true) const;
+		void Render() const;
 		/**
 			\brief Informa a largura do sprite
 
@@ -175,6 +159,11 @@ class Sprite {
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
 		void Scale(float scale);
+		void SetWorld(Rect world);
+		void SetAngle(float angle);
+		bool Is(ComponentType type) const;
+		void EarlyUpdate(float dt);
+		void LateUpdate(float dt);
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 	private:
@@ -189,6 +178,9 @@ class Sprite {
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
 		bool highlightable;
+		Rect world;
+		float angle;
+		const bool isCoordOnWorld;
 };
 
 #include "InputManager.h"
