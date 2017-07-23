@@ -4,14 +4,16 @@
 
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
 		 : UIelement(behavior) {
-	sp = new Sprite(file);
+	Error("Corrigir obtenção do GameObject onde terá a sprite");
+	sp = new Sprite(file, (GameObject&)*this);
 	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
 	angle = 0;
 }
 
 UIimage::UIimage(std::string file, float frameTime, int frameCount, UIelement::BehaviorType behavior)
 		 : UIelement(behavior) {
-	sp = new Sprite(file, false, frameTime, frameCount);
+	Error("Corrigir obtenção do GameObject onde terá a sprite");
+	sp = new Sprite(file, (GameObject&)*this, false, frameTime, frameCount);
 	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
 	angle = 0;
 }
@@ -35,8 +37,6 @@ void UIimage::Render(bool debugRender) const {
 	if(nullptr != sp) {
 
 		if(box.w > 0 && box.h > 0) {
-			sp->SetWorld(box);
-			sp->SetAngle(angle);
 			sp->Render();
 		}
 	} else {

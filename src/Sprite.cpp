@@ -12,15 +12,17 @@
 
 //Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
-Sprite::Sprite(std::string file, bool highlighted, float frameTime, int frameCount, float angle, bool isCoordOnWorld, Rect initialPos)
-		: colorMultiplier(255, 255, 255), blendMode(ALPHA_BLEND)
-		, frameCount(frameCount)
-		, currentFrame(0), timeElapsed(0)
-		, frameTime(frameTime), clipRect()
-		, scaleX(1.), scaleY(1.)
-		, highlightable(highlighted),
-		world(initialPos),
-		angle(angle),
+Sprite::Sprite(std::string file, GameObject &associated, bool highlighted, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
+		:colorMultiplier(255, 255, 255),
+		blendMode(ALPHA_BLEND),
+		frameCount(frameCount),
+		currentFrame(0),
+		timeElapsed(0),
+		frameTime(frameTime),
+		clipRect(),
+		scaleX(1.), scaleY(1.),
+		highlightable(highlighted),
+		associated(associated),
 		isCoordOnWorld(isCoordOnWorld){
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
@@ -62,7 +64,7 @@ void Sprite::Render() const {
 
 	{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 		Vec2 screenSize = game.GetWindowDimensions();
-		float points[4] = {world.x, world.y, world.x+world.w, world.y+world.h};
+		float points[4] = {associated.box.x, associated.box.y, associated.box.x+associated.box.w, associated.box.y+associated.box.h};
 		
 		bool isOutOfBounds = true;
 		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
@@ -85,7 +87,7 @@ void Sprite::Render() const {
 		CHECK_SDL_ERROR;
 	}
 
-	SDL_Rect dst = world;
+	SDL_Rect dst = associated.box;
 	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){
 		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
 								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
@@ -94,7 +96,7 @@ void Sprite::Render() const {
 			CHECK_SDL_ERROR;
 		}
 	}
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, angle, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
@@ -176,21 +178,6 @@ bool Sprite::Is(ComponentType type) const{
 void Sprite::EarlyUpdate(float dt){}
 
 void Sprite::LateUpdate(float dt){}
-
-void Sprite::SetWorld(Rect world_){
-	this->world= world_;
-	if(0 >= world.w || 0 >= world.h) {
-		world.w = GetWidth();
-		world.h = GetHeight();
-	}
-	if(isCoordOnWorld) {
-		world = Camera::WorldToScreen(world);
-	}
-}
-
-void Sprite::SetAngle(float angle){
-	this->angle=angle;
-}
 
 
 

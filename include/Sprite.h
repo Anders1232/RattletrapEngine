@@ -29,7 +29,7 @@ class Sprite: public Component {
 
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(std::string file, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true, Rect initialPos= Rect());
+		Sprite(std::string file, GameObject &associated, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true);
 		/**
 			\brief Destrutor
 
@@ -159,8 +159,6 @@ class Sprite: public Component {
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
 		void Scale(float scale);
-		void SetWorld(Rect world);
-		void SetAngle(float angle);
 		bool Is(ComponentType type) const;
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
@@ -178,8 +176,7 @@ class Sprite: public Component {
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
 		bool highlightable;
-		Rect world;
-		float angle;
+		GameObject &associated;
 		const bool isCoordOnWorld;
 };
 
