@@ -2,13 +2,13 @@
 #define TILEMAPV2_H
 
 #include <vector>
-#include "NearestGOFinder.h"
+#include "NearestFinder.h"
 //#include "Tile.h"
 #include "Component.h"
 #include "Tileset.h"
 
 template<class T>
-class TileMapV2 : public Component{
+class TileMapV2 : public Component, NearestFinder<T>{
 	public:
 		TileMapV2(GameObject &associated, std::string &file, TileSet *tileSet);
 		TileMapV2(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet);
@@ -25,6 +25,8 @@ class TileMapV2 : public Component{
 		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer)const;
 		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, floar intensity);
+		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max());
+		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max());
 	private:
 		int mapWidth;
 		int mapHeight;
