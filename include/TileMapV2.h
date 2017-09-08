@@ -7,10 +7,15 @@
 #include "Component.h"
 #include "Tileset.h"
 
+/**
+	\todo Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo
+*/
+#define COLLISION_LAYER (1)
+
 template<class T>
 class TileMapV2 : public Component, NearestFinder<T>{
 	public:
-		TileMapV2(GameObject &associated, std::string &file, TileSet *tileSet);
+		TileMapV2(GameObject &associated, const std::__cxx11::string &file, TileSet *tileSet);
 		TileMapV2(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet);
 		void EarlyUpdate(float dt=0);
 		void Update(float dt=0);
@@ -19,14 +24,14 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		bool Is(ComponentType type) const;
 		T& At(int x, int y, int z=0) const;
 		T& AtLayer(int index2D, int layer) const;
-		int GetWidth(void);
-		int GetHeight(void);
-		int GetDepth(void);
+		int GetWidth(void) const;
+		int GetHeight(void) const;
+		int GetDepth(void) const;
 		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer)const;
 		void Parallax(bool parallax);
-		void SetParallaxLayerIntensity(int layer, floar intensity);
-		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max());
-		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max());
+		void SetParallaxLayerIntensity(int layer, float intensity);
+		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
+		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max())  const;
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -35,6 +40,10 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		std::vector<float> parallaxWeight;
 		std::vector<TileSet*> tileSets;
 		GameObject &associated;
+		bool displayCollisionInfo;
+
+		void Load(std::string const &file);
+		void RenderLayer(int layer);
 };
 
 #endif // TILEMAPV2_H

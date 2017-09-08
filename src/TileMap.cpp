@@ -58,7 +58,7 @@ int& TileMap::At(int x, int y, int z) const {
 		return (int&)m1;
 	}
 }
- 
+
 void TileMap::Render(Vec2 pos, bool parallax, Vec2 mouse) const {
 	for(int count = 0; count < mapDepth; count++) {
 		if(COLLISION_LAYER == count && !displayCollisionInfo) {
