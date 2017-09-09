@@ -9,25 +9,23 @@
 
 class TileSetV2:public Component{
 	public:
-		TileSetV2(string file);
+		TileSetV2(std::string file, GameObject &associated);
 		void Update(float dt);
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
-		void Render();
-		void Render(int index, Rect pos);
-		int GetSize(void) const;
+		void Render() const;
+		void Render(int index, Rect pos) const;
+		uint GetSize(void) const;
 		Vec2 GetTileSize(void) const;
 	private:
 		std::vector<Sprite> sprites;
 		Vec2 tileSize;
-		int tileWidth;/**< Espessura de um tile.*/
-		int tileHeight;/**< Altura de um tile.*/
-}
+};
 
 /*
 [largura]x[altura]
 [quantidade de entradas]
-[[indice(ordenado)][arquivo][quantas sprites][tempo entre troca de imagens]]*
+[[indice(ordenado)]\t[arquivo]\\t[quantas sprites]\t[tempo entre troca de imagens]\n]*
 */
 
 #endif // TILESETV2_H
