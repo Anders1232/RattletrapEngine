@@ -55,12 +55,16 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 }
 
 void Sprite::Render() const {
+	Render(associated.box);
+}
+
+void Sprite::Render(Rect dest) const{
 	Game& game = Game::GetInstance();
 	
 
 	{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 		Vec2 screenSize = game.GetWindowDimensions();
-		float points[4] = {associated.box.x, associated.box.y, associated.box.x+associated.box.w, associated.box.y+associated.box.h};
+		float points[4] = {dest.x, dest.y, dest.x+dest.w, dest.y+dest.h};
 		
 		bool isOutOfBounds = true;
 		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
@@ -83,12 +87,13 @@ void Sprite::Render() const {
 		CHECK_SDL_ERROR;
 	}
 
-	SDL_Rect dst = associated.box;
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+	SDL_Rect rect= dest;
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
 }
+
 
 int Sprite::GetHeight(void) const {
 	return height*scaleY;

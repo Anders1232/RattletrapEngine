@@ -40,13 +40,13 @@ void TileSetV2::LateUpdate(float dt){
 }
 
 void TileSetV2::Render() const{
-	for(uint i=0; i< sprites.size(); i++){
-		sprites[i].Render();
-	}
 	printf("[WARNING] TileSet::Render(void) should not be called.\n");
 }
 
-//void TileSetV2::Render(int index, Rect pos) const;
+void TileSetV2::Render(int index, Rect pos) const{
+	
+}
+
 uint TileSetV2::GetSize(void) const{
 	return sprites.size();
 }

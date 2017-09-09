@@ -18,14 +18,14 @@ void TileMapV2<T>::Load(std::string const &file) {
 }
 
 template<class T>
-TileMapV2<T>::TileMapV2(GameObject &associated, std::string const &file, TileSet *tileSet): associated(associated), displayCollisionInfo(false){
+TileMapV2<T>::TileMapV2(GameObject &associated, std::string const &file, TileSetV2 *tileSet): currentTileSet(0), associated(associated), displayCollisionInfo(false){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 	tileSets.push_back(tileSet);
 }
 
 template<class T>
-TileMapV2<T>::TileMapV2(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet): tileSets(tileSet), associated(associated), displayCollisionInfo(false){
+TileMapV2<T>::TileMapV2(GameObject &associated, std::string &file, std::vector<TileSetV2*> &tileSet): tileSets(tileSet), associated(associated), displayCollisionInfo(false){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 }
@@ -56,15 +56,16 @@ void TileMapV2<T>::RenderLayer(int layer) {
 			int index = At(x, y, layer);
 			if (0 <= index) {
 				Vec2 destination;
+				Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
 				if (parallax) {
-					Vec2 tilePos(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
+					Vec2 tilePos(tileSize);
 					destination = CalculateParallaxScrolling(tilePos, pos, layer);
 				}
 				else {
-					destination = pos + Vec2(x*tileSet->GetTileWidth(), y*tileSet->GetTileHeight());
+					destination = pos + Vec2(x*tileSize.x, y*tileSize.y);
 				}
-				Rect tile(destination.x, destination.y, tileSet->GetTileWidth(), tileSet->GetTileHeight());
-				tileSet->Render(index, destination);
+				Rect tile(destination.x, destination.y, tileSize.x, tileSize.y);
+				tileSets[currentTileSet]->Render(index, destination);
 			}
 		}
 	}

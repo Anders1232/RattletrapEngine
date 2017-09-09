@@ -5,7 +5,7 @@
 #include "NearestFinder.h"
 //#include "Tile.h"
 #include "Component.h"
-#include "Tileset.h"
+#include "TilesetV2.h"
 
 /**
 	\todo Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo
@@ -15,8 +15,8 @@
 template<class T>
 class TileMapV2 : public Component, NearestFinder<T>{
 	public:
-		TileMapV2(GameObject &associated, const std::__cxx11::string &file, TileSet *tileSet);
-		TileMapV2(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet);
+		TileMapV2(GameObject &associated, const std::__cxx11::string &file, TileSetV2 *tileSet);
+		TileMapV2(GameObject &associated, std::string &file, std::vector<TileSetV2*> &tileSet);
 		void EarlyUpdate(float dt=0);
 		void Update(float dt=0);
 		void LateUpdate(float dt =0);
@@ -38,7 +38,8 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		int mapDepth;
 		std::vector<T> tileMatrix;
 		std::vector<float> parallaxWeight;
-		std::vector<TileSet*> tileSets;
+		std::vector<TileSetV2*> tileSets;
+		int currentTileSet;
 		GameObject &associated;
 		bool displayCollisionInfo;
 

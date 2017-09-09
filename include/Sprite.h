@@ -39,6 +39,7 @@ class Sprite: public Component {
 			\param y Ponto y inicial da imagem deve ser exibida.
 			\param w Largura em pixels da imagem.
 			\param h Altura em pixels da imagem.
+			\todo Verificar necessidade desse método.
 			Atribui a clipRect os valores informados.
 		*/
 		void SetClip(int x, int y, int w, int h);
@@ -53,6 +54,7 @@ class Sprite: public Component {
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
 		void Render() const;
+		void Render(Rect screenPos) const;
 		/**
 			\brief Informa a largura do sprite
 			Retorna a largura do sprite, no caso do sprite sheet é retornado a largura de um único sprite do sprite sheet.
