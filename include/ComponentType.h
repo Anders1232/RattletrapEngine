@@ -24,6 +24,7 @@ enum ComponentType{
 	HEAL_AURA,
 	PLAYER_DATA,
 	SPRITE,
+	TILEMAP,
 //	SIZE,
 	COMPONENT_TYPE_SIZE
 };

@@ -27,8 +27,8 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		int GetWidth(void) const;
 		int GetHeight(void) const;
 		int GetDepth(void) const;
-		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer)const;
-		void Parallax(bool parallax);
+		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const;
+//		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, float intensity);
 		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
 		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max())  const;
@@ -42,6 +42,7 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		int currentTileSet;
 		GameObject &associated;
 		bool displayCollisionInfo;
+		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 
 		void Load(std::string const &file);
 		void RenderLayer(int layer);
