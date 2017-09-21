@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "Error.h"
 #include "Sprite.h"
 #include "Vec2.h"
 #include "Rect.h"
