@@ -55,7 +55,11 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 }
 
 void Sprite::Render() const {
-	Render(associated.box);
+	if(isCoordOnWorld) {
+		Render( Camera::WorldToScreen(associated.box) );
+	} else {
+		Render(associated.box);
+	}
 }
 
 void Sprite::Render(Rect dest) const{
