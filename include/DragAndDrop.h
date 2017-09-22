@@ -40,7 +40,6 @@ class DragAndDrop : public Component{
 		Vec2 associatedInitialPos;/**<Vec2 no qual o será armazenada a posição do objeto associado no instante do drag.*/
 		TileMap &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
-		GameObject &associated;
 		Sound dragNDrop;
 };
 

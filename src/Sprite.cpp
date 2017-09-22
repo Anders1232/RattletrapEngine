@@ -13,7 +13,8 @@
 //Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
 Sprite::Sprite(std::string file, GameObject &associated, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
-		:colorMultiplier(255, 255, 255),
+		:Component(associated)
+		colorMultiplier(255, 255, 255),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
 		currentFrame(0),
@@ -21,7 +22,6 @@ Sprite::Sprite(std::string file, GameObject &associated, float frameTime, int fr
 		frameTime(frameTime),
 		clipRect(),
 		scaleX(1.), scaleY(1.),
-		associated(associated),
 		isCoordOnWorld(isCoordOnWorld){
 	REPORT_I_WAS_HERE;
 //	if(file.empty()) {

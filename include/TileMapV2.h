@@ -40,7 +40,6 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		std::vector<float> parallaxWeight;
 		std::vector<TileSetV2*> tileSets;
 		int currentTileSet;
-		GameObject &associated;
 		bool displayCollisionInfo;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 

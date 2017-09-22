@@ -26,6 +26,8 @@ class GameObject;
 */
 class Component{
 	public:
+		Component(){};
+		Component(GameObject &associated);
 		/**
 			\brief Atualiza estado do componente.
 		
@@ -53,6 +55,8 @@ class Component{
 		*/
 		virtual ~Component(void){};
 		virtual void Render(void){};
+
+		const GameObject &associated;
 };
 
 #endif

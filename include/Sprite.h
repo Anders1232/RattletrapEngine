@@ -158,7 +158,6 @@ class Sprite: public Component {
 		SDL_Rect clipRect;/**< Recorte do sprite que será exibido na tela.TODO: Ver necessidade desse atributo*/
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
-		GameObject &associated;
 		const bool isCoordOnWorld;
 };
 
