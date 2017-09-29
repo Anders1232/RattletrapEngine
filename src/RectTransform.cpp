@@ -107,6 +107,10 @@ void RectTransform::SetBehaviorType( BehaviorType behavior ) {
 	this->behavior = behavior;
 }
 
+Rect RectTransform::GetBoundingBox() {
+	return boundingBox;
+}
+
 Rect RectTransform::ComputeBoundingBox( Rect ParentCanvas ) {
 	Rect boundingBox;
 	boundingBox.x = parentCanvas.w*anchors.x + offsets.x;
