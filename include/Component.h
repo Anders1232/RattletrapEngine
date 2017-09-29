@@ -54,8 +54,8 @@ class Component{
 		*/
 		virtual ~Component(void){};
 		virtual void Render(void){};
-
-		const GameObject &associated;
+	protected:
+		GameObject &associated;
 };
 
 #endif
