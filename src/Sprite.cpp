@@ -22,8 +22,7 @@ Sprite::Sprite(std::string file, GameObject &associated, bool highlighted, float
 		frameTime(frameTime),
 		clipRect(),
 		scaleX(1.), scaleY(1.),
-		highlightable(highlighted),
-		associated(associated) {
+		highlightable(highlighted) {
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
