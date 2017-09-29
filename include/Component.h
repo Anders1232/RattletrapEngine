@@ -26,12 +26,20 @@ class GameObject;
 */
 class Component{
 	public:
+		Component(GameObject &associated);
 		/**
 			\brief Atualiza estado do componente.
 		
 			Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário.
 		*/
 		virtual void Update(float dt)=0;
+#ifdef TRANSICAO_FEITA
+		virtual void EarlyUpdate(float dt)=0;
+		virtual void LateUpdate(float dt)=0;
+#else
+		virtual void EarlyUpdate(float dt){};
+		virtual void LateUpdate(float dt){};
+#endif
 		/**
 			\brief Verifica o subtipo de componente.
 			\param type Tipo que deseja verificar se o componente é.
@@ -46,6 +54,8 @@ class Component{
 		*/
 		virtual ~Component(void){};
 		virtual void Render(void){};
+
+		const GameObject &associated;
 };
 
 #endif
