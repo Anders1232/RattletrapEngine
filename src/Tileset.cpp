@@ -44,7 +44,7 @@ void TileSet::Render() const{
 }
 
 void TileSet::Render(int index, Rect pos) const{
-	sprites[index].Render(pos);
+	sprites[index].Render();
 }
 
 uint TileSet::GetSize(void) const{
