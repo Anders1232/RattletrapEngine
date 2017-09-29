@@ -12,8 +12,9 @@
 
 //Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
-Sprite::Sprite(std::string file, GameObject &associated, bool highlighted, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
-		:colorMultiplier(255, 255, 255),
+Sprite::Sprite(std::string file, GameObject &associated, bool highlighted, float frameTime, int frameCount, float angle)
+		:Component(associated)
+		colorMultiplier(255, 255, 255),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
 		currentFrame(0),
@@ -22,8 +23,7 @@ Sprite::Sprite(std::string file, GameObject &associated, bool highlighted, float
 		clipRect(),
 		scaleX(1.), scaleY(1.),
 		highlightable(highlighted),
-		associated(associated),
-		isCoordOnWorld(isCoordOnWorld){
+		associated(associated) {
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
@@ -178,6 +178,3 @@ bool Sprite::Is(ComponentType type) const{
 void Sprite::EarlyUpdate(float dt){}
 
 void Sprite::LateUpdate(float dt){}
-
-
-

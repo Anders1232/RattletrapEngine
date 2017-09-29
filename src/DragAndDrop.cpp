@@ -6,11 +6,11 @@
 #include "TileMap.h"
 
 DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool dragOnActionHold)
-			: dragOnHold(dragOnActionHold)
+			: Component(associated)
+			, dragOnHold(dragOnActionHold)
 			, associatedInitialPos(associatedInitialPos)
 			, tileMap(map)
 			, redrag(redrag)
-			, associated(associated)
 			, dragNDrop("audio/Acoes/Consertando1.wav") {
 }
 

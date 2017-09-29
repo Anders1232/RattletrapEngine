@@ -1,5 +1,4 @@
 #include "UIimage.h"
-
 #include "Error.h"
 
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
