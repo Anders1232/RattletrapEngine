@@ -5,7 +5,7 @@
 #define FORBIDDEN_CHAR ">"
 #define MAX_SPRITE_FILENAME_SIZE 100
 
-TileSet::TileSet(std::string fileName, GameObject &associated){
+TileSet::TileSet(std::string fileName, GameObject &associated):Component(associated){
 	FILE *file= fopen(fileName.c_str(), "r");
 	
 	ASSERT2(file != NULL, "Could not open(or find) file "<< fileName);

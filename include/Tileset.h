@@ -1,5 +1,5 @@
-#ifndef TILESETV2_H
-#define TILESETV2_H
+#ifndef TILESET_H
+#define TILESET_H
 
 #include <string>
 #include <vector>
@@ -8,9 +8,9 @@
 #include "Vec2.h"
 #include "Rect.h"
 
-class TileSetV2:public Component{
+class TileSet:public Component{
 	public:
-		TileSetV2(std::string file, GameObject &associated);
+                TileSet(std::string file, GameObject &associated);
 		void Update(float dt);
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
@@ -29,4 +29,4 @@ class TileSetV2:public Component{
 [[indice(ordenado)]\t[arquivo]\\t[quantas sprites]\t[tempo entre troca de imagens]\n]*
 */
 
-#endif // TILESETV2_H
+#endif // TILESET_H

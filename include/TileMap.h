@@ -5,7 +5,7 @@
 #include "NearestFinder.h"
 //#include "Tile.h"
 #include "Component.h"
-#include "TilesetV2.h"
+#include "Tileset.h"
 #include "TileMapObserver.h"
 
 /**
