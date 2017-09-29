@@ -27,7 +27,7 @@ class Sprite: public Component {
 			\todo verificar a real necessidade disso.
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(std::string file, GameObject &associated, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true);
+		Sprite(std::string file, GameObject &associated, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0);
 		/**
 			\brief Destrutor
 			Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito.
@@ -54,7 +54,6 @@ class Sprite: public Component {
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
 		void Render() const;
-		void Render(Rect screenPos) const;
 		/**
 			\brief Informa a largura do sprite
 			Retorna a largura do sprite, no caso do sprite sheet é retornado a largura de um único sprite do sprite sheet.
@@ -158,7 +157,7 @@ class Sprite: public Component {
 		SDL_Rect clipRect;/**< Recorte do sprite que será exibido na tela.TODO: Ver necessidade desse atributo*/
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
-		const bool isCoordOnWorld;
+		bool highlightable;
 };
 
 #include "InputManager.h"
