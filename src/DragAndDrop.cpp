@@ -5,7 +5,8 @@
 #include "InputManager.h"
 #include "TileMap.h"
 
-DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool dragOnActionHold)
+template <class T>
+DragAndDrop<T>::DragAndDrop(TileMap<T> &map,Vec2 associatedInitialPos, GameObject &associated, bool redrag, bool dragOnActionHold)
 			: Component(associated)
 			, dragOnHold(dragOnActionHold)
 			, associatedInitialPos(associatedInitialPos)
@@ -14,7 +15,8 @@ DragAndDrop::DragAndDrop(TileMap &map,Vec2 associatedInitialPos, GameObject &ass
 			, dragNDrop("audio/Acoes/Consertando1.wav") {
 }
 
-void DragAndDrop::Update(float dt) {
+template <class T>
+void DragAndDrop<T>::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 	if(inputManager.MouseRelease(RIGHT_MOUSE_BUTTON)) {
 		bool success = false;
@@ -31,6 +33,7 @@ void DragAndDrop::Update(float dt) {
 	} 
 }
 
-bool DragAndDrop::Is(ComponentType type) const {
+template <class T>
+bool DragAndDrop<T>::Is(ComponentType type) const {
 	return ComponentType::DRAG_AND_DROP == type;
 }

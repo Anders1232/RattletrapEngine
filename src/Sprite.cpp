@@ -13,7 +13,7 @@
 //Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
 Sprite::Sprite(std::string file, GameObject &associated, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
-		:Component(associated)
+		:Component(associated),
 		colorMultiplier(255, 255, 255),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
