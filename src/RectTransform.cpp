@@ -27,7 +27,7 @@ void RectTransform::Update( float dt ) {
 	} else {
 		parentCanvas = parentGO->box;
 	}
-	boundingBox = ComputeBoundingbox(parentCanvas);
+	boundingBox = ComputeBoundingBox(parentCanvas);
 	associated.box = ComputeBox();
 	boundingBox.x += parentCanvas.x;
 	boundingBox.y += parentCanvas.y;
@@ -58,11 +58,11 @@ bool RectTransform::Is( ComponentType type ) const {
 }
 
 void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
-	static_assert( topLeft.x >= 0. && topLeft.x <= 1.
+	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.
 				, "topLeft must have coordiantes between 0 and 1" );
 	
-	static_assert( bottomRight.x >= 0. && bottomRight.x <= 1.
+	ASSERT2( bottomRight.x >= 0. && bottomRight.x <= 1.
 				&& bottomRight.y >= 0. && bottomRight.y <= 1.
 				, "bottomRight must have coordiantes between 0 and 1" );
 	
@@ -80,11 +80,11 @@ void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 }
 
 void RectTransform::SetOffsets( float up, float right, float down, float left ) {
-	offsets = Rect( {left, up}, {right, down} );
+	offsets = Rect(left, up, right, down);
 }
 
 void RectTransform::SetCenterPin( Vec2 center ) {
-	static_assert( center.x >= 0. && center.x <= 1.
+	ASSERT2( center.x >= 0. && center.x <= 1.
 				&& center.y >= 0. && center.y <= 1.
 				, "center must have coordiantes between 0 and 1" );
 	centerPin.x = ( center.x < 0 ) ? 0 : ( ( center.x > 1 ) ? 1 : center.x );
@@ -107,11 +107,11 @@ void RectTransform::SetBehaviorType( BehaviorType behavior ) {
 	this->behavior = behavior;
 }
 
-Rect RectTransform::GetBoundingBox() {
+Rect RectTransform::GetBoundingBox() const{
 	return boundingBox;
 }
 
-Rect RectTransform::ComputeBoundingBox( Rect ParentCanvas ) {
+Rect RectTransform::ComputeBoundingBox( Rect parentCanvas ) {
 	Rect boundingBox;
 	boundingBox.x = parentCanvas.w*anchors.x + offsets.x;
 	boundingBox.y = parentCanvas.h*anchors.y + offsets.y;
