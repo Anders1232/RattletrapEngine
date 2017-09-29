@@ -26,7 +26,6 @@ class GameObject;
 */
 class Component{
 	public:
-		Component(){};
 		Component(GameObject &associated);
 		/**
 			\brief Atualiza estado do componente.
