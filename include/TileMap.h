@@ -16,8 +16,8 @@
 template<class T>
 class TileMap : public Component, NearestFinder<T>{
 	public:
-		TileMap(GameObject &associated, const std::__cxx11::string &file, TileSetV2 *tileSet);
-		TileMap(GameObject &associated, std::string &file, std::vector<TileSetV2*> &tileSet);
+		TileMap(GameObject &associated, const std::__cxx11::string &file, TileSet *tileSet);
+		TileMap(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet);
 		void EarlyUpdate(float dt=0);
 		void Update(float dt=0);
 		void LateUpdate(float dt =0);
@@ -42,7 +42,7 @@ class TileMap : public Component, NearestFinder<T>{
 		int mapDepth;
 		std::vector<T> tileMatrix;
 		std::vector<float> parallaxWeight;
-		std::vector<TileSetV2*> tileSets;
+		std::vector<TileSet*> tileSets;
 		std::vector<TileMapObserver*> observers;
 		int currentTileSet;
 		bool displayCollisionInfo;

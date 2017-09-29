@@ -10,7 +10,7 @@
 
 class TileSet:public Component{
 	public:
-                TileSet(std::string file, GameObject &associated);
+		TileSet(std::string file, GameObject &associated);
 		void Update(float dt);
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
