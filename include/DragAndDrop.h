@@ -35,6 +35,7 @@ class DragAndDrop : public Component{
 			Retorna Verdadeiro se CompomentType também é do tipo DragAndDrop, caso contrário retorna falso.
 		*/
 		bool Is(ComponentType) const;
+		bool PutFirst(void);
 		bool firstClick;
 		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
 	private:

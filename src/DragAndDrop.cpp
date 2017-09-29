@@ -27,9 +27,8 @@ void DragAndDrop::Update(float dt) {
 	InputManager &inputManager= InputManager::GetInstance();
 
 	if(!redrag){
-		if(inputManager.ButtonPress(LEFT_MOUSE_BUTTON)){
-			tileMap.InsertGO(&associated);
-			redrag = true;
+		if(inputManager.MousePress(LEFT_MOUSE_BUTTON)){
+			PutFirst();
 		}
 	}
 
@@ -77,4 +76,11 @@ void DragAndDrop::Update(float dt) {
 
 bool DragAndDrop::Is(ComponentType type) const {
 	return ComponentType::DRAG_AND_DROP == type;
+}
+
+bool DragAndDrop::PutFirst(void){
+	if(tileMap.InsertGO(&associated)){
+		redrag = true;
+	}
+	return redrag;
 }

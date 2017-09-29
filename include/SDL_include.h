@@ -3,7 +3,7 @@
 *************************************************/
 #ifdef INCLUDE_SDL 
 	#ifdef _WIN32
-		#include <SDL.h>
+		#include <SDL2/SDL.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
 		#include <SDL2/SDL.h>
@@ -22,7 +22,7 @@
 *************************************************/
 #ifdef INCLUDE_SDL_IMAGE 
 	#ifdef _WIN32
-		#include <SDL_image.h>
+		#include <SDL2/SDL_image.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
 		#include <SDL2/SDL_image.h>
@@ -41,7 +41,7 @@
 *************************************************/
 #ifdef INCLUDE_SDL_MIXER 
 	#ifdef _WIN32
-		#include <SDL_mixer.h>
+		#include <SDL2/SDL_mixer.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
 		#include <SDL2/SDL_mixer.h>
@@ -60,7 +60,7 @@
 *************************************************/
 #ifdef INCLUDE_SDL_TTF 
 	#ifdef _WIN32
-		#include <SDL_ttf.h>
+		#include <SDL2/SDL_ttf.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
 		#include <SDL2/SDL_ttf.h>
@@ -79,7 +79,7 @@
 *************************************************/
 #ifdef INCLUDE_SDL_NET 
 	#ifdef _WIN32
-		#include <SDL_net.h>
+		#include <SDL2/SDL_net.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
 		#include <SDL2/SDL_net.h>
