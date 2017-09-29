@@ -202,4 +202,24 @@ std::vector<T*>* TileMapV2<T>::FindNearests(Vec2 origin, Finder<T> finder, float
 	return chosen;
 }
 
+void TileMap::ObserveMapChanges(TileMapObserver *obs){
+        observers.emplace_back(obs);
+}
+
+void TileMap::RemoveObserver(TileMapObserver *obs){
+        for(uint i=0; i < observers.size(); i++){
+                if(observers[i] == obs){
+                        observers.erase(observers.begin()+i);
+                        return;
+                }
+        }
+        Error("\tTileMap observer not found!");
+}
+
+void TileMap::ReportChanges(int tileChanged){
+        for(uint i=0; i< observers.size(); i++){
+                observers[i]->NotifyTileMapChanged(tileChanged);
+        }
+}
+
 

@@ -32,6 +32,9 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		void SetParallaxLayerIntensity(int layer, float intensity);
 		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
 		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max())  const;
+                void ReportChanges(int tileChanged);
+                void ObserveMapChanges(TileMapObserver *);
+                void RemoveObserver(TileMapObserver *);
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -39,6 +42,7 @@ class TileMapV2 : public Component, NearestFinder<T>{
 		std::vector<T> tileMatrix;
 		std::vector<float> parallaxWeight;
 		std::vector<TileSetV2*> tileSets;
+                vector<TileMapObserver*> observers;
 		int currentTileSet;
 		bool displayCollisionInfo;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
