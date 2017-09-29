@@ -113,6 +113,7 @@ class GameObject{
 	protected:
 		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
+		bool isDraggable;
 };
 
 #endif // GAMEOBJECT_H

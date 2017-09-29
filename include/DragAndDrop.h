@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "TileMap.h"
 #include "Sound.h"
+#include "Timer.h"
 /**
 	\brief Classe responsável por arrastar e posicionar Objetos.
 
@@ -17,11 +18,10 @@ class DragAndDrop : public Component{
 			\param draggin Informa se o objeto esta sendo arrastado.
 			\param redrag Verdadeiro se for um redrag, falso caso seja um drag inicial.
 			\param forceDrag
-			\param dragOnActionHold Tem como objetivo verificar se o arrastar é enquanto o botão da ação é segurado ou se pressiona uma vez para arrastar e outra vez para soltar.
 		
 			Instancia o DragAndDrop, informando se o objeto está sendo arrastado.
 		*/
-		DragAndDrop(TileMap &map, Vec2 associatedInitialPos, GameObject &associated, bool redrag = true, bool dragOnActionHold = true);
+		DragAndDrop(TileMap &map, Vec2 associatedInitialPos, GameObject &associated, bool redrag = true);
 		/**
 			\brief Atualiza o estado do objeto em arrasto.
 			
@@ -35,13 +35,17 @@ class DragAndDrop : public Component{
 			Retorna Verdadeiro se CompomentType também é do tipo DragAndDrop, caso contrário retorna falso.
 		*/
 		bool Is(ComponentType) const;
+		bool firstClick;
+		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
 	private:
-		bool dragOnHold;/**< [Não utilizado no momento] Armazena a informação se o botão deve ser segurado para arrastar, ou apenas pressiona uma vez para arrastar e outra vez para soltar.*/
 		Vec2 associatedInitialPos;/**<Vec2 no qual o será armazenada a posição do objeto associado no instante do drag.*/
 		TileMap &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
-		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
 		GameObject &associated;
+		Timer strobe;
+		Timer toAppear;
 		Sound dragNDrop;
+		bool isDropping;
+		bool dropped;
 };
 
 #endif // DRAGANDDROP_H

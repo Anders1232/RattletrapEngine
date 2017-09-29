@@ -178,3 +178,10 @@ void Sprite::SetFrameCount(int frameCount) {
 void Sprite::SetFrameTime(float frameTime) {
 	this->frameTime=frameTime;
 }
+
+void Sprite::SetAlpha(unsigned char a){
+	if( -1 == SDL_SetTextureAlphaMod( texture.get(), a) ) {
+		CHECK_SDL_ERROR;
+	}
+}
+

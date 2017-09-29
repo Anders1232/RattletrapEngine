@@ -68,3 +68,4 @@ Component& GameObject::GetComponent(ComponentType type){
 	Error("Component not found!");
 }
 
+

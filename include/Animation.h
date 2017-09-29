@@ -27,8 +27,7 @@ class Animation: public GameObject {
 		*/
 		Animation
 		(
-			float x,
-			float y,
+			float x, float y,
 			float rotation,
 			string sprite,
 			int frameCount,
