@@ -41,8 +41,9 @@ RMDIR= rd /s /q
 RM = del
 
 #path da SDL
-SDL_PATH = C:/SDL2/x86_64-w64-mingw32
-INC_PATH += -I$(SDL_PATH)/include/SDL2
+SDL_PATHS = C:/SDL2/x86_64-w64-mingw32
+EXTRA_SDL_PATHS = $(addsuffix /include/SDL2,$(SDL_PATHS))
+INC_PATH += $(addprefix -I,$(SDL_PATHS) $(EXTRA_SDL_PATHS))
 FLAGS += -mwindows
 DFLAGS += -mconsole
 LIBS := -lmingw32 -lSDL2main $(LIBS)
