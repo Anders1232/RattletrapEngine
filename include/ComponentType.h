@@ -27,6 +27,7 @@ enum ComponentType{
 	TILEMAP,
 	RECT_TRANSFORM,
 	BUTTON,
+	GROUPER,
 	COMPONENT_TYPE_SIZE
 };
 

@@ -17,7 +17,7 @@ class RectTransform : public Component {
 		STRETCH
 	};
 
-	RectTransform( GameObject &associated, GameObject *parentGO );
+	RectTransform( GameObject &associated, GameObject *GOparent );
 	~RectTransform();
 
 	void EarlyUpdate( float dt );
@@ -42,7 +42,7 @@ class RectTransform : public Component {
 	Rect ComputeBox( Rect boundingBox = {-1., -1., -1., -1.} );
 
   private:
-	GameObject *parentGO;
+	GameObject *GOparent;
 	Rect boundingBox;
 	Rect anchors;
 	Rect offsets;

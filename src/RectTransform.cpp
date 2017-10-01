@@ -4,8 +4,8 @@
 #include "Error.h"
 #include "Game.h"
 
-RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : Component( associated ) {
-	this->parentGO = parentGO;
+RectTransform::RectTransform( GameObject &associated, GameObject *GOparent ) : Component( associated ) {
+	this->GOparent = GOparent;
 	debugRender = false;
 	SetAnchors( {0.5, 0.5}, {0.5, 0.5} );
 	SetOffsets( 0, 0, 0, 0 );
@@ -22,10 +22,10 @@ void RectTransform::EarlyUpdate( float dt ) {}
 
 void RectTransform::Update( float dt ) {
 	Rect parentCanvas;
-	if( nullptr == parentGO ) {
+	if( nullptr == GOparent ) {
 		parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};
 	} else {
-		parentCanvas = parentGO->box;
+		parentCanvas = GOparent->box;
 	}
 	boundingBox = ComputeBoundingBox(parentCanvas);
 	associated.box = ComputeBox();
