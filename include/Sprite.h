@@ -145,6 +145,8 @@ class Sprite: public Component {
 			\param scale Valor no qual a escala vertical e horizontal devem ser alteradas.
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
+		int GetScreenX();
+		int GetScreenY();
 		void SetAnimationLines(int animationLines);
 		void Scale(float scale);
 		void SetPosition(int x, int y);

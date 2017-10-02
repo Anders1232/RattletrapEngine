@@ -33,7 +33,7 @@ Sprite::Sprite(GameObject &associated, std::string file, float frameTime, int fr
 		path(file),
 		animationLines(1),
 		isCoordOnWorld(isCoordOnWorld){
-	DEBUG_PRINT("Construtor do sprite");
+	DEBUG_PRINT("Construtor do sprite: " << file);
 //	if(file.empty()) {
 //		texture = nullptr;
 //		REPORT_I_WAS_HERE;
@@ -70,7 +70,7 @@ void Sprite::SetScreenRect(int x, int y, int w, int h){
 }
 
 void Sprite::Render() {//const{
-	Game& game = Game::GetInstance();
+    Game& game = Game::GetInstance();
 
 	//{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 		Vec2 screenSize = game.GetWindowDimensions();
@@ -194,6 +194,13 @@ void Sprite::SetPosition(int x, int y){
     onScreenRect.y = y;
 }
 
+int Sprite::GetScreenX(){
+    return onScreenRect.x;
+}
+
+int Sprite::GetScreenY(){
+    return onScreenRect.y;
+}
 
 #ifdef DEBUG
     #undef DEBUG

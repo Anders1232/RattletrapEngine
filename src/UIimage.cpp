@@ -1,13 +1,14 @@
 #include "UIimage.h"
 #include "Error.h"
 
+/*
 UIimage::UIimage(std::string file, UIelement::BehaviorType behavior)
 		 : UIelement(behavior) {
 	sp = new Sprite(file);
 	kernelSize = Vec2(sp->GetWidth(), sp->GetHeight());
 	angle = 0;
 }
-
+*/
 UIimage::UIimage(std::string file, float frameTime, int frameCount, UIelement::BehaviorType behavior)
 		 : UIelement(behavior) {
 	sp = new Sprite(file, false, frameTime, frameCount);

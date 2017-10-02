@@ -7,9 +7,10 @@
 
 #include "UIimage.h"
 #include "UIbutton.h"
+#include "UIelement.h"
 
 #include <string>
-
+class UIelement;
 class UIimageButton : public UIimage, public UIbutton {
 	public:
 		UIimageButton(UIbutton::State initialState = UIbutton::State::ENABLED, UIelement::BehaviorType behavior = UIelement::BehaviorType::FIT);
