@@ -3,12 +3,7 @@
 #include "Camera.h"
 
 #define DEBUG 0
-#ifdef DEBUG
-    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
-#else
-    #define DEBUG_PRINT(x)
-#endif // DEBUG
-
+#include "Error.h"
 
 GameObject::GameObject(void): rotation(0.), dead(false){
 }
@@ -78,6 +73,4 @@ Component& GameObject::GetComponent(ComponentType type) const{
 	Error("Component not found!");
 }
 
-#ifdef DEBUG
-    #undef DEBUG
-#endif // DEBUG
+#include "Error_footer.h"

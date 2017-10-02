@@ -14,12 +14,10 @@
 
 using std::endl;
 
-#ifndef DEBUG
-	#define DEBUG 0
-#endif
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
 #ifdef DEBUG
+    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
     #define Error(msg)std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
     #define ASSERT(exp)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed."<<END_LINE;exit(1);}
     #define ASSERT2(exp,msg)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";exit(1);}
@@ -41,6 +39,19 @@ using std::endl;
     #else
         #define ELEMENT_ACESS(container, position) container[position]
     #endif
+#else
+    #define DEBUG_PRINT(x)
+    #define REPORT_DEBUG2(cond, msg)
+    #define Error(msg)
+    #define REPORT_I_WAS_HERE
+    #define WHERE ""
+    #define REPORT_DEBUG(msg)
+    #define ASSERT(exp)
+    #define ASSERT2(exp,msg)
+    #define SDL_ASSERT(exp)
+    #define CHECK_SDL_ERROR
+    #define TEMP_REPORT_I_WAS_HERE
+
 #endif // DEBUG
 typedef unsigned int uint;
 

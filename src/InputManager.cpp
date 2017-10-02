@@ -224,3 +224,5 @@ Vec2 InputManager::MouseScroll(void) const{
 bool InputManager::IsMouseScrolling(void) const{
 	return (mouseScroolUpdate == updateCounter);
 }
+
+#include "Error_footer.h"

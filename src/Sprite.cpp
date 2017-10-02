@@ -1,7 +1,6 @@
 #include "Sprite.h"
 
 #include "Camera.h"
-#include "Error.h"
 #include "Game.h"
 #include "Resources.h"
 
@@ -11,12 +10,7 @@
 #define HIGHLIGHT 30
 
 #define DEBUG 0
-#ifdef DEBUG
-    #define DEBUG_PRINT(x) do{ std::cout << x <<  std::endl; }while(0);
-#else
-    #define DEBUG_PRINT(x)
-#endif // DEBUG
-
+#include "Error.h"
 Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle)
 		:associated(associated),
 		Component(associated),
@@ -209,6 +203,4 @@ int Sprite::GetScreenY(){
     return onScreenRect.y;
 }
 
-#ifdef DEBUG
-    #undef DEBUG
-#endif
+#include "Error_footer.h"

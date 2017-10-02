@@ -1,9 +1,9 @@
 #include "RectTransform.h"
 
 #include "Camera.h"
-#include "Error.h"
 #include "Game.h"
 
+#include "Error.h"
 RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : Component( associated ) {
 	this->parentGO = parentGO;
 	debugRender = false;
@@ -61,11 +61,11 @@ void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.
 				, "topLeft must have coordiantes between 0 and 1" );
-	
+
 	ASSERT2( bottomRight.x >= 0. && bottomRight.x <= 1.
 				&& bottomRight.y >= 0. && bottomRight.y <= 1.
 				, "bottomRight must have coordiantes between 0 and 1" );
-	
+
 	if( topLeft.x < 0. ) topLeft.x = 0.;
 	if( topLeft.y < 0. ) topLeft.y = 0.;
 	if( topLeft.x > 1. ) topLeft.x = 1.;
@@ -75,7 +75,7 @@ void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	if( bottomRight.y < 0. ) bottomRight.y = 0.;
 	if( bottomRight.x > 1. ) bottomRight.x = 1.;
 	if( bottomRight.y > 1. ) bottomRight.y = 1.;
-	
+
 	anchors = Rect( topLeft.x, topLeft.y, bottomRight.x, bottomRight.y );
 }
 
@@ -146,7 +146,7 @@ Rect RectTransform::ComputeBox( Rect boundingBox ) {
 	} else {
 		Error("Tipo de comportamento de UI indefinido.");
 	}
-	
+
 	box.w = multiplier.x*(box.w);
 	box.h = multiplier.y*(box.h);
 	box.x = boundingBox.x + (boundingBox.w - box.w)*centerPin.x;
@@ -154,3 +154,5 @@ Rect RectTransform::ComputeBox( Rect boundingBox ) {
 
 	return box;
 }
+
+#include "Error_footer.h"

@@ -3,9 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "Error.h"
 #include "Resources.h"
 
+#include "Error.h"
 Game* Game::instance = nullptr;
 
 Game::Game(std::string title,int width, int height)
@@ -22,7 +22,7 @@ Game::Game(std::string title,int width, int height)
 
 	frameStart = SDL_GetTicks();
 	srand(time(NULL));
-	
+
 	if(nullptr != Game::instance) {
 		Error("Second instantion of the game!");
 	}
@@ -32,11 +32,11 @@ Game::Game(std::string title,int width, int height)
 		Error(SDL_GetError());
 	}
 	int result = IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF);
-	
+
 	if(0 == result) {
 		Error("Loading IMG_Init failed: " << IMG_GetError());
 	}
-	
+
 	if(0 == (result & IMG_INIT_JPG)) {
 		Error("Loading IMG_INIT_JPG failed: " << IMG_GetError());
 	}
@@ -67,7 +67,7 @@ Game::Game(std::string title,int width, int height)
 /*	if(0 == (result & MIX_INIT_MP3 ) ) {
 		Error("Loading MIX_INIT_MP3 failed: " << Mix_GetError());
 	}*/
-	
+
 	if(0 == (result & MIX_INIT_OGG)) {
 		Error("Loading MIX_INIT_OGG failed: " << Mix_GetError());
 	}
@@ -82,7 +82,7 @@ Game::Game(std::string title,int width, int height)
 	if(0 != TTF_Init()) {
 		Error("Loading TTF_Init failed: " << TTF_GetError());
 	}
-	
+
 	REPORT_I_WAS_HERE;
 	storedState = nullptr;
 	REPORT_I_WAS_HERE;
@@ -145,11 +145,11 @@ void Game::Run(void) {
 				SDL_Delay(timeRemaining);
 			}
 		}
-	
+
 		if(stateStack.top()->QuitRequested()) {
 			break;
 		}
-	
+
 		CalculateDeltaTime();
 		inputManager.Update();
 		stateStack.top()->Update(GetDeltaTime());
@@ -165,7 +165,7 @@ void Game::Run(void) {
 	while(!stateStack.empty()) {
 		stateStack.pop();
 	}
-	
+
 	Resources::ClearResources();
 }
 
@@ -280,3 +280,4 @@ bool Game::GetWindowBorderless(void) const{
 unsigned int Game::GetTicks(void){
 	return frameStart;
 }
+#include "Error_footer.h"

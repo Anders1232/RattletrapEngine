@@ -3,12 +3,7 @@
 #include "Camera.h"
 
 #define DEBUG
-#ifdef DEBUG
-    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
-#else
-    #define DEBUG_PRINT(x)
-#endif // DEBUG
-
+#include "Error.h"
 State::State(void) : popRequested(false), quitRequested(false) {
 	Camera::pos = Vec2(0,0);
 }
@@ -53,7 +48,4 @@ void State::RenderArray(void) const {
 	}
 }
 
-
-#ifdef DEBUG
-    #undef DEBUG
-#endif // DEBUG
+#include "Error_footer.h"

@@ -4,6 +4,8 @@
 #include "InputManager.h"
 #include "Vec2.h"
 
+#include "Error.h"
+
 Button::Callback::Callback( ButtonCallbackFunc callbackFunc, void* caller)
 						: callbackFunc( callbackFunc )
 						, caller(caller) {}
@@ -108,3 +110,5 @@ Button::State Button::GetState() const {
 void Button::Click() {
 	released.Call();
 }
+
+#include "Error_footer.h"
