@@ -169,8 +169,8 @@ class Sprite: public Component {
 		SDL_Rect onScreenRect;/**< Retangulo na tela onde irá ser renderizado mapa de pixels recortado da textura*/
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
-		const bool isCoordOnWorld;
 		int animationLines;
+		bool highlightable;
 };
 
 #include "InputManager.h"
