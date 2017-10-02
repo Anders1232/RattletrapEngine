@@ -9,6 +9,7 @@
 
 	O DragAndDrop é um tipo de Componente. O objetivo do DragAndDrop é selecionar um objeto arrastavel por meio de Input e posicioná-lo em uma tile. E assim, atualizar o mapa de Tiles.
 */
+template <class T>
 class DragAndDrop : public Component{
 	public:
 		/**
@@ -21,7 +22,7 @@ class DragAndDrop : public Component{
 		
 			Instancia o DragAndDrop, informando se o objeto está sendo arrastado.
 		*/
-		DragAndDrop(TileMap &map, Vec2 associatedInitialPos, GameObject &associated, bool redrag = true, bool dragOnActionHold = true);
+		DragAndDrop(TileMap<T> &map, Vec2 associatedInitialPos, GameObject &associated, bool redrag = true, bool dragOnActionHold = true);
 		/**
 			\brief Atualiza o estado do objeto em arrasto.
 			
@@ -38,9 +39,8 @@ class DragAndDrop : public Component{
 	private:
 		bool dragOnHold;/**< [Não utilizado no momento] Armazena a informação se o botão deve ser segurado para arrastar, ou apenas pressiona uma vez para arrastar e outra vez para soltar.*/
 		Vec2 associatedInitialPos;/**<Vec2 no qual o será armazenada a posição do objeto associado no instante do drag.*/
-		TileMap &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
+		TileMap<T> &tileMap;/**< TileMap no qual o GameObject será inserido após o drag.*/
 		bool redrag;/**<Informa se é um drag inicial ou um redrag*/
-		GameObject &associated;
 		Sound dragNDrop;
 };
 

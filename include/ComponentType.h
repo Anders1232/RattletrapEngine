@@ -25,12 +25,12 @@ enum ComponentType{
 	PLAYER_DATA,
 	SPRITE,
 	TILEMAP,
-//	SIZE,
+	RECT_TRANSFORM,
+	BUTTON,
 //Enquando não se decide onde colocamos os ComponentTypes
 //criado pelo usuário, vão ficando aqui
     BAR,
     ROBO,
-    BUTTON,
     OBSERVER,
     OBSERVEE,
 //

@@ -17,12 +17,9 @@
     #define DEBUG_PRINT(x)
 #endif // DEBUG
 
-
-//Sprite::Sprite(void): Sprite("", false, 0, 1) {}
-
-Sprite::Sprite(GameObject &associated, std::string file, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
+Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle)
 		:associated(associated),
-        colorMultiplier(255, 255, 255),
+		Component(associated),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
 		currentFrame(0),
@@ -32,24 +29,24 @@ Sprite::Sprite(GameObject &associated, std::string file, float frameTime, int fr
 		scaleX(1.), scaleY(1.),
 		path(file),
 		animationLines(1),
-		isCoordOnWorld(isCoordOnWorld){
-	DEBUG_PRINT("Construtor do sprite: " << file);
-//	if(file.empty()) {
-//		texture = nullptr;
-//		REPORT_I_WAS_HERE;
-//	} else {
-		texture = Resources::GetImage(file);
-		if(nullptr == texture) {
-			Error(SDL_GetError());
-		}
-		// Verificar se houve erro na chamada
-		if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)) {
-			Error(SDL_GetError());
-		}
-		SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height);
-		SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
+highlightable(highlighted) {
+	if(highlightable) {
+		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
+	}
+	REPORT_I_WAS_HERE;
 
-		DEBUG_PRINT("fim do construtor");
+	texture = Resources::GetImage(file);
+	if(nullptr == texture) {
+		Error(SDL_GetError());
+	}
+	// Verificar se houve erro na chamada
+	if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)) {
+		Error(SDL_GetError());
+	}
+	SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height);
+	SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
+
+	DEBUG_PRINT("fim do construtor");
 //	}
 }
 
@@ -62,6 +59,7 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 	clipRect.h = h;
 }
 
+
 void Sprite::SetScreenRect(int x, int y, int w, int h){
     onScreenRect.x = x;
 	onScreenRect.y = y;
@@ -72,19 +70,19 @@ void Sprite::SetScreenRect(int x, int y, int w, int h){
 void Sprite::Render() {//const{
     Game& game = Game::GetInstance();
 
-	//{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
-		Vec2 screenSize = game.GetWindowDimensions();
-		float points[4] = {(float)onScreenRect.x, (float)onScreenRect.y,
-                           (float)onScreenRect.x + onScreenRect.w,
-                           (float)onScreenRect.y + onScreenRect.h};
+//{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
+	Vec2 screenSize = game.GetWindowDimensions();
+	float points[4] = {(float)onScreenRect.x, (float)onScreenRect.y,
+                       (float)onScreenRect.x + onScreenRect.w,
+                       (float)onScreenRect.y + onScreenRect.h};
 
-		bool isOutOfBounds = true;
-		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
-		isOutOfBounds = isOutOfBounds && (0 > points[1] || screenSize.y < points[1]);
-		isOutOfBounds = isOutOfBounds && (0 > points[2] || screenSize.x < points[2]);
-		isOutOfBounds = isOutOfBounds && (0 > points[3] || screenSize.y < points[3]);
+	bool isOutOfBounds = true;
+	isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
+	isOutOfBounds = isOutOfBounds && (0 > points[1] || screenSize.y < points[1]);
+	isOutOfBounds = isOutOfBounds && (0 > points[2] || screenSize.x < points[2]);
+	isOutOfBounds = isOutOfBounds && (0 > points[3] || screenSize.y < points[3]);
 
-		if(isOutOfBounds) return;
+	if(isOutOfBounds) return;
 	//}
 
 	if( -1 == SDL_SetTextureAlphaMod( texture.get(), colorMultiplier.a ) ) {
@@ -99,6 +97,14 @@ void Sprite::Render() {//const{
 		CHECK_SDL_ERROR;
 	}
 
+	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(onScreenRect)){
+		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
+								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
+								(colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) );
+		if ( -1 == SDL_SetTextureColorMod( texture.get(), colorHighlighted.r, colorHighlighted.g, colorHighlighted.b) ) {
+			CHECK_SDL_ERROR;
+		}
+	}
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &onScreenRect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());

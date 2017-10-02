@@ -28,7 +28,7 @@ class Sprite: public Component {
 			\todo verificar a real necessidade disso.
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(GameObject &associated, std::string file, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true);
+		Sprite(GameObject &associated, std::string file, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0);
 		/**
 			\brief Destrutor
 			Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito.
@@ -55,7 +55,6 @@ class Sprite: public Component {
 			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
-		void Render() const;
 		void Render();// const;
 
 		//void Render(Rect screenPos) const;
@@ -150,6 +149,7 @@ class Sprite: public Component {
 		void SetAnimationLines(int animationLines);
 		void Scale(float scale);
 		void SetPosition(int x, int y);
+
 		bool Is(ComponentType type) const;
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
