@@ -74,9 +74,9 @@ void Sprite::Render() {//const{
 
 	//{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 		Vec2 screenSize = game.GetWindowDimensions();
-		float points[4] = {onScreenRect.x, onScreenRect.y,
-                           onScreenRect.x + onScreenRect.w,
-                           onScreenRect.y + onScreenRect.h};
+		float points[4] = {(float)onScreenRect.x, (float)onScreenRect.y,
+                           (float)onScreenRect.x + onScreenRect.w,
+                           (float)onScreenRect.y + onScreenRect.h};
 
 		bool isOutOfBounds = true;
 		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
