@@ -2,7 +2,6 @@
 #include "Error.h"
 #include "Camera.h"
 
-#define DEBUG 0
 #include "Error.h"
 
 GameObject::GameObject(void): rotation(0.), dead(false){
@@ -24,9 +23,11 @@ void GameObject::Update(float dt){
 }
 
 void GameObject::Render(void){
+    DEBUG_RENDER("GameObject", "inicio");
     for(unsigned int i = 0; i < components.size(); i++){
 	    components[i]->Render();
 	}
+	DEBUG_RENDER("GameObject", "fim");
 }
 
 bool GameObject::IsDead(void){

@@ -9,7 +9,6 @@
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
 
-#define DEBUG 0
 #include "Error.h"
 Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle)
 		:associated(associated),
@@ -25,10 +24,10 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 		animationLines(1),
         highlightable(highlighted)
 {
+    DEBUG_CONSTRUCTOR("Sprite", "inicio");
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
-	REPORT_I_WAS_HERE;
 
 	texture = Resources::GetImage(file);
 	if(nullptr == texture) {
@@ -41,7 +40,7 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 	SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height);
 	SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
 
-	DEBUG_PRINT("fim do construtor");
+	DEBUG_CONSTRUCTOR("Sprite", "fim");
 //	}
 }
 
@@ -63,6 +62,8 @@ void Sprite::SetScreenRect(int x, int y, int w, int h){
 }
 
 void Sprite::Render() {//const{
+    DEBUG_RENDER("Sprite", "inicio");
+    DEBUG_RENDER("  Renderizando",  path);
     Game& game = Game::GetInstance();
 
 //{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
@@ -100,10 +101,19 @@ void Sprite::Render() {//const{
 			CHECK_SDL_ERROR;
 		}
 	}
+	DEBUG_RENDER("   clipRect",   clipRect.x << ", " <<
+                                  clipRect.y << ", " <<
+                                  clipRect.w << ", " <<
+                                  clipRect.h << "::" );
+	DEBUG_RENDER("   onScreen",   onScreenRect.x << ", "
+                               << onScreenRect.y << ", "
+                               << onScreenRect.w << ", "
+                               << onScreenRect.h << "::" );
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &onScreenRect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
+	DEBUG_RENDER("Sprite", "fim");
 }
 
 

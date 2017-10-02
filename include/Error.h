@@ -16,23 +16,33 @@ using std::endl;
 
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
+#define DEBUG 0
+#define DEBUG_R false
+#define DEBUG_U false
+#define DEBUG_C true
 #ifdef DEBUG
-    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
-    #define Error(msg)std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
-    #define ASSERT(exp)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed."<<END_LINE;exit(1);}
-    #define ASSERT2(exp,msg)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";exit(1);}
-    #define SDL_ASSERT(exp)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed:" << SDL_GetError()<<END_LINE;exit(1);}
-
+    #define HEADER "[DEBUG] "
+    #define DEBUG_PRINT(x) do{std::cout << HEADER << x << std::endl;}while(0)
     #define WHERE __FILE__<<" | "<<__func__<<":"<<__LINE__
 
-    #define CHECK_SDL_ERROR std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<SDL_GetError()<<END_LINE
+    #define Error(msg)std::cerr<<HEADER<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
+    #define ASSERT(exp)if(!(exp)){std::cerr<<HEADER>
+    #define ASSERT2(exp,msg)if(!(exp)){std::cerr<<HEADER<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";exit(1);}
+    #define SDL_ASSERT(exp)if(!(exp)){std::cerr<<HEADER<<WHERE<<"\t\tAssertion Failed:" << SDL_GetError()<<END_LINE;exit(1);}
 
-    #define REPORT_DEBUG(msg) if(DEBUG){std::cout<<"[DEBUG]"<<WHERE<<msg<<END_LINE;}
-    #define REPORT_DEBUG2(cond, msg) if(cond||DEBUG){std::cout<<"[DEBUG]"<<WHERE<<msg<<END_LINE;}
+    #define CHECK_SDL_ERROR std::cerr<<HEADER<<WHERE<<"\t\t"<<SDL_GetError()<<END_LINE
 
-    #define REPORT_I_WAS_HERE if(DEBUG){std::cout <<"[DEBUG] I was here!\t"<<WHERE<<END_LINE;}
+    #define REPORT_DEBUG(msg) if(DEBUG == 1){std::cout<<HEADER<<WHERE<<msg<<END_LINE;}
+    #define REPORT_DEBUG2(cond, msg) if(cond||DEBUG){std::cout<<HEADER<<WHERE<<msg<<END_LINE;}
 
-    #define TEMP_REPORT_I_WAS_HERE if(1){std::cout<<"[DEBUG] I was here!\t"<<WHERE<<END_LINE;}
+    #define DEBUG_RENDER(class, msg) if(DEBUG_R){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg<<END_LINE;}
+    #define DEBUG_UPDATE(class, msg) if(DEBUG_U){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg<<END_LINE;}
+    #define DEBUG_CONSTRUCTOR(class, msg) if(DEBUG_C){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg<<END_LINE;}
+
+
+    #define REPORT_I_WAS_HERE if(DEBUG){std::cout <<HEADER <<" I was here!\t"<<WHERE<<END_LINE;}
+
+    #define TEMP_REPORT_I_WAS_HERE if(1){std::cout<< HEADER <<" I was here!\t"<<WHERE<<END_LINE;}
 
     #ifdef USE_AT
         #define ELEMENT_ACESS(container, position) container.at(position)
@@ -51,6 +61,10 @@ using std::endl;
     #define SDL_ASSERT(exp)
     #define CHECK_SDL_ERROR
     #define TEMP_REPORT_I_WAS_HERE
+
+    #define DEBUG_UPDATE(class, msg)
+    #define DEBUG_RENDER(class, msg)
+    #define DEBUG_CONSTRUCTOR(class, arg2)
 
 #endif // DEBUG
 typedef unsigned int uint;
