@@ -2,7 +2,6 @@
 #include "string.h"
 #include "Error.h"
 //#include "Camera.h"
-
 InputManager::InputManager():quitRequested(false), updateCounter(0), mouseX(0), mouseY(0), mouseScroolUpdate(0) {
 	memset(mouseState, 0, 6*sizeof(bool));
 	memset(mouseUpdate, 0, 6*sizeof(int));
@@ -32,10 +31,10 @@ void InputManager::Update(){
 		else if(SDL_MOUSEBUTTONDOWN == event.type){
 			mouseState[event.button.button] = true;
 			mouseUpdate[event.button.button] = updateCounter;
-			
+
 		}
 		else if(SDL_MOUSEBUTTONUP == event.type ) {
-			
+
 			mouseState[event.button.button] = false;
 			mouseUpdate[event.button.button] = updateCounter;
 		}
@@ -79,7 +78,7 @@ void InputManager::Update(){
 			controllerState[event.cbutton.button] = false;
 			controllerUpdate[event.cbutton.button] = updateCounter;
 		}
-		else if(SDL_CONTROLLERAXISMOTION == event.type ){			
+		else if(SDL_CONTROLLERAXISMOTION == event.type ){
 			if(SDL_CONTROLLER_AXIS_TRIGGERLEFT == event.caxis.axis ){
 				controllerState[SDL_CONTROLLER_AXIS_TRIGGERLEFT] = true;
 				controllerUpdate[SDL_CONTROLLER_AXIS_TRIGGERLEFT] = updateCounter;

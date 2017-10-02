@@ -10,10 +10,19 @@
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
 
+#define DEBUG 0
+#ifdef DEBUG
+    #define DEBUG_PRINT(x) do{ std::cout << x <<  std::endl; }while(0);
+#else
+    #define DEBUG_PRINT(x)
+#endif // DEBUG
+
+
 //Sprite::Sprite(void): Sprite("", false, 0, 1) {}
 
-Sprite::Sprite(std::string file, GameObject &associated, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
-		:colorMultiplier(255, 255, 255),
+Sprite::Sprite(GameObject &associated, std::string file, float frameTime, int frameCount, float angle, bool isCoordOnWorld)
+		:associated(associated),
+        colorMultiplier(255, 255, 255),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
 		currentFrame(0),
@@ -21,27 +30,26 @@ Sprite::Sprite(std::string file, GameObject &associated, float frameTime, int fr
 		frameTime(frameTime),
 		clipRect(),
 		scaleX(1.), scaleY(1.),
-		associated(associated),
+		path(file),
+		animationLines(1),
 		isCoordOnWorld(isCoordOnWorld){
-	REPORT_I_WAS_HERE;
+	DEBUG_PRINT("Construtor do sprite");
 //	if(file.empty()) {
 //		texture = nullptr;
 //		REPORT_I_WAS_HERE;
 //	} else {
-		REPORT_I_WAS_HERE;
 		texture = Resources::GetImage(file);
-		REPORT_I_WAS_HERE;
 		if(nullptr == texture) {
 			Error(SDL_GetError());
 		}
-		REPORT_I_WAS_HERE;
 		// Verificar se houve erro na chamada
 		if(SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height)) {
 			Error(SDL_GetError());
 		}
-		REPORT_I_WAS_HERE;
 		SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height);
-		REPORT_I_WAS_HERE;
+		SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
+
+		DEBUG_PRINT("fim do construtor");
 //	}
 }
 
@@ -54,18 +62,22 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 	clipRect.h = h;
 }
 
-void Sprite::Render() const {
-	Render(associated.box);
+void Sprite::SetScreenRect(int x, int y, int w, int h){
+    onScreenRect.x = x;
+	onScreenRect.y = y;
+	onScreenRect.w = w;
+	onScreenRect.h = h;
 }
 
-void Sprite::Render(Rect dest) const{
+void Sprite::Render() {//const{
 	Game& game = Game::GetInstance();
-	
 
-	{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
+	//{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 		Vec2 screenSize = game.GetWindowDimensions();
-		float points[4] = {dest.x, dest.y, dest.x+dest.w, dest.y+dest.h};
-		
+		float points[4] = {onScreenRect.x, onScreenRect.y,
+                           onScreenRect.x + onScreenRect.w,
+                           onScreenRect.y + onScreenRect.h};
+
 		bool isOutOfBounds = true;
 		isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
 		isOutOfBounds = isOutOfBounds && (0 > points[1] || screenSize.y < points[1]);
@@ -73,7 +85,7 @@ void Sprite::Render(Rect dest) const{
 		isOutOfBounds = isOutOfBounds && (0 > points[3] || screenSize.y < points[3]);
 
 		if(isOutOfBounds) return;
-	}
+	//}
 
 	if( -1 == SDL_SetTextureAlphaMod( texture.get(), colorMultiplier.a ) ) {
 		CHECK_SDL_ERROR;
@@ -87,8 +99,7 @@ void Sprite::Render(Rect dest) const{
 		CHECK_SDL_ERROR;
 	}
 
-	SDL_Rect rect= dest;
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &rect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &onScreenRect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
@@ -96,7 +107,7 @@ void Sprite::Render(Rect dest) const{
 
 
 int Sprite::GetHeight(void) const {
-	return height*scaleY;
+	return height/animationLines*scaleY;
 }
 
 int Sprite::GetWidth(void) const {
@@ -126,6 +137,12 @@ void Sprite::SetScaleY(float scale) {
 void Sprite::SetScale(float scale) {
 	scaleX = scale;
 	scaleY = scale;
+}
+
+void Sprite::SetAnimationLines(int animationLines){
+    this->animationLines = animationLines;
+    onScreenRect.h /= animationLines;
+    clipRect.h /= animationLines;
 }
 
 void Sprite::ScaleX(float scale) {
@@ -172,4 +189,12 @@ void Sprite::EarlyUpdate(float dt){}
 
 void Sprite::LateUpdate(float dt){}
 
+void Sprite::SetPosition(int x, int y){
+    onScreenRect.x = x;
+    onScreenRect.y = y;
+}
 
+
+#ifdef DEBUG
+    #undef DEBUG
+#endif

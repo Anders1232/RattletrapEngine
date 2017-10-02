@@ -1,8 +1,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#define INCLUDE_SDL 
-#define INCLUDE_SDL_IMAGE 
+#define INCLUDE_SDL
+#define INCLUDE_SDL_IMAGE
 #include "SDL_include.h"
 
 #include <string>
@@ -11,6 +11,7 @@
 #include "Component.h"
 #include "Color.h"
 #include "Rect.h"
+#include "Error.h"
 
 #define ALPHA_BLEND SDL_BLENDMODE_BLEND
 #define ADDITIVE SDL_BLENDMODE_ADD
@@ -27,7 +28,7 @@ class Sprite: public Component {
 			\todo verificar a real necessidade disso.
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(std::string file, GameObject &associated, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true);
+		Sprite(GameObject &associated, std::string file, float frameTime=1, int frameCount=1, float angle=0, bool isCoordOnWorld=true);
 		/**
 			\brief Destrutor
 			Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito.
@@ -43,6 +44,7 @@ class Sprite: public Component {
 			Atribui a clipRect os valores informados.
 		*/
 		void SetClip(int x, int y, int w, int h);
+		void SetScreenRect(int x, int y, int w, int h);
 		/**
 			\brief Renderiza a imagem.
 			\param world Região a partir do qual a imagem deve ser renderizada.
@@ -54,7 +56,9 @@ class Sprite: public Component {
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
 		void Render() const;
-		void Render(Rect screenPos) const;
+		void Render();// const;
+
+		//void Render(Rect screenPos) const;
 		/**
 			\brief Informa a largura do sprite
 			Retorna a largura do sprite, no caso do sprite sheet é retornado a largura de um único sprite do sprite sheet.
@@ -141,13 +145,17 @@ class Sprite: public Component {
 			\param scale Valor no qual a escala vertical e horizontal devem ser alteradas.
 			Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 		*/
+		void SetAnimationLines(int animationLines);
 		void Scale(float scale);
+		void SetPosition(int x, int y);
 		bool Is(ComponentType type) const;
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 	private:
+	    GameObject &associated;
+	    string path;
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/
 		int height;/**< Altura da textura em pixels.*/
@@ -156,10 +164,11 @@ class Sprite: public Component {
 		float timeElapsed;/**< Quantidade de tempo em segundos que o "subsprite" atual está sendo renderizados.*/
 		float frameTime;/**< Tempo em segundos que cada "subsprite" deve aparecer na tela.*/
 		SDL_Rect clipRect;/**< Recorte do sprite que será exibido na tela.TODO: Ver necessidade desse atributo*/
+		SDL_Rect onScreenRect;/**< Retangulo na tela onde irá ser renderizado mapa de pixels recortado da textura*/
 		float scaleX;/**< Escala horizontal do sprite.*/
 		float scaleY;/**< Escala vertical do sprite.*/
-		GameObject &associated;
 		const bool isCoordOnWorld;
+		int animationLines;
 };
 
 #include "InputManager.h"

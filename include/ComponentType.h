@@ -26,6 +26,11 @@ enum ComponentType{
 	SPRITE,
 	TILEMAP,
 //	SIZE,
+//Enquando não se decide onde colocamos os ComponentTypes
+//criado pelo usuário, vão ficando aqui
+    BAR,
+    ROBO,
+//
 	COMPONENT_TYPE_SIZE
 };
 

@@ -2,6 +2,13 @@
 #include "Error.h"
 #include "Camera.h"
 
+#define DEBUG
+#ifdef DEBUG
+    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
+#else
+    #define DEBUG_PRINT(x)
+#endif // DEBUG
+
 State::State(void) : popRequested(false), quitRequested(false) {
 	Camera::pos = Vec2(0,0);
 }
@@ -33,12 +40,19 @@ void State::UpdateArray(float dt) {
 }
 
 void State::RenderArray(void) const {
-	REPORT_I_WAS_HERE;
+/*
 #ifdef RENDER_FOWARD
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 #else
-	for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
-#endif
+*/
+    for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+    //for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
+//#endif
 		objectArray[cont]->Render();
 	}
 }
+
+
+#ifdef DEBUG
+    #undef DEBUG
+#endif // DEBUG

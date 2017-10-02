@@ -1,8 +1,8 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
-#define INCLUDE_SDL 
-#define INCLUDE_SDL_IMAGE 
+#define INCLUDE_SDL
+#define INCLUDE_SDL_IMAGE
 #include "SDL_include.h"
 
 #include "Vec2.h"
@@ -211,7 +211,7 @@ class InputManager {
 
 			Retorna verdadeiro se o controllerState do botão for verdadeiro.
 			Caso contrário retorna-se o valor falso.
-			
+
 		*/
 		bool IsButtonDown(int button) const;
 		/**
@@ -221,19 +221,19 @@ class InputManager {
 
 			Retorna verdadeiro se o controllerState do botão for falso.
 			Caso contrário retorna-se o valor falso.
-			
+
 		*/
 		bool IsButtonUp(int button) const;
 		/**
 			\brief Calcula o deslocamento do sticker esquerdo de um controle
 			\return Vetor bidimensional que informa a posição (x,y) do analógico esquerdo.
-			
+
 		*/
 		Vec2 GetControllerLeftStickState() const;
 		/**
 			\brief Calcula o deslocamento do sticker direito de um controle
 			\return Vetor bidimensional que informa a posição (x,y) do analógico direito.
-			
+
 		*/
 		Vec2 GetControllerRightStickState() const;
 		/**\brief Informa se algum sticker do controle está sendo deslocado nesse frame
@@ -266,7 +266,7 @@ class InputManager {
 		std::unordered_map<int,bool> keyState;/**< Armazena as informações de quais botões do teclado estão pressionados. As 127 primeiras posições são relativas às suas correspondentes ASCII. As outras posições rastreiam o estado das teclas não-ASCII, como ctrl, shift, caps lock, F1...F12, etc.*/
 		std::unordered_map<int,int>keyUpdate;/**< Armazena as informações de quando os estados dos botões no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
 		std::unordered_map<int,SDL_GameController*>padToController;/**< Armazena a relação entre o indice de um controle e o seu referente ponteiro do tipo SDL_GameController**/
-		
+
 		std::unordered_map<int,bool> controllerState;/**< Armazena as informações de quais botões do controle estão pressionados.*/
 		std::unordered_map<int,int>	controllerUpdate;/**< Armazena as informações de quando os estados dos botões do controle no respectivo keyState foram modificadas. É usado junto com o updateCounter para saber quão recente a informação é.*/
 		Vec2 controllerLeftStickState;/**< Armazena a informação de em qual timestamp(updateCounter) o controllerLeftStickState foi alterado.*/

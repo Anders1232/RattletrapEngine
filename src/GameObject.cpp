@@ -2,6 +2,14 @@
 #include "Error.h"
 #include "Camera.h"
 
+#define DEBUG 0
+#ifdef DEBUG
+    #define DEBUG_PRINT(x) do{std::cout << x << std::endl;}while(0)
+#else
+    #define DEBUG_PRINT(x)
+#endif // DEBUG
+
+
 GameObject::GameObject(void): rotation(0.), dead(false){
 }
 
@@ -21,7 +29,9 @@ void GameObject::Update(float dt){
 }
 
 void GameObject::Render(void){
-	REPORT_DEBUG("\t GameObject::Render called!");
+    for(unsigned int i = 0; i < components.size(); i++){
+	    components[i]->Render();
+	}
 }
 
 bool GameObject::IsDead(void){
@@ -68,3 +78,6 @@ Component& GameObject::GetComponent(ComponentType type){
 	Error("Component not found!");
 }
 
+#ifdef DEBUG
+    #undef DEBUG
+#endif // DEBUG
