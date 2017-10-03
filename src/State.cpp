@@ -13,7 +13,7 @@ State::~State(void) {
 }
 
 void State::AddObject(GameObject *object) {
-    DEBUG_PRINT("Adicionado objeto ao vetor");
+    DEBUG_PRINT("State", "Adicionado objeto ao vetor");
 	objectArray.push_back(std::unique_ptr<GameObject>(object));
 }
 
@@ -26,6 +26,9 @@ bool State::QuitRequested(void) {
 }
 
 void State::UpdateArray(float dt) {
+	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+		objectArray.at(cont)->EarlyUpdate(dt);
+	}
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		objectArray.at(cont)->Update(dt);
 		if(objectArray.at(cont)->IsDead()) {

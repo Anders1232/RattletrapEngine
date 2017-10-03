@@ -73,9 +73,9 @@ class State {
 			Verdadeiro se o State solicitou o encerramento do programa, falso caso contrário.
 		*/
 		bool QuitRequested(void);
-		/** 
+		/**
 			\brief Carrega os assets do estado
-			
+
 			Carrega os assets do estado.
 		*/
 		virtual void LoadAssets(void) const = 0;

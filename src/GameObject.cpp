@@ -16,6 +16,12 @@ GameObject::~GameObject(){
 	components.clear();
 }
 
+void GameObject::EarlyUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		components[i]->EarlyUpdate(dt);
+	}
+}
+
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
 		components[i]->Update(dt);

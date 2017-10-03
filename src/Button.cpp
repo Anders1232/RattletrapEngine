@@ -28,6 +28,7 @@ Button::Button( GameObject& associated, Button::State initialState, bool interac
 Button::~Button() {}
 
 void Button::EarlyUpdate( float dt ) {
+    DEBUG_PRINT("Button", "condition: " << (Button::State::DISABLED != actualState) );
 	if( Button::State::DISABLED != actualState ) {
 		Vec2 mousePos = INPUT_MANAGER.GetMousePos();
 		bool mouseIsInside = mousePos.IsInRect( associated.box );
@@ -35,6 +36,13 @@ void Button::EarlyUpdate( float dt ) {
 			RectTransform& rect = dynamic_cast<RectTransform&>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) );
 			mouseIsInside = mousePos.IsInRect( rect.GetBoundingBox() );
 		}
+		DEBUG_PRINT("Button", "associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+
+		DEBUG_PRINT("Button", "mouseIsInside: " << mouseIsInside);
 		if( mouseIsInside ) {
 			if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {
 				SetState( Button::State::PRESSED );
