@@ -5,7 +5,13 @@
 
 #include "Error.h"
 RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : Component( associated ) {
-	this->parentGO = parentGO;
+    DEBUG_CONSTRUCTOR("RectTransform", "inicio");
+    DEBUG_CONSTRUCTOR("  RectTransform", "associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+    this->parentGO = parentGO;
 	debugRender = false;
 	SetAnchors( {0.5, 0.5}, {0.5, 0.5} );
 	SetOffsets( 0, 0, 0, 0 );
@@ -14,6 +20,13 @@ RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : C
 	SetMinScale();
 	SetMaxScale();
 	SetBehaviorType( BehaviorType::STRETCH );
+	DEBUG_CONSTRUCTOR("  RectTransform", "associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+
+	DEBUG_CONSTRUCTOR("RectTransform", "fim");
 }
 
 RectTransform::~RectTransform() {}
@@ -21,6 +34,13 @@ RectTransform::~RectTransform() {}
 void RectTransform::EarlyUpdate( float dt ) {}
 
 void RectTransform::Update( float dt ) {
+    DEBUG_UPDATE("RectTransform", "inicio");
+    DEBUG_UPDATE("  RectTransform", "associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+
 	Rect parentCanvas;
 	if( nullptr == parentGO ) {
 		parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};
@@ -33,11 +53,19 @@ void RectTransform::Update( float dt ) {
 	boundingBox.y += parentCanvas.y;
 	associated.box.x += parentCanvas.x;
 	associated.box.y += parentCanvas.y;
+	DEBUG_UPDATE("  RectTransform", "associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+
+	DEBUG_UPDATE("RectTransform", "fim");
 }
 
 void RectTransform::LateUpdate( float dt ) {}
 
 void RectTransform::Render() const {
+    DEBUG_RENDER("RectTransform", "inicio");
 	if (debugRender) {
 		SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Anchors em Vermelho
 		SDL_Rect anch = Rect( boundingBox.x - offsets.x, boundingBox.y - offsets.y, boundingBox.w - offsets.w + offsets.x, boundingBox.h - offsets.h + offsets.y );
@@ -51,6 +79,7 @@ void RectTransform::Render() const {
 		SDL_Rect renderBox = associated.box;
 		SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &renderBox);
 	}
+	DEBUG_RENDER("RectTransform", "fim");
 }
 
 bool RectTransform::Is( ComponentType type ) const {

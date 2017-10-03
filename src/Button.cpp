@@ -19,7 +19,11 @@ void Button::Callback::Call() {
 Button::Button( GameObject& associated, Button::State initialState, bool interactOnBoundingBox )
 			: Component(associated)
 			, interactOnBoundingBox(interactOnBoundingBox)
-			, actualState(initialState) {}
+			, actualState(initialState)
+{
+    DEBUG_CONSTRUCTOR("Button", "inicio");
+    DEBUG_CONSTRUCTOR("Button", "fim");
+}
 
 Button::~Button() {}
 
