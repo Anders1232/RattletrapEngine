@@ -60,11 +60,11 @@ bool RectTransform::Is( ComponentType type ) const {
 void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.
-				, "topLeft must have coordiantes between 0 and 1" );
+				, "topLeft must have coordinates between 0 and 1" );
 	
 	ASSERT2( bottomRight.x >= 0. && bottomRight.x <= 1.
 				&& bottomRight.y >= 0. && bottomRight.y <= 1.
-				, "bottomRight must have coordiantes between 0 and 1" );
+				, "bottomRight must have coordinates between 0 and 1" );
 	
 	if( topLeft.x < 0. ) topLeft.x = 0.;
 	if( topLeft.y < 0. ) topLeft.y = 0.;
@@ -86,7 +86,7 @@ void RectTransform::SetOffsets( float up, float right, float down, float left ) 
 void RectTransform::SetCenterPin( Vec2 center ) {
 	ASSERT2( center.x >= 0. && center.x <= 1.
 				&& center.y >= 0. && center.y <= 1.
-				, "center must have coordiantes between 0 and 1" );
+				, "center must have coordinates between 0 and 1" );
 	centerPin.x = ( center.x < 0 ) ? 0 : ( ( center.x > 1 ) ? 1 : center.x );
 	centerPin.y = ( center.y < 0 ) ? 0 : ( ( center.y > 1 ) ? 1 : center.y );
 }

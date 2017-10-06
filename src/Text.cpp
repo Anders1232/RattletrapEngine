@@ -28,8 +28,8 @@ void Text::Update( float dt ) {}
 void Text::LateUpdate( float dt ) {}
 
 void Text::Render() const {
-	if( fontFile.empty() ) {
-		REPORT_DEBUG( "Texto nao sera renderizado pois o texto nao possui fonte assimilada." );
+	if( nullptr == texture ) {
+		REPORT_DEBUG( "Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
 		return;
 	}
 
@@ -60,8 +60,8 @@ void Text::SetColor( Color color ) {
 	RemakeTexture();
 }
 
-void Text::SetBgColor( Color color ) {
-	bgColor = color;
+void Text::SetBgColor( Color bgColor ) {
+	this->bgColor = color;
 	RemakeTexture();
 }
 
@@ -87,9 +87,9 @@ Vec2 Text::GetSize() const {
 void Text::RemakeTexture() {
 	{
 		bool skip = false;
-		REPORT_DEBUG2( skip |= text.empty(), "Textura de texto nao sera refeita pois o texto e invalido (vazio)." );
-		REPORT_DEBUG2( skip |= 0 >= fontSize, "Textura de texto nao sera refeita pois o tamanho da fonte e invalido (menor ou igual a zero)." );
-		REPORT_DEBUG2( skip |= fontFile.empty(), "Textura de texto nao sera refeita pois o texto nao possui fonte assimilada." );
+		REPORT_DEBUG2( ( skip |= text.empty(), text.empty() ), "Textura de texto nao sera refeita pois o texto e invalido (vazio)." );
+		REPORT_DEBUG2( ( skip |= 0 >= fontSize, fontSize ), "Textura de texto nao sera refeita pois o tamanho da fonte e invalido (menor ou igual a zero)." );
+		REPORT_DEBUG2( ( skip |= fontFile.empty(), fontFile.empty() ), "Textura de texto nao sera refeita pois nao possui fonte assimilada." );
 		if( skip ) return;
 	}
 
@@ -113,7 +113,7 @@ void Text::RemakeTexture() {
 
 	texture = SDL_CreateTextureFromSurface( Game::GetInstance().GetRenderer(), temp );
 	if( nullptr == texture ) {
-		REPORT_DEBUG2( true, " Cuidado! Nao foi possivel se criar uma textura de texto:\t" << SDL_GetError() << "\n\t\t\t\t\t Se crashar, esse talvez seja o motivo..." );
+		REPORT_DEBUG( " Cuidado! Nao foi possivel se criar uma textura de texto:\t" << SDL_GetError() << "\n\t\t\t\t\t Se crashar, esse talvez seja o motivo..." );
 	}
 	
 	SDL_FreeSurface( temp );
