@@ -28,6 +28,7 @@ enum ComponentType{
 	RECT_TRANSFORM,
 	BUTTON,
 	GROUPER,
+	TEXT,
 	COMPONENT_TYPE_SIZE
 };
 
