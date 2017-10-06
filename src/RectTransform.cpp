@@ -86,6 +86,12 @@ bool RectTransform::Is( ComponentType type ) const {
 	return ComponentType::RECT_TRANSFORM == type;
 }
 
+void RectTransform::SetAnchors(int v1, int v2, int u1, int u2){
+    Vec2 v(v1, v2);
+    Vec2 u(u1, u2);
+    SetAnchors(v, u);
+}
+
 void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.

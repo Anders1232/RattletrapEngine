@@ -27,7 +27,7 @@ class RectTransform : public Component {
 	bool Is( ComponentType type ) const;
 
 	bool debugRender;
-
+    void SetAnchors( int v1, int v2, int u1, int u2);
 	void SetAnchors( Vec2 topLeft, Vec2 bottomRight );
 	void SetOffsets( float up, float right, float down, float left );
 	void SetCenterPin( Vec2 center = {0.5, 0.5} );

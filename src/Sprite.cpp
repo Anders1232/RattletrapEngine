@@ -92,8 +92,8 @@ void Sprite::Render() {//const{
 	if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 		CHECK_SDL_ERROR;
 	}
-
-	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(onScreenRect)){
+    SDL_Rect dst =  associated.box;
+	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){//onScreenRect)){
 		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
 								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
 								(colorMultiplier.b + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.b + HIGHLIGHT) );
@@ -109,7 +109,7 @@ void Sprite::Render() {//const{
                                << onScreenRect.y << ", "
                                << onScreenRect.w << ", "
                                << onScreenRect.h << "::" );
-	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &onScreenRect, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
