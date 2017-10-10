@@ -20,7 +20,7 @@
 	\brief Classe que modela uma sprite.
 	Sprite é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição na tela da imagem.
 */
-class Sprite: public Component {
+class Sprite : public Component {
 	public:
 		/**
 			\brief Cria um sprite não associado a uma imagem.
