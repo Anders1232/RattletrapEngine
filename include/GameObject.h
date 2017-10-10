@@ -48,7 +48,7 @@ class GameObject{
 			
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
-		Component& GetComponent(ComponentType type);
+		Component& GetComponent(ComponentType type) const;
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Tipo do componente a ser removido.
