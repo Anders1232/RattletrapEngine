@@ -4,7 +4,7 @@
 
 #include "Error.h"
 
-GameObject::GameObject(void): rotation(0.), dead(false){
+GameObject::GameObject(void): rotation(0.), dead(false), parent(nullptr){
 }
 
 

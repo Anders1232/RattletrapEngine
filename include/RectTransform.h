@@ -32,6 +32,7 @@ class RectTransform : public Component {
 	void SetOffsets( float up, float right, float down, float left );
 	void SetCenterPin( Vec2 center = {0.5, 0.5} );
 	void SetKernelSize( Vec2 kernelSize );
+	void SetKernelSize( float w, float h);
 	void SetMinScale( Vec2 minScale = {-FLT_MAX, -FLT_MAX} );
 	void SetMaxScale( Vec2 maxScale = {FLT_MAX, FLT_MAX} );
 	void SetBehaviorType( BehaviorType behavior );

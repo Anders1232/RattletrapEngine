@@ -28,7 +28,7 @@ class Sprite: public Component {
 			\todo verificar a real necessidade disso.
 			Uma instância de sprite é criada. A escala inicial(X e Y) é 1.0, supondo-se que não é um sprite sheet(frameCount=1, frameTime=0), o campo texture é inicializado com nullptr.
 		*/
-		Sprite(GameObject &associated, std::string file, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0);
+		Sprite(GameObject &associated, std::string file, bool highlighted = false, float frameTime=1, int frameCount=1, float angle=0, int animationLines = 1);
 		/**
 			\brief Destrutor
 			Como a desalocação a imagem é feita automaticamente pelo shared_ptr/Resources e todos os outros atritutos são alocados estaticamente, nada precisa ser feito.
@@ -147,6 +147,7 @@ class Sprite: public Component {
 		int GetScreenX();
 		int GetScreenY();
 		void SetAnimationLines(int animationLines);
+		void SetAnimationLine(int animationLine);
 		void Scale(float scale);
 		void SetPosition(int x, int y);
 

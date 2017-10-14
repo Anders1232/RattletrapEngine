@@ -6,7 +6,7 @@
 #include "Error.h"
 RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : Component( associated ) {
     DEBUG_CONSTRUCTOR("RectTransform", "inicio");
-    DEBUG_CONSTRUCTOR("  RectTransform", "associated.box:{" <<
+    DEBUG_CONSTRUCTOR("RectTransform", "associated.box:{" <<
                       associated.box.x << ", " <<
                       associated.box.y << ", " <<
                       associated.box.w << ", " <<
@@ -20,7 +20,7 @@ RectTransform::RectTransform( GameObject &associated, GameObject *parentGO ) : C
 	SetMinScale();
 	SetMaxScale();
 	SetBehaviorType( BehaviorType::STRETCH );
-	DEBUG_CONSTRUCTOR("  RectTransform", "associated.box:{" <<
+	DEBUG_CONSTRUCTOR("RectTransform", "associated.box:{" <<
                       associated.box.x << ", " <<
                       associated.box.y << ", " <<
                       associated.box.w << ", " <<
@@ -53,7 +53,7 @@ void RectTransform::Update( float dt ) {
 	boundingBox.y += parentCanvas.y;
 	associated.box.x += parentCanvas.x;
 	associated.box.y += parentCanvas.y;
-	DEBUG_UPDATE("  RectTransform", "associated.box:{" <<
+	DEBUG_UPDATE("RectTransform depois", "box:{" <<
                       associated.box.x << ", " <<
                       associated.box.y << ", " <<
                       associated.box.w << ", " <<
@@ -126,6 +126,10 @@ void RectTransform::SetCenterPin( Vec2 center ) {
 	centerPin.y = ( center.y < 0 ) ? 0 : ( ( center.y > 1 ) ? 1 : center.y );
 }
 
+void RectTransform::SetKernelSize(float w, float h){
+    Vec2 v(w,h);
+    SetKernelSize(v);
+}
 void RectTransform::SetKernelSize( Vec2 kernelSize ) {
 	this->kernelSize = kernelSize;
 }
@@ -156,19 +160,28 @@ Rect RectTransform::ComputeBoundingBox( Rect parentCanvas ) {
 }
 
 Rect RectTransform::ComputeBox( Rect boundingBox ) {
+    DEBUG_UPDATE("RectTransform", "inicio");
 	if( -1 == boundingBox.x && -1 == boundingBox.y && -1 == boundingBox.w && -1 == boundingBox.h ) {
 		boundingBox = this->boundingBox;
 	}
 	Rect box;
+	DEBUG_UPDATE("RectTransform", "kernelSize: " << kernelSize.x << "x" << kernelSize.y);
 	box.w = kernelSize.x;
 	box.h = kernelSize.y;
+    DEBUG_UPDATE("RectTransform", "box (wxh): " << box.w << "x" << box.h);
 
+    DEBUG_UPDATE("RectTransform", "boundingbox (x,y,w,h): (" << boundingBox.x << ","
+                                                             << boundingBox.y << ","
+                                                             << boundingBox.w << ","
+                                                             << boundingBox.h << ")");
 	Vec2 multiplier;
 	float Mx = boundingBox.w/box.w;
 	float My = boundingBox.h/box.h;
+	DEBUG_UPDATE("RectTransform", "Mx x MY: " << Mx << "x" << My);
 
 	Mx = ( Mx > maxScale.x ? maxScale.x : ( Mx < minScale.x ? minScale.x : Mx ) );
 	My = ( My > maxScale.y ? maxScale.y : ( My < minScale.y ? minScale.y : My ) );
+    DEBUG_UPDATE("RectTransform", "Mx x MY: " << Mx << "x" << My);
 
 	if( BehaviorType::STRETCH == behavior ) {
 		multiplier = Vec2(Mx, My);
@@ -181,12 +194,13 @@ Rect RectTransform::ComputeBox( Rect boundingBox ) {
 	} else {
 		Error("Tipo de comportamento de UI indefinido.");
 	}
-
+    DEBUG_UPDATE("RectTransform", "multiplier (XxY): " << multiplier.x << "x" << multiplier.y);
 	box.w = multiplier.x*(box.w);
 	box.h = multiplier.y*(box.h);
 	box.x = boundingBox.x + (boundingBox.w - box.w)*centerPin.x;
 	box.y = boundingBox.y + (boundingBox.h - box.h)*centerPin.y;
-
+    DEBUG_UPDATE("RectTransform", "box (wxh): " << box.w << "x" << box.h);
+    DEBUG_UPDATE("RectTransform", "fim");
 	return box;
 }
 
