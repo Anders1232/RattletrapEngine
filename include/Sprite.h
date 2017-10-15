@@ -172,6 +172,7 @@ class Sprite: public Component {
 		float scaleY;/**< Escala vertical do sprite.*/
 		int animationLines;
 		bool highlightable;
+		bool autoAssociate;
 };
 
 #include "InputManager.h"

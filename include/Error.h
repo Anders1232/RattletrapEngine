@@ -17,8 +17,8 @@ using std::endl;
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
 #define DEBUG   true
-#define DEBUG_R false
-#define DEBUG_U false
+#define DEBUG_R true
+#define DEBUG_U true
 #define DEBUG_C true
 #ifdef DEBUG
     #define HEADER "[DEBUG] "

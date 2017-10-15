@@ -22,7 +22,8 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 		scaleX(1.), scaleY(1.),
 		path(file),
 		animationLines(1),
-        highlightable(highlighted)
+        highlightable(highlighted),
+        autoAssociate(true)
 {
     DEBUG_CONSTRUCTOR("Sprite", "inicio");
 	if(highlightable) {
@@ -93,7 +94,12 @@ void Sprite::Render() {//const{
 	if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 		CHECK_SDL_ERROR;
 	}
-    SDL_Rect dst = associated.box;
+	SDL_Rect dst;
+	if(autoAssociate){
+        dst = associated.box;
+	}else{
+        dst = onScreenRect;
+	}
     dst.w = onScreenRect.w;
     dst.h = onScreenRect.h;
 	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){//onScreenRect)){
@@ -208,6 +214,7 @@ void Sprite::EarlyUpdate(float dt){}
 void Sprite::LateUpdate(float dt){}
 
 void Sprite::SetPosition(int x, int y){
+    autoAssociate = false;
     onScreenRect.x = x;
     onScreenRect.y = y;
 }

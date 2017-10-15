@@ -31,8 +31,8 @@ enum ComponentType{
 //criado pelo usuário, vão ficando aqui
     BAR,
     ROBO,
-    OBSERVER,
-    OBSERVEE,
+    ROBOPATH,
+    ROBOMENU,
 //
 	COMPONENT_TYPE_SIZE
 };

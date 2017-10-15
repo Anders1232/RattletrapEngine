@@ -29,6 +29,7 @@ class Component;
 */
 class GameObject{
 	public:
+	    bool debug;
 		/**
 			\brief Construtor
 
