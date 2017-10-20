@@ -78,14 +78,14 @@ void TileMap<T>::Load(std::string const &file) {
 }
 
 template<class T>
-TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0), displayCollisionInfo(false){
+TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 	tileSets.push_back(tileSet);
 }
 
 template<class T>
-TileMap<T>::TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet): Component(associated), tileSets(tileSet), displayCollisionInfo(false){
+TileMap<T>::TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet): Component(associated), tileSets(tileSet){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 }
