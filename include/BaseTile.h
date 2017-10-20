@@ -9,7 +9,7 @@ class BaseTile{
 		int GetTileSetIndex(void) const;
 	protected:
 		int tileSetIndex;
-}
+};
 
 
 #endif // BASETILE_H
