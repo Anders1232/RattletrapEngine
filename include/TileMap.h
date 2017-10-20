@@ -72,7 +72,7 @@ void TileMap<T>::Load(std::string const &file) {
 	int aux;
 	for(int count = 0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
-		tileMatrix[count] = aux;
+		tileMatrix[count] = T(aux);
 	}
 	layersVisibility= std::vector<bool>(mapDepth, true);
 }
