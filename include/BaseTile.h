@@ -5,11 +5,14 @@
 
 class BaseTile{
 	public:
-		BaseTile(uint tileSetIndex);
-		uint GetTileSetIndex(void) const;
-	private:
-		uint tileSetIndex;
-		
+		BaseTile(int tileSetIndex);
+		int GetTileSetIndex(void) const;
+	protected:
+		int tileSetIndex;
+}
+
+int BaseTile::GetTileSetIndex{
+	return tileSetIndex;
 }
 
 #endif // BASETILE_H
