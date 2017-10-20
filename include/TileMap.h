@@ -112,7 +112,7 @@ template<class T>
 void TileMap<T>::RenderLayer(int layer) {
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
-			int index = At(x, y, layer);
+			int index = At(x, y, layer).GetTileSetIndex();
 			if (0 <= index) {
 				Rect destination;
 				Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
