@@ -11,8 +11,5 @@ class BaseTile{
 		int tileSetIndex;
 }
 
-int BaseTile::GetTileSetIndex{
-	return tileSetIndex;
-}
 
 #endif // BASETILE_H
