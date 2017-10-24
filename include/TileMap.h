@@ -20,8 +20,8 @@
 template<class T>
 class TileMap : public Component, NearestFinder<T>{
 	public:
-		TileMap(GameObject &associated, const std::string &file, TileSet *tileSet);
-		TileMap(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet);
+		TileMap(GameObject &associated, std::string const &file, TileSet *tileSet);
+		TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet);
 		void EarlyUpdate(float dt=0);
 		void Update(float dt=0);
 		void LateUpdate(float dt =0);
@@ -42,6 +42,8 @@ class TileMap : public Component, NearestFinder<T>{
 		void RemoveObserver(TileMapObserver *);
 		std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap);
 		inline Vec2 GetVec2Coord(int pos);
+		void SetLayerVisibility(int layer, bool visibility);
+		bool IsLayerVisible(int layer);
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -50,8 +52,8 @@ class TileMap : public Component, NearestFinder<T>{
 		std::vector<float> parallaxWeight;
 		std::vector<TileSet*> tileSets;
 		std::vector<TileMapObserver*> observers;
+		std::vector<bool> layersVisibility;
 		int currentTileSet;
-		bool displayCollisionInfo;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 		inline std::vector<int64_t> GetNeighbours(int64_t tile);
 		
@@ -93,7 +95,6 @@ template<class T>
 void TileMap<T>::Load(std::string const &file) {
 	FILE *arq = fopen(file.c_str(), "r");
 	ASSERT(NULL != arq);
-	int mWidth, mHeight, mDepth;
 	fscanf(arq, "%d,%d,%d,", &mapWidth, &mapHeight, &mapDepth);
 
 	int numbersToRead = mapWidth*mapHeight*mapDepth;
@@ -101,19 +102,20 @@ void TileMap<T>::Load(std::string const &file) {
 	int aux;
 	for(int count = 0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
-		tileMatrix[count] = aux;
+		tileMatrix[count] = T(aux);
 	}
+	layersVisibility= std::vector<bool>(mapDepth, true);
 }
 
 template<class T>
-TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0), displayCollisionInfo(false){
+TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 	tileSets.push_back(tileSet);
 }
 
 template<class T>
-TileMap<T>::TileMap(GameObject &associated, std::string &file, std::vector<TileSet*> &tileSet): Component(associated), tileSets(tileSet), displayCollisionInfo(false){
+TileMap<T>::TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet): Component(associated), tileSets(tileSet){
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 }
@@ -130,10 +132,9 @@ void TileMap<T>::LateUpdate(float dt){}
 template<class T>
 void TileMap<T>::Render(void) const {
 	for(int count = 0; count < mapDepth; count++) {
-		if(COLLISION_LAYER == count && !displayCollisionInfo) {
-			continue;
+		if(layersVisibility[count]) {
+			RenderLayer(count);
 		}
-		RenderLayer(count);
 	}
 }
 
@@ -141,7 +142,7 @@ template<class T>
 void TileMap<T>::RenderLayer(int layer) {
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
-			int index = At(x, y, layer);
+			int index = At(x, y, layer).GetTileSetIndex();
 			if (0 <= index) {
 				Rect destination;
 				Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
@@ -460,6 +461,17 @@ std::list<int>* TileMap::AStar(int originTile,int destTile, AStarHeuristic* heur
 	}
 	return MakePath(originTile, chosenPath, antecessor);
 }
+
+template<class T>
+void TileMap<T>::SetLayerVisibility(int layer, bool visibility){
+	ELEMENT_ACESS(layersVisibility, layer) = visibility;
+}
+
+template<class T>
+bool TileMap<T>::IsLayerVisible(int layer){
+	return ELEMENT_ACESS(layersVisibility, layer);
+}
+
 
 
 #endif // TILEMAP_H
