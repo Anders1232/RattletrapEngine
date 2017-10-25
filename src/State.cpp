@@ -13,7 +13,7 @@ State::~State(void) {
 }
 
 void State::AddObject(GameObject *object) {
-    DEBUG_PRINT("State", "Adicionado objeto ao vetor");
+    DEBUG_PRINT("Adicionado objeto ao vetor");
 	objectArray.push_back(std::unique_ptr<GameObject>(object));
 }
 
@@ -44,13 +44,13 @@ void State::RenderArray(void) const {
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 #else
 */
-DEBUG_RENDER("State", "inicio");
+DEBUG_RENDER("inicio");
     for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
     //for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
 //#endif
 		objectArray[cont]->Render();
 	}
-DEBUG_RENDER("State", "fim");
+DEBUG_RENDER("fim");
 }
 
 #include "Error_footer.h"

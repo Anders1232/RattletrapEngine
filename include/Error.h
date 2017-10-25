@@ -17,12 +17,14 @@ using std::endl;
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
 #define DEBUG   true
-#define DEBUG_R true
-#define DEBUG_U true
+#define DEBUG_R false
+#define DEBUG_U false
 #define DEBUG_C true
 #ifdef DEBUG
     #define HEADER "[DEBUG] "
-    #define WHERE __FILE__<<" | "<<__func__<<":"<<__LINE__
+    #define CLASS typeid(*this).name()
+    #define WHERE __FILE__<<"::"<<__func__<<"():"
+    #define WHERE2 CLASS<<"::"<<__func__<<"():"
 
     #define Error(msg)std::cerr<<HEADER<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
     #define ASSERT(exp)if(!(exp)){std::cerr<<HEADER>
@@ -34,10 +36,10 @@ using std::endl;
     #define REPORT_DEBUG(msg) if(DEBUG == 1){std::cout<<HEADER<<WHERE<<msg<<END_LINE;}
     #define REPORT_DEBUG2(cond, msg) if(cond||DEBUG){std::cout<<HEADER<<WHERE<<msg<<END_LINE;}
 
-    #define DEBUG_PRINT(class, msg) if(DEBUG){std::cout << HEADER <<class<<"::"<<__func__<< "(): " << msg << END_LINE;}
-    #define DEBUG_RENDER(class, msg) if(DEBUG_R){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg << END_LINE;}
-    #define DEBUG_UPDATE(class, msg) if(DEBUG_U){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg << END_LINE;}
-    #define DEBUG_CONSTRUCTOR(class, msg) if(DEBUG_C){std::cout<<HEADER<<class<<"::"<<__func__<< "(): " << msg<<END_LINE;}
+    #define DEBUG_PRINT(msg) if(DEBUG){std::cout<<WHERE2 << msg << END_LINE;}
+    #define DEBUG_RENDER(msg) if(DEBUG_R){std::cout<<WHERE2 << msg << END_LINE;}
+    #define DEBUG_UPDATE(msg) if(DEBUG_U){std::cout<<WHERE2 << msg << END_LINE;}
+    #define DEBUG_CONSTRUCTOR(msg) if(DEBUG_C){std::cout<<WHERE2 << msg <<END_LINE;}
 
 
     #define REPORT_I_WAS_HERE if(DEBUG){std::cout <<HEADER <<" I was here!\t"<<WHERE<<END_LINE;}

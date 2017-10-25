@@ -4,7 +4,12 @@
 
 #include "Error.h"
 
-GameObject::GameObject(void): rotation(0.), dead(false), parent(nullptr), debug(false){
+GameObject::GameObject(void):
+    rotation(0.),
+    dead(false),
+    parent(nullptr),
+    debug(false),
+    showOnScreen(true){
 }
 
 
@@ -29,16 +34,18 @@ void GameObject::Update(float dt){
 }
 
 void GameObject::Render(void){
-    DEBUG_RENDER("GameObject", "inicio");
-    for(unsigned int i = 0; i < components.size(); i++){
-	    components[i]->Render();
-	}
+    DEBUG_RENDER("inicio");
+    if(showOnScreen){
+        for(unsigned int i = 0; i < components.size(); i++){
+                components[i]->Render();
+        }
+    }
 	if(debug){
         SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255);
         SDL_Rect rect = {box.x, box.y, box.w, box.h};
         SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &rect);
 	}
-	DEBUG_RENDER("GameObject", "fim");
+	DEBUG_RENDER("fim");
 }
 
 bool GameObject::IsDead(void){

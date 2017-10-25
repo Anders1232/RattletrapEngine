@@ -29,10 +29,12 @@ enum ComponentType{
 	BUTTON,
 //Enquando não se decide onde colocamos os ComponentTypes
 //criado pelo usuário, vão ficando aqui
+    PLAYER_UNITY,
     BAR,
     ROBO,
+    PILOTO,
     ROBOPATH,
-    ROBOMENU,
+    PLAYER_UNITY_MENU,
 //
 	COMPONENT_TYPE_SIZE
 };

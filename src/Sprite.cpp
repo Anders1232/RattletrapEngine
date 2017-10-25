@@ -25,7 +25,7 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
         highlightable(highlighted),
         autoAssociate(true)
 {
-    DEBUG_CONSTRUCTOR("Sprite", "inicio");
+    DEBUG_CONSTRUCTOR("inicio");
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
@@ -42,7 +42,7 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 	SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
     associated.box.w = width/frameCount;
     associated.box.h = height/animationLines;
-	DEBUG_CONSTRUCTOR("Sprite", "fim");
+	DEBUG_CONSTRUCTOR("fim");
 //	}
 }
 
@@ -64,8 +64,8 @@ void Sprite::SetScreenRect(int x, int y, int w, int h){
 }
 
 void Sprite::Render() {//const{
-    DEBUG_RENDER("Sprite", "inicio");
-    DEBUG_RENDER("  Renderizando",  path);
+    DEBUG_RENDER("inicio");
+    DEBUG_RENDER("  Renderizando: " <<  path);
     Game& game = Game::GetInstance();
 
 //{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
@@ -110,11 +110,11 @@ void Sprite::Render() {//const{
 			CHECK_SDL_ERROR;
 		}
 	}
-	DEBUG_RENDER("   clipRect",   clipRect.x << ", " <<
+	DEBUG_RENDER("   clipRect:" <<   clipRect.x << ", " <<
                                   clipRect.y << ", " <<
                                   clipRect.w << ", " <<
                                   clipRect.h << "::" );
-	DEBUG_RENDER("   dst:",   dst.x << ", "
+	DEBUG_RENDER("   dst:" <<   dst.x << ", "
                             << dst.y << ", "
                             << dst.w << ", "
                             << dst.h << "::" );
@@ -122,7 +122,7 @@ void Sprite::Render() {//const{
 		// Verifica se haverá erro
 		Error(SDL_GetError());
 	}
-	DEBUG_RENDER("Sprite", "fim");
+	DEBUG_RENDER("fim");
 }
 
 
@@ -225,6 +225,10 @@ int Sprite::GetScreenX(){
 
 int Sprite::GetScreenY(){
     return onScreenRect.y;
+}
+
+SDL_Rect Sprite::GetScreenRect(){
+    return onScreenRect;
 }
 
 #include "Error_footer.h"

@@ -151,6 +151,8 @@ class Sprite: public Component {
 		void Scale(float scale);
 		void SetPosition(int x, int y);
 
+		SDL_Rect GetScreenRect();
+
 		bool Is(ComponentType type) const;
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
