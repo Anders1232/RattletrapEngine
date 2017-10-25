@@ -45,7 +45,18 @@ void RectTransform::Update( float dt ) {
 	if( nullptr == associated.parent ) {
 		parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};
 	} else {
+	    DEBUG_UPDATE("antes associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
 		parentCanvas = associated.parent->box;
+		DEBUG_UPDATE("depois associated.box:{" <<
+                      associated.box.x << ", " <<
+                      associated.box.y << ", " <<
+                      associated.box.w << ", " <<
+                      associated.box.h << "}");
+
 	}
 	boundingBox = ComputeBoundingBox(parentCanvas);
 	associated.box = ComputeBox();
@@ -152,10 +163,34 @@ Rect RectTransform::GetBoundingBox() const{
 
 Rect RectTransform::ComputeBoundingBox( Rect parentCanvas ) {
 	Rect boundingBox;
+	DEBUG_UPDATE("parentCanvas:{" <<
+                      parentCanvas.x << ", " <<
+                      parentCanvas.y << ", " <<
+                      parentCanvas.w << ", " <<
+                      parentCanvas.h << "}");
+
+    DEBUG_UPDATE("anchors:{" <<
+                      anchors.x << ", " <<
+                      anchors.y << ", " <<
+                      anchors.w << ", " <<
+                      anchors.h << "}");
+    DEBUG_UPDATE("offsets:{" <<
+                      offsets.x << ", " <<
+                      offsets.y << ", " <<
+                      offsets.w << ", " <<
+                      offsets.h << "}");
+
 	boundingBox.x = parentCanvas.w*anchors.x + offsets.x;
 	boundingBox.y = parentCanvas.h*anchors.y + offsets.y;
-	boundingBox.w = parentCanvas.w*anchors.w + offsets.w - boundingBox.x;
-	boundingBox.h = parentCanvas.h*anchors.h + offsets.h - boundingBox.y;
+	boundingBox.w = parentCanvas.w*anchors.w + offsets.w + boundingBox.x;
+	boundingBox.h = parentCanvas.h*anchors.h + offsets.h + boundingBox.y;
+
+	DEBUG_UPDATE("boundingBox:{" <<
+                      boundingBox.x << ", " <<
+                      boundingBox.y << ", " <<
+                      boundingBox.w << ", " <<
+                      boundingBox.h << "}");
+
 	return boundingBox;
 }
 

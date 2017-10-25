@@ -7,6 +7,7 @@
 #include "RectTransform.h"
 #include "InputManager.h"
 
+#include "Error.h"
 template<typename T>
 class Button : public Component {
   public:
@@ -38,6 +39,7 @@ class Button : public Component {
 	~Button(){}
 
 	void EarlyUpdate( float dt ){
+	    DEBUG_UPDATE("inicio");
         if( Button::State::DISABLED != actualState ) {
             Vec2 mousePos = INPUT_MANAGER.GetMousePos();
             bool mouseIsInside = mousePos.IsInRect( associated.box );
@@ -46,9 +48,20 @@ class Button : public Component {
                 mouseIsInside = mousePos.IsInRect( rect.GetBoundingBox() );
             }
             if( mouseIsInside ) {
+                DEBUG_PRINT("disabled: " << disabled.callbackFunc);
+                DEBUG_PRINT("enabled: " << enabled.callbackFunc);
+                DEBUG_PRINT("highlighted: " << highlighted.callbackFunc);
+                DEBUG_PRINT("pressed: " << pressed.callbackFunc);
+                DEBUG_PRINT("released: " << released.callbackFunc);
+
+                DEBUG_PRINT("mousePos: " << mousePos.x << ", " << mousePos.y);
+                DEBUG_PRINT("associated.box: " << associated.box.x << ", " << associated.box.y << ", "
+                                               << associated.box.w << ", " << associated.box.h);
                 if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {
+                    DEBUG_PRINT("Pressed");
                     SetState( Button::State::PRESSED );
                 } else {
+                    DEBUG_PRINT("Highlighted");
                     SetState( Button::State::HIGHLIGHTED );
                 }
                 if( INPUT_MANAGER.MouseRelease( LEFT_MOUSE_BUTTON ) ) {
@@ -57,7 +70,19 @@ class Button : public Component {
             } else if( Button::State::ENABLED != actualState ) {
                 SetState( Button::State::ENABLED );
             }
+        }else{
+            Vec2 mousePos = INPUT_MANAGER.GetMousePos();
+            bool mouseIsInside = mousePos.IsInRect( associated.box );
+            DEBUG_UPDATE("mousePos: " << mousePos.x << ", " << mousePos.y);
+            DEBUG_UPDATE("associated.box: " << associated.box.x << ", " << associated.box.y << ", "
+                                           << associated.box.w << ", " << associated.box.h);
+            if( mouseIsInside ) {
+                    if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {
+                        DEBUG_PRINT("Botao desabilitado: actualState == DISABLED");
+                    }
+            }
         }
+        DEBUG_UPDATE("fim");
 	}
 
 
@@ -67,6 +92,7 @@ class Button : public Component {
 	bool Is( ComponentType type ) const {return ComponentType::BUTTON == type;}
 
 	void SetCallback(Button::State stateToSet, Button::Callback calldata){
+	    actualState = stateToSet;
 	    switch(stateToSet) {
 		case Button::State::DISABLED: {
 			disabled = calldata;
@@ -113,7 +139,10 @@ class Button : public Component {
 	}
 
 	Button::State GetState(void) const{return actualState;}
-	void Click(){	released.Call();}
+	void Click(){
+	    DEBUG_PRINT("Chamou click");
+	    released.Call();
+    }
 
 	bool interactOnBoundingBox;
 
