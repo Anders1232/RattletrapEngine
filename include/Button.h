@@ -48,20 +48,14 @@ class Button : public Component {
                 mouseIsInside = mousePos.IsInRect( rect.GetBoundingBox() );
             }
             if( mouseIsInside ) {
-                DEBUG_PRINT("disabled: " << disabled.callbackFunc);
-                DEBUG_PRINT("enabled: " << enabled.callbackFunc);
-                DEBUG_PRINT("highlighted: " << highlighted.callbackFunc);
-                DEBUG_PRINT("pressed: " << pressed.callbackFunc);
-                DEBUG_PRINT("released: " << released.callbackFunc);
-
-                DEBUG_PRINT("mousePos: " << mousePos.x << ", " << mousePos.y);
-                DEBUG_PRINT("associated.box: " << associated.box.x << ", " << associated.box.y << ", "
+                DEBUG_UPDATE("mousePos: " << mousePos.x << ", " << mousePos.y);
+                DEBUG_UPDATE("associated.box: " << associated.box.x << ", " << associated.box.y << ", "
                                                << associated.box.w << ", " << associated.box.h);
                 if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {
-                    DEBUG_PRINT("Pressed");
+                    DEBUG_UPDATE("Pressed");
                     SetState( Button::State::PRESSED );
                 } else {
-                    DEBUG_PRINT("Highlighted");
+                    DEBUG_UPDATE("Highlighted");
                     SetState( Button::State::HIGHLIGHTED );
                 }
                 if( INPUT_MANAGER.MouseRelease( LEFT_MOUSE_BUTTON ) ) {
@@ -69,17 +63,6 @@ class Button : public Component {
                 }
             } else if( Button::State::ENABLED != actualState ) {
                 SetState( Button::State::ENABLED );
-            }
-        }else{
-            Vec2 mousePos = INPUT_MANAGER.GetMousePos();
-            bool mouseIsInside = mousePos.IsInRect( associated.box );
-            DEBUG_UPDATE("mousePos: " << mousePos.x << ", " << mousePos.y);
-            DEBUG_UPDATE("associated.box: " << associated.box.x << ", " << associated.box.y << ", "
-                                           << associated.box.w << ", " << associated.box.h);
-            if( mouseIsInside ) {
-                    if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {
-                        DEBUG_PRINT("Botao desabilitado: actualState == DISABLED");
-                    }
             }
         }
         DEBUG_UPDATE("fim");
