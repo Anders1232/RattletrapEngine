@@ -18,8 +18,13 @@ void Grouper::Update( float dt ) {
 	const unsigned int n = groupedElements.size();
 	if( n > 0 ) {
 		Vec2 pad = Vec2( padding.x/associated.box.w, padding.y/associated.box.h );
-		int numRows = (Grouper::ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)n/number);
-		int numCols = (Grouper::ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)n/number);
+		int numRows, numCols;
+		if( Grouper::ConstraintType::SQUARE == constraint ) {
+			numRows = numCols = std::ceil( std::sqrt( (float)n ) );
+		} else {
+			numRows = (Grouper::ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil( (float)n/number );
+			numCols = (Grouper::ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil( (float)n/number );
+		}
 		Vec2 delta = Vec2( ( 1. - pad.x*(numCols-1) ) / numCols, ( 1. - pad.y*(numRows-1) ) / numRows);
 
 		float y = 0;

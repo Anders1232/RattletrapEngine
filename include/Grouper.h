@@ -10,7 +10,8 @@ class Grouper : public Component {
 	public:
 		enum ConstraintType {
 			FIXED_N_ROWS,
-			FIXED_N_COLS
+			FIXED_N_COLS,
+			SQUARE
 		};
 		enum BehaviorOnLess {
 			RIGHT_ALIGN,
