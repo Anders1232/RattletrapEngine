@@ -7,7 +7,7 @@
 
 struct PrefabFactory {
 	public:
-		static std::unique_ptr<GameObject> GridGroup();
+		static std::unique_ptr<GameObject> SquareGridGroup();
 	private:
 		PrefabFactory();
 		~PrefabFactory();

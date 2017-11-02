@@ -10,7 +10,7 @@ std::unique_ptr<GameObject> PrefabFactory::SquareGridGroup() {
 	go->AddComponent( c );
 
 	c = new Grouper( *go );
-	c->MakeGridGroup( Grouper::ConstraintType::SQUARE, 3, Grouper::BehaviorOnLess::CENTER)
+	((Grouper*)c)->MakeGridGroup( Grouper::ConstraintType::SQUARE, 3, Grouper::BehaviorOnLess::CENTER);
 	go->AddComponent( c );
 
 	return std::unique_ptr<GameObject>( go );
