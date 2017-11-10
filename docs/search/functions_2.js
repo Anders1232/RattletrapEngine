@@ -1,7 +1,10 @@
 var searchData=
 [
+  ['calculatecost',['CalculateCost',['../classAStarWeight.html#acbecceef16e009951f810b91883dc1f9',1,'AStarWeight']]],
   ['calculatedeltatime',['CalculateDeltaTime',['../classGame.html#afddce07e3e3d3ca05a6c2f2ca9e64940',1,'Game']]],
-  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#a842b1a3f5a41cef21ddb1d4853d09c69',1,'TileMap']]],
+  ['calculateparallaxscrolling',['CalculateParallaxScrolling',['../classTileMap.html#aee8228537e89a81e745fd404cd516a98',1,'TileMap']]],
+  ['call',['Call',['../structButton_1_1Callback.html#aed11efcd8b5968a55adc9d171727cba9',1,'Button::Callback']]],
+  ['callback',['Callback',['../structButton_1_1Callback.html#aa27a2ac60b2453f2496296e77968bd1b',1,'Button::Callback']]],
   ['camera',['Camera',['../classCamera.html#a01f94c3543f56ede7af49dc778f19331',1,'Camera']]],
   ['center',['Center',['../classRect.html#af5db0f5526e20b63eebbe14ef2f4f6fb',1,'Rect']]],
   ['changemusicvolume',['ChangeMusicVolume',['../classResources.html#a1655776bc711f51ad1234d002c1919cd',1,'Resources']]],
@@ -11,9 +14,9 @@ var searchData=
   ['clearmusic',['ClearMusic',['../classResources.html#a37aa5ada5adf925b8862f65d207244d1',1,'Resources']]],
   ['clearresources',['ClearResources',['../classResources.html#a6a704f9988d9189d2d028ab5dcc64496',1,'Resources']]],
   ['clearsound',['ClearSound',['../classResources.html#a07885930484a8dd953c2e144ac8be6c5',1,'Resources']]],
-  ['click',['Click',['../classUIbutton.html#a147fdd93cf1285f1d8e722d054125ad5',1,'UIbutton']]],
+  ['click',['Click',['../classButton.html#a67258126e72dd44e60fcc5ae3e2a94e0',1,'Button']]],
   ['color',['Color',['../structColor.html#a1f9035eaa8f9eb07c55359e60e895b73',1,'Color']]],
-  ['computeboundingbox',['ComputeBoundingbox',['../classUIelement.html#a5362b3a62ff23c73e59ed35c5da2dfce',1,'UIelement']]],
-  ['computebox',['ComputeBox',['../classUIelement.html#ac9bae84e8114dbe54cc6f635dff4c9a0',1,'UIelement']]],
-  ['configcolors',['ConfigColors',['../classUItextButton.html#ad06b434f3904906c67b5f50882ba013e',1,'UItextButton']]]
+  ['component',['Component',['../classComponent.html#a30db7f3994135926f74aee6d3498f3c4',1,'Component']]],
+  ['computeboundingbox',['ComputeBoundingBox',['../classRectTransform.html#a67616df4931e3d7df176e2f880c9d2dc',1,'RectTransform']]],
+  ['computebox',['ComputeBox',['../classRectTransform.html#a31867b54c3efaac2e6afa18721ef8769',1,'RectTransform']]]
 ];

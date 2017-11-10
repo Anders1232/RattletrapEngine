@@ -61,7 +61,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
-<a href="#pro-methods">Métodos Protegidos</a> &#124;
 <a href="#pro-attribs">Atributos Protegidos</a> &#124;
 <a href="classState-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
@@ -88,12 +87,24 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a42d951e307f5b6d1966e15f417cc4101"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a42d951e307f5b6d1966e15f417cc4101">~State</a> (void)</td></tr>
 <tr class="memdesc:a42d951e307f5b6d1966e15f417cc4101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="#a42d951e307f5b6d1966e15f417cc4101">Mais...</a><br /></td></tr>
 <tr class="separator:a42d951e307f5b6d1966e15f417cc4101"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad79561dfb4e1a6b722a3d9c84b06e91c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#ad79561dfb4e1a6b722a3d9c84b06e91c">Update</a> (float dt)=0</td></tr>
-<tr class="memdesc:ad79561dfb4e1a6b722a3d9c84b06e91c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os estado do jogo.  <a href="#ad79561dfb4e1a6b722a3d9c84b06e91c">Mais...</a><br /></td></tr>
-<tr class="separator:ad79561dfb4e1a6b722a3d9c84b06e91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1f023e61676d0cef92afbaba48ec7ca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#ad1f023e61676d0cef92afbaba48ec7ca">Render</a> (void) const =0</td></tr>
-<tr class="memdesc:ad1f023e61676d0cef92afbaba48ec7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza os elmentos do jogo.  <a href="#ad1f023e61676d0cef92afbaba48ec7ca">Mais...</a><br /></td></tr>
-<tr class="separator:ad1f023e61676d0cef92afbaba48ec7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d5a6ef8d908910355f369e967b69a78"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a1d5a6ef8d908910355f369e967b69a78">Update</a> (float dt)=0</td></tr>
+<tr class="memdesc:a1d5a6ef8d908910355f369e967b69a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os estado do jogo.  <a href="#a1d5a6ef8d908910355f369e967b69a78">Mais...</a><br /></td></tr>
+<tr class="separator:a1d5a6ef8d908910355f369e967b69a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85ec8592d1da4f12e7cdfd448f7f8b6b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a85ec8592d1da4f12e7cdfd448f7f8b6b">EarlyUpdate</a> (float dt)</td></tr>
+<tr class="memdesc:a85ec8592d1da4f12e7cdfd448f7f8b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os estado do jogo.  <a href="#a85ec8592d1da4f12e7cdfd448f7f8b6b">Mais...</a><br /></td></tr>
+<tr class="separator:a85ec8592d1da4f12e7cdfd448f7f8b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b4c19bc40b6c03f0992691cefaed919"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a9b4c19bc40b6c03f0992691cefaed919">LateUpdate</a> (float dt)</td></tr>
+<tr class="memdesc:a9b4c19bc40b6c03f0992691cefaed919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza os estado do jogo.  <a href="#a9b4c19bc40b6c03f0992691cefaed919">Mais...</a><br /></td></tr>
+<tr class="separator:a9b4c19bc40b6c03f0992691cefaed919"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a223de5c75b54ae968851b4b2ee86b2f9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a223de5c75b54ae968851b4b2ee86b2f9">UpdateActive</a> (void)</td></tr>
+<tr class="memdesc:a223de5c75b54ae968851b4b2ee86b2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza active.  <a href="#a223de5c75b54ae968851b4b2ee86b2f9">Mais...</a><br /></td></tr>
+<tr class="separator:a223de5c75b54ae968851b4b2ee86b2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037b5f28ee99811a4d22816cd1963efa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a037b5f28ee99811a4d22816cd1963efa">DeleteRequested</a> (void)</td></tr>
+<tr class="memdesc:a037b5f28ee99811a4d22816cd1963efa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleta GameObjects.  <a href="#a037b5f28ee99811a4d22816cd1963efa">Mais...</a><br /></td></tr>
+<tr class="separator:a037b5f28ee99811a4d22816cd1963efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed489a8f46f208ea031389c6356bd5f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a7ed489a8f46f208ea031389c6356bd5f">Render</a> (void) const</td></tr>
+<tr class="memdesc:a7ed489a8f46f208ea031389c6356bd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza os elmentos do jogo.  <a href="#a7ed489a8f46f208ea031389c6356bd5f">Mais...</a><br /></td></tr>
+<tr class="separator:a7ed489a8f46f208ea031389c6356bd5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9fa377b30f06fdd809a1557bfbc190a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#ae9fa377b30f06fdd809a1557bfbc190a">Pause</a> (void)=0</td></tr>
 <tr class="memdesc:ae9fa377b30f06fdd809a1557bfbc190a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pausa o <a class="el" href="classState.html" title="Classe virtual que modela um estado do jogo. ">State</a>.  <a href="#ae9fa377b30f06fdd809a1557bfbc190a">Mais...</a><br /></td></tr>
 <tr class="separator:ae9fa377b30f06fdd809a1557bfbc190a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,15 +123,6 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a60c55c31895344bb499f28a22724fab9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#a60c55c31895344bb499f28a22724fab9">LoadAssets</a> (void) const =0</td></tr>
 <tr class="memdesc:a60c55c31895344bb499f28a22724fab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os assets do estado.  <a href="#a60c55c31895344bb499f28a22724fab9">Mais...</a><br /></td></tr>
 <tr class="separator:a60c55c31895344bb499f28a22724fab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Métodos Protegidos</h2></td></tr>
-<tr class="memitem:abb605ec5fe585d227fbf267e0e6c80a9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#abb605ec5fe585d227fbf267e0e6c80a9">UpdateArray</a> (float dt)</td></tr>
-<tr class="memdesc:abb605ec5fe585d227fbf267e0e6c80a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza o estado de cada <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> no vetor de GameObjects.  <a href="#abb605ec5fe585d227fbf267e0e6c80a9">Mais...</a><br /></td></tr>
-<tr class="separator:abb605ec5fe585d227fbf267e0e6c80a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c58b0821ce23d75822089204af876b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classState.html#ac2c58b0821ce23d75822089204af876b">RenderArray</a> (void) const</td></tr>
-<tr class="memdesc:ac2c58b0821ce23d75822089204af876b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renderiza cada <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> no vetor de GameObjects.  <a href="#ac2c58b0821ce23d75822089204af876b">Mais...</a><br /></td></tr>
-<tr class="separator:ac2c58b0821ce23d75822089204af876b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
@@ -181,7 +183,7 @@ Atributos Protegidos</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destrutor. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Futuras Atividades:</a></b></dt><dd>Verificar necessidade de fazer um destrutor virtual.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Futuras Atividades:</a></b></dt><dd>Verificar necessidade de fazer um destrutor virtual.</dd></dl>
 <p>Força os filhos a implementarem um destrutor. </p>
 
 </div>
@@ -213,6 +215,97 @@ Atributos Protegidos</h2></td></tr>
 
 <p>Adiciona um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> ao vetor de GameObjects. </p>
 <p>No processo o ponteiro para esse gameobject é transformado em um unique_ptr. </p>
+
+</div>
+</div>
+<a id="a037b5f28ee99811a4d22816cd1963efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037b5f28ee99811a4d22816cd1963efa">&#9670;&nbsp;</a></span>DeleteRequested()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::DeleteRequested </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deleta GameObjects. </p>
+<p>Deleta GameObjects que solicitaram deleção. </p>
+
+</div>
+</div>
+<a id="a85ec8592d1da4f12e7cdfd448f7f8b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85ec8592d1da4f12e7cdfd448f7f8b6b">&#9670;&nbsp;</a></span>EarlyUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::EarlyUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os estado do jogo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>intervalo de tempo transcorrido desde o último frame.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias. É chamadado antes do Update. </p>
+
+</div>
+</div>
+<a id="a9b4c19bc40b6c03f0992691cefaed919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b4c19bc40b6c03f0992691cefaed919">&#9670;&nbsp;</a></span>LateUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void State::LateUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza os estado do jogo. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>intervalo de tempo transcorrido desde o último frame.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias. É chamadado depois do Render. </p>
 
 </div>
 </div>
@@ -316,8 +409,8 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ad1f023e61676d0cef92afbaba48ec7ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1f023e61676d0cef92afbaba48ec7ca">&#9670;&nbsp;</a></span>Render()</h2>
+<a id="a7ed489a8f46f208ea031389c6356bd5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ed489a8f46f208ea031389c6356bd5f">&#9670;&nbsp;</a></span>Render()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +419,7 @@ Atributos Protegidos</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void State::Render </td>
+          <td class="memname">void State::Render </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -335,42 +428,13 @@ Atributos Protegidos</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Renderiza os elmentos do jogo. </p>
-<p>Aqui deve ser colocado o código que rederiza os elementos jogo na ordem que for desejada. Pode-se fazer o uso do RenderArray por praticidade. </p>
-
-</div>
-</div>
-<a id="ac2c58b0821ce23d75822089204af876b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2c58b0821ce23d75822089204af876b">&#9670;&nbsp;</a></span>RenderArray()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void State::RenderArray </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Renderiza cada <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> no vetor de GameObjects. </p>
-<p>Percorre todos os GameObjects do vetor de GameObjects chamando o método Render de cada um deles. </p>
+<p>Aqui deve ser colocado o código que rederiza os elementos jogo na ordem que for desejada. </p>
 
 </div>
 </div>
@@ -403,8 +467,8 @@ Atributos Protegidos</h2></td></tr>
 
 </div>
 </div>
-<a id="ad79561dfb4e1a6b722a3d9c84b06e91c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79561dfb4e1a6b722a3d9c84b06e91c">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="a1d5a6ef8d908910355f369e967b69a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d5a6ef8d908910355f369e967b69a78">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,7 +477,7 @@ Atributos Protegidos</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void State::Update </td>
+          <td class="memname">void State::Update </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>dt</em></td><td>)</td>
@@ -430,16 +494,16 @@ Atributos Protegidos</h2></td></tr>
 <p>Atualiza os estado do jogo. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dt</td><td>intervalo de tempo transcorrido desde a última atualização.</td></tr>
+    <tr><td class="paramname">dt</td><td>intervalo de tempo transcorrido desde o último frame.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras paster que forem julgadas necessárias. Pode-se fazer o uso do <a class="el" href="classState.html#abb605ec5fe585d227fbf267e0e6c80a9" title="Atualiza o estado de cada GameObject no vetor de GameObjects. ">UpdateArray()</a> por praticidade. </p>
+<p>Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias. </p>
 
 </div>
 </div>
-<a id="abb605ec5fe585d227fbf267e0e6c80a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb605ec5fe585d227fbf267e0e6c80a9">&#9670;&nbsp;</a></span>UpdateArray()</h2>
+<a id="a223de5c75b54ae968851b4b2ee86b2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a223de5c75b54ae968851b4b2ee86b2f9">&#9670;&nbsp;</a></span>UpdateActive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -448,28 +512,22 @@ Atributos Protegidos</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void State::UpdateArray </td>
+          <td class="memname">void State::UpdateActive </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Atualiza o estado de cada <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> no vetor de GameObjects. </p>
-<dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dt</td><td>Tempo transcorrido desde a última atualização.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>O vetor de GameObjects é percorrido completamente e para cada gameObject o método Update é chamado passando como argumento dt. Se algum <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> for considerado morto(IsDead retornar verdadeiro) esse <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> é removido do vetor de GameObjects. </p>
+<p>Atualiza active. </p>
+<p>Esse método não deve ser sobrescrevido. Também atualiza o status enabled de seus Componenetes. Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados. </p>
 
 </div>
 </div>
@@ -550,7 +608,7 @@ Atributos Protegidos</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 11 de Julho de 2017 14:19:25 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 10 de Novembro de 2017 16:56:03 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

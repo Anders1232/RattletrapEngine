@@ -60,27 +60,35 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">DragAndDrop Lista dos Membros</div>  </div>
+<div class="title">DragAndDrop&lt; T &gt; Lista dos Membros</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Esta é a lista de todos os membros de <a class="el" href="classDragAndDrop.html">DragAndDrop</a>, incluindo os membros herdados.</p>
+<p>Esta é a lista de todos os membros de <a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a>, incluindo os membros herdados.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#ace167737f48394db1396112799ce43ab">associated</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#a8c14587e18912fc4efce09648c33114a">associatedInitialPos</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#ad96806a696a712304940d1d70aa9e852">DragAndDrop</a>(TileMap &amp;map, Vec2 associatedInitialPos, GameObject &amp;associated, bool redrag=true, bool dragOnActionHold=true)</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#a4ab10dda4ebf5ee49d335b743a96e45b">dragNDrop</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#a8dbee0ad51c83c65d7fb3f29e917518b">dragOnHold</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#a600185abb422085505f940c1c2c8f679">Is</a>(ComponentType) const</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#a6ebcb640a3261c648d2cb73918442956">redrag</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classComponent.html#abc628785602d2f19603324ff9e721d75">associated</a></td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#ad2a12036a7b28d7f95675ca5107d9921">associatedInitialPos</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classComponent.html#a30db7f3994135926f74aee6d3498f3c4">Component</a>(GameObject &amp;associated)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#acd6d810fcd0d2c24da03d425ed19cf64">DragAndDrop</a>(TileMap&lt; T &gt; &amp;map, Vec2 associatedInitialPos, GameObject &amp;associated, bool redrag=true, bool dragOnActionHold=true)</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#a03453ac4738ffa470236fa2eecd2677b">dragNDrop</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#af4bf354448202beee078d70e063e0c17">dragOnHold</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classComponent.html#ade9724304616920b7ad95a953ddc34dd">EarlyUpdate</a>(float dt)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classComponent.html#afa65bb278f1e9256d34d6ea008e654ab">enabled</a></td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#ab6aa1fdcc192060b9355426abaa24921">Is</a>(ComponentType) const</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classComponent.html#a16b5cbadea762183c43054a9874b5ce0">IsEnabled</a>(void) const</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classComponent.html#ab239fdf15f98907107431a9bc10424ac">LateUpdate</a>(float dt)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classComponent.html#ab31261b5b3e734643d0cbc1c934e0aef">newEnabled</a></td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#ac2f7e9cf75a0fbc814c58e7e8a675425">redrag</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr><td class="entry"><a class="el" href="classComponent.html#a4c1807bd0329af36f506bc6759a9f876">Render</a>(void)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#a01c58a8cb41b8a635d1e1d4baf8abd00">tileMap</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#a377dff6e39c236e4e6bf196fd5f5c209">Update</a>(float dt)</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classComponent.html#abbad4b17c6356835b41802cb8175176b">SetEnable</a>(bool newValue)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classDragAndDrop.html#af5d4994dd4a9b9a54c53218f305df719">tileMap</a></td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classDragAndDrop.html#a745b349d513e5c1ad77e8f87908939d6">Update</a>(float dt)</td><td class="entry"><a class="el" href="classDragAndDrop.html">DragAndDrop&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classComponent.html#acfb9e6c083ffc0f77b249a4feb2a24e0">UpdateEnable</a>(void)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397">~Component</a>(void)</td><td class="entry"><a class="el" href="classComponent.html">Component</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 11 de Julho de 2017 14:19:25 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 10 de Novembro de 2017 16:56:03 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

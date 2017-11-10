@@ -1,9 +1,0 @@
-<map id="UIimageButton" name="UIimageButton">
-<area shape="rect" id="node2" href="$classUIimage.html" title="UIimage" alt="" coords="378,424,449,451"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="132,319,215,345"/>
-<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="91,155,143,181"/>
-<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="5,155,56,181"/>
-<area shape="rect" id="node8" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="701,319,757,345"/>
-<area shape="rect" id="node16" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="1275,319,1347,345"/>
-<area shape="rect" id="node14" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="611,155,664,181"/>
-</map>

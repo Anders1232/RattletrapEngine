@@ -1,5 +1,0 @@
-<map id="UItextButton" name="UItextButton">
-<area shape="rect" id="node2" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="17,80,76,107"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="5,5,88,32"/>
-<area shape="rect" id="node4" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="100,80,172,107"/>
-</map>

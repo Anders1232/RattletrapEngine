@@ -1,4 +1,7 @@
 <map id="Text" name="Text">
-<area shape="rect" id="node4" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="450,140,501,167"/>
-<area shape="rect" id="node10" href="$classTimer.html" title="Temporizador. " alt="" coords="525,140,580,167"/>
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="159,393,248,420"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="156,259,251,285"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="77,139,127,165"/>
+<area shape="rect" id="node8" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="393,198,445,225"/>
+<area shape="rect" id="node13" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="865,393,918,420"/>
 </map>

@@ -1,13 +1,10 @@
 <map id="include/State.h" name="include/State.h">
-<area shape="rect" id="node2" href="$Game_8h.html" title="include/Game.h" alt="" coords="481,80,594,107"/>
-<area shape="rect" id="node12" href="$State_8cpp.html" title="src/State.cpp" alt="" coords="618,80,718,107"/>
-<area shape="rect" id="node3" href="$Text_8h.html" title="include/Text.h" alt="" coords="5,155,109,181"/>
-<area shape="rect" id="node5" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="133,155,248,181"/>
-<area shape="rect" id="node6" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="272,155,376,181"/>
-<area shape="rect" id="node7" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="401,155,533,181"/>
-<area shape="rect" id="node8" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="557,155,659,181"/>
-<area shape="rect" id="node9" href="$Tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="683,155,791,181"/>
-<area shape="rect" id="node10" href="$UIelement_8cpp.html" title="src/UIelement.cpp" alt="" coords="815,155,945,181"/>
-<area shape="rect" id="node11" href="$UItext_8cpp.html" title="src/UItext.cpp" alt="" coords="969,155,1074,181"/>
-<area shape="rect" id="node4" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="10,229,105,256"/>
+<area shape="rect" id="node2" href="$Game_8h.html" title="include/Game.h" alt="" coords="378,80,491,107"/>
+<area shape="rect" id="node9" href="$State_8cpp.html" title="src/State.cpp" alt="" coords="515,80,615,107"/>
+<area shape="rect" id="node3" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node4" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="144,155,248,181"/>
+<area shape="rect" id="node5" href="$RectTransform_8cpp.html" title="src/RectTransform.cpp" alt="" coords="273,155,429,181"/>
+<area shape="rect" id="node6" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="453,155,585,181"/>
+<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="609,155,711,181"/>
+<area shape="rect" id="node8" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="735,155,830,181"/>
 </map>

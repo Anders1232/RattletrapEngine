@@ -1,11 +1,8 @@
 <map id="include/Game.h" name="include/Game.h">
-<area shape="rect" id="node2" href="$Text_8h.html" title="include/Text.h" alt="" coords="5,80,109,107"/>
-<area shape="rect" id="node4" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="133,80,248,107"/>
-<area shape="rect" id="node5" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="272,80,376,107"/>
-<area shape="rect" id="node6" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="401,80,533,107"/>
-<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="557,80,659,107"/>
-<area shape="rect" id="node8" href="$Tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="683,80,791,107"/>
-<area shape="rect" id="node9" href="$UIelement_8cpp.html" title="src/UIelement.cpp" alt="" coords="815,80,945,107"/>
-<area shape="rect" id="node10" href="$UItext_8cpp.html" title="src/UItext.cpp" alt="" coords="969,80,1074,107"/>
-<area shape="rect" id="node3" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="10,155,105,181"/>
+<area shape="rect" id="node2" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node3" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="144,80,248,107"/>
+<area shape="rect" id="node4" href="$RectTransform_8cpp.html" title="src/RectTransform.cpp" alt="" coords="273,80,429,107"/>
+<area shape="rect" id="node5" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="453,80,585,107"/>
+<area shape="rect" id="node6" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="609,80,711,107"/>
+<area shape="rect" id="node7" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="735,80,830,107"/>
 </map>
