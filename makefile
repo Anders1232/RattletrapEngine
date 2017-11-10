@@ -114,3 +114,22 @@ objects: $(OBJ_FILES)
 unused: FLAGS -= -Wno-unused-parameter
 
 -include $$(DEP_FILES)
+
+doc: dclean
+	doxygen Doxyfile
+
+dclean:
+	$(RMDIR) docs
+	$(RM) doxygen_sqlite3.db
+
+help:
+	@echo.
+	@echo Available targets:
+	@echo - release:  Builds the release version (default target)
+	@echo - debug:    Builds the debug version
+	@echo - doc:      Clean and generate Doxygen documentation
+	@echo - dclean:   Clean Doxygen documentation
+	@echo - profile:  Builds a version to use with gprof (not implemented)
+	@echo - coverage: Builds a version to use with gcov (not implemented)
+	@echo - help:     Shows this help
+	@echo.
