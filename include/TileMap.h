@@ -1,7 +1,11 @@
-#ifndef TILEMAPV2_H
-#define TILEMAPV2_H
+#ifndef TILEMAP_H
+#define TILEMAP_H
 
 #include <vector>
+#include <list>
+#include <queue>
+#include <limits>
+#include <algorithm>
 #include "NearestFinder.h"
 //#include "Tile.h"
 #include "Component.h"
@@ -36,6 +40,8 @@ class TileMap : public Component, NearestFinder<T>{
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
+		std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap);
+		inline Vec2 GetVec2Coord(int pos);
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
 	private:
@@ -49,10 +55,34 @@ class TileMap : public Component, NearestFinder<T>{
 		std::vector<bool> layersVisibility;
 		int currentTileSet;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
-
+		inline std::vector<int64_t> GetNeighbours(int64_t tile);
+		
 		void Load(std::string const &file);
 		void RenderLayer(int layer);
 };
+
+class AStarHeuristic{
+//	virtual AStarHeuristic(){};
+	public:
+		virtual int operator()(Vec2 originTile, Vec2 desTile) = 0;
+		virtual ~AStarHeuristic(void){};
+};
+
+//------------------------
+
+template<class T>
+class AStarWeight{
+//	virtual AStarWeight(){};
+	public:
+		virtual float CalculateCost(T& tile) = 0;
+		virtual bool IsTraversable(T& tile)=0;
+		virtual ~AStarWeight(void){};
+};
+
+//---------------------------
+
+
+
 
 //implementação
 
@@ -281,6 +311,158 @@ void TileMap<T>::ReportChanges(int tileChanged){
 }
 
 template<class T>
+Vec2 TileMap<T>::GetVec2Coord(int pos){
+	return Vec2(pos / GetWidth(), pos % GetWidth());
+}
+
+template<class T>
+std::vector<int64_t> TileMap<T>::GetNeighbours(int64_t tile){//TODO: otimizar
+	std::vector<int64_t> ret;
+	int64_t tileMapSize= (GetWidth()*GetHeight();
+	int64_t temp= GetWidth()+1;
+	if(tile > temp){
+		ret.push_back(tile-temp);
+	}
+	temp--;
+	if(tile > temp){
+		ret.push_back(tile-temp);
+	}
+	temp--;
+	if(tile > temp){
+		ret.push_back(tile-temp);
+	}
+	if(0 < tile){
+		ret.push_back(tile--);
+	}
+	if(tile < (tileMapSize-1)){
+		ret.push_back(tile++);
+	}
+	temp= tile+GetWidth()-1;
+	if( temp < tileMapSize ){
+		ret.push_back(temp);
+	}
+	temp++;
+	if( temp < tileMapSize ){
+		ret.push_back(temp);
+	}
+	temp++;
+	if( temp < tileMapSize ){
+		ret.push_back(temp);
+	}
+	return ret;
+}
+
+
+inline void OrderedInsertion(std::vector<int64_t>& v, int64_t num)
+{
+	std::vector<uint>::iterator index= std::lower_bound(v.begin(), v.end(), num);
+	if(index != v.end())
+	{
+		if((*index) != num)
+		{
+			return v.insert(index, num);
+		}
+	}
+	else
+	{
+		return v.push_back(num);
+	}
+};
+
+template<class T>
+inline void AStarCompare{
+	public:
+		AStarCompare(std::vector<int64_t> const &guessedCost, std::vector<int64_t> const &accumulatedCost):
+			accumulatedCost(accumulatedCost),
+			guessedCost(guessedCost){}
+		bool operator<(int64_t a, int64_t b){
+			if(ELEMENT_ACESS(guessedCost, a) < ELEMENT_ACESS(guessedCost, b) ){
+				return true;
+			}
+			else if(ELEMENT_ACESS(guessedCost, a) == ELEMENT_ACESS(guessedCost, b)){
+				return ELEMENT_ACESS(accumulatedCost, b) < ELEMENT_ACESS(accumulatedCost, a);
+			}
+			else{
+				return false;
+			}
+		}
+	private:
+		std::vector<int64_t> const &guessedCost;
+		std::vector<int64_t> const &accumulatedCost;
+}
+
+inline std::list<int>* MakePath(int origin, int dest, std::vector<int64_t> const &antecessor){
+	std::list<int> *ret= new std::list<int>();
+	int aux= dest;
+	while(aux != originTile){
+		ret.push_front(aux);
+		aux= antecessor[aux];
+	}
+	ret.push_front(originTile);
+	return ret;
+}
+
+template<class T>
+std::list<int>* TileMap::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap){
+	std::vector<int64_t> closedSet;
+	std::vector<int64_t> openSet;//esse vetor deve ser ordenado
+	openSet.push_back(originTile);
+	std::vector<int64_t> antecessor(GetWidth() * GetHeight(), -1);
+	std::vector<float> accumulatedCost(GetWidth() * GetHeight(), std::numeric_limits<float>::max() );
+	accumulatedCost[originTile]=0;
+	std::vector<float> guessedCost(GetWidth() * GetHeight(), std::numeric_limits<float>::max() );
+	guessedCost[originTile]= (*heuristic)(GetVec2Coord(originTile), GetVec2Coord(destTile) );
+	while(openSet.size() > 0){
+		int current= openSet[0];
+		if(current == goal){
+			return MakePath(originTile, destTile, antecessor);
+		}
+		openSet.erase(openSet.begin());
+		OrderedInsertion(closedSet,current);//verificar se aqui precisa de adição ordenada
+		std::vector neightbors= GetNeighbours(current);
+		for(int i=0; i < neightbors.size(); i++){
+			int64_t currentNeightbor= neightbors[i];
+			if(!weightMap.IsTraversable(ELEMENT_ACESS(current) ) ){
+				continue;
+			}
+			if(std::binary_search(closedSet.begin(), closedSet.end(), currentNeightbor) ){
+				continue;
+			}
+			if(!std::binary_search(openSet.begin(), openSet.end(), currentNeightbor) ){
+				openSet.push_back(currentNeightbor);
+				std::sort(openSet.begin(), openSet.end(), AStarCompare(guessedCost, accumulatedCost));
+			}
+			float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(currentNeightbor);
+			if(tentativeDistance < accumulatedCost[currentNeightbor ] ){
+				antecessor[currentNeightbor]= current;
+				accumulatedCost[currentNeightbor]= tentativeDistance;
+				guessedCost[currentNeightbor]= accumulatedCost[currentNeightbor] + (*heuristic)(GetVec2Coord(currentNeightbor), GetVec2Coord(destTile));
+			}
+		}
+	}
+	//se chegar aqui é pq não achou um caminho da origem ao destino
+	std::vector<int64_t> bestPaths;
+	float minimumCostFound= std::numeric_limits<float>::max();
+	for(int i=0; i< guessedCost.size(); i++){
+		if(guessedCost[i] < minimumCostFound){
+			bestPaths.clear();
+			bestPaths.push_back(i);
+			minimumCostFound= guessedCost[i];
+		}
+		else if(guessedCost[i] == minimumCostFound){
+			bestPaths.push_back(i);
+		}
+	}
+	int chosenPath=0;
+	for(int i=1; i< bestPaths.size(); i++){
+		if(accumulatedCost[i] > accumulatedCost[chosenPath]){
+			chosenPath= i;
+		}
+	}
+	return MakePath(originTile, chosenPath, antecessor);
+}
+
+template<class T>
 void TileMap<T>::SetLayerVisibility(int layer, bool visibility){
 	ELEMENT_ACESS(layersVisibility, layer) = visibility;
 }
@@ -292,4 +474,4 @@ bool TileMap<T>::IsLayerVisible(int layer){
 
 
 
-#endif // TILEMAPV2_H
+#endif // TILEMAP_H
