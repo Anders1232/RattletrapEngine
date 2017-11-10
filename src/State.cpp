@@ -67,10 +67,9 @@ void State::Render(void) const {
 
 void State::DeleteRequested(void){
 	//loop deletando os objetos
-	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
+	for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
 		if(objectArray[cont]->IsDead()) {
 			objectArray.erase(objectArray.begin()+cont);
-			cont--;
 		}
 	}
 }

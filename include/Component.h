@@ -30,13 +30,41 @@ class Component{
 		/**
 			\brief Atualiza estado do componente.
 		
-			Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário.
+			Deve conter a lógica principal provida pelo componente, utilizando o GameObject que o contém sempre que necessário.
+			Sugere-se que qualquer lógica que que possa solicitar remoção de um GameObject fique no método EarlyUpdate.
 		*/
 		virtual void Update(float dt)=0;
+		/**
+			\brief Atualiza estado do componente.
+		
+			Recomendado para conter lógica que solicita reoção de GameObjects. É executado todo frame antes do Update.
+		*/
 		virtual void EarlyUpdate(float dt){};
+		/**
+			\brief Atualiza estado do componente.
+		
+			É executado todo frame após o Render.
+		*/
 		virtual void LateUpdate(float dt){};
+		/**
+			\brief Ativa ou desativa o Componente.
+		
+			Essa modificação só passa a valer a partir do frame seguinte.
+			Em componentes desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		void SetEnable(bool newValue);
+		/**
+			\brief Informa se o componente está ativo.
+		
+			Em componentes desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		bool IsEnabled(void) const;
+		/**
+			\brief Atualiza enable.
+		
+			Esse método não deve ser sobrescrevido.
+			Em componentes desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		void UpdateEnable(void);
 		/**
 			\brief Verifica o subtipo de componente.

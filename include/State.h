@@ -30,21 +30,44 @@ class State {
 		virtual ~State(void);
 		/**
 			\brief Atualiza os estado do jogo
-			\param dt intervalo de tempo transcorrido desde a última atualização.
+			\param dt intervalo de tempo transcorrido desde o último frame.
 
-			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras paster que forem julgadas necessárias.
-			Pode-se fazer o uso do UpdateArray() por praticidade.
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
 		*/
 		virtual void Update(float dt)=0;
+		/**
+			\brief Atualiza os estado do jogo
+			\param dt intervalo de tempo transcorrido desde o último frame.
+
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
+			É chamadado antes do Update.
+		*/
 		virtual void EarlyUpdate(float dt);
+		/**
+			\brief Atualiza os estado do jogo
+			\param dt intervalo de tempo transcorrido desde o último frame.
+
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
+			É chamadado depois do Render.
+		*/
 		virtual void LateUpdate(float dt);
+		/**
+			\brief Atualiza active.
+		
+			Esse método não deve ser sobrescrevido. Também atualiza o status enabled de seus Componenetes.
+			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		virtual void UpdateActive(void);
+		/**
+			\brief Deleta GameObjects.
+		
+			Deleta GameObjects que solicitaram deleção.
+		*/
 		void DeleteRequested(void);
 		/**
 			\brief Renderiza os elmentos do jogo
 
 			Aqui deve ser colocado o código que rederiza os elementos jogo na ordem que for desejada.
-			Pode-se fazer o uso do RenderArray por praticidade.
 		*/
 		virtual void Render(void) const;
 		/**

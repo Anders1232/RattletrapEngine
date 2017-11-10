@@ -49,6 +49,14 @@ class GameObject{
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
 		Component& GetComponent(ComponentType type) const;
+		/**
+			\brief Obtém componentes
+			\param type tipo do componente a ser buscado.
+			\todo Verificar viabilidade de lançar exceção ao invés de fechar o jogo.
+			\return Lista de componentes do tipo informado sobre posse do GameObject
+			
+			Se não existir um componente do tipo informado Error() será chamado. Não se deve deletar os componentes obtidos.
+		*/
 		std::vector<Component*> GetComponents(ComponentType type) const;
 		/**
 			\brief Remove componente a um gameobjet.
@@ -69,13 +77,29 @@ class GameObject{
 			No corpo método o GameObject deve atualizar seu estado, utilizando o argumento passado e quaisquer outras funcionalidades que necessitar.
 		*/
 		virtual void Update(float dt);
-		virtual void EarlyUpdate(float dt){};
-		virtual void LateUpdate(float dt){};
+		/**
+			\brief Atualiza estado do GameObject.
+		
+			Recomendado para conter lógica que solicita reoção de GameObjects. É executado todo frame antes do Update.
+		*/
+		virtual void EarlyUpdate(float dt);
+		/**
+			\brief Atualiza estado do GameObject.
+		
+			É executado todo frame após o Render.
+		*/
+		virtual void LateUpdate(float dt);
+		/**
+			\brief Atualiza active.
+		
+			Esse método não deve ser sobrescrevido. Também atualiza o status enabled de seus Componenetes.
+			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		void UpdateActive(void);
 		/**
 			\brief Renderiza o GameObject.
 			
-			Esse método deve ter a lógica necessário para ser renderizado na tela.
+			Basicamente percorre os Componentes chamando o Render deles.
 		*/
 		virtual void Render(void);
 		/**
@@ -112,7 +136,18 @@ class GameObject{
 			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
 		*/
 		virtual Rect GetWorldRenderedRect(void) const;
+		/**
+			\brief Ativa ou desativa o GameObject.
+		
+			Essa modificação só passa a valer a partir do frame seguinte.
+			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		void SetActive(bool newValue);
+		/**
+			\brief Informa se o GameObject está ativo.
+		
+			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
 		bool IsActive(void) const;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
