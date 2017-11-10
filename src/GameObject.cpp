@@ -2,7 +2,7 @@
 #include "Error.h"
 #include "Camera.h"
 
-GameObject::GameObject(void): rotation(0.), dead(false){
+GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true){
 }
 
 
@@ -16,7 +16,25 @@ GameObject::~GameObject(){
 
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
-		components[i]->Update(dt);
+		if(components[i]->IsEnabled() ){
+			components[i]->Update(dt);
+		}
+	}
+}
+
+void GameObject::EarlyUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->EarlyUpdate(dt);
+		}
+	}
+}
+
+void GameObject::LateUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->LateUpdate(dt);
+		}
 	}
 }
 
@@ -66,5 +84,30 @@ Component& GameObject::GetComponent(ComponentType type) const{
 		}
 	}
 	Error("Component not found!");
+}
+
+std::vector<Component *> GameObject::GetComponents(ComponentType type) const{
+	std::vector<Component *> ret;
+	for(uint i = 0; i < components.size();i++){
+		if(components[i]->Is(type)){
+			ret.push_back(components[i] );
+		}
+	}
+	return ret;
+}
+
+void GameObject::UpdateActive(void){
+	active= newActive;//Não é necessário ter um if.
+	for(uint i = 0; i < components.size();i++){
+		components[i]->UpdateEnable();
+	}
+}
+
+void GameObject::SetActive(bool newValue){
+	newActive= newValue;
+}
+
+bool GameObject::IsActive(void) const{
+	return active;
 }
 

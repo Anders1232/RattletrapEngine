@@ -152,12 +152,16 @@ void Game::Run(void) {
 	
 		CalculateDeltaTime();
 		inputManager.Update();
+		stateStack.top()->UpdateActive();
+		stateStack.top()->EarlyUpdate(GetDeltaTime());
 		stateStack.top()->Update(GetDeltaTime());
 		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
 			Error(SDL_GetError());
 		}
 		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
+		stateStack.top()->LateUpdate(GetDeltaTime());
+		stateStack.top()->DeleteRequested();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
 	}

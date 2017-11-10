@@ -33,13 +33,11 @@ class Component{
 			Deve conter a lógica principal provida pelo componente, utilizando o gameObject que o contém sempre que necessário.
 		*/
 		virtual void Update(float dt)=0;
-#ifdef TRANSICAO_FEITA
-		virtual void EarlyUpdate(float dt)=0;
-		virtual void LateUpdate(float dt)=0;
-#else
 		virtual void EarlyUpdate(float dt){};
 		virtual void LateUpdate(float dt){};
-#endif
+		void SetEnable(bool newValue);
+		bool IsEnabled(void) const;
+		void UpdateEnable(void);
 		/**
 			\brief Verifica o subtipo de componente.
 			\param type Tipo que deseja verificar se o componente é.
@@ -56,6 +54,8 @@ class Component{
 		virtual void Render(void){};
 	protected:
 		GameObject &associated;
+		bool enabled;/**<Informa Se o gameObject está ativo ou não*/
+		bool newEnabled;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
 
 #endif

@@ -49,6 +49,7 @@ class GameObject{
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
 		Component& GetComponent(ComponentType type) const;
+		std::vector<Component*> GetComponents(ComponentType type) const;
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Tipo do componente a ser removido.
@@ -68,6 +69,9 @@ class GameObject{
 			No corpo método o GameObject deve atualizar seu estado, utilizando o argumento passado e quaisquer outras funcionalidades que necessitar.
 		*/
 		virtual void Update(float dt);
+		virtual void EarlyUpdate(float dt){};
+		virtual void LateUpdate(float dt){};
+		void UpdateActive(void);
 		/**
 			\brief Renderiza o GameObject.
 			
@@ -108,11 +112,15 @@ class GameObject{
 			Obtém Rect informando a posição renderizada, computando zoom, escala e posição da câmera.
 		*/
 		virtual Rect GetWorldRenderedRect(void) const;
+		void SetActive(bool newValue);
+		bool IsActive(void) const;
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 	protected:
 		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
+		bool active;/**<Informa Se o gameObject está ativo ou não*/
+		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
 
 #endif // GAMEOBJECT_H
