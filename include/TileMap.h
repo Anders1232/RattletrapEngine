@@ -36,7 +36,7 @@ class TileMap : public Component, NearestFinder<T>{
 //		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, float intensity);
 		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
-		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max())  const;
+		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
