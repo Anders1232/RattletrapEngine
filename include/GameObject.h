@@ -65,6 +65,12 @@ class GameObject{
 		*/
 		void RemoveComponent(ComponentType type);
 		/**
+			\brief Remove componente a um gameobjet.
+			\param type Ponteiro do componente a ser removido.
+			Se a não existir o componente no GameObject nada será feito.
+		*/
+		void RemoveComponent(Component* component);
+		/**
 			\brief Destrutor
 			
 			Basicamente é para obrigar quem implementar de usar um destrutor.

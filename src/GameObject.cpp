@@ -82,6 +82,16 @@ void GameObject::RemoveComponent(ComponentType type){
 	}
 }
 
+void GameObject::RemoveComponent(Component* component){
+	for(uint i = 0; i < components.size();i++){
+		if(components[i] == component){
+			delete components[i];
+			components.erase(components.begin() + i);
+			return;
+		}
+	}
+}
+
 Component& GameObject::GetComponent(ComponentType type) const{
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){

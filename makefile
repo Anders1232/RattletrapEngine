@@ -4,7 +4,7 @@
 
 COMPILER = g++
 #comando para remover pastas
-RMDIR = rm -rf
+RMDIR = rm -rdf
 #comando para remover arquivos
 RM = rm -f
 
@@ -84,8 +84,8 @@ $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp $(DEP_PATH)/%.d | folders
 	$(COMPILER) $(INC_PATHS) $< -c $(FLAGS) -o $@
 
 clean:
-	-$(RM) "$(DEP_PATH)\*"
-	-$(RM) "$(BIN_PATH)\*"
+	-$(RMDIR) $(DEP_PATH)\*
+	-$(RMDIR) $(BIN_PATH)\*
 
 folders:
 ifeq ($(OS), Windows_NT)
