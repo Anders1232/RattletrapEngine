@@ -84,8 +84,8 @@ $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp $(DEP_PATH)/%.d | folders
 	$(COMPILER) $(INC_PATHS) $< -c $(FLAGS) -o $@
 
 clean:
-	-$(RMDIR) $(DEP_PATH)\*
-	-$(RMDIR) $(BIN_PATH)\*
+	-$(RMDIR) $(DEP_PATH)
+	-$(RMDIR) $(BIN_PATH)
 
 folders:
 ifeq ($(OS), Windows_NT)
