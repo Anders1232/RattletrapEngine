@@ -33,7 +33,7 @@ void State::UpdateActive() {
 
 void State::EarlyUpdate(float dt) {
 #ifdef USE_THREADING
-	Rattletrap::Threading::Update(objectArray);
+	Rattletrap::Threading::EarlyUpdate(objectArray);
 #else
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		if(objectArray[cont]->IsActive()){
@@ -57,7 +57,7 @@ void State::Update(float dt) {
 
 void State::LateUpdate(float dt) {
 #ifdef USE_THREADING
-	Rattletrap::Threading::Update(objectArray);
+	Rattletrap::Threading::LateUpdate(objectArray);
 #else
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		if(objectArray[cont]->IsActive()){
