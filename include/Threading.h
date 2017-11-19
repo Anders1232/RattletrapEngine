@@ -11,11 +11,11 @@
 namespace Rattletrap {
 	class Threading {
 		public:
-			Threading(void);
-			~Threading(void);
-			void EarlyUpdate(std::std::vector<std::unique_ptr<GameObject>> &gameObjects);
-			void Update(std::std::vector<std::unique_ptr<GameObject>> &gameObjects);
-			void LateUpdate(std::std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void Init(void);
+			static void Destroy(void);
+			static void EarlyUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void Update(std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void LateUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects);
 		private:
 			struct ThreadContex{
 				pthread_mutex_t mutex;
@@ -23,26 +23,26 @@ namespace Rattletrap {
 				sem_t mutexForEndInform;
 				FowardList* fw;
 			};
-			ThreadContex early, mid, late;
+			static ThreadContex early, mid, late;
 			
-			void CreateEarlyThreadPool(void);
-			void CreateMidThreadPool(void);
-			void CreateLateThreadPool(void);
+			static void CreateEarlyThreadPool(void);
+			static void CreateMidThreadPool(void);
+			static void CreateLateThreadPool(void);
 			
-			void* EarlyUpdateThread(void *nothing);
-			void* MidUpdateThread(void *nothing);
-			void* LateUpdateThread(void *nothing);
+			static void* EarlyUpdateThread(void *nothing);
+			static void* MidUpdateThread(void *nothing);
+			static void* LateUpdateThread(void *nothing);
 			
-			void DestroyEarlyThreadPool(void);
-			void DestroyMidThreadPool(void);
-			void DestroyLateThreadPool(void);
+			static void DestroyEarlyThreadPool(void);
+			static void DestroyMidThreadPool(void);
+			static void DestroyLateThreadPool(void);
 			
-			void Update(ThreadContex &contex, std::std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects);
 			
-			std::vector<pthread_t> earlyThreads;
-			std::vector<pthread_t> midThreads;
-			std::vector<pthread_t> LateThreads;
-	}
+			static std::vector<pthread_t> earlyThreads;
+			static std::vector<pthread_t> midThreads;
+			static std::vector<pthread_t> lateThreads;
+	};
 }
 
 

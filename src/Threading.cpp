@@ -1,8 +1,9 @@
 #include "Threading.h"
+#include "Game.h"
 
 namespace Rattletrap {
 	
-	Threading::Threading(void){
+	void Threading::Init(void){
 		pthread_mutex_init(&(early.mutex), NULL );
 		pthread_mutex_init(&(mid.mutex), NULL );
 		pthread_mutex_init(&(late.mutex), NULL );
@@ -20,7 +21,7 @@ namespace Rattletrap {
 		late.fw= NewFowardList();
 	}
 	
-	Threading::~Threading(void){
+	void Threading::Destroy(void){
 		pthread_mutex_destroy(&(early.mutex) );
 		pthread_mutex_destroy(&(mid.mutex) );
 		pthread_mutex_destroy(&(late.mutex) );
@@ -36,18 +37,19 @@ namespace Rattletrap {
 	
 	
 	#define UpdateThread(contex,updateFunc)\
-		GameObject *gotoUpdate;\
-		while(NULL != (goToUpdate= FowardListGetElement( contex .fw) ) ){\
+		GameObject *goToUpdate;\
+		while(NULL != (goToUpdate= (GameObject*)FowardListGetElement( contex .fw) ) ){\
 			if(goToUpdate->IsActive() ){\
 				goToUpdate-> updateFunc (Game::GetInstance().GetDeltaTime());\
 			}\
 			pthread_mutex_lock(&( contex .mutex));\
 			( contex .remainingGOsCounter)--;\
-			if(0 >= remainingGOsCounter){\
+			if(0 >=  contex .remainingGOsCounter){\
 				sem_post(&( contex .mutexForEndInform) );\
 			}\
 			pthread_mutex_unlock(&( contex .mutex));\
-		}
+		}\
+		pthread_exit(NULL);
 	
 	void* Threading::EarlyUpdateThread(void *nothing){
 		UpdateThread(early,EarlyUpdate);
@@ -92,7 +94,7 @@ namespace Rattletrap {
 		if(0 == numThreads){\
 			numThreads= hardware_concurrency();\
 		}\
-		vector= std::vector <pthread_t>(numThreads);\
+		vector.resize(numThreads);\
 		for(unsigned int i=0; i < numThreads; i++){\
 			pthread_create(&(vector[i]), NULL, updateMethod , NULL);\
 		}
@@ -107,13 +109,13 @@ namespace Rattletrap {
 	}
 	
 	void Threading::CreateLateThreadPool(void){
-		CreateThreadPool(LateThreads,LateUpdateThread);
+		CreateThreadPool(lateThreads,LateUpdateThread);
 	}
 	
-	#define DestroyThreadPool(vector)\
+	#define DestroyThreadPool(contex,vector)\
 		unsigned int numThreads= vector.size();\
 		for(unsigned int i=0; i< numThreads; i++){\
-			FowardListAddElement(&( vector .fw), NULL);\
+			FowardListAddElement( contex .fw, NULL);\
 		}\
 		for(unsigned int i=0; i< numThreads; i++){\
 			pthread_join(vector[i], NULL);\
@@ -121,33 +123,33 @@ namespace Rattletrap {
 	//fim do define
 	
 	void Threading::DestroyEarlyThreadPool(void){
-		DestroyThreadPool(earlyThreads);
+		DestroyThreadPool(early,earlyThreads);
 	}
 	
 	void Threading::DestroyMidThreadPool(void){
-		DestroyThreadPool(midThreads);
+		DestroyThreadPool(mid,midThreads);
 	}
 	
 	void Threading::DestroyLateThreadPool(void){
-		DestroyThreadPool(LateThreads);
+		DestroyThreadPool(late,lateThreads);
 	}
 	
-	void Threading::Update(ThreadContex &contex, std::std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects){
 		unsigned int goCount= gameObjects.size();
 		contex.remainingGOsCounter= goCount;
-		for(int i=0; i< goCount; i++){
-			FowardListAddElement(contex.fw, &( (gameObjects[i])->get() ) );
+		for(unsigned int i=0; i< goCount; i++){
+			FowardListAddElement(contex.fw, &( *(gameObjects[i]) ) );
 		}
 		sem_wait(&(contex.mutexForEndInform) );
 	}
 	
-	void Threading::EarlyUpdate(std::std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::EarlyUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects){
 		Update(early, gameObjects);
 	}
-	void Threading::Update(std::std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::Update(std::vector<std::unique_ptr<GameObject>> &gameObjects){
 		Update(mid, gameObjects);
 	}
-	void Threading::LateUpdate(std::std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::LateUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects){
 		Update(late, gameObjects);
 	}
 	

@@ -10,7 +10,7 @@ RM = rm -f
 
 #Flags para geração automática de dependências
 DEP_FLAGS = -M -MT $(BIN_PATH)/$(*F).o -MP -MF $@
-LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
+LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm -lpthread
 
 #Se o gcc não reconhecer a flag -fdiagnostics-color basta retirar ela
 # FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter -fdiagnostics-color -static-libgcc -static-libstdc++ -Werror=init-self
@@ -69,7 +69,7 @@ LIBS = -lm -framework SDL2 -framework SDL2_image -framework SDL2_mixer -framewor
 endif
 endif
 
-INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH))
+INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH)) -IFowardList
 
 .PRECIOUS: $(DEP_FILES)
 
