@@ -73,6 +73,8 @@ INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH)) -IFowardList
 
 .PRECIOUS: $(DEP_FILES)
 
+all: $(OBJ_FILES)
+
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATH)/%.h | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp | folders
