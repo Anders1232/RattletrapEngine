@@ -1,3 +1,12 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classSound.html" title="Classe que modela sons. " alt="" coords="5,5,64,32"/>
+<area shape="rect" id="node1" href="$classComponent.html" title="Modela os componentes. " alt="" coords="29,183,118,209"/>
+<area shape="rect" id="node2" href="$classButton.html" title="Button" alt="" coords="226,5,286,32"/>
+<area shape="rect" id="node3" href="$classDragAndDrop.html" title="Classe responsável por arrastar e posicionar Objetos. " alt="" coords="189,56,323,83"/>
+<area shape="rect" id="node4" href="$classGrouper.html" title="Grouper" alt="" coords="222,107,290,133"/>
+<area shape="rect" id="node5" href="$classRectTransform.html" title="RectTransform" alt="" coords="201,157,311,184"/>
+<area shape="rect" id="node6" href="$classSprite.html" title="Classe que modela uma sprite. Sprite é uma imagem carregada na memória. Essa classe também traz uma s..." alt="" coords="228,208,284,235"/>
+<area shape="rect" id="node7" href="$classText.html" title="Text" alt="" coords="232,259,280,285"/>
+<area shape="rect" id="node8" href="$classTileMap.html" title="TileMap\&lt; T \&gt;" alt="" coords="206,360,306,387"/>
+<area shape="rect" id="node9" href="$classTileSet.html" title="TileSet" alt="" coords="225,309,287,336"/>
+<area shape="rect" id="node10" href="$classNearestFinder.html" title="NearestFinder\&lt; T \&gt;" alt="" coords="5,360,141,387"/>
 </map>

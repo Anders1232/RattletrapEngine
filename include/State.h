@@ -30,19 +30,46 @@ class State {
 		virtual ~State(void);
 		/**
 			\brief Atualiza os estado do jogo
-			\param dt intervalo de tempo transcorrido desde a última atualização.
+			\param dt intervalo de tempo transcorrido desde o último frame.
 
-			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras paster que forem julgadas necessárias.
-			Pode-se fazer o uso do UpdateArray() por praticidade.
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
 		*/
 		virtual void Update(float dt)=0;
+		/**
+			\brief Atualiza os estado do jogo
+			\param dt intervalo de tempo transcorrido desde o último frame.
+
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
+			É chamadado antes do Update.
+		*/
+		virtual void EarlyUpdate(float dt);
+		/**
+			\brief Atualiza os estado do jogo
+			\param dt intervalo de tempo transcorrido desde o último frame.
+
+			Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
+			É chamadado depois do Render.
+		*/
+		virtual void LateUpdate(float dt);
+		/**
+			\brief Atualiza active.
+		
+			Esse método não deve ser sobrescrevido. Também atualiza o status enabled de seus Componenetes.
+			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
+		*/
+		virtual void UpdateActive(void);
+		/**
+			\brief Deleta GameObjects.
+		
+			Deleta GameObjects que solicitaram deleção.
+		*/
+		void DeleteRequested(void);
 		/**
 			\brief Renderiza os elmentos do jogo
 
 			Aqui deve ser colocado o código que rederiza os elementos jogo na ordem que for desejada.
-			Pode-se fazer o uso do RenderArray por praticidade.
 		*/
-		virtual void Render(void) const =0;
+		virtual void Render(void) const;
 		/**
 			\brief Pausa o State
 
@@ -80,20 +107,6 @@ class State {
 		*/
 		virtual void LoadAssets(void) const = 0;
 	protected:
-		/**
-			\brief Atualiza o estado de cada GameObject no vetor de GameObjects.
-			\param dt Tempo transcorrido desde a última atualização.
-
-			O vetor de GameObjects é percorrido completamente e para cada gameObject o método Update é chamado passando como argumento dt.
-			Se algum GameObject for considerado morto(IsDead retornar verdadeiro) esse GameObject é removido do vetor de GameObjects.
-		*/
-		virtual void UpdateArray(float dt);
-		/**
-			\brief Renderiza cada GameObject no vetor de GameObjects.
-
-			Percorre todos os GameObjects do vetor de GameObjects chamando o método Render de cada um deles.
-		*/
-		virtual void RenderArray(void) const;
 		bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 		bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
 		std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/

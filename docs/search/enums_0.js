@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['behavioronless',['BehaviorOnLess',['../classUIgridGroup.html#abeeb50eb685b53321562506605e998cf',1,'UIgridGroup']]],
-  ['behaviortype',['BehaviorType',['../classUIelement.html#a69875a0080da836b091c60c569163569',1,'UIelement']]]
+  ['behavioronless',['BehaviorOnLess',['../classGrouper.html#ac50040a562e458eb5c0b77f5570d4920',1,'Grouper']]],
+  ['behaviortype',['BehaviorType',['../classRectTransform.html#a855dca32688a53677bfd4f5484e50363',1,'RectTransform']]]
 ];

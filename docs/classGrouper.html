@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rattletrap: Referência da Classe Grouper</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Rattletrap
+   </div>
+   <div id="projectbrief">ASDL2GameEngine</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Tipos Públicos</a> &#124;
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="classGrouper-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Classe Grouper</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;Grouper.h&gt;</code></p>
+<div class="dynheader">
+Diagrama de Hierarquia para Grouper:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGrouper__inherit__graph.svg" width="100" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<div class="dynheader">
+Diagrama de colaboração para Grouper:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classGrouper__coll__graph.svg" width="1070" height="471"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+<center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Tipos Públicos</h2></td></tr>
+<tr class="memitem:ad846ec79da2abb43fd947f16bf111535"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">ConstraintType</a> { <a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535a7ab4fd5ae160046b2060eeb038755108">FIXED_N_ROWS</a>, 
+<a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535abdc44828b1e856c4e530be1b6f370f51">FIXED_N_COLS</a>
+ }</td></tr>
+<tr class="separator:ad846ec79da2abb43fd947f16bf111535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50040a562e458eb5c0b77f5570d4920"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">BehaviorOnLess</a> { <a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920a450bba5639240b9afaa8d4f6ec1135d0">RIGHT_ALIGN</a>, 
+<a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920a02425bd508c0650fafddae9fae62639e">LEFT_ALIGN</a>, 
+<a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920a4db99dc7bdb4be4c511c920802adeaf8">STRETCH</a>, 
+<a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920af5952f5f806ea06d10b459838ae449bb">CENTER</a>
+ }</td></tr>
+<tr class="separator:ac50040a562e458eb5c0b77f5570d4920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos Públicos</h2></td></tr>
+<tr class="memitem:ad39ec9a0edd74a862692f30c0f627dac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#ad39ec9a0edd74a862692f30c0f627dac">Grouper</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;<a class="el" href="classComponent.html#abc628785602d2f19603324ff9e721d75">associated</a>)</td></tr>
+<tr class="separator:ad39ec9a0edd74a862692f30c0f627dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0490dc906f562ba5cdf1c6a552abc03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#af0490dc906f562ba5cdf1c6a552abc03">~Grouper</a> ()</td></tr>
+<tr class="separator:af0490dc906f562ba5cdf1c6a552abc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5363a26fe5f2f9f5190238224c9e4b4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a5363a26fe5f2f9f5190238224c9e4b4c">EarlyUpdate</a> (float dt)</td></tr>
+<tr class="memdesc:a5363a26fe5f2f9f5190238224c9e4b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado do componente.  <a href="#a5363a26fe5f2f9f5190238224c9e4b4c">Mais...</a><br /></td></tr>
+<tr class="separator:a5363a26fe5f2f9f5190238224c9e4b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accff7fe3253a2bc703f58eee86d106f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#accff7fe3253a2bc703f58eee86d106f0">Update</a> (float dt)</td></tr>
+<tr class="memdesc:accff7fe3253a2bc703f58eee86d106f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado do componente.  <a href="#accff7fe3253a2bc703f58eee86d106f0">Mais...</a><br /></td></tr>
+<tr class="separator:accff7fe3253a2bc703f58eee86d106f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f654745bc467ca06a0c4b85cd8c0502"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a8f654745bc467ca06a0c4b85cd8c0502">LateUpdate</a> (float dt)</td></tr>
+<tr class="memdesc:a8f654745bc467ca06a0c4b85cd8c0502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza estado do componente.  <a href="#a8f654745bc467ca06a0c4b85cd8c0502">Mais...</a><br /></td></tr>
+<tr class="separator:a8f654745bc467ca06a0c4b85cd8c0502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a716b66ec929df1b25b64d20e50acd445"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a716b66ec929df1b25b64d20e50acd445">Is</a> (<a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a> type) const</td></tr>
+<tr class="memdesc:a716b66ec929df1b25b64d20e50acd445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica o subtipo de componente.  <a href="#a716b66ec929df1b25b64d20e50acd445">Mais...</a><br /></td></tr>
+<tr class="separator:a716b66ec929df1b25b64d20e50acd445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4155a80b470c57b25e147ed1b29513d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a4155a80b470c57b25e147ed1b29513d3">MakeGridGroup</a> (<a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">ConstraintType</a> ctype, int num, <a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">BehaviorOnLess</a> bol)</td></tr>
+<tr class="separator:a4155a80b470c57b25e147ed1b29513d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af84357c02a3c03ec5ff408b763a944de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#af84357c02a3c03ec5ff408b763a944de">MakeHorizontalGroup</a> ()</td></tr>
+<tr class="separator:af84357c02a3c03ec5ff408b763a944de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1568dee9286b0716c7f6c7eed6b118ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a1568dee9286b0716c7f6c7eed6b118ba">MakeVerticalGroup</a> ()</td></tr>
+<tr class="separator:a1568dee9286b0716c7f6c7eed6b118ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classComponent')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos herdados de <a class="el" href="classComponent.html">Component</a></td></tr>
+<tr class="memitem:a30db7f3994135926f74aee6d3498f3c4 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a30db7f3994135926f74aee6d3498f3c4">Component</a> (<a class="el" href="classGameObject.html">GameObject</a> &amp;<a class="el" href="classComponent.html#abc628785602d2f19603324ff9e721d75">associated</a>)</td></tr>
+<tr class="separator:a30db7f3994135926f74aee6d3498f3c4 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbad4b17c6356835b41802cb8175176b inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#abbad4b17c6356835b41802cb8175176b">SetEnable</a> (bool newValue)</td></tr>
+<tr class="memdesc:abbad4b17c6356835b41802cb8175176b inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ativa ou desativa o Componente.  <a href="classComponent.html#abbad4b17c6356835b41802cb8175176b">Mais...</a><br /></td></tr>
+<tr class="separator:abbad4b17c6356835b41802cb8175176b inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b5cbadea762183c43054a9874b5ce0 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a16b5cbadea762183c43054a9874b5ce0">IsEnabled</a> (void) const</td></tr>
+<tr class="memdesc:a16b5cbadea762183c43054a9874b5ce0 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa se o componente está ativo.  <a href="classComponent.html#a16b5cbadea762183c43054a9874b5ce0">Mais...</a><br /></td></tr>
+<tr class="separator:a16b5cbadea762183c43054a9874b5ce0 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb9e6c083ffc0f77b249a4feb2a24e0 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#acfb9e6c083ffc0f77b249a4feb2a24e0">UpdateEnable</a> (void)</td></tr>
+<tr class="memdesc:acfb9e6c083ffc0f77b249a4feb2a24e0 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza enable.  <a href="classComponent.html#acfb9e6c083ffc0f77b249a4feb2a24e0">Mais...</a><br /></td></tr>
+<tr class="separator:acfb9e6c083ffc0f77b249a4feb2a24e0 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae18722fd3bbb40cef7daf1b94aabb397 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397">~Component</a> (void)</td></tr>
+<tr class="memdesc:ae18722fd3bbb40cef7daf1b94aabb397 inherit pub_methods_classComponent"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor.  <a href="classComponent.html#ae18722fd3bbb40cef7daf1b94aabb397">Mais...</a><br /></td></tr>
+<tr class="separator:ae18722fd3bbb40cef7daf1b94aabb397 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1807bd0329af36f506bc6759a9f876 inherit pub_methods_classComponent"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#a4c1807bd0329af36f506bc6759a9f876">Render</a> (void)</td></tr>
+<tr class="separator:a4c1807bd0329af36f506bc6759a9f876 inherit pub_methods_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a307202bbfd4fbbcfa0a5202ba15bde79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classVec2.html">Vec2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a307202bbfd4fbbcfa0a5202ba15bde79">padding</a></td></tr>
+<tr class="separator:a307202bbfd4fbbcfa0a5202ba15bde79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac64713fca4adecc6e210c384cd4bd19d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classGameObject.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#ac64713fca4adecc6e210c384cd4bd19d">groupedElements</a></td></tr>
+<tr class="separator:ac64713fca4adecc6e210c384cd4bd19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a2391affe6f7637ad8c6ace36458e5852"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">Grouper::ConstraintType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a2391affe6f7637ad8c6ace36458e5852">constraint</a></td></tr>
+<tr class="separator:a2391affe6f7637ad8c6ace36458e5852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df1d27b3043e6c71684f00fb8c16690"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a6df1d27b3043e6c71684f00fb8c16690">number</a></td></tr>
+<tr class="separator:a6df1d27b3043e6c71684f00fb8c16690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e224e51faa5df660b588aae2fc0bbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">Grouper::BehaviorOnLess</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGrouper.html#a88e224e51faa5df660b588aae2fc0bbe">behaviorOnLess</a></td></tr>
+<tr class="separator:a88e224e51faa5df660b588aae2fc0bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Outros membros herdados</h2></td></tr>
+<tr class="inherit_header pro_attribs_classComponent"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classComponent')"><img src="closed.png" alt="-"/>&#160;Atributos Protegidos herdados de <a class="el" href="classComponent.html">Component</a></td></tr>
+<tr class="memitem:abc628785602d2f19603324ff9e721d75 inherit pro_attribs_classComponent"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classGameObject.html">GameObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#abc628785602d2f19603324ff9e721d75">associated</a></td></tr>
+<tr class="separator:abc628785602d2f19603324ff9e721d75 inherit pro_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa65bb278f1e9256d34d6ea008e654ab inherit pro_attribs_classComponent"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#afa65bb278f1e9256d34d6ea008e654ab">enabled</a></td></tr>
+<tr class="separator:afa65bb278f1e9256d34d6ea008e654ab inherit pro_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31261b5b3e734643d0cbc1c934e0aef inherit pro_attribs_classComponent"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classComponent.html#ab31261b5b3e734643d0cbc1c934e0aef">newEnabled</a></td></tr>
+<tr class="separator:ab31261b5b3e734643d0cbc1c934e0aef inherit pro_attribs_classComponent"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Enumerações</h2>
+<a id="ac50040a562e458eb5c0b77f5570d4920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50040a562e458eb5c0b77f5570d4920">&#9670;&nbsp;</a></span>BehaviorOnLess</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">Grouper::BehaviorOnLess</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumerações</th></tr><tr><td class="fieldname"><a id="ac50040a562e458eb5c0b77f5570d4920a450bba5639240b9afaa8d4f6ec1135d0"></a>RIGHT_ALIGN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac50040a562e458eb5c0b77f5570d4920a02425bd508c0650fafddae9fae62639e"></a>LEFT_ALIGN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac50040a562e458eb5c0b77f5570d4920a4db99dc7bdb4be4c511c920802adeaf8"></a>STRETCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac50040a562e458eb5c0b77f5570d4920af5952f5f806ea06d10b459838ae449bb"></a>CENTER&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="ad846ec79da2abb43fd947f16bf111535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad846ec79da2abb43fd947f16bf111535">&#9670;&nbsp;</a></span>ConstraintType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">Grouper::ConstraintType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valores de enumerações</th></tr><tr><td class="fieldname"><a id="ad846ec79da2abb43fd947f16bf111535a7ab4fd5ae160046b2060eeb038755108"></a>FIXED_N_ROWS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad846ec79da2abb43fd947f16bf111535abdc44828b1e856c4e530be1b6f370f51"></a>FIXED_N_COLS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a id="ad39ec9a0edd74a862692f30c0f627dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39ec9a0edd74a862692f30c0f627dac">&#9670;&nbsp;</a></span>Grouper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Grouper::Grouper </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGameObject.html">GameObject</a> &amp;&#160;</td>
+          <td class="paramname"><em>associated</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0490dc906f562ba5cdf1c6a552abc03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0490dc906f562ba5cdf1c6a552abc03">&#9670;&nbsp;</a></span>~Grouper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Grouper::~Grouper </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a id="a5363a26fe5f2f9f5190238224c9e4b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5363a26fe5f2f9f5190238224c9e4b4c">&#9670;&nbsp;</a></span>EarlyUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::EarlyUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza estado do componente. </p>
+<p>Recomendado para conter lógica que solicita reoção de GameObjects. É executado todo frame antes do Update. </p>
+
+<p>Reimplementação de <a class="el" href="classComponent.html#ade9724304616920b7ad95a953ddc34dd">Component</a>.</p>
+
+</div>
+</div>
+<a id="a716b66ec929df1b25b64d20e50acd445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a716b66ec929df1b25b64d20e50acd445">&#9670;&nbsp;</a></span>Is()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Grouper::Is </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ComponentType_8h.html#a81f78fc173dedefe5a049c0aa3eed2c0">ComponentType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica o subtipo de componente. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Tipo que deseja verificar se o componente é.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Retorna verdadeiro se o componente for do tipo type, falso caso contrário. </p>
+
+<p>Implementa <a class="el" href="classComponent.html#a81f861605b8c887e7634e56424c21a2a">Component</a>.</p>
+
+</div>
+</div>
+<a id="a8f654745bc467ca06a0c4b85cd8c0502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f654745bc467ca06a0c4b85cd8c0502">&#9670;&nbsp;</a></span>LateUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::LateUpdate </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza estado do componente. </p>
+<p>É executado todo frame após o Render. </p>
+
+<p>Reimplementação de <a class="el" href="classComponent.html#ab239fdf15f98907107431a9bc10424ac">Component</a>.</p>
+
+</div>
+</div>
+<a id="a4155a80b470c57b25e147ed1b29513d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4155a80b470c57b25e147ed1b29513d3">&#9670;&nbsp;</a></span>MakeGridGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::MakeGridGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">Grouper::ConstraintType</a>&#160;</td>
+          <td class="paramname"><em>ctype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">Grouper::BehaviorOnLess</a>&#160;</td>
+          <td class="paramname"><em>bol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af84357c02a3c03ec5ff408b763a944de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af84357c02a3c03ec5ff408b763a944de">&#9670;&nbsp;</a></span>MakeHorizontalGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::MakeHorizontalGroup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1568dee9286b0716c7f6c7eed6b118ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1568dee9286b0716c7f6c7eed6b118ba">&#9670;&nbsp;</a></span>MakeVerticalGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::MakeVerticalGroup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accff7fe3253a2bc703f58eee86d106f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accff7fe3253a2bc703f58eee86d106f0">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Grouper::Update </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza estado do componente. </p>
+<p>Deve conter a lógica principal provida pelo componente, utilizando o <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> que o contém sempre que necessário. Sugere-se que qualquer lógica que que possa solicitar remoção de um <a class="el" href="classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. ">GameObject</a> fique no método EarlyUpdate. </p>
+
+<p>Implementa <a class="el" href="classComponent.html#a990f6e7cd155934d322e2595f211a64c">Component</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a id="a88e224e51faa5df660b588aae2fc0bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e224e51faa5df660b588aae2fc0bbe">&#9670;&nbsp;</a></span>behaviorOnLess</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGrouper.html#ac50040a562e458eb5c0b77f5570d4920">Grouper::BehaviorOnLess</a> Grouper::behaviorOnLess</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2391affe6f7637ad8c6ace36458e5852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2391affe6f7637ad8c6ace36458e5852">&#9670;&nbsp;</a></span>constraint</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classGrouper.html#ad846ec79da2abb43fd947f16bf111535">Grouper::ConstraintType</a> Grouper::constraint</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac64713fca4adecc6e210c384cd4bd19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac64713fca4adecc6e210c384cd4bd19d">&#9670;&nbsp;</a></span>groupedElements</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classGameObject.html">GameObject</a>*&gt; Grouper::groupedElements</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6df1d27b3043e6c71684f00fb8c16690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df1d27b3043e6c71684f00fb8c16690">&#9670;&nbsp;</a></span>number</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Grouper::number</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a307202bbfd4fbbcfa0a5202ba15bde79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307202bbfd4fbbcfa0a5202ba15bde79">&#9670;&nbsp;</a></span>padding</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classVec2.html">Vec2</a> Grouper::padding</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/<a class="el" href="Grouper_8h.html">Grouper.h</a></li>
+<li>src/<a class="el" href="Grouper_8cpp.html">Grouper.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 13 de Novembro de 2017 16:32:46 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

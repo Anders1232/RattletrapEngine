@@ -1,3 +1,4 @@
-<map id="TileMap" name="TileMap">
-<area shape="rect" id="node2" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="5,5,129,32"/>
+<map id="TileMap&lt; T &gt;" name="TileMap&lt; T &gt;">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node3" href="$classNearestFinder.html" title="NearestFinder\&lt; T \&gt;" alt="" coords="119,5,255,32"/>
 </map>

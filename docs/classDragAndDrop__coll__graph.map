@@ -1,12 +1,7 @@
-<map id="DragAndDrop" name="DragAndDrop">
-<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="1161,88,1251,115"/>
-<area shape="rect" id="node3" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="697,15,749,41"/>
-<area shape="rect" id="node5" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="851,189,946,216"/>
-<area shape="rect" id="node7" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="537,169,588,196"/>
-<area shape="rect" id="node12" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="535,553,591,580"/>
-<area shape="rect" id="node9" href="$classTileMap.html" title="Classe que modela o TileMap. " alt="" coords="1172,736,1240,763"/>
-<area shape="rect" id="node10" href="$classNearestGOFinder.html" title="NearestGOFinder" alt="" coords="837,659,961,685"/>
-<area shape="rect" id="node11" href="$classTileSet.html" title="Classe responsável por modelar um tileset. " alt="" coords="867,709,930,736"/>
-<area shape="rect" id="node22" href="$classSound.html" title="Classe que modela sons. " alt="" coords="533,908,592,935"/>
-<area shape="rect" id="node17" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="233,632,287,659"/>
+<map id="DragAndDrop&lt; T &gt;" name="DragAndDrop&lt; T &gt;">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="363,364,453,391"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="235,259,330,285"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="184,139,235,165"/>
+<area shape="rect" id="node8" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="570,198,622,225"/>
+<area shape="rect" id="node10" href="$classSound.html" title="Classe que modela sons. " alt="" coords="801,364,860,391"/>
 </map>

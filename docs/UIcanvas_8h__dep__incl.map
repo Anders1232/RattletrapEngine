@@ -1,9 +1,0 @@
-<map id="include/UIcanvas.h" name="include/UIcanvas.h">
-<area shape="rect" id="node2" href="$UIgridGroup_8h.html" title="include/UIgridGroup.h" alt="" coords="5,80,153,107"/>
-<area shape="rect" id="node4" href="$UIhorizontalGroup_8h.html" title="include/UIhorizontalGroup.h" alt="" coords="177,80,360,107"/>
-<area shape="rect" id="node6" href="$UIverticalGroup_8h.html" title="include/UIverticalGroup.h" alt="" coords="384,80,553,107"/>
-<area shape="rect" id="node8" href="$UIcanvas_8cpp.html" title="src/UIcanvas.cpp" alt="" coords="578,80,703,107"/>
-<area shape="rect" id="node3" href="$UIgridGroup_8cpp.html" title="src/UIgridGroup.cpp" alt="" coords="10,155,149,181"/>
-<area shape="rect" id="node5" href="$UIhorizontalGroup_8cpp.html" title="src/UIhorizontalGroup.cpp" alt="" coords="181,155,356,181"/>
-<area shape="rect" id="node7" href="$UIverticalGroup_8cpp.html" title="src/UIverticalGroup.cpp" alt="" coords="389,155,549,181"/>
-</map>
