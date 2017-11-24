@@ -34,7 +34,7 @@ FowardList* DeleteFowardList(FowardList*);
 
 FowardList* NewFowardList(void)
 {
-	FowardList *ret= malloc(sizeof(FowardList));
+	FowardList *ret=  (FowardList*)malloc(sizeof(FowardList));
 	if(NULL == ret)
 	{
 		fprintf(stderr, "[ERROR] %s | %s:%d\t\t Error allocating foward list.", __FILE__, __func__, __LINE__);
@@ -56,7 +56,7 @@ FowardList* NewFowardList(void)
 void FowardListAddElement(FowardList*fw, void *element)
 {
 	pthread_mutex_lock(&(fw->mutex));
-	FowardListElement *newElement= malloc(sizeof(FowardListElement));
+	FowardListElement *newElement= (FowardListElement*)malloc(sizeof(FowardListElement));
 	if(NULL == newElement)
 	{
 		fprintf(stderr, "[ERROR] %s | %s:%d\t\t Error allocating foward list.", __FILE__, __func__, __LINE__);
