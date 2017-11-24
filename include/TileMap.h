@@ -80,26 +80,6 @@ class TileMap : public Component, NearestFinder<T>{
 		void RenderLayer(int layer);
 };
 
-class AStarHeuristic{
-//	virtual AStarHeuristic(){};
-	public:
-		virtual int operator()(Vec2 originTile, Vec2 desTile) = 0;
-		virtual ~AStarHeuristic(void){};
-};
-
-//------------------------
-
-template<class T>
-class AStarWeight{
-//	virtual AStarWeight(){};
-	public:
-		virtual float CalculateCost(T& tile) = 0;
-		virtual bool IsTraversable(T& tile)=0;
-		virtual ~AStarWeight(void){};
-};
-
-//---------------------------
-
 
 
 
