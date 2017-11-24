@@ -354,22 +354,24 @@ std::vector<int64_t> TileMap<T>::GetNeighbours(int64_t tile){//TODO: otimizar
 
 inline void OrderedInsertion(std::vector<int64_t>& v, int64_t num)
 {
-	std::vector<uint>::iterator index= std::lower_bound(v.begin(), v.end(), num);
+	std::vector<int64_t>::iterator index= std::lower_bound(v.begin(), v.end(), num);
 	if(index != v.end())
 	{
 		if((*index) != num)
 		{
-			return v.insert(index, num);
+			v.insert(index, num);
+			return;
 		}
 	}
 	else
 	{
-		return v.push_back(num);
+		v.push_back(num);
+		return;
 	}
-};
+}
 
 template<class T>
-inline void AStarCompare{
+class AStarCompare{
 	public:
 		AStarCompare(std::vector<int64_t> const &guessedCost, std::vector<int64_t> const &accumulatedCost):
 			accumulatedCost(accumulatedCost),
