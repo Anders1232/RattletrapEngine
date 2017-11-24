@@ -25,12 +25,12 @@ DEP_PATH = dep
 
 #Uma lista de arquivos por extensão:
 CPP_FILES = $(wildcard $(SRC_PATH)/*.cpp)
-INC_FILES := $(wildcard $(INC_PATH)/*.h)
-FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=)))
+INC_FILES := $(wildcard $(INC_PATH)/*.h) 
+FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=))) ForwardList
 DEP_FILES = $(addprefix $(DEP_PATH)/,$(addsuffix .d,$(FILE_NAMES)))
 OBJ_FILES = $(addprefix $(BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
 
-EXTRA_INC_PATH =
+EXTRA_INC_PATH = ForwardList
 
 
 #Nome do executável
