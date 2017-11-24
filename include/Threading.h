@@ -4,9 +4,20 @@
 #include <thread>
 #include <pthread.h>
 #include <semaphore.h>
-#include <sys/sysinfo.h>
 #include "FowardList.h"
 #include "State.h"
+
+#ifdef _WIN32
+	#include <Windows.h>
+	#include <Winbase.h>
+#elif __APPLE__
+	#include <sys/sysinfo.h>
+	//mac
+#elif __linux__
+	#include <sys/sysinfo.h>
+#else
+	#error "Unknown compiler"
+#endif
 
 namespace Rattletrap {
 	class Threading {
