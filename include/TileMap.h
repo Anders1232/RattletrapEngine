@@ -12,11 +12,30 @@
 #include "Tileset.h"
 #include "TileMapObserver.h"
 
+class AStarHeuristic{
+//	virtual AStarHeuristic(){};
+	public:
+		virtual int operator()(Vec2 originTile, Vec2 desTile) = 0;
+		virtual ~AStarHeuristic(void){};
+};
+
+//---------------------------
+
+template<class T>
+class AStarWeight{
+//	virtual AStarWeight(){};
+	public:
+		virtual float CalculateCost(T& tile) = 0;
+		virtual bool IsTraversable(T& tile)=0;
+		virtual ~AStarWeight(void){};
+};
+
+//---------------------------
+
+
 /**
 	\todo Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo
 */
-#define COLLISION_LAYER (1)
-
 template<class T>
 class TileMap : public Component, NearestFinder<T>{
 	public:
@@ -318,7 +337,7 @@ Vec2 TileMap<T>::GetVec2Coord(int pos){
 template<class T>
 std::vector<int64_t> TileMap<T>::GetNeighbours(int64_t tile){//TODO: otimizar
 	std::vector<int64_t> ret;
-	int64_t tileMapSize= (GetWidth()*GetHeight();
+	int64_t tileMapSize= GetWidth()*GetHeight();
 	int64_t temp= GetWidth()+1;
 	if(tile > temp){
 		ret.push_back(tile-temp);
@@ -389,16 +408,16 @@ inline void AStarCompare{
 	private:
 		std::vector<int64_t> const &guessedCost;
 		std::vector<int64_t> const &accumulatedCost;
-}
+};
 
 inline std::list<int>* MakePath(int origin, int dest, std::vector<int64_t> const &antecessor){
 	std::list<int> *ret= new std::list<int>();
 	int aux= dest;
-	while(aux != originTile){
+	while(aux != origin){
 		ret.push_front(aux);
 		aux= antecessor[aux];
 	}
-	ret.push_front(originTile);
+	ret.push_front(origin);
 	return ret;
 }
 
@@ -414,15 +433,15 @@ std::list<int>* TileMap::AStar(int originTile,int destTile, AStarHeuristic* heur
 	guessedCost[originTile]= (*heuristic)(GetVec2Coord(originTile), GetVec2Coord(destTile) );
 	while(openSet.size() > 0){
 		int current= openSet[0];
-		if(current == goal){
+		if(current == destTile){
 			return MakePath(originTile, destTile, antecessor);
 		}
 		openSet.erase(openSet.begin());
 		OrderedInsertion(closedSet,current);//verificar se aqui precisa de adição ordenada
-		std::vector neightbors= GetNeighbours(current);
+		std::vector<int64_t> neightbors= GetNeighbours(current);
 		for(int i=0; i < neightbors.size(); i++){
 			int64_t currentNeightbor= neightbors[i];
-			if(!weightMap.IsTraversable(ELEMENT_ACESS(current) ) ){
+			if(!weightMap.IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
 				continue;
 			}
 			if(std::binary_search(closedSet.begin(), closedSet.end(), currentNeightbor) ){
