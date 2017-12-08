@@ -46,16 +46,16 @@ class TileMap : public Component, NearestFinder<T>{
 		void LateUpdate(float dt =0);
 		void Render(void) const;
 		bool Is(ComponentType type) const;
-		T& At(int x, int y, int z=0) const;
-		T& AtLayer(int index2D, int layer) const;
+		T& At(int x, int y, int z=0);
+		T& AtLayer(int index2D, int layer);
 		int GetWidth(void) const;
 		int GetHeight(void) const;
 		int GetDepth(void) const;
 		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const;
 //		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, float intensity);
-		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
-		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
+		T* FindNearest(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
+		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
@@ -168,13 +168,14 @@ bool TileMap<T>::Is(ComponentType type) const{
 
 //mudanaça: o método abaixo pode lançar exceção
 template<class T>
-T& TileMap<T>::At(int x, int y, int z) const{
+T& TileMap<T>::At(int x, int y, int z){
 	int index = z*mapWidth*mapHeight + y*mapWidth + x;
 	return (tileMatrix.at(index) );
 }
 
 template<class T>
-T& TileMap<T>::AtLayer(int index2D, int layer) const{
+T& TileMap<T>::AtLayer(int index2D, int layer){
+//	return At(index2D/mapWidth, index2D%mapWidth, layer);
 	return tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
@@ -262,7 +263,7 @@ void TileMap<T>::SetParallaxLayerIntensity(int layer, float intensity){
 }
 
 template<class T>
-T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> finder, float range) const{
+T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 	T* chosen= nullptr;
 	float chosenTillNow= range;
 	for(int i=0; i < tileMatrix.size();i++){
@@ -276,11 +277,11 @@ T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> finder, float range) const{
 }
 
 template<class T>
-std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> finder, float range) const{
+std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
 	std::vector<T*> *chosen= new std::vector<T*>();
 	for(int i=0; i < tileMatrix.size();i++){
 		if(finder(tileMatrix[i]) < range){
-			chosen->push_back( &(tileMatrix[i]) );
+			chosen->push_back((T*) &(tileMatrix[i]) );
 		}
 	}
 	return chosen;
