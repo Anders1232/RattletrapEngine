@@ -195,10 +195,11 @@ int TileMap<T>::GetDepth(void) const{
 
 template<class T>
 int TileMap<T>::GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const{
-	Rect position = Rect(coordPos.x, coordPos.y, 0, 0);
+	Vec2 position = coordPos;
 	int x, xDir = mapWidth-1, xEsq = 0;
-	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSets[currentTileSet]->GetTileSize()), position, (float)layer);
-	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0,0), position, layer);
+	Rect zero(0,0,0,0);
+	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSets[currentTileSet]->GetTileSize()), zero, layer);
+	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0,0), zero, layer);
 	int tileWidth = tileSize.x;
 	int tileHeight = tileSize.y;
 	if(position.x < 0){
