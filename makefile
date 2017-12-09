@@ -76,11 +76,11 @@ INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH)) -IFowardList
 all: $(OBJ_FILES)
 
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATH)/%.h | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.h | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 
 $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp $(DEP_PATH)/%.d | folders
 	$(COMPILER) $(INC_PATHS) $< -c $(FLAGS) -o $@
