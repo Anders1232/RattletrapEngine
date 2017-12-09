@@ -11,6 +11,11 @@ Vec2::Vec2(float x, float y): x(x), y(y) {
 Vec2::Vec2(Vec2 const &b): x(b.x), y(b.y) {
 }
 
+Vec2::operator Rect () const {
+//	Rect ret(x, y)
+	return Rect(x, y, 0, 0);
+}
+
 Vec2 Vec2::operator+(Vec2 const &b)const {
 	return Vec2(x+b.x, y+b.y);
 }
