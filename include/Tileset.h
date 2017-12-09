@@ -7,6 +7,7 @@
 #include "Sprite.h"
 #include "Vec2.h"
 #include "Rect.h"
+#include "ComponentType.h"
 
 class TileSet:public Component{
 	public:
