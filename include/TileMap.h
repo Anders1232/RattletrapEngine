@@ -63,6 +63,7 @@ class TileMap : public Component, NearestFinder<T>{
 		inline Vec2 GetVec2Coord(int pos);
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
+		Vec2 GetTileSize(void);
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -474,6 +475,10 @@ bool TileMap<T>::IsLayerVisible(int layer){
 	return ELEMENT_ACESS(layersVisibility, layer);
 }
 
+template<class T>
+Vec2 TileMap<T>::GetTileSize(void){
+	return tileSets[currentTileSet].GetTileSize();
+}
 
 
 #endif // TILEMAP_H
