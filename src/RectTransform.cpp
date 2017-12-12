@@ -111,6 +111,14 @@ Rect RectTransform::GetBoundingBox() const{
 	return boundingBox;
 }
 
+Rect RectTransform::GetOffsets() const{
+    return offsets;
+}
+
+Rect RectTransform::GetAnchors() const{
+    return anchors;
+}
+
 Rect RectTransform::ComputeBoundingBox( Rect parentCanvas ) {
 	Rect boundingBox;
 	boundingBox.x = parentCanvas.w*anchors.x + offsets.x;

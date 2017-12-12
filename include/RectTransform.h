@@ -36,6 +36,8 @@ class RectTransform : public Component {
 		void SetMaxScale( Vec2 maxScale = {FLT_MAX, FLT_MAX} );
 		void SetBehaviorType( BehaviorType behavior );
 		Rect GetBoundingBox() const;
+        Rect GetOffsets() const;
+        Rect GetAnchors() const;
 	
 	protected:
 		Rect ComputeBoundingBox( Rect parentCanvas );
