@@ -5,6 +5,7 @@
 
 #include "Error.h"
 #include "Resources.h"
+#include "Threading.h"
 
 Game* Game::instance = nullptr;
 
@@ -89,6 +90,8 @@ Game::Game(std::string title,int width, int height)
 	capFramerate = true;
 	maxFramerate = INITIAL_FRAMERATE;
 	frameDuration = 1000.0/INITIAL_FRAMERATE;
+	
+	Rattletrap::Threading::Init();
 }
 
 Game::~Game() {
@@ -107,6 +110,8 @@ Game::~Game() {
 	SDL_DestroyWindow(window);
 	IMG_Quit();
 	SDL_Quit();
+	
+	Rattletrap::Threading::Destroy();
 }
 
 Game& Game::GetInstance(void) {

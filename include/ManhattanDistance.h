@@ -1,7 +1,7 @@
 #ifndef MANHATTANDISTANCE_H
 #define MANHATTANDISTANCE_H
 
-#include "AStarHeuristic.h"
+#include "TileMap.h"
 
 class ManhattanDistance : public AStarHeuristic
 {

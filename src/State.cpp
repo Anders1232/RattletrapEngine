@@ -1,6 +1,9 @@
 #include "State.h"
 #include "Error.h"
 #include "Camera.h"
+#include "Threading.h"
+
+//#define USE_THREADING
 
 State::State(void) : popRequested(false), quitRequested(false) {
 	Camera::pos = Vec2(0,0);
@@ -29,27 +32,39 @@ void State::UpdateActive() {
 }
 
 void State::EarlyUpdate(float dt) {
+#ifdef USE_THREADING
+	Rattletrap::Threading::EarlyUpdate(objectArray);
+#else
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		if(objectArray[cont]->IsActive()){
 			objectArray[cont]->EarlyUpdate(dt);
 		}
 	}
+#endif
 }
 
 void State::Update(float dt) {
+#ifdef USE_THREADING
+	Rattletrap::Threading::Update(objectArray);
+#else
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		if(objectArray[cont]->IsActive()){
 			objectArray[cont]->Update(dt);
 		}
 	}
+#endif
 }
 
 void State::LateUpdate(float dt) {
+#ifdef USE_THREADING
+	Rattletrap::Threading::LateUpdate(objectArray);
+#else
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 		if(objectArray[cont]->IsActive()){
 			objectArray[cont]->LateUpdate(dt);
 		}
 	}
+#endif
 }
 
 void State::Render(void) const {

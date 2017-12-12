@@ -56,6 +56,7 @@ Vec2 TileSet::GetTileSize(void) const{
 }
 
 bool TileSet::Is(ComponentType type) const{
-	return type == TILESET;
+	return ComponentType::TILESET == type;
 }
+
 

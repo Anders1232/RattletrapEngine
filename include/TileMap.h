@@ -46,16 +46,16 @@ class TileMap : public Component, NearestFinder<T>{
 		void LateUpdate(float dt =0);
 		void Render(void) const;
 		bool Is(ComponentType type) const;
-		T& At(int x, int y, int z=0) const;
-		T& AtLayer(int index2D, int layer) const;
+		T& At(int x, int y, int z=0);
+		T& AtLayer(int index2D, int layer);
 		int GetWidth(void) const;
 		int GetHeight(void) const;
 		int GetDepth(void) const;
 		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const;
 //		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, float intensity);
-		T* FindNearest(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
-		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> finder, float range= std::numeric_limits<float>::max()) const;
+		T* FindNearest(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
+		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
@@ -63,6 +63,7 @@ class TileMap : public Component, NearestFinder<T>{
 		inline Vec2 GetVec2Coord(int pos);
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
+		Vec2 GetTileSize(void);
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -80,28 +81,7 @@ class TileMap : public Component, NearestFinder<T>{
 		void RenderLayer(int layer);
 };
 
-class AStarHeuristic{
-//	virtual AStarHeuristic(){};
-	public:
-		virtual int operator()(Vec2 originTile, Vec2 desTile) = 0;
-		virtual ~AStarHeuristic(void){};
-};
-
 //------------------------
-
-template<class T>
-class AStarWeight{
-//	virtual AStarWeight(){};
-	public:
-		virtual float CalculateCost(T& tile) = 0;
-		virtual bool IsTraversable(T& tile)=0;
-		virtual ~AStarWeight(void){};
-};
-
-//---------------------------
-
-
-
 
 //implementação
 
@@ -189,13 +169,14 @@ bool TileMap<T>::Is(ComponentType type) const{
 
 //mudanaça: o método abaixo pode lançar exceção
 template<class T>
-T& TileMap<T>::At(int x, int y, int z) const{
+T& TileMap<T>::At(int x, int y, int z){
 	int index = z*mapWidth*mapHeight + y*mapWidth + x;
 	return (tileMatrix.at(index) );
 }
 
 template<class T>
-T& TileMap<T>::AtLayer(int index2D, int layer) const{
+T& TileMap<T>::AtLayer(int index2D, int layer){
+//	return At(index2D/mapWidth, index2D%mapWidth, layer);
 	return tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
@@ -218,8 +199,9 @@ template<class T>
 int TileMap<T>::GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const{
 	Vec2 position = coordPos;
 	int x, xDir = mapWidth-1, xEsq = 0;
-	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSets[currentTileSet]->GetTileSize()), Vec2(0, 0), layer);
-	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0,0), Vec2(0,0), layer);
+	Rect zero(0,0,0,0);
+	Vec2 tileSize = CalculateParallaxScrolling( Vec2(tileSets[currentTileSet]->GetTileSize()), zero, layer);
+	tileSize = tileSize - CalculateParallaxScrolling( Vec2(0,0), zero, layer);
 	int tileWidth = tileSize.x;
 	int tileHeight = tileSize.y;
 	if(position.x < 0){
@@ -282,7 +264,7 @@ void TileMap<T>::SetParallaxLayerIntensity(int layer, float intensity){
 }
 
 template<class T>
-T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> finder, float range) const{
+T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 	T* chosen= nullptr;
 	float chosenTillNow= range;
 	for(int i=0; i < tileMatrix.size();i++){
@@ -296,11 +278,11 @@ T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> finder, float range) const{
 }
 
 template<class T>
-std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> finder, float range) const{
+std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
 	std::vector<T*> *chosen= new std::vector<T*>();
 	for(int i=0; i < tileMatrix.size();i++){
 		if(finder(tileMatrix[i]) < range){
-			chosen->push_back( &(tileMatrix[i]) );
+			chosen->push_back((T*) &(tileMatrix[i]) );
 		}
 	}
 	return chosen;
@@ -374,27 +356,29 @@ std::vector<int64_t> TileMap<T>::GetNeighbours(int64_t tile){//TODO: otimizar
 
 inline void OrderedInsertion(std::vector<int64_t>& v, int64_t num)
 {
-	std::vector<uint>::iterator index= std::lower_bound(v.begin(), v.end(), num);
+	auto index= std::lower_bound(v.begin(), v.end(), num);
 	if(index != v.end())
 	{
 		if((*index) != num)
 		{
-			return v.insert(index, num);
+			v.insert(index, num);
+			return;
 		}
 	}
 	else
 	{
-		return v.push_back(num);
+		v.push_back(num);
+		return;
 	}
-};
+}
 
 template<class T>
-inline void AStarCompare{
+class AStarCompare{
 	public:
 		AStarCompare(std::vector<int64_t> const &guessedCost, std::vector<int64_t> const &accumulatedCost):
 			accumulatedCost(accumulatedCost),
 			guessedCost(guessedCost){}
-		bool operator<(int64_t a, int64_t b){
+		bool operator()(int64_t a, int64_t b){
 			if(ELEMENT_ACESS(guessedCost, a) < ELEMENT_ACESS(guessedCost, b) ){
 				return true;
 			}
@@ -414,15 +398,15 @@ inline std::list<int>* MakePath(int origin, int dest, std::vector<int64_t> const
 	std::list<int> *ret= new std::list<int>();
 	int aux= dest;
 	while(aux != origin){
-		ret.push_front(aux);
+		ret->push_front(aux);
 		aux= antecessor[aux];
 	}
-	ret.push_front(origin);
+	ret->push_front(origin);
 	return ret;
 }
 
 template<class T>
-std::list<int>* TileMap::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap){
+std::list<int>* TileMap<T>::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap){
 	std::vector<int64_t> closedSet;
 	std::vector<int64_t> openSet;//esse vetor deve ser ordenado
 	openSet.push_back(originTile);
@@ -449,7 +433,7 @@ std::list<int>* TileMap::AStar(int originTile,int destTile, AStarHeuristic* heur
 			}
 			if(!std::binary_search(openSet.begin(), openSet.end(), currentNeightbor) ){
 				openSet.push_back(currentNeightbor);
-				std::sort(openSet.begin(), openSet.end(), AStarCompare(guessedCost, accumulatedCost));
+				std::sort(openSet.begin(), openSet.end(), AStarCompare<T>(guessedCost, accumulatedCost));
 			}
 			float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(currentNeightbor);
 			if(tentativeDistance < accumulatedCost[currentNeightbor ] ){
@@ -491,6 +475,10 @@ bool TileMap<T>::IsLayerVisible(int layer){
 	return ELEMENT_ACESS(layersVisibility, layer);
 }
 
+template<class T>
+Vec2 TileMap<T>::GetTileSize(void){
+	return tileSets[currentTileSet].GetTileSize();
+}
 
 
 #endif // TILEMAP_H
