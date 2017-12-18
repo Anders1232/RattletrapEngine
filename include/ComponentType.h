@@ -25,8 +25,11 @@ enum ComponentType{
 	PLAYER_DATA,
 	SPRITE,
 	TILEMAP,
+	TILESET,
 	RECT_TRANSFORM,
 	BUTTON,
+	GROUPER,
+	TEXT,
 //Enquando não se decide onde colocamos os ComponentTypes
 //criado pelo usuário, vão ficando aqui
     PLAYER_UNITY,
@@ -35,7 +38,6 @@ enum ComponentType{
     PILOTO,
     ROBOPATH,
     PLAYER_UNITY_MENU,
-//
 	COMPONENT_TYPE_SIZE
 };
 

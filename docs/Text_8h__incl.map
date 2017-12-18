@@ -1,14 +1,10 @@
 <map id="include/Text.h" name="include/Text.h">
-<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="507,453,614,480"/>
-<area shape="rect" id="node3" href="$Rect_8h.html" title="Rect.h" alt="" coords="107,304,169,331"/>
-<area shape="rect" id="node6" href="$Timer_8h.html" title="Timer.h" alt="" coords="1146,80,1213,107"/>
-<area shape="rect" id="node9" href="$Resources_8h.html" title="Resources.h" alt="" coords="817,229,913,256"/>
-<area shape="rect" id="node11" href="$Game_8h.html" title="Game.h" alt="" coords="639,80,707,107"/>
-<area shape="rect" id="node20" href="$Error_8h.html" title="Error.h" alt="" coords="1237,80,1298,107"/>
-<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="5,379,68,405"/>
-<area shape="rect" id="node13" href="$State_8h.html" title="State.h" alt="" coords="641,155,705,181"/>
-<area shape="rect" id="node15" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="274,229,386,256"/>
-<area shape="rect" id="node17" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="585,229,691,256"/>
-<area shape="rect" id="node18" href="$Component_8h.html" title="Component.h" alt="" coords="599,304,699,331"/>
-<area shape="rect" id="node19" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="636,379,765,405"/>
+<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="261,379,368,405"/>
+<area shape="rect" id="node4" href="$Color_8h.html" title="Color.h" alt="" coords="5,304,69,331"/>
+<area shape="rect" id="node5" href="$Component_8h.html" title="Component.h" alt="" coords="363,80,463,107"/>
+<area shape="rect" id="node6" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="437,229,566,256"/>
+<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="272,155,379,181"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="435,304,498,331"/>
+<area shape="rect" id="node13" href="$Error_8h.html" title="Error.h" alt="" coords="697,80,759,107"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="351,229,412,256"/>
 </map>

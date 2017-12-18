@@ -1,0 +1,6 @@
+<map id="RectTransform" name="RectTransform">
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="235,393,325,420"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="101,259,195,285"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="5,139,56,165"/>
+<area shape="rect" id="node8" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="450,198,502,225"/>
+</map>

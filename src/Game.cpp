@@ -4,6 +4,7 @@
 #include <time.h>
 
 #include "Resources.h"
+#include "Threading.h"
 
 #include "Error.h"
 Game* Game::instance = nullptr;
@@ -89,6 +90,8 @@ Game::Game(std::string title,int width, int height)
 	capFramerate = true;
 	maxFramerate = INITIAL_FRAMERATE;
 	frameDuration = 1000.0/INITIAL_FRAMERATE;
+	
+	Rattletrap::Threading::Init();
 }
 
 Game::~Game() {
@@ -107,6 +110,8 @@ Game::~Game() {
 	SDL_DestroyWindow(window);
 	IMG_Quit();
 	SDL_Quit();
+	
+	Rattletrap::Threading::Destroy();
 }
 
 Game& Game::GetInstance(void) {
@@ -152,12 +157,16 @@ void Game::Run(void) {
 
 		CalculateDeltaTime();
 		inputManager.Update();
+		stateStack.top()->UpdateActive();
+		stateStack.top()->EarlyUpdate(GetDeltaTime());
 		stateStack.top()->Update(GetDeltaTime());
 		if(-1 == SDL_SetRenderDrawColor(renderer, CLEAR_COLOR)) {
 			Error(SDL_GetError());
 		}
 		SDL_RenderClear(renderer);
 		stateStack.top()->Render();
+		stateStack.top()->LateUpdate(GetDeltaTime());
+		stateStack.top()->DeleteRequested();
 		SDL_RenderPresent(renderer);
 		UpdateStack();
 	}

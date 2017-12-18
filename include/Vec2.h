@@ -4,6 +4,13 @@
 #define INCLUDE_SDL 
 #include "SDL_include.h"
 
+#include "Rect.h"
+
+#ifndef RECT
+	class Rect;
+#endif
+
+#define VEC2
 /**
 	\brief Classe que modela um vetor(no sentido físico)
 
@@ -43,6 +50,12 @@ class Vec2 {
 			Observação: Nennhum dos Vec2 sobre qual essa operação opera é alterado!
 		*/
 		Vec2 operator+(Vec2 const &b)const;
+		/**
+			\brief Sobrecarga do operador de typecast para Rect.
+			
+			Retorna um Rect a partir do membros x e y do Vec2.
+		*/
+		operator Rect () const;
 		/**
 			\brief Sobrecarga do operador de subtração entre dois Vec2.
 			\return Resultado da subtração

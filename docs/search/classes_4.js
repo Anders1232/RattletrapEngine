@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputmanager',['InputManager',['../classInputManager.html',1,'']]]
+  ['finder',['Finder',['../classFinder.html',1,'']]]
 ];

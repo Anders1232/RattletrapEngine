@@ -7,6 +7,11 @@
 
 #include "Vec2.h"
 
+#ifndef VEC2
+	class Vec2;
+#endif
+
+#define RECT
 /**
 	\brief Classe que modela um rect
 	

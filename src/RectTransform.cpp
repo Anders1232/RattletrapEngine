@@ -4,14 +4,8 @@
 #include "Game.h"
 
 #include "Error.h"
-RectTransform::RectTransform( GameObject &associated, GameObject *parent ) : Component( associated ) {
-    DEBUG_CONSTRUCTOR("inicio");
-    DEBUG_CONSTRUCTOR("associated.box:{" <<
-                      associated.box.x << ", " <<
-                      associated.box.y << ", " <<
-                      associated.box.w << ", " <<
-                      associated.box.h << "}");
-    associated.parent = parent;
+RectTransform::RectTransform( GameObject &associated, GameObject *GOparent ) : Component( associated ) {
+	this->GOparent = GOparent;
 	debugRender = false;
 	SetAnchors( {0.5, 0.5}, {0.5, 0.5} );
 	SetOffsets( 0, 0, 0, 0 );
@@ -42,21 +36,10 @@ void RectTransform::Update( float dt ) {
                       associated.box.h << "}");
 
 	Rect parentCanvas;
-	if( nullptr == associated.parent ) {
+	if( nullptr == GOparent ) {
 		parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};
 	} else {
-	    DEBUG_UPDATE("antes associated.box:{" <<
-                      associated.box.x << ", " <<
-                      associated.box.y << ", " <<
-                      associated.box.w << ", " <<
-                      associated.box.h << "}");
-		parentCanvas = associated.parent->box;
-		DEBUG_UPDATE("depois associated.box:{" <<
-                      associated.box.x << ", " <<
-                      associated.box.y << ", " <<
-                      associated.box.w << ", " <<
-                      associated.box.h << "}");
-
+		parentCanvas = GOparent->box;
 	}
 	boundingBox = ComputeBoundingBox(parentCanvas);
 	associated.box = ComputeBox();
@@ -106,12 +89,12 @@ void RectTransform::SetAnchors(int v1, int v2, int u1, int u2){
 void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.
-				, "topLeft must have coordiantes between 0 and 1" );
-
+				, "topLeft must have coordinates between 0 and 1" );
+	
 	ASSERT2( bottomRight.x >= 0. && bottomRight.x <= 1.
 				&& bottomRight.y >= 0. && bottomRight.y <= 1.
-				, "bottomRight must have coordiantes between 0 and 1" );
-
+				, "bottomRight must have coordinates between 0 and 1" );
+	
 	if( topLeft.x < 0. ) topLeft.x = 0.;
 	if( topLeft.y < 0. ) topLeft.y = 0.;
 	if( topLeft.x > 1. ) topLeft.x = 1.;
@@ -132,7 +115,7 @@ void RectTransform::SetOffsets( float up, float right, float down, float left ) 
 void RectTransform::SetCenterPin( Vec2 center ) {
 	ASSERT2( center.x >= 0. && center.x <= 1.
 				&& center.y >= 0. && center.y <= 1.
-				, "center must have coordiantes between 0 and 1" );
+				, "center must have coordinates between 0 and 1" );
 	centerPin.x = ( center.x < 0 ) ? 0 : ( ( center.x > 1 ) ? 1 : center.x );
 	centerPin.y = ( center.y < 0 ) ? 0 : ( ( center.y > 1 ) ? 1 : center.y );
 }
@@ -159,6 +142,14 @@ void RectTransform::SetBehaviorType( BehaviorType behavior ) {
 
 Rect RectTransform::GetBoundingBox() const{
 	return boundingBox;
+}
+
+Rect RectTransform::GetOffsets() const{
+    return offsets;
+}
+
+Rect RectTransform::GetAnchors() const{
+    return anchors;
 }
 
 Rect RectTransform::ComputeBoundingBox( Rect parentCanvas ) {

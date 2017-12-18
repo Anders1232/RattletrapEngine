@@ -1,6 +1,0 @@
-<map id="UIcanvas" name="UIcanvas">
-<area shape="rect" id="node3" href="$classUIgridGroup.html" title="UIgridGroup" alt="" coords="5,155,97,181"/>
-<area shape="rect" id="node4" href="$classUIhorizontalGroup.html" title="UIhorizontalGroup" alt="" coords="121,155,248,181"/>
-<area shape="rect" id="node5" href="$classUIverticalGroup.html" title="UIverticalGroup" alt="" coords="272,155,385,181"/>
-<area shape="rect" id="node2" href="$classUIelement.html" title="UIelement" alt="" coords="143,5,226,32"/>
-</map>

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['manhattandistance_2ecpp',['ManhattanDistance.cpp',['../ManhattanDistance_8cpp.html',1,'']]],
-  ['manhattandistance_2eh',['ManhattanDistance.h',['../ManhattanDistance_8h.html',1,'']]],
-  ['music_2ecpp',['Music.cpp',['../Music_8cpp.html',1,'']]],
-  ['music_2eh',['Music.h',['../Music_8h.html',1,'']]]
+  ['inputmanager_2ecpp',['InputManager.cpp',['../InputManager_8cpp.html',1,'']]],
+  ['inputmanager_2ed',['InputManager.d',['../InputManager_8d.html',1,'']]],
+  ['inputmanager_2eh',['InputManager.h',['../InputManager_8h.html',1,'']]]
 ];

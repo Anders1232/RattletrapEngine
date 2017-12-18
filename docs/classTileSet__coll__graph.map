@@ -1,4 +1,6 @@
 <map id="TileSet" name="TileSet">
-<area shape="rect" id="node2" href="$classSprite.html" title="Classe que modela uma sprite. " alt="" coords="309,288,365,315"/>
-<area shape="rect" id="node9" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="599,139,653,165"/>
+<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="67,349,156,376"/>
+<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="197,259,292,285"/>
+<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="143,139,194,165"/>
+<area shape="rect" id="node8" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="5,198,57,225"/>
 </map>

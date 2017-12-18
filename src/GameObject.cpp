@@ -1,15 +1,9 @@
 #include "GameObject.h"
 #include "Game.h"
 #include "Camera.h"
-
 #include "Error.h"
 
-GameObject::GameObject(void):
-    rotation(0.),
-    dead(false),
-    parent(nullptr),
-    debug(false),
-    showOnScreen(true){
+GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true){
 }
 
 
@@ -29,23 +23,35 @@ void GameObject::EarlyUpdate(float dt){
 
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
-		components[i]->Update(dt);
+		if(components[i]->IsEnabled() ){
+			components[i]->Update(dt);
+		}
+	}
+}
+
+void GameObject::EarlyUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->EarlyUpdate(dt);
+		}
+	}
+}
+
+void GameObject::LateUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->LateUpdate(dt);
+		}
 	}
 }
 
 void GameObject::Render(void){
-    DEBUG_RENDER("inicio");
-    if(showOnScreen){
-        for(unsigned int i = 0; i < components.size(); i++){
-                components[i]->Render();
-        }
-    }
-	if(debug){
-        SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255);
-        SDL_Rect rect = {box.x, box.y, box.w, box.h};
-        SDL_RenderDrawRect(Game::GetInstance().GetRenderer(), &rect);
+	REPORT_DEBUG("\t GameObject::Render called!");
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->Render();
+		}
 	}
-	DEBUG_RENDER("fim");
 }
 
 bool GameObject::IsDead(void){
@@ -83,6 +89,16 @@ void GameObject::RemoveComponent(ComponentType type){
 	}
 }
 
+void GameObject::RemoveComponent(Component* component){
+	for(uint i = 0; i < components.size();i++){
+		if(components[i] == component){
+			delete components[i];
+			components.erase(components.begin() + i);
+			return;
+		}
+	}
+}
+
 Component& GameObject::GetComponent(ComponentType type) const{
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
@@ -92,4 +108,28 @@ Component& GameObject::GetComponent(ComponentType type) const{
 	Error("Component not found!");
 }
 
+std::vector<Component *> GameObject::GetComponents(ComponentType type) const{
+	std::vector<Component *> ret;
+	for(uint i = 0; i < components.size();i++){
+		if(components[i]->Is(type)){
+			ret.push_back(components[i] );
+		}
+	}
+	return ret;
+}
+
+void GameObject::UpdateActive(void){
+	active= newActive;//Não é necessário ter um if.
+	for(uint i = 0; i < components.size();i++){
+		components[i]->UpdateEnable();
+	}
+}
+
+void GameObject::SetActive(bool newValue){
+	newActive= newValue;
+}
+
+bool GameObject::IsActive(void) const{
+	return active;
+}
 #include "Error_footer.h"
