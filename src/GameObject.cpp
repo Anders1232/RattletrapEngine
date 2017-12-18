@@ -20,19 +20,20 @@ void GameObject::EarlyUpdate(float dt){
 		components[i]->EarlyUpdate(dt);
 	}
 }
+/*
+void GameObject::EarlyUpdate(float dt){
+	for(uint i=0; i < components.size(); i++){
+		if(components[i]->IsEnabled() ){
+			components[i]->EarlyUpdate(dt);
+		}
+	}
+}
+*/
 
 void GameObject::Update(float dt){
 	for(uint i=0; i < components.size(); i++){
 		if(components[i]->IsEnabled() ){
 			components[i]->Update(dt);
-		}
-	}
-}
-
-void GameObject::EarlyUpdate(float dt){
-	for(uint i=0; i < components.size(); i++){
-		if(components[i]->IsEnabled() ){
-			components[i]->EarlyUpdate(dt);
 		}
 	}
 }

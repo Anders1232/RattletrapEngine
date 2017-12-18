@@ -78,7 +78,7 @@ class TileMap : public Component, NearestFinder<T>{
 		int currentTileSet;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 		inline std::vector<int64_t> GetNeighbours(int64_t tile);
-		
+
 		void Load(std::string const &file);
 		void RenderLayer(int layer);
 };

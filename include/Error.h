@@ -27,7 +27,7 @@ using std::endl;
     #define WHERE2 CLASS<<"::"<<__func__<<"():"
 
     #define Error(msg)std::cerr<<HEADER<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
-    #define ASSERT(exp)if(!(exp)){std::cerr<<HEADER>
+    #define ASSERT(exp)if(!(exp)){std::cerr << HEADER << std::endl;}
     #define ASSERT2(exp,msg)if(!(exp)){std::cerr<<HEADER<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";exit(1);}
     #define SDL_ASSERT(exp)if(!(exp)){std::cerr<<HEADER<<WHERE<<"\t\tAssertion Failed:" << SDL_GetError()<<END_LINE;exit(1);}
 
