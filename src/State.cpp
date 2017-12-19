@@ -72,7 +72,8 @@ void State::LateUpdate(float dt) {
 
 void State::Render(void) const {
 	REPORT_I_WAS_HERE;
-#ifdef RENDER_FOWARD
+	//Nenhum motivo especial
+#ifndef RENDER_FOWARD
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 #else
 	for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {

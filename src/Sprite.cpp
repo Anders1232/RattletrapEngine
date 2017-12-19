@@ -63,7 +63,7 @@ void Sprite::SetScreenRect(int x, int y, int w, int h){
 	onScreenRect.h = h;
 }
 
-void Sprite::Render() {//const{
+void Sprite::Render() const{
     DEBUG_RENDER("inicio");
     DEBUG_RENDER("  Renderizando: " <<  path);
     Game& game = Game::GetInstance();

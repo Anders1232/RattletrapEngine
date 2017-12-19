@@ -55,7 +55,7 @@ class Sprite : public Component {
 			Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
 			É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 		*/
-		void Render();// const;
+		void Render() const;
 
 		//void Render(Rect screenPos) const;
 		/**

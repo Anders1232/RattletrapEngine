@@ -479,7 +479,7 @@ bool TileMap<T>::IsLayerVisible(int layer){
 
 template<class T>
 Vec2 TileMap<T>::GetTileSize(void){
-	return tileSets[currentTileSet].GetTileSize();
+	return tileSets[currentTileSet]->GetTileSize();
 }
 
 
