@@ -1,14 +1,16 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
+#include <algorithm> //find()
+#include <vector>
 #include "Component.h"
 #include "ComponentType.h"
 #include "GameObject.h"
 #include "RectTransform.h"
 #include "InputManager.h"
 
+using std::vector;
 #include "Error.h"
-template<typename T>
 class Button : public Component {
 	public:
 		enum State : int {
@@ -24,25 +26,28 @@ class Button : public Component {
 			void* caller;
 			void Call();
 		};
-	
+
 		Button(GameObject& associated, Button::State initialState = Button::State::ENABLED, bool interactOnBoundingBox = true);
 		~Button();
-		
+
 		void EarlyUpdate( float dt );
 		void Update( float dt );
 		void LateUpdate( float dt );
 		void Render() const;
 		bool Is( ComponentType type ) const;
-	
+
 		void SetCallback(Button::State stateToSet, Button::Callback calldata);
 		void SetReleaseCallback(Button::Callback calldata);
 		void SetState(Button::State newState);
 		Button::State GetState(void) const;
 		void Click();
-	
+
+		bool AddObserver(Component* observer);
 		bool interactOnBoundingBox;
-	
+
 	private:
+	    bool Notify();
+	    vector<Component*> observers;
 		Button::State actualState;
 		Callback disabled;
 		Callback enabled;

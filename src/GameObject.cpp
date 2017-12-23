@@ -78,7 +78,6 @@ void GameObject::LateUpdate(float dt){
 }
 
 void GameObject::Render(void){
-	DEBUG_RENDER("Render called.");
 	for(uint i = 0; i < components.size(); i++){
 		if(components[i]->IsEnabled() ){
 			components[i]->Render();
