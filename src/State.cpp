@@ -71,13 +71,12 @@ void State::LateUpdate(float dt) {
 }
 
 void State::Render(void) const {
-	REPORT_I_WAS_HERE;
-	//Nenhum motivo especial
-#ifndef RENDER_FOWARD
+#ifndef RENDER_BACKWARD
 	for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 #else
 	for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
 #endif
+        DEBUG_RENDER("Renderizando objeto " << cont);
 		if(objectArray[cont]->IsActive()){
 			objectArray[cont]->Render();
 		}
@@ -88,10 +87,10 @@ void State::DeleteRequested(void){
 	//loop deletando os objetos
 	for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
 		if(objectArray[cont]->IsDead()) {
+            DEBUG_PRINT("Object " << cont << " apagado");
 			objectArray.erase(objectArray.begin()+cont);
 		}
 	}
-DEBUG_RENDER("fim");
 }
 
 #include "Error_footer.h"

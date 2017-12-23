@@ -78,6 +78,16 @@ class GameObject{
 		*/
 		virtual ~GameObject(void);
 		/**
+			\brief Associa um objeto pai.
+			\param parent Objeto designado como pai.
+			\param parent Objeto designado como pai.
+			\param xrelative Distanciamento no eixo x relativo ao pai.
+			\param yrelative Distanciamento no eixo y relativo ao pai.
+
+			Com a associação, caso o objeto pai seja movimentado, o objeto filho terá sua posição atualizada de acordo, afim de manter o posicionamento relativo.
+		*/
+		void SetParent(GameObject& parent, int xrelative = 0, int yrelative = 0);
+		/**
 			\brief Atualizar estado.
 			\param dt tempo transcorrido desde a última chamada ao método.
 
@@ -156,11 +166,31 @@ class GameObject{
 			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
 		*/
 		bool IsActive(void) const;
+
+		/**
+			\brief Modifica posição do GameObject.
+			\param x Posição no eixo x que será atribuida.
+			\param y Posição no eixo y que será atribuida.
+
+			Caso o objeto tenha um objeto pai, x e y são relativos a posição do objeto pai.
+		*/
+		void SetPosition(int x, int y);
+
+		/**
+            \brief Retorna true caso haja um click dentro da área do rect.
+        */
+        bool Clicked(){return clicked;};
+        bool Released(){return released;};
+
 		Rect box;/**< Posição do GameObject na tela.*/
 		float rotation;/**< Rotação do GameObject.*/
 		GameObject* parent;
 		bool showOnScreen;
+
 	protected:
+	    bool clicked;
+	    bool released;
+	    Vec2 parentRelative;
 		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
 		bool active;/**<Informa Se o gameObject está ativo ou não*/

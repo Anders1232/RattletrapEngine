@@ -23,7 +23,7 @@ using std::endl;
 #ifdef DEBUG
     #define HEADER "[DEBUG] "
     #define CLASS typeid(*this).name()
-    #define WHERE __FILE__<<"::"<<__func__<<"():"
+    #define WHERE __FILE__<<"::"<<__func__<<"():"<<__LINE__
     #define WHERE2 CLASS<<"::"<<__func__<<"():"
 
     #define Error(msg)std::cerr<<HEADER<<WHERE<<"\t\t"<<msg<<END_LINE;exit(1);
