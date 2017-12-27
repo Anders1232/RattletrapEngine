@@ -28,6 +28,11 @@ Button::Button( GameObject& associated, Button::State initialState, bool interac
 Button::~Button() {}
 
 void Button::EarlyUpdate( float dt ) {
+    if(associated.Released()){
+        Notify();
+        //DEBUG_PRINT("associated.box: (" << associated.box.w << "," << associated.box.h << ")" );
+    }
+    /*
     if( Button::State::DISABLED != actualState ) {
 		Vec2 mousePos = INPUT_MANAGER.GetMousePos();
 		bool mouseIsInside = mousePos.IsInRect( associated.box );
@@ -55,12 +60,10 @@ void Button::EarlyUpdate( float dt ) {
 			SetState( Button::State::ENABLED );
 		}
 	}
+	*/
 }
 
 void Button::Update( float dt ) {
-    if(associated.Released()){
-        Notify();
-    }
 }
 
 void Button::LateUpdate( float dt ) {}
@@ -108,7 +111,7 @@ void Button::Click() {
 }
 
 bool Button::AddObserver(Component* observer){
-    vector<Component*>::iterator it = find(observers.begin(), observers.begin(), observer);
+    vector<Component*>::iterator it = find(observers.begin(), observers.end(), observer);
     if(it != observers.end()){
         return false;
     }else{
