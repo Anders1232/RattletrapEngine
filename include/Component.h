@@ -71,7 +71,7 @@ class Component{
 
 			Retorna verdadeiro se o componente for do tipo type, falso caso contrário.
 		*/
-		virtual bool Is(ComponentType type) const =0;
+		virtual bool Is(uint type) const =0;
 		/**
 			\brief Destrutor
 

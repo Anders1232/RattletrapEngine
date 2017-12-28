@@ -45,7 +45,7 @@ class TileMap : public Component, NearestFinder<T>{
 		void Update(float dt=0);
 		void LateUpdate(float dt =0);
 		void Render(void) const;
-		bool Is(ComponentType type) const;
+		bool Is(uint type) const;
 		T& At(int x, int y, int z=0);
 		T& AtLayer(int index2D, int layer);
 		int GetWidth(void) const;
@@ -165,7 +165,7 @@ Vec2 TileMap<T>::CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) c
 }
 
 template<class T>
-bool TileMap<T>::Is(ComponentType type) const{
+bool TileMap<T>::Is(uint type) const{
 	return type == ComponentType::TILEMAP;
 }
 
