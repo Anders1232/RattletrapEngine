@@ -9,11 +9,11 @@
 
 namespace RattletrapEngine {
 
-	#ifndef VEC2
+	#ifndef RATTLETRAP_VEC2
 		class Vec2;
 	#endif
 
-	#define RECT
+	#define RATTLETRAP_RECT
 	/**
 		\brief Classe que modela um rect
 		

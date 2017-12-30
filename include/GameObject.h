@@ -16,11 +16,11 @@
 
 namespace RattletrapEngine {
 
-	#ifndef COMPONENT
+	#ifndef RATTLETRAP_COMPONENT
 	class Component;
 	#endif
 
-	#define GAME_OBJECT
+	#define RATTLETRAP_GAME_OBJECT
 
 	using std::string;
 	using std::unique_ptr;

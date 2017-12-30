@@ -58,5 +58,4 @@ namespace RattletrapEngine {
 
 }
 
-
 #endif

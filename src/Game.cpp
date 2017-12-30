@@ -93,7 +93,7 @@ namespace RattletrapEngine {
 		maxFramerate = INITIAL_FRAMERATE;
 		frameDuration = 1000.0/INITIAL_FRAMERATE;
 		
-		Rattletrap::Threading::Init();
+		Threading::Init();
 	}
 
 	Game::~Game() {
@@ -113,7 +113,7 @@ namespace RattletrapEngine {
 		IMG_Quit();
 		SDL_Quit();
 		
-		Rattletrap::Threading::Destroy();
+		Threading::Destroy();
 	}
 
 	Game& Game::GetInstance(void) {

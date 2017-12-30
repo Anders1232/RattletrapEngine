@@ -8,11 +8,11 @@
 
 namespace RattletrapEngine {
 
-	#ifndef RECT
+	#ifndef RATTLETRAP_RECT
 		class Rect;
 	#endif
 
-	#define VEC2
+	#define RATTLETRAP_VEC2
 	/**
 		\brief Classe que modela um vetor(no sentido físico)
 

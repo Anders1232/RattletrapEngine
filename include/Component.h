@@ -7,11 +7,11 @@
 
 namespace RattletrapEngine {
 
-	#ifndef GAME_OBJECT
+	#ifndef RATTLETRAP_GAME_OBJECT
 	class GameObject;
 	#endif
 
-	#define COMPONENT
+	#define RATTLETRAP_COMPONENT
 	/**
 		\brief Modela os componentes.
 
