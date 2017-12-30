@@ -3,30 +3,33 @@
 
 #include "InputManager.h"
 
-class ActionManager{
+namespace RattletrapEngine {
 
-	public:
+	class ActionManager{
 
-		static bool LeftArrowAction();
+		public:
 
-		static bool RightArrowAction();
+			static bool LeftArrowAction();
 
-		static bool UpArrowAction();
+			static bool RightArrowAction();
 
-		static bool DownArrowAction();
+			static bool UpArrowAction();
 
-		static bool StartAction();
+			static bool DownArrowAction();
 
-		static bool EscapeAction();
+			static bool StartAction();
 
-		static bool RightShoulderAction();
+			static bool EscapeAction();
 
-		static bool LeftShoulderAction();
+			static bool RightShoulderAction();
 
-	private:
+			static bool LeftShoulderAction();
 
-		ActionManager();
+		private:
 
-};
+			ActionManager();
 
+	};
+
+}
 #endif
