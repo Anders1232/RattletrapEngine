@@ -1,11 +1,11 @@
 #include "Camera.h"
 
-#include "Error.h"
+#include <cmath>
+
 #include "Game.h"
 #include "InputManager.h"
 
-#include <cmath>
-
+#include "Error.h"
 GameObject* Camera::focus = nullptr;
 Vec2 Camera::pos = Vec2(0,0);
 float Camera::minSpeed = CAMERA_DEFAULT_MIN_SPEED;
@@ -136,10 +136,10 @@ Rect Camera::ScreenToWorld(Rect screen) {
 	world.h = screen.h/currentZoom;
 	return world;
 }
-	
+
 void Camera::SetSpeedLimits(float minSpeed, float maxSpeed) {
 	Camera::minSpeed = minSpeed;
-	Camera::maxSpeed = maxSpeed;	
+	Camera::maxSpeed = maxSpeed;
 }
 
 float Camera::GetMinSpeed(void) {
@@ -149,3 +149,5 @@ float Camera::GetMinSpeed(void) {
 float Camera::GetMaxSpeed(void) {
 	return maxSpeed;
 }
+
+#include "Error_footer.h"

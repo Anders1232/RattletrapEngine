@@ -1,7 +1,7 @@
 #include "Vec2.h"
-#include "Error.h"
 #include <cmath>
 
+#include "Error.h"
 Vec2::Vec2(void): x(0.0), y(0.0) {
 }
 
@@ -59,7 +59,7 @@ Vec2 Vec2::VecDistance(Vec2 destino){
 
 		if(destino.x >= 0.0 && x <= 0.0){dx = destino.x - x;}
 		else{dx = std::abs(destino.x - x);}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
-	
+
 	}
 	else{//(c0 > c1)
 
@@ -73,7 +73,7 @@ Vec2 Vec2::VecDistance(Vec2 destino){
 
 		if(destino.y >= 0.0 && y <= 0.0){dy = destino.y - y;}
 		else{dy = std::abs(destino.y - y);}//(c0 < ZERO_DOUBLE && c1 < ZERO_DOUBLE)
-	
+
 	}
 	else{//(c0 > c1)
 
@@ -132,6 +132,4 @@ bool Vec2::operator!=(Vec2 const &b) const {
 	return !(*this == b);
 }
 
-
-
-
+#include "Error_footer.h"

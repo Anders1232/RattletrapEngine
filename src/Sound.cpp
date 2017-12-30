@@ -34,3 +34,5 @@ void Sound::Open(string file) {
 bool Sound::IsOpen(void) const{
 	return sound != nullptr;
 }
+
+#include "Error_footer.h"

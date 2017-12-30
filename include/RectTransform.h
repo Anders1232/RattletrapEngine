@@ -16,21 +16,23 @@ class RectTransform : public Component {
 			FILL,
 			STRETCH
 		};
-	
+
 		RectTransform( GameObject &associated, GameObject *GOparent );
 		~RectTransform();
-	
+
 		void EarlyUpdate( float dt );
 		void Update( float dt );
 		void LateUpdate( float dt );
 		void Render() const;
 		bool Is( ComponentType type ) const;
-	
+
 		bool debugRender;
-	
+
+        void SetAnchors(int v1, int v2, int u1, int u2);
 		void SetAnchors( Vec2 topLeft, Vec2 bottomRight );
 		void SetOffsets( float up, float right, float down, float left );
 		void SetCenterPin( Vec2 center = {0.5, 0.5} );
+		void SetKernelSize(float w, float h);
 		void SetKernelSize( Vec2 kernelSize );
 		void SetMinScale( Vec2 minScale = {-FLT_MAX, -FLT_MAX} );
 		void SetMaxScale( Vec2 maxScale = {FLT_MAX, FLT_MAX} );
@@ -38,11 +40,11 @@ class RectTransform : public Component {
 		Rect GetBoundingBox() const;
         Rect GetOffsets() const;
         Rect GetAnchors() const;
-	
+
 	protected:
 		Rect ComputeBoundingBox( Rect parentCanvas );
 		Rect ComputeBox( Rect boundingBox = {-1., -1., -1., -1.} );
-	
+
 	private:
 		GameObject *GOparent;
 		Rect boundingBox;

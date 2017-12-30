@@ -17,7 +17,7 @@ TileSet::TileSet(std::string fileName, GameObject &associated):Component(associa
 	float durationPerFrame;
 	for(; vecSize >0; vecSize--){
 		ASSERT(3 == fscanf(file, " %[^" FORBIDDEN_CHAR "]" FORBIDDEN_CHAR " %d %f", spriteName, &numFrames, &durationPerFrame) );
-		sprites.emplace_back(std::string(spriteName), associated, durationPerFrame, numFrames);
+		sprites.emplace_back(associated, std::string(spriteName), durationPerFrame, numFrames);
 	}
 }
 
@@ -55,7 +55,7 @@ Vec2 TileSet::GetTileSize(void) const{
 	return tileSize;
 }
 
-bool TileSet::Is(ComponentType type) const{
+bool TileSet::Is(uint type) const{
 	return ComponentType::TILESET == type;
 }
 

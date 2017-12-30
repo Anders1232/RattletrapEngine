@@ -35,21 +35,21 @@ namespace Rattletrap {
 				FowardList* fw;
 			};
 			static ThreadContex early, mid, late;
-
+			
 			static void CreateEarlyThreadPool(void);
 			static void CreateMidThreadPool(void);
 			static void CreateLateThreadPool(void);
-
+			
 			static void* EarlyUpdateThread(void *nothing);
 			static void* MidUpdateThread(void *nothing);
 			static void* LateUpdateThread(void *nothing);
-
+			
 			static void DestroyEarlyThreadPool(void);
 			static void DestroyMidThreadPool(void);
 			static void DestroyLateThreadPool(void);
-
+			
 			static void Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects);
-
+			
 			static std::vector<pthread_t> earlyThreads;
 			static std::vector<pthread_t> midThreads;
 			static std::vector<pthread_t> lateThreads;

@@ -1,7 +1,7 @@
 #include "Resources.h"
-#include "Error.h"
 #include "Game.h"
 
+#include "Error.h"
 std::unordered_map<string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
 std::unordered_map<string, std::shared_ptr<Mix_Music>> Resources::musicTable;
 std::unordered_map<string, std::shared_ptr<Mix_Chunk>> Resources::soundTable;
@@ -195,3 +195,5 @@ int Resources::GetSoundVolume(){
 	return soundVolume;
 }
 */
+
+#include "Error_footer.h"

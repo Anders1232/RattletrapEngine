@@ -30,6 +30,8 @@ enum ComponentType{
 	BUTTON,
 	GROUPER,
 	TEXT,
+//Enquando não se decide onde colocamos os ComponentTypes
+//criado pelo usuário, vão ficando aqui
 	COMPONENT_TYPE_SIZE
 };
 

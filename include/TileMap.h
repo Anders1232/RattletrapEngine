@@ -45,7 +45,7 @@ class TileMap : public Component, NearestFinder<T>{
 		void Update(float dt=0);
 		void LateUpdate(float dt =0);
 		void Render(void) const;
-		bool Is(ComponentType type) const;
+		bool Is(uint type) const;
 		T& At(int x, int y, int z=0);
 		T& AtLayer(int index2D, int layer);
 		int GetWidth(void) const;
@@ -59,11 +59,13 @@ class TileMap : public Component, NearestFinder<T>{
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
 		void RemoveObserver(TileMapObserver *);
+
 		std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap);
 		inline Vec2 GetVec2Coord(int pos);
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
 		Vec2 GetTileSize(void);
+
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -76,7 +78,7 @@ class TileMap : public Component, NearestFinder<T>{
 		int currentTileSet;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 		inline std::vector<int64_t> GetNeighbours(int64_t tile);
-		
+
 		void Load(std::string const &file);
 		void RenderLayer(int layer);
 };
@@ -163,7 +165,7 @@ Vec2 TileMap<T>::CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) c
 }
 
 template<class T>
-bool TileMap<T>::Is(ComponentType type) const{
+bool TileMap<T>::Is(uint type) const{
 	return type == ComponentType::TILEMAP;
 }
 
@@ -477,7 +479,7 @@ bool TileMap<T>::IsLayerVisible(int layer){
 
 template<class T>
 Vec2 TileMap<T>::GetTileSize(void){
-	return tileSets[currentTileSet].GetTileSize();
+	return tileSets[currentTileSet]->GetTileSize();
 }
 
 

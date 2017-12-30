@@ -25,6 +25,7 @@ struct Color {
 			Essa struct representa uma cor de 8 bits. Ou seja, cada canal pode receber um número entre 0 (inclusive) e 255 (inclusive).
 		*/
 		Color( unsigned char r, unsigned char g, unsigned char b, unsigned char a = 255 );
+		Color(){};
 		operator SDL_Color();
 };
 
