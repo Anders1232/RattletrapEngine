@@ -64,6 +64,7 @@ class TileMap : public Component, NearestFinder<T>{
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
 		Vec2 GetTileSize(void);
+		TileSet& GetCurrentTileSet(void) const;
 	private:
 		int mapWidth;
 		int mapHeight;
@@ -193,6 +194,11 @@ int TileMap<T>::GetHeight(void) const{
 template<class T>
 int TileMap<T>::GetDepth(void) const{
 	return mapDepth;
+}
+
+template<class T>
+TileSet& TileMap<T>::GetCurrentTileSet(void) const{
+	return tileSets[currentTileSet];
 }
 
 template<class T>
