@@ -6,6 +6,9 @@
 GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false){
 }
 
+GameObject::GameObject(string tag): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false), tag(tag) {
+}
+
 
 GameObject::~GameObject(){
 	REPORT_I_WAS_HERE;
@@ -17,9 +20,33 @@ GameObject::~GameObject(){
 
 void GameObject::SetParent(GameObject& parent, int xrelative, int yrelative){
     this->parent = &parent;
+    parent.child[tag] = this;
     parentRelative.x = xrelative;
     parentRelative.y = yrelative;
 }
+
+void GameObject::SetTag(string tag){
+    this->tag = tag;
+}
+
+string GameObject::GetTag(){
+    return tag;
+}
+
+bool GameObject::IsTag(string tag){
+    return this->tag == tag;
+}
+
+GameObject* GameObject::GetChildWithTag(string tag){
+    //  TODO: melhorar sistema de registro de child
+    GameObject* gameObject = child[tag];
+    if( gameObject != nullptr){
+        return gameObject;
+    }
+    Error("Child not found!");
+    return nullptr;
+}
+
 
 void GameObject::EarlyUpdate(float dt){
     if(parent != nullptr){
@@ -94,7 +121,7 @@ void GameObject::RequestDelete(void){
 }
 
 void GameObject::NotifyCollision(GameObject &other){
-	REPORT_DEBUG("\t GameObject::NotifyCollision called!");
+	DEBUG_PRINT("\t GameObject::NotifyCollision called!");
 }
 
 bool GameObject::Is(string type){
@@ -158,6 +185,9 @@ void GameObject::UpdateActive(void){
 
 void GameObject::SetActive(bool newValue){
 	newActive= newValue;
+	for(unordered_map<string, GameObject*>::iterator it = child.begin(); it != child.end(); it++){
+        it->second->SetActive(newValue);
+	}
 }
 
 bool GameObject::IsActive(void) const{

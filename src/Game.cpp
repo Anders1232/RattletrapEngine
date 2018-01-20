@@ -90,6 +90,8 @@ Game::Game(std::string title,int width, int height)
 	capFramerate = true;
 	maxFramerate = INITIAL_FRAMERATE;
 	frameDuration = 1000.0/INITIAL_FRAMERATE;
+	//Apaga o mouse
+	SDL_ShowCursor(SDL_DISABLE);
 
 	//Rattletrap::Threading::Init();
 }

@@ -6,6 +6,8 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+using std::shared_ptr;
+
 #include "NearestFinder.h"
 //#include "Tile.h"
 #include "Component.h"
@@ -37,7 +39,7 @@ class AStarWeight{
 	\todo Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo
 */
 template<class T>
-class TileMap : public Component, NearestFinder<T>{
+class TileMap : public Component{//, NearestFinder<T>{
 	public:
 		TileMap(GameObject &associated, std::string const &file, TileSet *tileSet);
 		TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet);
@@ -54,7 +56,7 @@ class TileMap : public Component, NearestFinder<T>{
 		int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const;
 //		void Parallax(bool parallax);
 		void SetParallaxLayerIntensity(int layer, float intensity);
-		T* FindNearest(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
+		//T* FindNearest(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
 		std::vector<T*>* FindNearests(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
 		void ReportChanges(int tileChanged);
 		void ObserveMapChanges(TileMapObserver *);
@@ -70,17 +72,18 @@ class TileMap : public Component, NearestFinder<T>{
 		int mapWidth;
 		int mapHeight;
 		int mapDepth;
-		std::vector<T> tileMatrix;
+		std::vector<shared_ptr<T>> tileMatrix;
 		std::vector<float> parallaxWeight;
 		std::vector<TileSet*> tileSets;
 		std::vector<TileMapObserver*> observers;
 		std::vector<bool> layersVisibility;
 		int currentTileSet;
+		int GetIndex(int x, int y, int z=0) const;
 		Vec2 CalculateParallaxScrolling(Vec2 num, Rect& pos, float weigth) const;
 		inline std::vector<int64_t> GetNeighbours(int64_t tile);
 
 		void Load(std::string const &file);
-		void RenderLayer(int layer);
+		void RenderLayer(int layer) const;
 };
 
 //------------------------
@@ -94,6 +97,7 @@ class TileMap : public Component, NearestFinder<T>{
 
 template<class T>
 void TileMap<T>::Load(std::string const &file) {
+    DEBUG_PRINT("inicio");
 	FILE *arq = fopen(file.c_str(), "r");
 	ASSERT(NULL != arq);
 	fscanf(arq, "%d,%d,%d,", &mapWidth, &mapHeight, &mapDepth);
@@ -103,22 +107,27 @@ void TileMap<T>::Load(std::string const &file) {
 	int aux;
 	for(int count = 0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
-		tileMatrix[count] = T(aux);
+		tileMatrix[count] = shared_ptr<T> (new T(aux));
 	}
 	layersVisibility= std::vector<bool>(mapDepth, true);
+	DEBUG_CONSTRUCTOR("fim");
 }
 
 template<class T>
 TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0){
+	DEBUG_CONSTRUCTOR("inicio");
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
 	tileSets.push_back(tileSet);
+	DEBUG_CONSTRUCTOR("fim");
 }
 
 template<class T>
 TileMap<T>::TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet): Component(associated), tileSets(tileSet){
+	DEBUG_CONSTRUCTOR("inicio");
 	Load(file);
 	parallaxWeight.resize(mapDepth, 1);
+	DEBUG_CONSTRUCTOR("fim");
 }
 
 template<class T>
@@ -131,29 +140,38 @@ template<class T>
 void TileMap<T>::LateUpdate(float dt){}
 
 template<class T>
-void TileMap<T>::Render(void) const {
+void TileMap<T>::Render(void)const {
+    DEBUG_RENDER("inicio");
 	for(int count = 0; count < mapDepth; count++) {
 		if(layersVisibility[count]) {
 			RenderLayer(count);
 		}
 	}
+	DEBUG_RENDER("fim");
 }
 
 template<class T>
-void TileMap<T>::RenderLayer(int layer) {
+void TileMap<T>::RenderLayer(int layer) const{
+    DEBUG_RENDER("inicio");
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
-			int index = At(x, y, layer).GetTileSetIndex();
-			if (0 <= index) {
+			int index = tileMatrix[GetIndex(x, y, layer)]->GetTileSetIndex();
+            DEBUG_RENDER("index: " << index);
+			if ( index >= 0) {
 				Rect destination;
 				Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
+				DEBUG_RENDER("tileSize: " << tileSize.x << ", " << tileSize.y );
 				Vec2 tilePos(tileSize);
+				DEBUG_RENDER("tilePos: " << tileSize.x << ", " << tileSize.y );
 				destination = CalculateParallaxScrolling(tilePos, associated.box, parallaxWeight[layer]);
+				DEBUG_RENDER("destination: " << destination.x << ", " << destination.y << ", " << destination.w << ", " << destination.h );
 				Rect tile(destination.x, destination.y, tileSize.x, tileSize.y);
+				DEBUG_RENDER("tile: " << tile.x << ", " << tile.y << ", " << tile.w << ", " << tile.h );
 				tileSets[currentTileSet]->Render(index, destination);
 			}
 		}
 	}
+	DEBUG_RENDER("fim");
 }
 
 template<class T>
@@ -173,13 +191,19 @@ bool TileMap<T>::Is(ComponentType type) const{
 template<class T>
 T& TileMap<T>::At(int x, int y, int z){
 	int index = z*mapWidth*mapHeight + y*mapWidth + x;
-	return (tileMatrix.at(index) );
+	return (*tileMatrix.at(index) );
 }
+
+template<class T>
+int TileMap<T>::GetIndex(int x, int y, int z) const{
+	return z*mapWidth*mapHeight + y*mapWidth + x;
+}
+
 
 template<class T>
 T& TileMap<T>::AtLayer(int index2D, int layer){
 //	return At(index2D/mapWidth, index2D%mapWidth, layer);
-	return tileMatrix.at(index2D + layer * mapWidth * mapHeight);
+	return *tileMatrix.at(index2D + layer * mapWidth * mapHeight);
 }
 
 template<class T>
@@ -265,9 +289,10 @@ void TileMap<T>::SetParallaxLayerIntensity(int layer, float intensity){
 	parallaxWeight[layer]= intensity;
 }
 
+/*
 template<class T>
 T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
-	T* chosen= nullptr;
+	const T* chosen= nullptr;
 	float chosenTillNow= range;
 	for(int i=0; i < tileMatrix.size();i++){
 		float tempRes= finder(tileMatrix[i]);
@@ -276,7 +301,7 @@ T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 			chosenTillNow= tempRes;
 		}
 	}
-	return chosen;
+	return (T*)chosen;
 }
 
 template<class T>
@@ -289,6 +314,7 @@ std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float 
 	}
 	return chosen;
 }
+*/
 
 template<class T>
 void TileMap<T>::ObserveMapChanges(TileMapObserver *obs){

@@ -12,13 +12,14 @@ class BaseTile{
 	public:
 		/**
 			\brief Construtor
-		
-			É necessário que o tile tenha possua um contrutor cujo argumento é um inteiro, esse construtor é utilizado durante a leitura do arquivo para construir o tileMap
+
+			É necessário que o tile tenha possua um construtor cujo argumento é um inteiro, esse construtor é utilizado durante a leitura do arquivo para construir o tileMap
 		*/
 		BaseTile(int tileSetIndex);
+		~BaseTile();
 		/**
 			\brief Obtém o índice da imagem do tileset
-		
+
 			É utilizado dentro do  Método render do tileMap.
 		*/
 		int GetTileSetIndex(void) const;

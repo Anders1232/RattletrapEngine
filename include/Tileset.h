@@ -26,9 +26,17 @@ class TileSet:public Component{
 };
 
 /*
-[largura]x[altura]
-[quantidade de entradas]
-[[indice(ordenado)]\t[arquivo]\\t[quantas sprites]\t[tempo entre troca de imagens]\n]*
+Arquivo de entrada para construtor:
+    [largura]x[altura] //de cada tile
+    [quantidade de entradas]    //quantidade de linhas abaixo
+    [[indice(ordenado)]\t[arquivo]\\t[quantas sprites]\t[tempo entre troca de imagens]\n]*
+
+    exemplo:
+    62x62
+    3
+    0   tile1.png   3   1.2
+    1   tile1.png   3   1.2
+    2   tile1.png   3   1.2
 */
 
 #endif // TILESET_H

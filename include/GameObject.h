@@ -9,6 +9,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #include "Component.h"
 #include "ComponentType.h"
@@ -16,6 +17,8 @@
 
 using std::string;
 using std::unique_ptr;
+using std::vector;
+using std::unordered_map;
 
 #ifndef COMPONENT
 class Component;
@@ -36,6 +39,13 @@ class GameObject{
 			Não é virtual, sua implementação inicializa a rotação com o valor zero. Pode ser usado pelos herdeiros.
 		*/
 		GameObject(void);
+		/**
+			\brief Construtor
+
+			Inicializa o valor da tag.
+		*/
+		GameObject(string tag);
+
 		/**
 			\brief Adiciona componente a um gameobjet.
 			\param component componente a ser adicionado.
@@ -187,7 +197,14 @@ class GameObject{
 		GameObject* parent;
 		bool showOnScreen;
 
+		void SetTag(string tag);
+		string GetTag();
+		bool IsTag(string tag);
+		GameObject* GetChildWithTag(string tag);
+
 	protected:
+	    unordered_map<string, GameObject*> child;
+	    string tag;
 	    bool clicked;
 	    bool released;
 	    Vec2 parentRelative;

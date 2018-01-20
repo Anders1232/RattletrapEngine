@@ -6,8 +6,9 @@
 #define MAX_SPRITE_FILENAME_SIZE 100
 
 TileSet::TileSet(std::string fileName, GameObject &associated):Component(associated){
+    DEBUG_CONSTRUCTOR("inicio");
 	FILE *file= fopen(fileName.c_str(), "r");
-	
+
 	ASSERT2(file != NULL, "Could not open(or find) file "<< fileName);
 	uint vecSize;
 	fscanf(file, " %fx%f %u", &(tileSize.x), &(tileSize.y), &vecSize);
@@ -19,6 +20,7 @@ TileSet::TileSet(std::string fileName, GameObject &associated):Component(associa
 		ASSERT(3 == fscanf(file, " %[^" FORBIDDEN_CHAR "]" FORBIDDEN_CHAR " %d %f", spriteName, &numFrames, &durationPerFrame) );
 		sprites.emplace_back(associated, std::string(spriteName), durationPerFrame, numFrames);
 	}
+	DEBUG_CONSTRUCTOR("fim");
 }
 
 void TileSet::Update(float dt){
@@ -44,7 +46,9 @@ void TileSet::Render() const{
 }
 
 void TileSet::Render(int index, Rect pos) const{
+    DEBUG_RENDER("inicio");
 	sprites[index].Render();
+	DEBUG_RENDER("fim");
 }
 
 uint TileSet::GetSize(void) const{

@@ -38,6 +38,7 @@ enum ComponentType{
     PILOTO,
     ROBOPATH,
     PLAYER_UNITY_MENU,
+    CURSOR,
 	COMPONENT_TYPE_SIZE
 };
 
