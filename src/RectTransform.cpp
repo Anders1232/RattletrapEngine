@@ -76,7 +76,7 @@ void RectTransform::Render() const {
 	DEBUG_RENDER("fim");
 }
 
-bool RectTransform::Is( ComponentType type ) const {
+bool RectTransform::Is( unsigned int type ) const {
 	return ComponentType::RECT_TRANSFORM == type;
 }
 
@@ -90,11 +90,11 @@ void RectTransform::SetAnchors( Vec2 topLeft, Vec2 bottomRight ) {
 	ASSERT2( topLeft.x >= 0. && topLeft.x <= 1.
 				&& topLeft.y >= 0. && topLeft.y <= 1.
 				, "topLeft must have coordinates between 0 and 1" );
-	
+
 	ASSERT2( bottomRight.x >= 0. && bottomRight.x <= 1.
 				&& bottomRight.y >= 0. && bottomRight.y <= 1.
 				, "bottomRight must have coordinates between 0 and 1" );
-	
+
 	if( topLeft.x < 0. ) topLeft.x = 0.;
 	if( topLeft.y < 0. ) topLeft.y = 0.;
 	if( topLeft.x > 1. ) topLeft.x = 1.;

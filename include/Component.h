@@ -3,7 +3,7 @@
 
 #include "ComponentType.h"
 #include "GameObject.h"
-#include "ComponentType.h"
+#include "GameComponentType.h"
 
 /**
 	\brief Tipos de Componentes
@@ -71,7 +71,7 @@ class Component{
 
 			Retorna verdadeiro se o componente for do tipo type, falso caso contrário.
 		*/
-		virtual bool Is(ComponentType type) const =0;
+		virtual bool Is(unsigned int type) const =0;
 		/**
 			\brief Destrutor
 

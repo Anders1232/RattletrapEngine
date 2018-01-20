@@ -70,7 +70,7 @@ void Button::LateUpdate( float dt ) {}
 
 void Button::Render() const {}
 
-bool Button::Is( ComponentType type ) const {
+bool Button::Is( unsigned int type ) const {
 	return ComponentType::BUTTON == type;
 }
 

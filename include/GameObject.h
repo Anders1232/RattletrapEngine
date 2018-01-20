@@ -59,7 +59,7 @@ class GameObject{
 
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
-		Component& GetComponent(ComponentType type) const;
+		Component& GetComponent(unsigned int type) const;
 		/**
 			\brief Obtém componentes
 			\param type tipo do componente a ser buscado.

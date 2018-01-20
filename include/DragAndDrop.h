@@ -80,7 +80,7 @@ void DragAndDrop<T>::Update(float dt) {
 }
 
 template <class T>
-bool DragAndDrop<T>::Is(ComponentType type) const {
+bool DragAndDrop<T>::Is(uint type) const {
 	return ComponentType::DRAG_AND_DROP == type;
 }
 

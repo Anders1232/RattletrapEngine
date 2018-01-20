@@ -11,21 +11,22 @@
 
 #include "Error.h"
 Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle, int animationLines)
-		:associated(associated),
-		Component(associated),
+		:Component(associated),
+		associated(associated),
 		blendMode(ALPHA_BLEND),
 		frameCount(frameCount),
 		currentFrame(0),
 		timeElapsed(0),
 		frameTime(frameTime),
 		clipRect(),
-		scaleX(1.), scaleY(1.),
+		scaleX(1.),
+		scaleY(1.),
 		path(file),
 		animationLines(1),
-        highlightable(highlighted),
-        autoAssociate(true)
+		highlightable(highlighted),
+		autoAssociate(true)
 {
-    DEBUG_CONSTRUCTOR("inicio");
+	DEBUG_CONSTRUCTOR("inicio");
 	if(highlightable) {
 		colorMultiplier = Color(255-HIGHLIGHT, 255-HIGHLIGHT, 255-HIGHLIGHT);
 	}
@@ -40,8 +41,8 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 	}
 	SetClip(SPRITE_OPEN_X, SPRITE_OPEN_Y, width/frameCount, height/animationLines);
 	SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
-    associated.box.w = width/frameCount;
-    associated.box.h = height/animationLines;
+	associated.box.w = width/frameCount;
+	associated.box.h = height/animationLines;
 	DEBUG_CONSTRUCTOR("fim");
 //	}
 }
@@ -57,22 +58,22 @@ void Sprite::SetClip(int x, int y, int w, int h) {
 
 
 void Sprite::SetScreenRect(int x, int y, int w, int h){
-    onScreenRect.x = x;
+	onScreenRect.x = x;
 	onScreenRect.y = y;
 	onScreenRect.w = w;
 	onScreenRect.h = h;
 }
 
 void Sprite::Render() const{
-    DEBUG_RENDER("inicio");
-    DEBUG_RENDER("  Renderizando: " <<  path);
-    Game& game = Game::GetInstance();
+	DEBUG_RENDER("inicio");
+	DEBUG_RENDER("  Renderizando: " <<  path);
+	Game& game = Game::GetInstance();
 
 //{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 	Vec2 screenSize = game.GetWindowDimensions();
 	float points[4] = {(float)onScreenRect.x, (float)onScreenRect.y,
-                       (float)onScreenRect.x + onScreenRect.w,
-                       (float)onScreenRect.y + onScreenRect.h};
+					   (float)onScreenRect.x + onScreenRect.w,
+					   (float)onScreenRect.y + onScreenRect.h};
 
 	bool isOutOfBounds = true;
 	isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
@@ -96,12 +97,12 @@ void Sprite::Render() const{
 	}
 	SDL_Rect dst;
 	if(autoAssociate){
-        dst = associated.box;
+		dst = associated.box;
 	}else{
-        dst = onScreenRect;
+		dst = onScreenRect;
 	}
-    dst.w = onScreenRect.w;
-    dst.h = onScreenRect.h;
+	dst.w = onScreenRect.w;
+	dst.h = onScreenRect.h;
 	if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){//onScreenRect)){
 		Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
 								(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
@@ -111,13 +112,13 @@ void Sprite::Render() const{
 		}
 	}
 	DEBUG_RENDER("   clipRect:" <<   clipRect.x << ", " <<
-                                  clipRect.y << ", " <<
-                                  clipRect.w << ", " <<
-                                  clipRect.h << "::" );
+								  clipRect.y << ", " <<
+								  clipRect.w << ", " <<
+								  clipRect.h << "::" );
 	DEBUG_RENDER("   dst:" <<   dst.x << ", "
-                            << dst.y << ", "
-                            << dst.w << ", "
-                            << dst.h << "::" );
+							<< dst.y << ", "
+							<< dst.w << ", "
+							<< dst.h << "::" );
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
@@ -160,13 +161,13 @@ void Sprite::SetScale(float scale) {
 }
 
 void Sprite::SetAnimationLines(int animationLines){
-    this->animationLines = animationLines;
-    onScreenRect.h /= animationLines;
-    associated.box.h = clipRect.h /= animationLines;
+	this->animationLines = animationLines;
+	onScreenRect.h /= animationLines;
+	associated.box.h = clipRect.h /= animationLines;
 }
 
 void Sprite::SetAnimationLine(int animationLine){
-    SetClip(0, animationLine*(height/animationLines), width/frameCount, height/animationLines);
+	SetClip(0, animationLine*(height/animationLines), width/frameCount, height/animationLines);
 }
 
 void Sprite::ScaleX(float scale) {
@@ -205,7 +206,7 @@ void Sprite::SetFrameTime(float frameTime) {
 	this->frameTime=frameTime;
 }
 
-bool Sprite::Is(ComponentType type) const{
+bool Sprite::Is(uint type) const{
 	return ComponentType::SPRITE == type;
 }
 
@@ -214,21 +215,21 @@ void Sprite::EarlyUpdate(float dt){}
 void Sprite::LateUpdate(float dt){}
 
 void Sprite::SetPosition(int x, int y){
-    autoAssociate = false;
-    onScreenRect.x = x;
-    onScreenRect.y = y;
+	autoAssociate = false;
+	onScreenRect.x = x;
+	onScreenRect.y = y;
 }
 
 int Sprite::GetScreenX(){
-    return onScreenRect.x;
+	return onScreenRect.x;
 }
 
 int Sprite::GetScreenY(){
-    return onScreenRect.y;
+	return onScreenRect.y;
 }
 
 SDL_Rect Sprite::GetScreenRect(){
-    return onScreenRect;
+	return onScreenRect;
 }
 
 #include "Error_footer.h"

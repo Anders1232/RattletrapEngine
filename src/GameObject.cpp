@@ -157,7 +157,7 @@ void GameObject::RemoveComponent(Component* component){
 	}
 }
 
-Component& GameObject::GetComponent(ComponentType type) const{
+Component& GameObject::GetComponent(unsigned int type) const{
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
 			return *(components[i]);

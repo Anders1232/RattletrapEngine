@@ -153,14 +153,14 @@ class Sprite : public Component {
 
 		SDL_Rect GetScreenRect();
 
-		bool Is(ComponentType type) const;
+		bool Is(uint type) const;
 		void EarlyUpdate(float dt);
 		void LateUpdate(float dt);
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 	private:
-	    GameObject &associated;
-	    string path;
+		GameObject &associated;
+		string path;
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/
 		int height;/**< Altura da textura em pixels.*/
