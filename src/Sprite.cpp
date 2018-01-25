@@ -24,7 +24,8 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 		path(file),
 		animationLines(1),
 		highlightable(highlighted),
-		autoAssociate(true)
+		autoAssociate(true),
+		debug(false)
 {
 	DEBUG_CONSTRUCTOR("inicio");
 	if(highlightable) {
@@ -133,6 +134,13 @@ void Sprite::Render() const{
 	if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 		// Verifica se haverá erro
 		Error(SDL_GetError());
+	}
+	if(DEBUG){
+        SDL_SetRenderDrawColor(game.GetRenderer(), 0, 0, 255, 100);
+        SDL_RenderDrawRect(game.GetRenderer(), &dst);
+
+        SDL_SetRenderDrawColor(game.GetRenderer(), 255, 0, 0, 100);
+        SDL_RenderDrawRect(game.GetRenderer(), &dst);
 	}
 	DEBUG_RENDER("fim");
 }

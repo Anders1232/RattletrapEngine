@@ -9,7 +9,6 @@
 using std::shared_ptr;
 
 #include "NearestFinder.h"
-//#include "Tile.h"
 #include "Component.h"
 #include "Tileset.h"
 #include "TileMapObserver.h"
@@ -67,6 +66,7 @@ class TileMap : public Component{//, NearestFinder<T>{
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
 		Vec2 GetTileSize(void);
+		Vec2 MapToPixel(int x, int y);
 
 	private:
 		int mapWidth;
@@ -530,14 +530,14 @@ Vec2 TileMap<T>::GetTileSize(void){
 	return tileSets[currentTileSet]->GetTileSize();
 }
 
-/*
+
 template<class T>
-void TileMap<T>::AddTileSet(TileSet* tileset){
-    if(find(tileSets.begin(), tileSets.end(), tileset) != tileSets.end()){
-        tileSets.push_back(tileset);
-        associated.AddComponent(tileset);
-    }
+Vec2 TileMap<T>::MapToPixel(int x, int y){
+    Vec2 v(x * tileSets[currentTileSet]->GetTileSize().x,
+            y * tileSets[currentTileSet]->GetTileSize().y);
+    DEBUG_PRINT("v: " << v.x << ", " << v.y);
+    return v;
 }
-*/
+
 
 #endif // TILEMAP_H

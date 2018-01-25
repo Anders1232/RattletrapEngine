@@ -187,6 +187,13 @@ class GameObject{
 		void SetPosition(int x, int y);
 
 		/**
+			\brief Modifica posição do GameObject.
+			\param v Vetor contendo posição x, y que serão atribuidas.
+
+			Caso o objeto tenha um objeto pai, x e y são relativos a posição do objeto pai.
+		*/
+		void SetPosition(Vec2 v);
+		/**
             \brief Retorna true caso haja um click dentro da área do rect.
         */
         bool Clicked(){return clicked;};

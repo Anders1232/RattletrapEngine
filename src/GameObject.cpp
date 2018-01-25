@@ -193,9 +193,23 @@ void GameObject::SetActive(bool newValue){
 bool GameObject::IsActive(void) const{
 	return active;
 }
+void GameObject::SetPosition(Vec2 v){
+    DEBUG_PRINT("v:" << v.x << ", " << v.y);
+    if(parent == nullptr){
+        DEBUG_PRINT("No parent");
+        box.x = v.x;
+        box.y = v.y;
+    }else{
+        DEBUG_PRINT("Has parent");
+        parentRelative.x = v.x;
+        parentRelative.y = v.y;
+        box.x = parent->box.x + parentRelative.x;
+        box.y = parent->box.y + parentRelative.y;
+    }
+}
 
 void GameObject::SetPosition(int x, int y){
-    if(parent != nullptr){
+    if(parent == nullptr){
         box.x = x;
         box.y = y;
     }else{
@@ -205,5 +219,7 @@ void GameObject::SetPosition(int x, int y){
         box.y = parent->box.y + parentRelative.y;
     }
 }
+
+
 
 #include "Error_footer.h"

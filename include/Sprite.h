@@ -175,6 +175,7 @@ class Sprite : public Component {
 		int animationLines;
 		bool highlightable;
 		bool autoAssociate;
+		bool debug;
 };
 
 #include "InputManager.h"
