@@ -41,7 +41,7 @@ class AStarWeight{
 template<class T>
 class TileMap : public Component{//, NearestFinder<T>{
 	public:
-		TileMap(GameObject &associated, std::string const &file, TileSet *tileSet);
+		TileMap(GameObject &associated, std::string const &file, TileSet *tileSet = nullptr);
 		TileMap(GameObject &associated, std::string const &file, std::vector<TileSet*> &tileSet);
 		void EarlyUpdate(float dt=0);
 		void Update(float dt=0);
@@ -117,8 +117,12 @@ template<class T>
 TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0){
 	DEBUG_CONSTRUCTOR("inicio");
 	Load(file);
+	DEBUG_CONSTRUCTOR("mapWidth: " << mapWidth);
+	DEBUG_CONSTRUCTOR("mapHeight: " << mapHeight);
+	DEBUG_CONSTRUCTOR("mapDepth: " << mapDepth);
 	parallaxWeight.resize(mapDepth, 1);
-	tileSets.push_back(tileSet);
+    tileSets.push_back(tileSet);
+
 	DEBUG_CONSTRUCTOR("fim");
 }
 
@@ -131,13 +135,25 @@ TileMap<T>::TileMap(GameObject &associated, std::string const &file, std::vector
 }
 
 template<class T>
-void TileMap<T>::EarlyUpdate(float dt){}
+void TileMap<T>::EarlyUpdate(float dt){
+    for(uint i = 0; i < tileSets.size(); i++){
+        tileSets[i]->EarlyUpdate(dt);
+    }
+}
 
 template<class T>
-void TileMap<T>::Update(float dt){}
+void TileMap<T>::Update(float dt){
+    for(uint i = 0; i < tileSets.size(); i++){
+        tileSets[i]->Update(dt);
+    }
+}
 
 template<class T>
-void TileMap<T>::LateUpdate(float dt){}
+void TileMap<T>::LateUpdate(float dt){
+    for(uint i = 0; i < tileSets.size(); i++){
+        tileSets[i]->LateUpdate(dt);
+    }
+}
 
 template<class T>
 void TileMap<T>::Render(void)const {
@@ -155,18 +171,24 @@ void TileMap<T>::RenderLayer(int layer) const{
     DEBUG_RENDER("inicio");
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
+			DEBUG_RENDER("width: (" << x << "/" << mapWidth << ")");
+			DEBUG_RENDER("height: (" << y << "/" << mapHeight << ")");
 			int index = tileMatrix[GetIndex(x, y, layer)]->GetTileSetIndex();
             DEBUG_RENDER("index: " << index);
 			if ( index >= 0) {
 				Rect destination;
 				Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
 				DEBUG_RENDER("tileSize: " << tileSize.x << ", " << tileSize.y );
-				Vec2 tilePos(tileSize);
-				DEBUG_RENDER("tilePos: " << tileSize.x << ", " << tileSize.y );
+
+				Vec2 tilePos(tileSize.x * x, tileSize.y * y);
+				DEBUG_RENDER("tilePos: " << tilePos.x << ", " << tilePos.y );
+
 				destination = CalculateParallaxScrolling(tilePos, associated.box, parallaxWeight[layer]);
 				DEBUG_RENDER("destination: " << destination.x << ", " << destination.y << ", " << destination.w << ", " << destination.h );
+
 				Rect tile(destination.x, destination.y, tileSize.x, tileSize.y);
 				DEBUG_RENDER("tile: " << tile.x << ", " << tile.y << ", " << tile.w << ", " << tile.h );
+
 				tileSets[currentTileSet]->Render(index, destination);
 			}
 		}
@@ -508,5 +530,14 @@ Vec2 TileMap<T>::GetTileSize(void){
 	return tileSets[currentTileSet]->GetTileSize();
 }
 
+/*
+template<class T>
+void TileMap<T>::AddTileSet(TileSet* tileset){
+    if(find(tileSets.begin(), tileSets.end(), tileset) != tileSets.end()){
+        tileSets.push_back(tileset);
+        associated.AddComponent(tileset);
+    }
+}
+*/
 
 #endif // TILEMAP_H

@@ -18,7 +18,7 @@ TileSet::TileSet(std::string fileName, GameObject &associated):Component(associa
 	float durationPerFrame;
 	for(; vecSize >0; vecSize--){
 		ASSERT(3 == fscanf(file, " %[^" FORBIDDEN_CHAR "]" FORBIDDEN_CHAR " %d %f", spriteName, &numFrames, &durationPerFrame) );
-		sprites.emplace_back(associated, std::string(spriteName), durationPerFrame, numFrames);
+		sprites.emplace_back(associated, std::string(spriteName), true, durationPerFrame, numFrames);
 	}
 	DEBUG_CONSTRUCTOR("fim");
 }
@@ -42,11 +42,13 @@ void TileSet::LateUpdate(float dt){
 }
 
 void TileSet::Render() const{
-	printf("[WARNING] TileSet::Render(void) should not be called.\n");
+	//printf("[WARNING] TileSet::Render(void) should not be called.\n");
 }
 
-void TileSet::Render(int index, Rect pos) const{
+void TileSet::Render(int index, Rect pos){
     DEBUG_RENDER("inicio");
+    DEBUG_RENDER("pos: "  << pos.x << ", " << pos.y << ", " << pos.w << ", " << pos.h );
+	sprites[index].SetPosition(pos.x, pos.y);
 	sprites[index].Render();
 	DEBUG_RENDER("fim");
 }

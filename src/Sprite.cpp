@@ -43,6 +43,17 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 	SetScreenRect(associated.box.x, associated.box.y, width/frameCount, height/animationLines);
 	associated.box.w = width/frameCount;
 	associated.box.h = height/animationLines;
+	DEBUG_CONSTRUCTOR("   frameCount: " << frameCount);
+	DEBUG_CONSTRUCTOR("   frameTime: " << frameTime);
+	DEBUG_CONSTRUCTOR("   clipRect:" <<   clipRect.x << ", " <<
+								  clipRect.y << ", " <<
+								  clipRect.w << ", " <<
+								  clipRect.h << "::" );
+	DEBUG_CONSTRUCTOR("   onScreen:" <<   onScreenRect.x << ", "
+							<< onScreenRect.y << ", "
+							<< onScreenRect.w << ", "
+							<< onScreenRect.h << "::" );
+
 	DEBUG_CONSTRUCTOR("fim");
 //	}
 }
