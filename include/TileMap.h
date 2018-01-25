@@ -67,6 +67,7 @@ class TileMap : public Component{//, NearestFinder<T>{
 		bool IsLayerVisible(int layer);
 		Vec2 GetTileSize(void);
 		Vec2 MapToPixel(int x, int y);
+		Vec2 MapToPixel(Vec2 position);
 
 	private:
 		int mapWidth;
@@ -539,5 +540,14 @@ Vec2 TileMap<T>::MapToPixel(int x, int y){
     return v;
 }
 
+template<class T>
+Vec2 TileMap<T>::MapToPixel(Vec2 position){
+    DEBUG_PRINT("inicio");
+    DEBUG_PRINT("position: " << position.x << ", " << position.y);
+    Vec2 v(position.x * tileSets[currentTileSet]->GetTileSize().x,
+            position.y * tileSets[currentTileSet]->GetTileSize().y);
+    DEBUG_PRINT("v: " << v.x << ", " << v.y);
+    return v;
+}
 
 #endif // TILEMAP_H
