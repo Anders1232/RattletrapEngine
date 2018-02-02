@@ -19,7 +19,8 @@
 	#error "Unknown compiler"
 #endif
 
-namespace Rattletrap {
+namespace RattletrapEngine {
+
 	class Threading {
 		public:
 			static void Init(void);
@@ -54,7 +55,7 @@ namespace Rattletrap {
 			static std::vector<pthread_t> midThreads;
 			static std::vector<pthread_t> lateThreads;
 	};
-}
 
+}
 
 #endif

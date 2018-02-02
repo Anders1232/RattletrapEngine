@@ -1,8 +1,12 @@
 #include "BaseTile.h"
 
-BaseTile::BaseTile(int index): tileSetIndex(index){
-}
+namespace RattletrapEngine {
 
-int BaseTile::GetTileSetIndex(void) const{
-	return tileSetIndex;
+	BaseTile::BaseTile(int index): tileSetIndex(index){
+	}
+
+	int BaseTile::GetTileSetIndex(void) const{
+		return tileSetIndex;
+	}
+
 }

@@ -2,47 +2,51 @@
 
 #include "Camera.h"
 
-Animation::Animation(
-		float x, float y, float rotation,
-		string sprite, int frameCount,
-		float frameTime, bool ends
-		) : GameObject(), endTimer(), timeLimit(frameCount*frameTime)
-		, oneTimeOnly(ends), sp(sprite, *this, false, frameTime, frameCount ) {
-	box= Vec2(x - sp.GetWidth()/2, y - sp.GetHeight()/2);
-	this->rotation = rotation;
-}
+namespace RattletrapEngine {
 
-void Animation::Update(float dt) {
-	sp.Update(dt);
-	endTimer.Update(dt);
-}
+	Animation::Animation(
+			float x, float y, float rotation,
+			string sprite, int frameCount,
+			float frameTime, bool ends
+			) : GameObject(), endTimer(), timeLimit(frameCount*frameTime)
+			, oneTimeOnly(ends), sp(sprite, *this, false, frameTime, frameCount ) {
+		box= Vec2(x - sp.GetWidth()/2, y - sp.GetHeight()/2);
+		this->rotation = rotation;
+	}
 
-void Animation::Render(void) {
-	sp.Render();
-}
+	void Animation::Update(float dt) {
+		sp.Update(dt);
+		endTimer.Update(dt);
+	}
 
-Rect Animation::GetWorldRenderedRect(void) const {
-	return Camera::WorldToScreen(box);
-}
+	void Animation::Render(void) {
+		sp.Render();
+	}
 
-bool Animation::IsDead(void) {
-	if(oneTimeOnly) {
-		if(endTimer.Get() > timeLimit) {
-			return true;
+	Rect Animation::GetWorldRenderedRect(void) const {
+		return Camera::WorldToScreen(box);
+	}
+
+	bool Animation::IsDead(void) {
+		if(oneTimeOnly) {
+			if(endTimer.Get() > timeLimit) {
+				return true;
+			}
 		}
+		return false;
 	}
-	return false;
-}
 
-void Animation::NotifyCollision(GameObject &other) {}
+	void Animation::NotifyCollision(GameObject &other) {}
 
-bool Animation::Is(string type) {
-	return "Animation" == type;
-}
-
-void Animation::RequestDelete(void) {
-	if(!oneTimeOnly) {
-		oneTimeOnly = true;
+	bool Animation::Is(string type) {
+		return "Animation" == type;
 	}
-	endTimer.Update(timeLimit);
+
+	void Animation::RequestDelete(void) {
+		if(!oneTimeOnly) {
+			oneTimeOnly = true;
+		}
+		endTimer.Update(timeLimit);
+	}
+
 }

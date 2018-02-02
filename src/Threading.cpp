@@ -1,7 +1,7 @@
 #include "Threading.h"
 #include "Game.h"
 
-namespace Rattletrap {
+namespace RattletrapEngine {
 	
 	void Threading::Init(void){
 		pthread_mutex_init(&(early.mutex), NULL );
@@ -154,4 +154,3 @@ namespace Rattletrap {
 	}
 	
 }
-
