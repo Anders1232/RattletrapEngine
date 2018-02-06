@@ -68,6 +68,9 @@ class TileMap : public Component{//, NearestFinder<T>{
 		Vec2 GetTileSize(void);
 		Vec2 MapToPixel(int x, int y);
 		Vec2 MapToPixel(Vec2 position);
+		Vec2 PixelToMap(int x, int y);
+		Vec2 PixelToMap(Vec2 position);
+		Vec2 AdjustToMap(Vec2 position);
 
 	private:
 		int mapWidth;
@@ -536,18 +539,37 @@ template<class T>
 Vec2 TileMap<T>::MapToPixel(int x, int y){
     Vec2 v(x * tileSets[currentTileSet]->GetTileSize().x,
             y * tileSets[currentTileSet]->GetTileSize().y);
-    DEBUG_PRINT("v: " << v.x << ", " << v.y);
     return v;
 }
 
 template<class T>
 Vec2 TileMap<T>::MapToPixel(Vec2 position){
-    DEBUG_PRINT("inicio");
-    DEBUG_PRINT("position: " << position.x << ", " << position.y);
     Vec2 v(position.x * tileSets[currentTileSet]->GetTileSize().x,
             position.y * tileSets[currentTileSet]->GetTileSize().y);
-    DEBUG_PRINT("v: " << v.x << ", " << v.y);
     return v;
 }
+
+template<class T>
+Vec2 TileMap<T>::PixelToMap(int x, int y){
+    Vec2 v(x / tileSets[currentTileSet]->GetTileSize().x,
+            y / tileSets[currentTileSet]->GetTileSize().y);
+    return v;
+}
+
+template<class T>
+Vec2 TileMap<T>::PixelToMap(Vec2 position){
+    Vec2 v( (int)position.x / tileSets[currentTileSet]->GetTileSize().x,
+            (int)position.y / tileSets[currentTileSet]->GetTileSize().y);
+    return v;
+}
+
+template<class T>
+Vec2 TileMap<T>::AdjustToMap(Vec2 position){
+    Vec2 tileSize = tileSets[currentTileSet]->GetTileSize();
+    Vec2 v( tileSize.x * (int)(position.x / tileSize.x),
+            tileSize.y * (int)(position.y / tileSize.y));
+    return v;
+}
+
 
 #endif // TILEMAP_H

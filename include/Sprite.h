@@ -150,6 +150,7 @@ class Sprite : public Component {
 		void SetAnimationLine(int animationLine);
 		void Scale(float scale);
 		void SetPosition(int x, int y);
+        void SetPosition(Vec2 pos);
 
 		SDL_Rect GetScreenRect();
 

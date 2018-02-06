@@ -239,6 +239,12 @@ void Sprite::SetPosition(int x, int y){
 	onScreenRect.y = y;
 }
 
+void Sprite::SetPosition(Vec2 pos){
+	autoAssociate = false;
+	onScreenRect.x = pos.x;
+	onScreenRect.y = pos.y;
+}
+
 int Sprite::GetScreenX(){
 	return onScreenRect.x;
 }
