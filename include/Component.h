@@ -2,7 +2,7 @@
 #define COMPONENT_H
 
 #include "ComponentType.h"
-#include "GameComponentType.h"
+//#include "GameComponentType.h"
 #include "GameObject.h"
 
 /**

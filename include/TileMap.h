@@ -6,6 +6,7 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+#include <memory>
 using std::shared_ptr;
 
 #include "NearestFinder.h"
