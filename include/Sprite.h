@@ -21,6 +21,8 @@
 	\brief Classe que modela uma sprite.
 	Sprite é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição na tela da imagem.
 */
+
+using std::string;
 class Sprite : public Component {
 	public:
 		/**

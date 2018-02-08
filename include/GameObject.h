@@ -12,7 +12,6 @@
 #include <unordered_map>
 
 #include "Component.h"
-#include "ComponentType.h"
 #include "Rect.h"
 #include "State.h"
 
@@ -71,13 +70,13 @@ class GameObject{
 
 			Se não existir um componente do tipo informado Error() será chamado. Não se deve deletar os componentes obtidos.
 		*/
-		std::vector<Component*> GetComponents(ComponentType type) const;
+		std::vector<Component*> GetComponents(unsigned int type) const;
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Tipo do componente a ser removido.
 			Se a não existir um componente desse tipo no GameObject nada será feito.
 		*/
-		void RemoveComponent(ComponentType type);
+		void RemoveComponent(unsigned int type);
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Ponteiro do componente a ser removido.
@@ -228,6 +227,10 @@ class GameObject{
 		GameObject* GetChildWithTag(string tag);
 		void CreateNewObject(GameObject* gameObject);
 		State* GetContext();
+		Vec2 GetPosition();
+
+		//template<typename T>
+        //T& GetComponent(unsigned int type) const;
 
 	protected:
 	    unordered_map<string, GameObject*> child;
@@ -241,5 +244,13 @@ class GameObject{
 		bool active;/**<Informa Se o gameObject está ativo ou não*/
 		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
-
 #endif // GAMEOBJECT_H
+
+//template<typename T>
+//T& GameObject::GetComponent(unsigned int type) const{
+//    for(unsigned int i = 0; i < components.size();i++){
+//        if(components[i]->Is(type)){
+//            return dynamic_cast<T&> (*(components[i])) ;
+//        }
+//    }
+//}

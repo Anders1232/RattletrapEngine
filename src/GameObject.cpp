@@ -138,7 +138,7 @@ void GameObject::AddComponent(Component* component){
 	components.emplace_back(component);
 }
 
-void GameObject::RemoveComponent(ComponentType type){
+void GameObject::RemoveComponent(unsigned int type){
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
 			delete components[i];
@@ -169,7 +169,7 @@ Component& GameObject::GetComponent(unsigned int type) const{
 	Error("Component not found!");
 }
 
-std::vector<Component *> GameObject::GetComponents(ComponentType type) const{
+std::vector<Component *> GameObject::GetComponents(unsigned int type) const{
 	std::vector<Component *> ret;
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
@@ -253,6 +253,9 @@ State* GameObject::GetContext(){
     return context;
 }
 
+Vec2 GameObject::GetPosition(){
+    return Vec2(box.x, box.y);
+}
 
 
 #include "Error_footer.h"

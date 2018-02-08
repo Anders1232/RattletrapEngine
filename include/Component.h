@@ -25,7 +25,7 @@ class GameObject;
 */
 class Component{
 	public:
-		Component(GameObject &associated);
+	    Component(GameObject &associated);
 		/**
 			\brief Atualiza estado do componente.
 
@@ -86,5 +86,14 @@ class Component{
 		bool enabled;/**<Informa Se o gameObject está ativo ou não*/
 		bool newEnabled;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
+
+//template<class T>
+//T& GameObject::GetComponent(unsigned int type) const{
+//    for(unsigned int i = 0; i < components.size();i++){
+//        if(components[i]->Is(type)){
+//            return dynamic_cast<T&> (*(components[i])) ;
+//        }
+//    }
+//}
 
 #endif
