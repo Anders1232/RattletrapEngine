@@ -6,7 +6,8 @@
 GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false){
 }
 
-GameObject::GameObject(string tag): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false), tag(tag) {
+GameObject::GameObject(string tag, State* context):
+    rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false), context(context), tag(tag) {
 }
 
 
@@ -158,8 +159,10 @@ void GameObject::RemoveComponent(Component* component){
 }
 
 Component& GameObject::GetComponent(unsigned int type) const{
+    DEBUG_PRINT("type: " << type);
 	for(uint i = 0; i < components.size();i++){
 		if(components[i]->Is(type)){
+            DEBUG_PRINT("Component found");
 			return *(components[i]);
 		}
 	}
@@ -193,14 +196,30 @@ void GameObject::SetActive(bool newValue){
 bool GameObject::IsActive(void) const{
 	return active;
 }
+
 void GameObject::SetPosition(Vec2 v){
+    DEBUG_PRINT(tag << ": Ignoring parent to set position");
     DEBUG_PRINT("v:" << v.x << ", " << v.y);
+    box.x = v.x;
+    box.y = v.y;
+}
+void GameObject::SetPosition(int x, int y){
+    DEBUG_PRINT(tag << ": Ignoring parent to set position");
+    DEBUG_PRINT("v:" << x << ", " << y);
+    box.x = x;
+    box.y = y;
+}
+
+
+void GameObject::SetRelativePosition(Vec2 v){
     if(parent == nullptr){
-        DEBUG_PRINT("No parent");
+        DEBUG_PRINT(tag << ": No parent");
+        DEBUG_PRINT("v:" << v.x << ", " << v.y);
         box.x = v.x;
         box.y = v.y;
     }else{
-        DEBUG_PRINT("Has parent");
+        DEBUG_PRINT(tag << " parent is  " << parent->GetTag() );
+        DEBUG_PRINT("v:" << v.x << ", " << v.y);
         parentRelative.x = v.x;
         parentRelative.y = v.y;
         box.x = parent->box.x + parentRelative.x;
@@ -208,16 +227,30 @@ void GameObject::SetPosition(Vec2 v){
     }
 }
 
-void GameObject::SetPosition(int x, int y){
+void GameObject::SetRelativePosition(int x, int y){
     if(parent == nullptr){
+        DEBUG_PRINT(tag << ": No parent");
         box.x = x;
         box.y = y;
     }else{
+        DEBUG_PRINT(tag << " parent is  " << parent->GetTag() );
         parentRelative.x = x;
         parentRelative.y = y;
         box.x = parent->box.x + parentRelative.x;
         box.y = parent->box.y + parentRelative.y;
     }
+}
+
+void GameObject::CreateNewObject(GameObject* gameObject){
+    if(context != nullptr){
+        context->AddObject(gameObject);
+    }else{
+        DEBUG_PRINT("Trying to create new object without context!");
+    }
+}
+
+State* GameObject::GetContext(){
+    return context;
 }
 
 

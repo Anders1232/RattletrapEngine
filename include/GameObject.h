@@ -14,12 +14,14 @@
 #include "Component.h"
 #include "ComponentType.h"
 #include "Rect.h"
+#include "State.h"
 
 using std::string;
 using std::unique_ptr;
 using std::vector;
 using std::unordered_map;
 
+class State;
 #ifndef COMPONENT
 class Component;
 #endif
@@ -42,9 +44,10 @@ class GameObject{
 		/**
 			\brief Construtor
 
-			Inicializa o valor da tag.
+			\param tag Inicializa o valor da tag.
+			\param context Referência do contexto que GameObject está inserido, permitindo que este instancie outros objetos.
 		*/
-		GameObject(string tag);
+		GameObject(string tag, State* context = nullptr);
 
 		/**
 			\brief Adiciona componente a um gameobjet.
@@ -181,16 +184,31 @@ class GameObject{
 			\brief Modifica posição do GameObject.
 			\param x Posição no eixo x que será atribuida.
 			\param y Posição no eixo y que será atribuida.
-
-			Caso o objeto tenha um objeto pai, x e y são relativos a posição do objeto pai.
 		*/
 		void SetPosition(int x, int y);
 
 		/**
 			\brief Modifica posição do GameObject.
-			\param v Vetor contendo posição x, y que serão atribuidas.
+			\param x Posição no eixo x que será atribuida.
+			\param y Posição no eixo y que será atribuida.
 
 			Caso o objeto tenha um objeto pai, x e y são relativos a posição do objeto pai.
+		*/
+		void SetRelativePosition(int x, int y);
+
+		/**
+			\brief Modifica posição do GameObject.
+			\param x Posição no eixo x que será atribuida.
+			\param y Posição no eixo y que será atribuida.
+
+			Caso o objeto tenha um objeto pai, x e y são relativos a posição do objeto pai.
+		*/
+		void SetRelativePosition(Vec2 v);
+
+
+		/**
+			\brief Modifica posição do GameObject.
+			\param v Vetor contendo posição x, y que serão atribuidas.
 		*/
 		void SetPosition(Vec2 v);
 		/**
@@ -208,10 +226,13 @@ class GameObject{
 		string GetTag();
 		bool IsTag(string tag);
 		GameObject* GetChildWithTag(string tag);
+		void CreateNewObject(GameObject* gameObject);
+		State* GetContext();
 
 	protected:
 	    unordered_map<string, GameObject*> child;
 	    string tag;
+	    State* context;
 	    bool clicked;
 	    bool released;
 	    Vec2 parentRelative;

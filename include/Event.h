@@ -64,8 +64,10 @@ class Event{
 
 			//Momento da chamada dos métodos inscritos
 			void FireEvent(EventArgType eventArg){
+			    DEBUG_PRINT("inicio");
 				for(unsigned int i = 0; i < Subscribers.size(); i++){
 					Subscribers[i].handlerProc(eventSource, eventArg, Subscribers[i].handlerContext);
 				}
+				DEBUG_PRINT("fim");
 			}
 };

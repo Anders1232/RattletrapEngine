@@ -2,8 +2,8 @@
 #define COMPONENT_H
 
 #include "ComponentType.h"
-#include "GameObject.h"
 #include "GameComponentType.h"
+#include "GameObject.h"
 
 /**
 	\brief Tipos de Componentes

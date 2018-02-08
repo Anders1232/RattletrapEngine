@@ -13,6 +13,7 @@
 
 	State provê uma interface sobre a qual a lógica do jogo pode ser desenvolvida e rodada sobre a engine. Um jogo pode ter vários estados, solictando que seja desempilhado ou que novos estados sejam empilhados. A engine os gerencia como uma pilha.
 */
+class GameObject;
 class State {
 	public:
 		/**
@@ -53,14 +54,14 @@ class State {
 		virtual void LateUpdate(float dt);
 		/**
 			\brief Atualiza active.
-		
+
 			Esse método não deve ser sobrescrevido. Também atualiza o status enabled de seus Componenetes.
 			Em GameObjects desativados os métodos EarlyUpdate, Update, Render e LateUpdate não são chamados.
 		*/
 		virtual void UpdateActive(void);
 		/**
 			\brief Deleta GameObjects.
-		
+
 			Deleta GameObjects que solicitaram deleção.
 		*/
 		void DeleteRequested(void);

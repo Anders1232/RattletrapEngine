@@ -28,10 +28,12 @@ Button::Button( GameObject& associated, Button::State initialState, bool interac
 Button::~Button() {}
 
 void Button::EarlyUpdate( float dt ) {
+    DEBUG_UPDATE("inicio");
     if(associated.Released()){
         Notify();
         //DEBUG_PRINT("associated.box: (" << associated.box.w << "," << associated.box.h << ")" );
     }
+    DEBUG_UPDATE("fim");
     /*
     if( Button::State::DISABLED != actualState ) {
 		Vec2 mousePos = INPUT_MANAGER.GetMousePos();
@@ -107,23 +109,30 @@ Button::State Button::GetState() const {
 }
 
 void Button::Click() {
+    DEBUG_PRINT("inicio");
 	released.Call();
+	DEBUG_PRINT("fim");
 }
 
 bool Button::AddObserver(Component* observer){
+    DEBUG_PRINT("inicio");
     vector<Component*>::iterator it = find(observers.begin(), observers.end(), observer);
     if(it != observers.end()){
+        DEBUG_PRINT("fim");
         return false;
     }else{
         observers.push_back(observer);
+        DEBUG_PRINT("fim");
         return true;
     }
 }
 
 bool Button::Notify(){
+    DEBUG_PRINT("inicio");
     for(uint i = 0; i < observers.size(); i++){
         observers[i]->ButtonObserver(this);
     }
+    DEBUG_PRINT("fim");
     return (observers.size() > 0);
 }
 

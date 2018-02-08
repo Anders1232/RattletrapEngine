@@ -226,7 +226,7 @@ void Sprite::SetFrameTime(float frameTime) {
 }
 
 bool Sprite::Is(uint type) const{
-	return ComponentType::SPRITE == type;
+    return ComponentType::SPRITE == type;
 }
 
 void Sprite::EarlyUpdate(float dt){}
