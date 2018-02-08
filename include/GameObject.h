@@ -62,6 +62,8 @@ class GameObject{
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
 		Component& GetComponent(unsigned int type) const;
+		template<typename T>
+		T& GetComponent(unsigned int type) const;
 		/**
 			\brief Obtém componentes
 			\param type tipo do componente a ser buscado.
@@ -244,13 +246,15 @@ class GameObject{
 		bool active;/**<Informa Se o gameObject está ativo ou não*/
 		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
+
+template<typename T>
+T& GameObject::GetComponent(unsigned int type) const{
+    for(unsigned int i = 0; i < components.size();i++){
+        if(components[i]->Is(type)){
+            return dynamic_cast<T&> (*(components[i])) ;
+        }
+    }
+}
+
 #endif // GAMEOBJECT_H
 
-//template<typename T>
-//T& GameObject::GetComponent(unsigned int type) const{
-//    for(unsigned int i = 0; i < components.size();i++){
-//        if(components[i]->Is(type)){
-//            return dynamic_cast<T&> (*(components[i])) ;
-//        }
-//    }
-//}
