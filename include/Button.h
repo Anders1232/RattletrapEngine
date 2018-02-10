@@ -30,7 +30,7 @@ namespace RattletrapEngine {
 			void Update( float dt );
 			void LateUpdate( float dt );
 			void Render() const;
-			bool Is( ComponentType type ) const;
+			bool Is( int componentType ) const;
 		
 			void SetCallback(Button::State stateToSet, Button::Callback calldata);
 			void SetReleaseCallback(Button::Callback calldata);

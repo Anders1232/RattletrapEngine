@@ -10,8 +10,7 @@ namespace RattletrapEngine {
 		Foi colocado em um arquivo separado por problemas de inclusão circular entre GameObject e Component.
 	*/
 	enum ComponentType{
-		DRAG_AND_DROP=0,
-		HIT_POINTS,
+		HIT_POINTS=0,
 		AI_GO_DOWN,
 		AI_GO_TO,
 		AI_PRINT_PATH,

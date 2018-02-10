@@ -31,7 +31,7 @@ namespace RattletrapEngine {
 			void Update( float dt );
 			void LateUpdate( float dt );
 		
-			bool Is( ComponentType type ) const;
+			bool Is( int componentType ) const;
 		
 			void MakeGridGroup( ConstraintType ctype, int num, BehaviorOnLess bol );
 			void MakeHorizontalGroup();

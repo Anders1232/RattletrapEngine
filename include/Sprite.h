@@ -143,7 +143,7 @@ namespace RattletrapEngine {
 				Atribui a scaleY produto de scaleX pelo argumento e atribui a scaleX produto de scaleX pelo argumento.
 			*/
 			void Scale(float scale);
-			bool Is(ComponentType type) const;
+			bool Is(int componentType) const;
 			void EarlyUpdate(float dt);
 			void LateUpdate(float dt);
 			Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/

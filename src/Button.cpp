@@ -52,7 +52,7 @@ namespace RattletrapEngine {
 
 	void Button::Render() const {}
 
-	bool Button::Is( ComponentType type ) const {
+	bool Button::Is( int componentType ) const {
 		return ComponentType::BUTTON == type;
 	}
 

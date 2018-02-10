@@ -51,7 +51,7 @@ namespace RattletrapEngine {
 				
 				Se não existir um componente do tipo informado Error() será chamado
 			*/
-			Component& GetComponent(ComponentType type) const;
+			Component& GetComponent(int componentType) const;
 			/**
 				\brief Obtém componentes
 				\param type tipo do componente a ser buscado.
@@ -60,13 +60,13 @@ namespace RattletrapEngine {
 				
 				Se não existir um componente do tipo informado Error() será chamado. Não se deve deletar os componentes obtidos.
 			*/
-			std::vector<Component*> GetComponents(ComponentType type) const;
+			std::vector<Component*> GetComponents(int componentType) const;
 			/**
 				\brief Remove componente a um gameobjet.
 				\param type Tipo do componente a ser removido.
 				Se a não existir um componente desse tipo no GameObject nada será feito.
 			*/
-			void RemoveComponent(ComponentType type);
+			void RemoveComponent(int componentType);
 			/**
 				\brief Remove componente a um gameobjet.
 				\param type Ponteiro do componente a ser removido.

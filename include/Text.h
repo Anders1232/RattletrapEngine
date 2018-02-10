@@ -31,7 +31,7 @@ namespace RattletrapEngine {
 			void EarlyUpdate( float dt );
 			void Update( float dt );
 			void LateUpdate( float dt );
-			bool Is( ComponentType type ) const;
+			bool Is( int componentType ) const;
 			void Render() const;
 		
 			/**
