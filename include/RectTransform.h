@@ -26,7 +26,7 @@ namespace RattletrapEngine {
 			void Update( float dt );
 			void LateUpdate( float dt );
 			void Render() const;
-			bool Is( ComponentType type ) const;
+			bool Is( int componentType ) const;
 		
 			bool debugRender;
 		

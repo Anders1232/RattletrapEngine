@@ -47,7 +47,7 @@ namespace RattletrapEngine {
 			void Update(float dt=0);
 			void LateUpdate(float dt =0);
 			void Render(void) const;
-			bool Is(ComponentType type) const;
+			bool Is(int componentType) const;
 			T& At(int x, int y, int z=0);
 			T& AtLayer(int index2D, int layer);
 			int GetWidth(void) const;
@@ -168,8 +168,8 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	bool TileMap<T>::Is(ComponentType type) const{
-		return type == ComponentType::TILEMAP;
+	bool TileMap<T>::Is(int componentType) const{
+		return componentType == ComponentType::TILEMAP;
 	}
 
 	//mudanaça: o método abaixo pode lançar exceção
@@ -275,7 +275,7 @@ namespace RattletrapEngine {
 		for(int i=0; i < tileMatrix.size();i++){
 			float tempRes= finder(tileMatrix[i]);
 			if(tempRes < chosenTillNow){
-				chosen= &(tileMatrix[i]);
+				chosen= (T*)&(tileMatrix[i]);
 				chosenTillNow= tempRes;
 			}
 		}

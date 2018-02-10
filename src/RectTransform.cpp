@@ -55,7 +55,7 @@ namespace RattletrapEngine {
 		}
 	}
 
-	bool RectTransform::Is( ComponentType type ) const {
+	bool RectTransform::Is( int componentType ) const {
 		return ComponentType::RECT_TRANSFORM == type;
 	}
 

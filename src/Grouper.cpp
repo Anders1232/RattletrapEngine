@@ -64,7 +64,7 @@ namespace RattletrapEngine {
 
 	void Grouper::LateUpdate( float dt ) {}
 
-	bool Grouper::Is( ComponentType type ) const {
+	bool Grouper::Is( int componentType ) const {
 		return ComponentType::GROUPER == type;
 	}
 
