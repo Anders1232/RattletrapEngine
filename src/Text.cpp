@@ -49,7 +49,7 @@ namespace RattletrapEngine {
 	}
 
 	bool Text::Is( int componentType ) const {
-		return ComponentType::TEXT == type;
+		return ComponentType::TEXT == componentType;
 	}
 
 	void Text::SetText( string text ) {

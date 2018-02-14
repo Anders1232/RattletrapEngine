@@ -173,7 +173,7 @@ namespace RattletrapEngine {
 	}
 
 	bool Sprite::Is(int componentType) const{
-		return ComponentType::SPRITE == type;
+		return ComponentType::SPRITE == componentType;
 	}
 
 	void Sprite::EarlyUpdate(float dt){}

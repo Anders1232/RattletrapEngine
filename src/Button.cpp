@@ -53,7 +53,7 @@ namespace RattletrapEngine {
 	void Button::Render() const {}
 
 	bool Button::Is( int componentType ) const {
-		return ComponentType::BUTTON == type;
+		return ComponentType::BUTTON == componentType;
 	}
 
 	void Button::SetCallback( Button::State stateToSet, Button::Callback calldata ) {

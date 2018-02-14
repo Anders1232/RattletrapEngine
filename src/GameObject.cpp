@@ -95,7 +95,7 @@ namespace RattletrapEngine {
 
 	Component& GameObject::GetComponent(int componentType) const{
 		for(uint i = 0; i < components.size();i++){
-			if(components[i]->Is(type)){
+			if(components[i]->Is(componentType)){
 				return *(components[i]);
 			}
 		}
@@ -105,7 +105,7 @@ namespace RattletrapEngine {
 	std::vector<Component *> GameObject::GetComponents(int componentType) const{
 		std::vector<Component *> ret;
 		for(uint i = 0; i < components.size();i++){
-			if(components[i]->Is(type)){
+			if(components[i]->Is(componentType)){
 				ret.push_back(components[i] );
 			}
 		}
