@@ -11,16 +11,11 @@
 #include <vector>
 #include <unordered_map>
 
-#include "Component.h"
 #include "Rect.h"
-#include "State.h"
 
 class State;
-#ifndef COMPONENT
 class Component;
-#endif
 
-#define GAME_OBJECT
 /**
 	\brief Classe virtual que especifica o funcionamento de um GameObject.
 
@@ -238,6 +233,8 @@ class GameObject{
 		bool active;/**<Informa Se o gameObject está ativo ou não*/
 		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
+
+#include "Component.h"
 
 template<typename T>
 T& GameObject::GetComponent(unsigned int type) const{

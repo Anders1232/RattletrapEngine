@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>//find()
 
-using std::vector;
+#include "Error.h"
 
 template<typename SourceType, typename EventArgType>
 class Event{
@@ -26,7 +26,7 @@ class Event{
 				friend class Event; //Agora, a classe Event pode acessar os atributos privados e protegidos de SubscrierRecord
 		};
 
-		vector<SubscriberRecord> Subscribers; //objetos e respectivos métodos cadastrados no evento
+		std::vector<SubscriberRecord> Subscribers; //objetos e respectivos métodos cadastrados no evento
 		SourceType *eventSource;//ponteiro ao objeto que gerou o evento
 
 		public:
@@ -43,7 +43,7 @@ class Event{
 			//Remove uma função (desligada de objeto) a lista de inscrições
 			void operator -=(EventHandler handler){
 			    //vector<Event<SourceType,EventArgType>::SubscribeRecord>::iterator é um escopo dependente
-				typename vector<SubscriberRecord>::iterator it = find(Subscribers.begin(), Subscribers.end(), handler);
+				typename std::vector<SubscriberRecord>::iterator it = find(Subscribers.begin(), Subscribers.end(), handler);
 				if(it != Subscribers.end()){
 					Subscribers.erase(it);
 				}
@@ -56,7 +56,7 @@ class Event{
 
 			//Remove método e (opcional) objeto à lista de inscrições
 			void Unsubscribe(EventHandler handler, void* context = 0){
-				typename vector<SubscriberRecord>::iterator it = find(Subscribers.begin(), Subscribers.end(), SubscriberRecord(handler, context));
+				typename std::vector<SubscriberRecord>::iterator it = find(Subscribers.begin(), Subscribers.end(), SubscriberRecord(handler, context));
 				if(it != Subscribers.end()){
 					Subscribers.erase(it);
 				}

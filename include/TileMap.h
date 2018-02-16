@@ -1,6 +1,7 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
+#include <iostream>
 #include <vector>
 #include <list>
 #include <queue>

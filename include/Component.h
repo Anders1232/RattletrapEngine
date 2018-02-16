@@ -3,7 +3,6 @@
 
 #include "ComponentType.h"
 #include "GameComponentType.h"
-#include "GameObject.h"
 
 /**
 	\brief Tipos de Componentes
@@ -12,12 +11,8 @@
 */
 
 
-#ifndef GAME_OBJECT
 class GameObject;
-#endif
 
-
-#define COMPONENT
 /**
 	\brief Modela os componentes.
 
