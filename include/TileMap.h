@@ -380,7 +380,7 @@ namespace RattletrapEngine {
 	template<class T>
 	class AStarCompare{
 		public:
-			AStarCompare(std::vector<int64_t> const &guessedCost, std::vector<int64_t> const &accumulatedCost):
+			AStarCompare(std::vector<float> const &guessedCost, std::vector<float> const &accumulatedCost):
 				accumulatedCost(accumulatedCost),
 				guessedCost(guessedCost){}
 			bool operator()(int64_t a, int64_t b){
@@ -395,8 +395,8 @@ namespace RattletrapEngine {
 				}
 			}
 		private:
-			std::vector<int64_t> const &guessedCost;
-			std::vector<int64_t> const &accumulatedCost;
+			std::vector<float> const &guessedCost;
+			std::vector<float> const &accumulatedCost;
 	};
 
 	inline std::list<int>* MakePath(int origin, int dest, std::vector<int64_t> const &antecessor){
@@ -440,7 +440,7 @@ namespace RattletrapEngine {
 					openSet.push_back(currentNeightbor);
 					std::sort(openSet.begin(), openSet.end(), AStarCompare<T>(guessedCost, accumulatedCost));
 				}
-				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(currentNeightbor);
+				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(tileMatrix[currentNeightbor]);
 				if(tentativeDistance < accumulatedCost[currentNeightbor ] ){
 					antecessor[currentNeightbor]= current;
 					accumulatedCost[currentNeightbor]= tentativeDistance;
