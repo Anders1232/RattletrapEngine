@@ -9,8 +9,6 @@
 #include "RectTransform.h"
 #include "InputManager.h"
 
-using std::vector;
-#include "Error.h"
 class Button : public Component {
 	public:
 		enum State : int {
@@ -47,7 +45,7 @@ class Button : public Component {
 
 	private:
 	    bool Notify();
-	    vector<Component*> observers;
+	    std::vector<Component*> observers;
 		Button::State actualState;
 		Callback disabled;
 		Callback enabled;

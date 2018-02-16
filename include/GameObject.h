@@ -15,11 +15,6 @@
 #include "Rect.h"
 #include "State.h"
 
-using std::string;
-using std::unique_ptr;
-using std::vector;
-using std::unordered_map;
-
 class State;
 #ifndef COMPONENT
 class Component;
@@ -46,7 +41,7 @@ class GameObject{
 			\param tag Inicializa o valor da tag.
 			\param context Referência do contexto que GameObject está inserido, permitindo que este instancie outros objetos.
 		*/
-		GameObject(string tag, State* context = nullptr);
+		GameObject(std::string tag, State* context = nullptr);
 
 		/**
 			\brief Adiciona componente a um gameobjet.
@@ -160,7 +155,7 @@ class GameObject{
 
 			É usado no tratamento de colisão para que se identifique com quem colidiu.
 		*/
-		virtual bool Is(string type);
+		virtual bool Is(std::string type);
 		/**
 			\brief Obtém Rect informando a posição renderizada da animação.
 
@@ -223,20 +218,17 @@ class GameObject{
 		GameObject* parent;
 		bool showOnScreen;
 
-		void SetTag(string tag);
-		string GetTag();
-		bool IsTag(string tag);
-		GameObject* GetChildWithTag(string tag);
+		void SetTag(std::string tag);
+		std::string GetTag();
+		bool IsTag(std::string tag);
+		GameObject* GetChildWithTag(std::string tag);
 		void CreateNewObject(GameObject* gameObject);
 		State* GetContext();
 		Vec2 GetPosition();
 
-		//template<typename T>
-        //T& GetComponent(unsigned int type) const;
-
 	protected:
-	    unordered_map<string, GameObject*> child;
-	    string tag;
+	    std::unordered_map<std::string, GameObject*> child;
+	    std::string tag;
 	    State* context;
 	    bool clicked;
 	    bool released;

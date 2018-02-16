@@ -1,5 +1,10 @@
 #include "Music.h"
 
+using std::string;
+
+#define MUSIC_FADE_OUT_TIME_MSEC (2000)
+
+
 Music::Music() {
 	music= nullptr;
 }

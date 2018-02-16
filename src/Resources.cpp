@@ -2,10 +2,14 @@
 #include "Game.h"
 
 #include "Error.h"
-std::unordered_map<string, std::shared_ptr<SDL_Texture>> Resources::imageTable;
-std::unordered_map<string, std::shared_ptr<Mix_Music>> Resources::musicTable;
-std::unordered_map<string, std::shared_ptr<Mix_Chunk>> Resources::soundTable;
-std::unordered_map<string, std::shared_ptr<TTF_Font>> Resources::fontTable;
+using std::string;
+using std::unordered_map;
+using std::shared_ptr;
+
+unordered_map<string, shared_ptr<SDL_Texture>> Resources::imageTable;
+unordered_map<string, shared_ptr<Mix_Music>> Resources::musicTable;
+unordered_map<string, shared_ptr<Mix_Chunk>> Resources::soundTable;
+unordered_map<string, shared_ptr<TTF_Font>> Resources::fontTable;
 int Resources::musicVolume = 64;
 int Resources::soundVolume = 16;
 

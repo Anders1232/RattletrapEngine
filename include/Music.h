@@ -1,9 +1,9 @@
 #ifndef MUSIC_H
 #define MUSIC_H
 
-#define INCLUDE_SDL 
-#define INCLUDE_SDL_IMAGE 
-#define INCLUDE_SDL_MIXER 
+#define INCLUDE_SDL
+#define INCLUDE_SDL_IMAGE
+#define INCLUDE_SDL_MIXER
 #include "SDL_include.h"
 
 #include <string>
@@ -11,10 +11,6 @@
 #include "Resources.h"
 #include "Error.h"
 #include "InputManager.h"
-
-#define MUSIC_FADE_OUT_TIME_MSEC (2000)
-
-using std::string;
 
 /**
 	\brief Classe que modela músicas.
@@ -37,7 +33,7 @@ class Music {
 
 			Cria uma instância associando-a uma música. Todas as funcionalidades tornam-se disponíveis.
 		*/
-		Music(string file);
+		Music(std::string file);
 		/**
 			\brief Toca a música.
 			\param times Número de vezes que a música deve repetir.
@@ -58,7 +54,7 @@ class Music {
 
 			Associa a instância à música contido no arquivo.
 		*/
-		void Open(string file);
+		void Open(std::string file);
 		/**
 			\brief Verifica se tem um arquivo aberto
 			\param return verdadeiro se essa instância está associada a uma música, falso caso contrário.

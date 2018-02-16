@@ -3,13 +3,15 @@
 #include "Camera.h"
 #include "Game.h"
 #include "Resources.h"
+#include "Error.h"
+
+using std::string;
 
 //Alterar esses valores altera a parte da textura que será renderizada
 #define SPRITE_OPEN_X (0)
 #define SPRITE_OPEN_Y (0)
 #define HIGHLIGHT 30
 
-#include "Error.h"
 Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle, int animationLines)
 		:Component(associated),
 		associated(associated),

@@ -11,8 +11,6 @@
 #include <unordered_map>
 #include <memory>
 
-using std::string;
-
 /**
 	\brief Classe estática responsável por gestão dos recursos em memória.
 	\todo Ver com a monitora quando/como as músicas e sons devem ser alocados/desalocados.
@@ -30,7 +28,7 @@ class Resources {
 			Se a imagem em questão já estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a imagem no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a imagem da memória.
 		*/
-		static std::shared_ptr<SDL_Texture> GetImage(string file);
+		static std::shared_ptr<SDL_Texture> GetImage(std::string file);
 		/**
 			\brief Obtém o ponteiro para a música.
 			\param file Nome do arquivo de música que se deseja abrir.
@@ -39,7 +37,7 @@ class Resources {
 			Se a música em questão já estiver em memória, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a música no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a música da memória.
 		*/
-		static std::shared_ptr<Mix_Music> GetMusic(string file);
+		static std::shared_ptr<Mix_Music> GetMusic(std::string file);
 		/**
 			\brief Obtém o ponteiro para o áudio.
 			\param file Nome do arquivo de áudio que se deseja abrir.
@@ -48,7 +46,7 @@ class Resources {
 			Se o áudio em questão já estiver em memória, um ponteiro para ele é enviado. Caso contrário ele é carregada, colocado no hash e então retornado.
 			Ao se colocar o áudio no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca o áudio da memória.
 		*/
-		static std::shared_ptr<Mix_Chunk> GetSound(string file);
+		static std::shared_ptr<Mix_Chunk> GetSound(std::string file);
 		/**
 			\brief Obtém o ponteiro para a fonte.
 			\param file Nome do arquivo de fonte que se deseja abrir.
@@ -58,7 +56,7 @@ class Resources {
 			Se a fonte em questão já estiver em memória no tamanho requerido, um ponteiro para ela é enviado. Caso contrário ela é carregada, colocada no hash e então retornada.
 			Ao se colocar a fonte no hash, criando o shared_ptr, um destrutor desse ponteiro é enviado como uma função lambda. Esse destrutor desaloca a fonte da memória.
 		*/
-		static std::shared_ptr<TTF_Font> GetFont(string file, int fontSize);
+		static std::shared_ptr<TTF_Font> GetFont(std::string file, int fontSize);
 		/**
 			\brief Desaloca da memória os recursos que não estão em uso
 
@@ -128,10 +126,10 @@ class Resources {
 			A tabela de hash das fontes(fontTable) é percorrida e, se não houver nenhuma outra referência para essa fonte no programa,, a fonte é destruída, chamando indiretamente a função lambda enviada na criação do shared_ptr.
 		*/
 		static void ClearFonts(void);
-		static std::unordered_map<string, std::shared_ptr<SDL_Texture>> imageTable;/**< Tabela de hash com as texturas carregadas.*/
-		static std::unordered_map<string, std::shared_ptr<Mix_Music>> musicTable;/**< Tabela de hash com as músicas carregadas.*/
-		static std::unordered_map<string, std::shared_ptr<Mix_Chunk>> soundTable;/**< Tabela de hash com os sons carregados.*/
-		static std::unordered_map<string, std::shared_ptr<TTF_Font>> fontTable;/**< Tabela de hash com as fontes carregadas. Cada combinação fonte-tamanho é uma entrada diferente no hash. Isso pe feito concatenando o tamanho da fonte ao nome do arquivo da mesma.*/
+		static std::unordered_map<std::string, std::shared_ptr<SDL_Texture>> imageTable;/**< Tabela de hash com as texturas carregadas.*/
+		static std::unordered_map<std::string, std::shared_ptr<Mix_Music>> musicTable;/**< Tabela de hash com as músicas carregadas.*/
+		static std::unordered_map<std::string, std::shared_ptr<Mix_Chunk>> soundTable;/**< Tabela de hash com os sons carregados.*/
+		static std::unordered_map<std::string, std::shared_ptr<TTF_Font>> fontTable;/**< Tabela de hash com as fontes carregadas. Cada combinação fonte-tamanho é uma entrada diferente no hash. Isso pe feito concatenando o tamanho da fonte ao nome do arquivo da mesma.*/
 		static int musicVolume;/**< Armazena volume da música. Esse valor pode ser de 0 a 128.*/
 		static int soundVolume;/**< Armazena volume dos sons. Esse valor pode ser de 0 a 128.*/
 };

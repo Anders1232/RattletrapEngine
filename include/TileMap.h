@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <memory>
 using std::shared_ptr;
+using std::endl;
 
 #include "NearestFinder.h"
 #include "Component.h"

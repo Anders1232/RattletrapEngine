@@ -6,6 +6,8 @@
 
 #include "Error.h"
 
+using std::vector;
+
 Button::Callback::Callback( ButtonCallbackFunc callbackFunc, void* caller)
 						: callbackFunc( callbackFunc )
 						, caller(caller) {}

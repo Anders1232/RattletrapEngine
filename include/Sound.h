@@ -1,16 +1,13 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-#define INCLUDE_SDL 
-#define INCLUDE_SDL_IMAGE 
-#define INCLUDE_SDL_MIXER 
+#define INCLUDE_SDL
+#define INCLUDE_SDL_IMAGE
+#define INCLUDE_SDL_MIXER
 #include "SDL_include.h"
 
 #include <memory>
-
 #include <string>
-
-using std::string;
 
 /**
 	\brief Classe que modela sons.
@@ -33,7 +30,7 @@ class Sound {
 
 			Cria uma instância associando-a um som. Todas as funcionalidades tornam-se disponíveis.
 		*/
-		Sound(string file);
+		Sound(std::string file);
 		/**
 			\brief Toca o som.
 			\param times Número de vezes que a música deve repetir.
@@ -54,7 +51,7 @@ class Sound {
 
 			Associa a instância ao som contido no arquivo. Caso essa instância de Sound já esteja com um som sendo tocado, esse som é interrompido para que depois o novo som seja carregado.
 		*/
-		void Open(string file);
+		void Open(std::string file);
 		/**
 			\brief Verifica se tem um arquivo aberto
 			\param return verdadeiro se essa instância está associada a um som, falso caso contrário.

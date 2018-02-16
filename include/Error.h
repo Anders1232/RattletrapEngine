@@ -12,8 +12,6 @@
 
 //#define USE_AT
 
-using std::endl;
-
 #define CONVERSAO_GRAUS_RADIANOS 57.324840764
 
 #define DEBUG   true

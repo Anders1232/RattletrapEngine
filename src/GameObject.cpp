@@ -3,6 +3,11 @@
 #include "Camera.h"
 #include "Error.h"
 
+using std::string;
+using std::unique_ptr;
+using std::vector;
+using std::unordered_map;
+
 GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false){
 }
 

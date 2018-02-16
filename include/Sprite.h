@@ -22,7 +22,6 @@
 	Sprite é uma imagem carregada na memória. Essa classe também traz uma séria de funcionalidades além disso, como escala, animações de sprite sheets e exibição na tela da imagem.
 */
 
-using std::string;
 class Sprite : public Component {
 	public:
 		/**
@@ -163,7 +162,7 @@ class Sprite : public Component {
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 	private:
 		GameObject &associated;
-		string path;
+		std::string path;
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/
 		int height;/**< Altura da textura em pixels.*/

@@ -4,6 +4,7 @@
 #include "RectTransform.h"
 #include "Resources.h"
 
+using std::string;
 Text::Text( GameObject associated )
 			: Component( associated )
 			, texture( nullptr )
@@ -75,7 +76,7 @@ void Text::SetFontSize( int fontSize ) {
 	RemakeTexture();
 }
 
-void Text::SetFont( std::string fontFile ) {
+void Text::SetFont( string fontFile ) {
 	this->fontFile = fontFile;
 	RemakeTexture();
 }
@@ -115,7 +116,7 @@ void Text::RemakeTexture() {
 	if( nullptr == texture ) {
 		REPORT_DEBUG( " Cuidado! Nao foi possivel se criar uma textura de texto:\t" << SDL_GetError() << "\n\t\t\t\t\t Se crashar, esse talvez seja o motivo..." );
 	}
-	
+
 	SDL_FreeSurface( temp );
 	int w = 0;
 	int h = 0;

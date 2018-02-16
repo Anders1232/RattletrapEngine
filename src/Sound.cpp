@@ -2,6 +2,8 @@
 #include "Resources.h"
 #include "Error.h"
 
+using std::string;
+
 Sound::Sound(): sound(nullptr), channel(-1) {
 }
 
