@@ -8,11 +8,11 @@ using std::unique_ptr;
 using std::vector;
 using std::unordered_map;
 
-GameObject::GameObject(void): rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false){
+GameObject::GameObject(void): rotation(0.), parent(nullptr), clicked(false), dead(false), active(true), newActive(true){
 }
 
 GameObject::GameObject(string tag, State* context):
-    rotation(0.), dead(false), active(true), newActive(true), parent(nullptr), clicked(false), context(context), tag(tag) {
+    rotation(0.), parent(nullptr), tag(tag), context(context), clicked(false), dead(false), active(true), newActive(true) {
 }
 
 

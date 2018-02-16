@@ -14,8 +14,8 @@ using std::string;
 
 Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float frameTime, int frameCount, float angle, int animationLines)
 		:Component(associated),
-		associated(associated),
 		blendMode(ALPHA_BLEND),
+		path(file),
 		frameCount(frameCount),
 		currentFrame(0),
 		timeElapsed(0),
@@ -23,7 +23,6 @@ Sprite::Sprite(GameObject &associated, std::string file, bool highlighted, float
 		clipRect(),
 		scaleX(1.),
 		scaleY(1.),
-		path(file),
 		animationLines(1),
 		highlightable(highlighted),
 		autoAssociate(true),

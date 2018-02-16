@@ -161,7 +161,6 @@ class Sprite : public Component {
 		Color colorMultiplier;/**< A cor a ser usada para multiplicar a sprite.*/
 		SDL_BlendMode blendMode;/**< O modo de mistura da sprite com as inferiores.*/
 	private:
-		GameObject &associated;
 		std::string path;
 		std::shared_ptr<SDL_Texture> texture;/**< Ponteiro para a textura manejada pelo sprite.*/
 		int width;/**< Largura da textura em pixels.*/
@@ -180,6 +179,6 @@ class Sprite : public Component {
 		bool debug;
 };
 
-#include "InputManager.h"
+//#include "InputManager.h"
 
 #endif // SPRITE_H
