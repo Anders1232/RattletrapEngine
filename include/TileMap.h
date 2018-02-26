@@ -61,7 +61,7 @@ namespace RattletrapEngine {
 			void ReportChanges(int tileChanged);
 			void ObserveMapChanges(TileMapObserver *);
 			void RemoveObserver(TileMapObserver *);
-			std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap);
+			std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> *weightMap);
 			inline Vec2 GetVec2Coord(int pos);
 			void SetLayerVisibility(int layer, bool visibility);
 			bool IsLayerVisible(int layer);
@@ -411,7 +411,7 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	std::list<int>* TileMap<T>::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap){
+	std::list<int>* TileMap<T>::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> *weightMap){
 		std::vector<int64_t> closedSet;
 		std::vector<int64_t> openSet;//esse vetor deve ser ordenado
 		openSet.push_back(originTile);
@@ -430,7 +430,7 @@ namespace RattletrapEngine {
 			std::vector<int64_t> neightbors= GetNeighbours(current);
 			for(int i=0; i < neightbors.size(); i++){
 				int64_t currentNeightbor= neightbors[i];
-				if(!weightMap.IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
+				if(!weightMap->IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
 					continue;
 				}
 				if(std::binary_search(closedSet.begin(), closedSet.end(), currentNeightbor) ){
@@ -440,7 +440,7 @@ namespace RattletrapEngine {
 					openSet.push_back(currentNeightbor);
 					std::sort(openSet.begin(), openSet.end(), AStarCompare<T>(guessedCost, accumulatedCost));
 				}
-				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(tileMatrix[currentNeightbor]);
+				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap->CalculateCost(tileMatrix[currentNeightbor]);
 				if(tentativeDistance < accumulatedCost[currentNeightbor ] ){
 					antecessor[currentNeightbor]= current;
 					accumulatedCost[currentNeightbor]= tentativeDistance;
