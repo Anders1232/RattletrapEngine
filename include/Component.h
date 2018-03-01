@@ -73,6 +73,7 @@ namespace RattletrapEngine {
 			*/
 			virtual ~Component(void){};
 			virtual void Render(void){};
+			virtual void NotifyCollision(Component &a){};
 		protected:
 			GameObject &associated;
 			bool enabled;/**<Informa Se o gameObject está ativo ou não*/

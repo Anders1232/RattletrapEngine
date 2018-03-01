@@ -3,6 +3,14 @@
 
 namespace RattletrapEngine {
 	
+	Threading::ThreadContex Threading::early;
+	Threading::ThreadContex Threading::mid;
+	Threading::ThreadContex Threading::late;
+	
+	std::vector<pthread_t> Threading::earlyThreads;
+	std::vector<pthread_t> Threading::midThreads;
+	std::vector<pthread_t> Threading::lateThreads;
+	
 	void Threading::Init(void){
 		pthread_mutex_init(&(early.mutex), NULL );
 		pthread_mutex_init(&(mid.mutex), NULL );

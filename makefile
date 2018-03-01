@@ -25,12 +25,12 @@ DEP_PATH = dep
 
 #Uma lista de arquivos por extensão:
 CPP_FILES = $(wildcard $(SRC_PATH)/*.cpp)
-INC_FILES := $(wildcard $(INC_PATH)/*.h) 
-FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=))) ForwardList
+INC_FILES := $(wildcard $(INC_PATHS)/*.h) 
+FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=))) FowardList
 DEP_FILES = $(addprefix $(DEP_PATH)/,$(addsuffix .d,$(FILE_NAMES)))
 OBJ_FILES = $(addprefix $(BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
 
-EXTRA_INC_PATH = ForwardList
+EXTRA_INC_PATH = FowardList
 
 
 #Nome do executável
@@ -69,13 +69,13 @@ LIBS = -lm -framework SDL2 -framework SDL2_image -framework SDL2_mixer -framewor
 endif
 endif
 
-INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH)) -IFowardList
+INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH))
 
 .PRECIOUS: $(DEP_FILES)
 
 all: $(OBJ_FILES)
 
-$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATH)/%.h | folders
+$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATHS)/%.h | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
