@@ -96,9 +96,9 @@
 </g>
 <!-- Node5&#45;&gt;Node4 -->
 <g id="edge4" class="edge"><title>Node5&#45;&gt;Node4</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M297.904,-192.892C294.75,-189.409 291.559,-185.669 288.784,-182 264.6,-150.021 265.301,-137.472 241.784,-105 237.161,-98.6164 231.411,-91.8664 226.817,-86.7123"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="295.574,-195.522 304.983,-200.392 300.664,-190.717 295.574,-195.522"/>
-<text text-anchor="middle" x="317.284" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00"> components</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M283.218,-195.251C277.499,-191.594 272.002,-187.186 267.784,-182 244.992,-153.978 259.594,-136.425 241.784,-105 238.019,-98.3571 232.505,-91.8148 227.82,-86.8342"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="281.814,-198.478 292.236,-200.382 285.276,-192.394 281.814,-198.478"/>
+<text text-anchor="middle" x="296.284" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00"> components</text>
 </g>
 <!-- Node6&#45;&gt;Node4 -->
 <g id="edge5" class="edge"><title>Node6&#45;&gt;Node4</title>
@@ -119,9 +119,11 @@
 </g>
 <!-- Node7&#45;&gt;Node4 -->
 <g id="edge8" class="edge"><title>Node7&#45;&gt;Node4</title>
-<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M381.55,-194.53C376.779,-190.946 372.23,-186.749 368.784,-182 347.807,-153.093 372.039,-129.215 345.784,-105 332.653,-92.8886 287.098,-85.4245 254.303,-81.4957"/>
-<polygon fill="#9a32cd" stroke="#9a32cd" points="379.929,-197.657 390.187,-200.307 383.821,-191.838 379.929,-197.657"/>
-<text text-anchor="middle" x="381.284" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00"> dead</text>
+<path fill="none" stroke="#9a32cd" stroke-dasharray="5,2" d="M380.596,-199.313C367.025,-193.991 352.507,-187.394 347.784,-182 324.257,-155.127 350.55,-129.734 324.784,-105 306.084,-87.0487 277.189,-80.5645 254.288,-78.4225"/>
+<polygon fill="#9a32cd" stroke="#9a32cd" points="379.566,-202.665 390.157,-202.928 382.041,-196.117 379.566,-202.665"/>
+<text text-anchor="middle" x="370.784" y="-152" font-family="Helvetica,sans-Serif" font-size="10.00"> dead</text>
+<text text-anchor="middle" x="370.784" y="-141" font-family="Helvetica,sans-Serif" font-size="10.00">active</text>
+<text text-anchor="middle" x="370.784" y="-130" font-family="Helvetica,sans-Serif" font-size="10.00">newActive</text>
 </g>
 </g>
 </svg>

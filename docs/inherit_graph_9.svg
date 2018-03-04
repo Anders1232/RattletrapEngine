@@ -11,9 +11,9 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-24 47,-24 47,4 -4,4"/>
 <!-- Node0 -->
 <g id="node1" class="node"><title>Node0</title>
-<g id="a_node1"><a xlink:href="classMusic.html" target="_top" xlink:title="Classe que modela músicas. ">
+<g id="a_node1"><a xlink:href="classGame.html" target="_top" xlink:title="Classe que modela o todo&#45;poderoso Jogo. ">
 <polygon fill="white" stroke="black" points="0,-0.5 0,-19.5 43,-19.5 43,-0.5 0,-0.5"/>
-<text text-anchor="middle" x="21.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Music</text>
+<text text-anchor="middle" x="21.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Game</text>
 </a>
 </g>
 </g>

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['text',['Text',['../classText.html',1,'']]],
-  ['tilemap',['TileMap',['../classTileMap.html',1,'']]],
-  ['tilemapobserver',['TileMapObserver',['../classTileMapObserver.html',1,'']]],
-  ['tileset',['TileSet',['../classTileSet.html',1,'']]],
-  ['timer',['Timer',['../classTimer.html',1,'']]]
+  ['sound',['Sound',['../classSound.html',1,'']]],
+  ['sprite',['Sprite',['../classSprite.html',1,'']]],
+  ['state',['State',['../classState.html',1,'']]],
+  ['statedata',['StateData',['../classStateData.html',1,'']]]
 ];

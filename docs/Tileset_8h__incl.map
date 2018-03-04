@@ -1,8 +1,12 @@
 <map id="include/Tileset.h" name="include/Tileset.h">
-<area shape="rect" id="node3" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="137,80,203,107"/>
-<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="186,304,293,331"/>
-<area shape="rect" id="node6" href="$Color_8h.html" title="Color.h" alt="" coords="138,229,202,256"/>
-<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="279,155,341,181"/>
-<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="405,155,517,181"/>
-<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="360,229,423,256"/>
+<area shape="rect" id="node4" href="$Error_8h.html" title="Error.h" alt="" coords="131,80,193,107"/>
+<area shape="rect" id="node7" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="345,80,411,107"/>
+<area shape="rect" id="node13" href="$Rect_8h.html" title="Rect.h" alt="" coords="618,304,679,331"/>
+<area shape="rect" id="node14" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="755,379,817,405"/>
+<area shape="rect" id="node8" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="597,453,703,480"/>
+<area shape="rect" id="node10" href="$Component_8h.html" title="Component.h" alt="" coords="373,155,473,181"/>
+<area shape="rect" id="node16" href="$Color_8h.html" title="Color.h" alt="" coords="602,229,666,256"/>
+<area shape="rect" id="node17" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="842,304,954,331"/>
+<area shape="rect" id="node11" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="464,304,593,331"/>
+<area shape="rect" id="node12" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="370,229,477,256"/>
 </map>

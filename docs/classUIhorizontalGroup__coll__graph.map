@@ -1,6 +1,0 @@
-<map id="UIhorizontalGroup" name="UIhorizontalGroup">
-<area shape="rect" id="node2" href="$classUIcanvas.html" title="UIcanvas" alt="" coords="62,348,141,375"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="91,272,173,299"/>
-<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="43,139,95,165"/>
-<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="120,139,171,165"/>
-</map>

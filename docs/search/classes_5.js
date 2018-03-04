@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['lessthanbyheuristic',['LessThanByHeuristic',['../classTileMap_1_1LessThanByHeuristic.html',1,'TileMap']]]
+  ['game',['Game',['../classGame.html',1,'']]],
+  ['gameobject',['GameObject',['../classGameObject.html',1,'']]],
+  ['grouper',['Grouper',['../classGrouper.html',1,'']]]
 ];

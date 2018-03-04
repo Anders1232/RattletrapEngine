@@ -65,61 +65,65 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Componentes</a> &#124;
-<a href="#define-members">Definições e Macros</a>  </div>
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
   <div class="headertitle">
 <div class="title">Referência do Arquivo TileMap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;list&gt;</code><br />
 <code>#include &lt;queue&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="NearestFinder_8h.html">NearestFinder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Component_8h.html">Component.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Tileset_8h.html">Tileset.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Vec2_8h.html">Vec2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="GameObject_8h.html">GameObject.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="AStarHeuristic_8h.html">AStarHeuristic.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Resources_8h.html">Resources.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="TileMapObserver_8h.html">TileMapObserver.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="NearestGOFinder_8h.html">NearestGOFinder.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Camera_8h.html">Camera.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para TileMap.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__incl.svg" width="1562" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__incl.svg" width="1414" height="560"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__dep__incl.svg" width="358" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="TileMap_8h__dep__incl.svg" width="168" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Componentes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html">TileMap</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classe que modela o <a class="el" href="classTileMap.html" title="Classe que modela o TileMap. ">TileMap</a>.  <a href="classTileMap.html#details">Mais...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap.html">TileMap&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap_1_1LessThanByHeuristic.html">TileMap::LessThanByHeuristic</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAStarHeuristic.html">AStarHeuristic</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTileMap_1_1AStarPryorityQueue.html">TileMap::AStarPryorityQueue&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAStarWeight.html">AStarWeight&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Definições e Macros</h2></td></tr>
-<tr class="memitem:ac02aac1b0a1bc1430a2bf4a3cd4ab7bf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#ac02aac1b0a1bc1430a2bf4a3cd4ab7bf">TILE_VAZIO</a>&#160;&#160;&#160;(-1)</td></tr>
-<tr class="separator:ac02aac1b0a1bc1430a2bf4a3cd4ab7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf7f10acd2b757134cd6abd1da486075"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#aaf7f10acd2b757134cd6abd1da486075">SPAWN_POINT</a>&#160;&#160;&#160;(75)</td></tr>
-<tr class="separator:aaf7f10acd2b757134cd6abd1da486075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22d205877ba623d755a2c7306a45170a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a22d205877ba623d755a2c7306a45170a">COLLISION_LAYER</a>&#160;&#160;&#160;(1)</td></tr>
 <tr class="separator:a22d205877ba623d755a2c7306a45170a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a452dbcc2cd05223f6accd20d93ac1304"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a452dbcc2cd05223f6accd20d93ac1304">WALKABLE_LAYER</a>&#160;&#160;&#160;(0)</td></tr>
-<tr class="separator:a452dbcc2cd05223f6accd20d93ac1304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77dbd277a6165072dfd333ba484bb14e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a77dbd277a6165072dfd333ba484bb14e">END_POINT</a>&#160;&#160;&#160;(74)</td></tr>
-<tr class="separator:a77dbd277a6165072dfd333ba484bb14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a8e8652e28e209cd8cd9d18856c0c262f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a8e8652e28e209cd8cd9d18856c0c262f">OrderedInsertion</a> (std::vector&lt; int64_t &gt; &amp;v, int64_t num)</td></tr>
+<tr class="separator:a8e8652e28e209cd8cd9d18856c0c262f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d37cb8522cf163da96893a59641003c"><td class="memItemLeft" align="right" valign="top">std::list&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a7d37cb8522cf163da96893a59641003c">MakePath</a> (int origin, int dest, std::vector&lt; int64_t &gt; const &amp;antecessor)</td></tr>
+<tr class="separator:a7d37cb8522cf163da96893a59641003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:a55aa4cf433516152f1a901add3e7387c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a55aa4cf433516152f1a901add3e7387c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#a55aa4cf433516152f1a901add3e7387c">AStarCompare</a></td></tr>
+<tr class="separator:a55aa4cf433516152f1a901add3e7387c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae81b39239a1a98e5efcca20f9d36cd9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int64_t &gt; const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="TileMap_8h.html#aae81b39239a1a98e5efcca20f9d36cd9">accumulatedCost</a></td></tr>
+<tr class="separator:aae81b39239a1a98e5efcca20f9d36cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Definições e macros</h2>
 <a id="a22d205877ba623d755a2c7306a45170a"></a>
@@ -133,69 +137,135 @@ Definições e Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Futuras Atividades:</a></b></dt><dd>Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo </dd></dl>
 
 </div>
 </div>
-<a id="a77dbd277a6165072dfd333ba484bb14e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77dbd277a6165072dfd333ba484bb14e">&#9670;&nbsp;</a></span>END_POINT</h2>
+<h2 class="groupheader">Funções</h2>
+<a id="a7d37cb8522cf163da96893a59641003c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d37cb8522cf163da96893a59641003c">&#9670;&nbsp;</a></span>MakePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt;int&gt;* MakePath </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>origin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int64_t &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>antecessor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e8652e28e209cd8cd9d18856c0c262f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8652e28e209cd8cd9d18856c0c262f">&#9670;&nbsp;</a></span>OrderedInsertion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OrderedInsertion </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int64_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="aae81b39239a1a98e5efcca20f9d36cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae81b39239a1a98e5efcca20f9d36cd9">&#9670;&nbsp;</a></span>accumulatedCost</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define END_POINT&#160;&#160;&#160;(74)</td>
+          <td class="memname">std::vector&lt;int64_t&gt; const&amp; accumulatedCost</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aaf7f10acd2b757134cd6abd1da486075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf7f10acd2b757134cd6abd1da486075">&#9670;&nbsp;</a></span>SPAWN_POINT</h2>
+<a id="a55aa4cf433516152f1a901add3e7387c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55aa4cf433516152f1a901add3e7387c">&#9670;&nbsp;</a></span>AStarCompare</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">#define SPAWN_POINT&#160;&#160;&#160;(75)</td>
+          <td class="memname">void AStarCompare</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac02aac1b0a1bc1430a2bf4a3cd4ab7bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac02aac1b0a1bc1430a2bf4a3cd4ab7bf">&#9670;&nbsp;</a></span>TILE_VAZIO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TILE_VAZIO&#160;&#160;&#160;(-1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a452dbcc2cd05223f6accd20d93ac1304"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a452dbcc2cd05223f6accd20d93ac1304">&#9670;&nbsp;</a></span>WALKABLE_LAYER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WALKABLE_LAYER&#160;&#160;&#160;(0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
+<b>Valor Inicial:</b><div class="fragment"><div class="line">{</div><div class="line">    <span class="keyword">public</span>:</div><div class="line">        <a class="code" href="TileMap_8h.html#a55aa4cf433516152f1a901add3e7387c">AStarCompare</a>(std::vector&lt;int64_t&gt; <span class="keyword">const</span> &amp;guessedCost, std::vector&lt;int64_t&gt; <span class="keyword">const</span> &amp;<a class="code" href="TileMap_8h.html#aae81b39239a1a98e5efcca20f9d36cd9">accumulatedCost</a>):</div><div class="line">            accumulatedCost(accumulatedCost),</div><div class="line">            guessedCost(guessedCost){}</div><div class="line">        <span class="keywordtype">bool</span> operator&lt;(int64_t a, int64_t b){</div><div class="line">            <span class="keywordflow">if</span>(<a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(guessedCost, a) &lt; <a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(guessedCost, b) ){</div><div class="line">                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(guessedCost, a) == <a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(guessedCost, b)){</div><div class="line">                <span class="keywordflow">return</span> <a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(<a class="code" href="TileMap_8h.html#aae81b39239a1a98e5efcca20f9d36cd9">accumulatedCost</a>, b) &lt; <a class="code" href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a>(<a class="code" href="TileMap_8h.html#aae81b39239a1a98e5efcca20f9d36cd9">accumulatedCost</a>, a);</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span>{</div><div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line">            }</div><div class="line">        }</div><div class="line">    <span class="keyword">private</span>:</div><div class="line">        std::vector&lt;int64_t&gt; <span class="keyword">const</span> &amp;guessedCost</div><div class="ttc" id="TileMap_8h_html_a55aa4cf433516152f1a901add3e7387c"><div class="ttname"><a href="TileMap_8h.html#a55aa4cf433516152f1a901add3e7387c">AStarCompare</a></div><div class="ttdeci">void AStarCompare</div><div class="ttdef"><b>Definition:</b> TileMap.h:373</div></div>
+<div class="ttc" id="Error_8h_html_a6d8c56e124633e4711b56cd083bcd571"><div class="ttname"><a href="Error_8h.html#a6d8c56e124633e4711b56cd083bcd571">ELEMENT_ACESS</a></div><div class="ttdeci">#define ELEMENT_ACESS(container, position)</div><div class="ttdef"><b>Definition:</b> Error.h:41</div></div>
+<div class="ttc" id="TileMap_8h_html_aae81b39239a1a98e5efcca20f9d36cd9"><div class="ttname"><a href="TileMap_8h.html#aae81b39239a1a98e5efcca20f9d36cd9">accumulatedCost</a></div><div class="ttdeci">std::vector&lt; int64_t &gt; const  &amp; accumulatedCost</div><div class="ttdef"><b>Definition:</b> TileMap.h:391</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 11 de Julho de 2017 14:19:25 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 13 de Novembro de 2017 16:32:46 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

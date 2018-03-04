@@ -1,8 +1,0 @@
-<map id="UItextButton" name="UItextButton">
-<area shape="rect" id="node2" href="$classUItext.html" title="Classe que modela textos. " alt="" coords="748,268,807,295"/>
-<area shape="rect" id="node3" href="$classUIelement.html" title="UIelement" alt="" coords="418,297,501,324"/>
-<area shape="rect" id="node4" href="$classVec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="155,415,207,441"/>
-<area shape="rect" id="node6" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="155,313,206,340"/>
-<area shape="rect" id="node14" href="$classTimer.html" title="Temporizador. " alt="" coords="277,467,332,493"/>
-<area shape="rect" id="node16" href="$classUIbutton.html" title="Classe virtual que modela o comportamento de um botão na interface gráfica. " alt="" coords="741,637,813,664"/>
-</map>

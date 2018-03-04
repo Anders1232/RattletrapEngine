@@ -1,7 +1,10 @@
 <map id="include/Sprite.h" name="include/Sprite.h">
-<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="132,229,239,256"/>
-<area shape="rect" id="node5" href="$Color_8h.html" title="Color.h" alt="" coords="84,155,148,181"/>
-<area shape="rect" id="node6" href="$Rect_8h.html" title="Rect.h" alt="" coords="244,80,306,107"/>
-<area shape="rect" id="node9" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="351,80,463,107"/>
-<area shape="rect" id="node7" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="306,155,369,181"/>
+<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="371,379,477,405"/>
+<area shape="rect" id="node5" href="$Component_8h.html" title="Component.h" alt="" coords="510,80,610,107"/>
+<area shape="rect" id="node9" href="$Rect_8h.html" title="Rect.h" alt="" coords="291,229,352,256"/>
+<area shape="rect" id="node12" href="$Color_8h.html" title="Color.h" alt="" coords="803,155,867,181"/>
+<area shape="rect" id="node13" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="155,229,267,256"/>
+<area shape="rect" id="node6" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="377,229,506,256"/>
+<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="507,155,613,181"/>
+<area shape="rect" id="node10" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="317,304,379,331"/>
 </map>

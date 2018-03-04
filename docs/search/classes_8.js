@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rect',['Rect',['../classRect.html',1,'']]],
-  ['resources',['Resources',['../classResources.html',1,'']]]
+  ['nearestfinder',['NearestFinder',['../classNearestFinder.html',1,'']]],
+  ['nearestgofinder',['NearestGOFinder',['../classNearestGOFinder.html',1,'']]]
 ];

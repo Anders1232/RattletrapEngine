@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['mapdepth',['mapDepth',['../classTileMap.html#a9f9975834cc5f1acad95d72828858862',1,'TileMap']]],
-  ['mapheight',['mapHeight',['../classTileMap.html#a8fec89ca278b51de7f3e38831d9fb161',1,'TileMap']]],
-  ['mapwidth',['mapWidth',['../classTileMap.html#ae2361e840eacaebbbbc91541ded00655',1,'TileMap']]],
+  ['mapdepth',['mapDepth',['../classTileMap.html#adba87b6c412f60bd1ce22b0fbf73848e',1,'TileMap']]],
+  ['mapheight',['mapHeight',['../classTileMap.html#a1aa2e71764ee7f0cc377d895b07e2d63',1,'TileMap']]],
+  ['mapwidth',['mapWidth',['../classTileMap.html#a936b65318f6b83a15ffb338650e50872',1,'TileMap']]],
   ['maxframerate',['maxFramerate',['../classGame.html#a5424a424548c7bdb04de05c5c836002d',1,'Game']]],
   ['maxlogzoom',['maxLogZoom',['../classCamera.html#af7e88a28816f95f04e96417cd156cabb',1,'Camera']]],
+  ['maxscale',['maxScale',['../classRectTransform.html#a70dd6d32db698a2068865ac5caa2981d',1,'RectTransform']]],
   ['maxspeed',['maxSpeed',['../classCamera.html#a1f02ea6332c710065fa256ed52acd6f1',1,'Camera']]],
   ['minlogzoom',['minLogZoom',['../classCamera.html#aaa2f4cf2d33d02125df97ead5904b192',1,'Camera']]],
+  ['minscale',['minScale',['../classRectTransform.html#a0ade65fc5391fdee24d8cbdd0ca15dab',1,'RectTransform']]],
   ['minspeed',['minSpeed',['../classCamera.html#a6c5fe02b8b21a7c9784f970f08b4864a',1,'Camera']]],
   ['mousescroolstate',['mouseScroolState',['../classInputManager.html#a9c9d5ed1da1b205d9311ec4a9bab06ea',1,'InputManager']]],
   ['mousescroolupdate',['mouseScroolUpdate',['../classInputManager.html#a646fc44d21853e1354aaacc6a27e79ca',1,'InputManager']]],

@@ -1,11 +1,5 @@
 <map id="include/Timer.h" name="include/Timer.h">
 <area shape="rect" id="node2" href="$Animation_8h.html" title="include/Animation.h" alt="" coords="5,80,141,107"/>
-<area shape="rect" id="node4" href="$Text_8h.html" title="include/Text.h" alt="" coords="167,80,271,107"/>
-<area shape="rect" id="node6" href="$UItext_8h.html" title="include/UItext.h" alt="" coords="295,80,409,107"/>
-<area shape="rect" id="node10" href="$Timer_8cpp.html" title="src/Timer.cpp" alt="" coords="434,80,537,107"/>
-<area shape="rect" id="node3" href="$Animation_8cpp.html" title="src/Animation.cpp" alt="" coords="7,155,134,181"/>
-<area shape="rect" id="node5" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="158,155,253,181"/>
-<area shape="rect" id="node7" href="$UItextButton_8h.html" title="include/UItextButton.h" alt="" coords="277,155,429,181"/>
-<area shape="rect" id="node9" href="$UItext_8cpp.html" title="src/UItext.cpp" alt="" coords="454,155,559,181"/>
-<area shape="rect" id="node8" href="$UItextButton_8cpp.html" title="src/UItextButton.cpp" alt="" coords="282,229,425,256"/>
+<area shape="rect" id="node4" href="$Timer_8cpp.html" title="src/Timer.cpp" alt="" coords="166,80,269,107"/>
+<area shape="rect" id="node3" href="$Animation_8cpp.html" title="src/Animation.cpp" alt="" coords="10,155,137,181"/>
 </map>

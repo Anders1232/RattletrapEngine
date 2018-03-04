@@ -1,9 +1,0 @@
-<map id="include/UIimage.h" name="include/UIimage.h">
-<area shape="rect" id="node2" href="$Color_8h.html" title="Color.h" alt="" coords="36,229,100,256"/>
-<area shape="rect" id="node4" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="264,155,331,181"/>
-<area shape="rect" id="node7" href="$Rect_8h.html" title="Rect.h" alt="" coords="124,229,185,256"/>
-<area shape="rect" id="node13" href="$UIelement_8h.html" title="UIelement.h" alt="" coords="172,80,265,107"/>
-<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="135,379,241,405"/>
-<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="353,229,465,256"/>
-<area shape="rect" id="node8" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="157,304,219,331"/>
-</map>

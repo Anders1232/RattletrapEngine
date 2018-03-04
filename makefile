@@ -4,13 +4,13 @@
 
 COMPILER = g++
 #comando para remover pastas
-RMDIR = rm -rf
+RMDIR = rm -rdf
 #comando para remover arquivos
 RM = rm -f
 
 #Flags para geração automática de dependências
 DEP_FLAGS = -M -MT $(BIN_PATH)/$(*F).o -MP -MF $@
-LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
+LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm -lpthread
 
 #Se o gcc não reconhecer a flag -fdiagnostics-color basta retirar ela
 # FLAGS= -std=c++11 -Wall -pedantic -Wextra -fmax-errors=5 -Wno-unused-parameter -fdiagnostics-color -static-libgcc -static-libstdc++ -Werror=init-self
@@ -25,12 +25,12 @@ DEP_PATH = dep
 
 #Uma lista de arquivos por extensão:
 CPP_FILES = $(wildcard $(SRC_PATH)/*.cpp)
-INC_FILES := $(wildcard $(INC_PATH)/*.h)
-FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=)))
+INC_FILES := $(wildcard $(INC_PATHS)/*.h) 
+FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=))) FowardList
 DEP_FILES = $(addprefix $(DEP_PATH)/,$(addsuffix .d,$(FILE_NAMES)))
 OBJ_FILES = $(addprefix $(BIN_PATH)/,$(notdir $(CPP_FILES:.cpp=.o)))
 
-EXTRA_INC_PATH =
+EXTRA_INC_PATH = FowardList
 
 
 #Nome do executável
@@ -73,19 +73,21 @@ INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH))
 
 .PRECIOUS: $(DEP_FILES)
 
-$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATH)/%.h | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+all: $(OBJ_FILES)
+
+$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATHS)/%.h | folders
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.h | folders
-	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS)
+	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 
 $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp $(DEP_PATH)/%.d | folders
 	$(COMPILER) $(INC_PATHS) $< -c $(FLAGS) -o $@
 
 clean:
-	-$(RM) "$(DEP_PATH)\*"
-	-$(RM) "$(BIN_PATH)\*"
+	-$(RMDIR) $(DEP_PATH)
+	-$(RMDIR) $(BIN_PATH)
 
 folders:
 ifeq ($(OS), Windows_NT)
@@ -114,3 +116,22 @@ objects: $(OBJ_FILES)
 unused: FLAGS -= -Wno-unused-parameter
 
 -include $$(DEP_FILES)
+
+doc: dclean
+	doxygen Doxyfile
+
+dclean:
+	$(RMDIR) docs
+	$(RM) doxygen_sqlite3.db
+
+help:
+	@echo.
+	@echo Available targets:
+	@echo - release:  Builds the release version (default target)
+	@echo - debug:    Builds the debug version
+	@echo - doc:      Clean and generate Doxygen documentation
+	@echo - dclean:   Clean Doxygen documentation
+	@echo - profile:  Builds a version to use with gprof (not implemented)
+	@echo - coverage: Builds a version to use with gcov (not implemented)
+	@echo - help:     Shows this help
+	@echo.

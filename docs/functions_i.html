@@ -74,31 +74,27 @@ $(function() {
 <li>InputManager()
 : <a class="el" href="classInputManager.html#a8be46886da639b26d67181c29dab6d6c">InputManager</a>
 </li>
-<li>InsertGO()
-: <a class="el" href="classTileMap.html#a5f046fcddc4e920e21fc390855225c04">TileMap</a>
-</li>
 <li>instance
 : <a class="el" href="classGame.html#aa469cdc0a30f4fd2d6d99b23f4fbf257">Game</a>
 </li>
 <li>interactOnBoundingBox
-: <a class="el" href="classUIbutton.html#a9914c50c98802e654cfaf278593d974d">UIbutton</a>
+: <a class="el" href="classButton.html#a527087ac7716c356e81cdf70732f8ff8">Button</a>
 </li>
 <li>Is()
 : <a class="el" href="classAnimation.html#a166f36012f3092275648a74272e8ff0f">Animation</a>
+, <a class="el" href="classButton.html#a1baad3ad24fc6b9700a31b443e5fb229">Button</a>
 , <a class="el" href="classComponent.html#a81f861605b8c887e7634e56424c21a2a">Component</a>
-, <a class="el" href="classDragAndDrop.html#a600185abb422085505f940c1c2c8f679">DragAndDrop</a>
+, <a class="el" href="classDragAndDrop.html#ab6aa1fdcc192060b9355426abaa24921">DragAndDrop&lt; T &gt;</a>
 , <a class="el" href="classGameObject.html#a3c4f6a6becd8452063e5064c44426442">GameObject</a>
+, <a class="el" href="classGrouper.html#a716b66ec929df1b25b64d20e50acd445">Grouper</a>
+, <a class="el" href="classRectTransform.html#a2784dca1a7d0e6f4e4d2224d644d8583">RectTransform</a>
+, <a class="el" href="classSprite.html#a0b1533757c3b90a52e194c2778227457">Sprite</a>
 , <a class="el" href="classStateData.html#a63b33546d704a06bf8f9df6b0590eae4">StateData</a>
-, <a class="el" href="classUIbutton.html#af7ae320a1b1eb45f1abe0fc00a9fae9f">UIbutton</a>
-, <a class="el" href="classUIcanvas.html#a3fb97135add8cf170c57e13142920f9a">UIcanvas</a>
-, <a class="el" href="classUIelement.html#aad616dc3e532e81f1fda380b567b19a8">UIelement</a>
-, <a class="el" href="classUIgridGroup.html#a5fbd1cb555907335c9de14b4f56e59b2">UIgridGroup</a>
-, <a class="el" href="classUIhorizontalGroup.html#a3f4fc429aa367022434ca7d6b9af22d9">UIhorizontalGroup</a>
-, <a class="el" href="classUIimage.html#a41a6aebef5ed4d2d3dab712cc8054286">UIimage</a>
-, <a class="el" href="classUIimageButton.html#aa1bcbfb7affcf820e40a13f08f44be3e">UIimageButton</a>
-, <a class="el" href="classUItext.html#a6675ecb32a65317a205e17d997748597">UItext</a>
-, <a class="el" href="classUItextButton.html#adec35725357ff35d8c2ed73596fccd20">UItextButton</a>
-, <a class="el" href="classUIverticalGroup.html#a1473291cc5a4f103d578656d726df83f">UIverticalGroup</a>
+, <a class="el" href="classText.html#a1959fa14e7b6104cd0851bdce6e1bff2">Text</a>
+, <a class="el" href="classTileMap.html#a76547fa5a1a199fd0cd7e6a09f902951">TileMap&lt; T &gt;</a>
+</li>
+<li>IsActive()
+: <a class="el" href="classGameObject.html#a931ded47a6d358aa20fa232249560e07">GameObject</a>
 </li>
 <li>IsButtonDown()
 : <a class="el" href="classInputManager.html#a10703289f8e5685ad8d01b8e0e906f3d">InputManager</a>
@@ -116,6 +112,9 @@ $(function() {
 : <a class="el" href="classAnimation.html#ad1eaa9ff240cbcc114270ea174523702">Animation</a>
 , <a class="el" href="classGameObject.html#a64489eaccea42957d3aa8c33d1fa16ba">GameObject</a>
 </li>
+<li>IsEnabled()
+: <a class="el" href="classComponent.html#a16b5cbadea762183c43054a9874b5ce0">Component</a>
+</li>
 <li>IsFramerateLimited()
 : <a class="el" href="classGame.html#a34933b11f79ccd70771f7d607a662f5e">Game</a>
 </li>
@@ -127,6 +126,9 @@ $(function() {
 </li>
 <li>IsKeyUp()
 : <a class="el" href="classInputManager.html#ae0e3597ea4067f6e7fdca9ab93f84cd3">InputManager</a>
+</li>
+<li>IsLayerVisible()
+: <a class="el" href="classTileMap.html#ad4d41956ae46d59a8707f9ad7826bbfd">TileMap&lt; T &gt;</a>
 </li>
 <li>IsMouseDown()
 : <a class="el" href="classInputManager.html#ac75336ac25fda40e272c40378f687295">InputManager</a>
@@ -142,18 +144,14 @@ $(function() {
 , <a class="el" href="classSound.html#a048747d5e995e73ae3d894b089cd30f6">Sound</a>
 , <a class="el" href="classSprite.html#ab803c38670069fe2def948d1017ea02f">Sprite</a>
 </li>
-<li>IsShowingCollisionInfo()
-: <a class="el" href="classTileMap.html#a9cdb06bdaca86adf9fc179ed5cf7b148">TileMap</a>
-</li>
-<li>isStrobe
-: <a class="el" href="classText.html#a5ebb0b4767c8487d440d9c36ae0c93cd">Text</a>
-, <a class="el" href="classUItext.html#ac020192d3bd7b73227b10df9a857bb66">UItext</a>
+<li>IsTraversable()
+: <a class="el" href="classAStarWeight.html#a40f66a3a0934d18153795688c791f484">AStarWeight&lt; T &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 11 de Julho de 2017 14:19:25 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 13 de Novembro de 2017 16:32:46 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
