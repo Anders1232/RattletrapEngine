@@ -28,8 +28,8 @@ namespace RattletrapEngine {
 			Vec2 mousePos = INPUT_MANAGER.GetMousePos();
 			bool mouseIsInside = mousePos.IsInRect( associated.box );
 			if( !mouseIsInside && interactOnBoundingBox ) {
-				RectTransform& rect = dynamic_cast<RectTransform&>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) );
-				mouseIsInside = mousePos.IsInRect( rect.GetBoundingBox() );
+                RectTransform* rect = dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) );
+                mouseIsInside = mousePos.IsInRect( rect->GetBoundingBox() );
 			}
 			if( mouseIsInside ) {
 				if( INPUT_MANAGER.IsMouseDown( LEFT_MOUSE_BUTTON ) ) {

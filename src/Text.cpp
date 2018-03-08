@@ -123,7 +123,7 @@ namespace RattletrapEngine {
 		int h = 0;
 		SDL_QueryTexture( texture, nullptr, nullptr, &w, &h );
 		fontDimensions = Vec2( w, h );
-		dynamic_cast<RectTransform&>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) ).SetKernelSize( fontDimensions );
+        dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
 	}
 
 }
