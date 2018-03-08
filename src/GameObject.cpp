@@ -99,6 +99,7 @@ namespace RattletrapEngine {
                 return components[i];
 			}
 		}
+        return(nullptr);
 	}
 
 	std::vector<Component *> GameObject::GetComponents(int componentType) const{
