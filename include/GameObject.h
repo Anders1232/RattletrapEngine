@@ -10,8 +10,13 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <typeinfo>
+#include <typeindex>
+#include <type_traits>
 
 #include "Rect.h"
+
+#define TYPE(x) std::type_index(typeid(x))
 
 class State;
 class Component;
@@ -43,7 +48,8 @@ class GameObject{
 			\param component componente a ser adicionado.
 
 		*/
-		void AddComponent(Component* component);
+		template<typename T>
+		void AddComponent(T* component);
 		/**
 			\brief Obtém componente
 			\param type tipo do componente a ser buscado.
@@ -51,9 +57,15 @@ class GameObject{
 
 			Se não existir um componente do tipo informado Error() será chamado
 		*/
-		Component& GetComponent(unsigned int type) const;
+		//Component& GetComponent(unsigned int type) const;
+		/*
 		template<typename T>
 		T& GetComponent(unsigned int type) const;
+		*/
+		template<typename T>
+		T& GetComponent() const;
+
+
 		/**
 			\brief Obtém componentes
 			\param type tipo do componente a ser buscado.
@@ -68,13 +80,14 @@ class GameObject{
 			\param type Tipo do componente a ser removido.
 			Se a não existir um componente desse tipo no GameObject nada será feito.
 		*/
-		void RemoveComponent(unsigned int type);
+		template<typename T>
+		void RemoveComponent();
 		/**
 			\brief Remove componente a um gameobjet.
 			\param type Ponteiro do componente a ser removido.
 			Se a não existir o componente no GameObject nada será feito.
 		*/
-		void RemoveComponent(Component* component);
+		//void RemoveComponent(Component* component);
 		/**
 			\brief Destrutor
 
@@ -228,22 +241,71 @@ class GameObject{
 	    bool clicked;
 	    bool released;
 	    Vec2 parentRelative;
-		std::vector<Component* > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
+		std::unordered_map< std::type_index,  std::vector< std::shared_ptr<Component> > > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
 		bool active;/**<Informa Se o gameObject está ativo ou não*/
 		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
 };
 
 #include "Component.h"
-
+#include "Error.h"
+/*
 template<typename T>
 T& GameObject::GetComponent(unsigned int type) const{
+
     for(unsigned int i = 0; i < components.size();i++){
-        if(components[i]->Is(type)){
+        if(typeid(*components[i]) == typeid(T)){//if(components[i]->Is(type)){
             return dynamic_cast<T&> (*(components[i])) ;
         }
     }
 }
+*/
+template<typename T>
+T& GameObject::GetComponent() const{
+    static_assert(std::is_base_of<Component, T>::value, "Given type must be Component." );
+    if(components.find(TYPE(T)) != components.end()){//typeid(*components[i]) == typeid(T)){//if(components[i]->Is(type)){
+        return dynamic_cast<T&> (*(components.at(TYPE(T)) )[0]) ;
+    }else{
+        Error("No " << typeid(T).name() << " in GameObject!");
+    }
+}
+
+template<typename T>
+void GameObject::AddComponent(T* component){
+	static_assert(std::is_base_of<Component, T>::value, "Given object must be component (or extend it)." );
+	auto it = components.find(TYPE(component));
+	if(it == components.end()){
+        components[TYPE(T)] =  *new std::vector<std::shared_ptr<Component>>();
+	}
+	components[TYPE(T)].emplace_back(component);
+}
+
+template<typename T>
+void GameObject::RemoveComponent(){
+    auto it = components.find(TYPE(T));
+    if(it != components.end()){
+        if(it->second.size() > 0){
+            it->second.erase( it->second.begin() );
+        }else if(it->second.size() == 1){
+            components.erase(it);
+        }
+    }else{
+        Error("GameObject has no " << typeid(T).name());
+    }
+}
+/*
+void GameObject::RemoveComponent(Component* component){
+	for(uint i = 0; i < components.size();i++){
+
+		if(components[i] == component){
+			delete components[i];
+			components.erase(components.begin() + i);
+			return;
+		}
+	}
+}
+*/
+
 
 #endif // GAMEOBJECT_H
 

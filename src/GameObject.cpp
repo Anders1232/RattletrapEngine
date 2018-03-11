@@ -7,6 +7,7 @@ using std::string;
 using std::unique_ptr;
 using std::vector;
 using std::unordered_map;
+using std::shared_ptr;
 
 GameObject::GameObject(void): rotation(0.), parent(nullptr), clicked(false), dead(false), active(true), newActive(true){
 }
@@ -18,10 +19,10 @@ GameObject::GameObject(string tag, State* context):
 
 GameObject::~GameObject(){
 	REPORT_I_WAS_HERE;
-	for(uint i = 0; i < components.size(); i++) {
-		delete components[i];
+	for(auto it = components.begin(); it != components.end();) {
+		it->second.clear();
+		it = components.erase(it);
 	}
-	components.clear();
 }
 
 void GameObject::SetParent(GameObject& parent, int xrelative, int yrelative){
@@ -78,32 +79,31 @@ void GameObject::EarlyUpdate(float dt){
         released = true;
     }
 
-	for(uint i=0; i < components.size(); i++){
-		components[i]->EarlyUpdate(dt);
-	}
-}
-/*
-void GameObject::EarlyUpdate(float dt){
-	for(uint i=0; i < components.size(); i++){
-		if(components[i]->IsEnabled() ){
-			components[i]->EarlyUpdate(dt);
+	for(auto it = components.begin(); it != components.end(); it++){
+		for(unsigned int i = 0; i < it->second.size(); i++){
+            if(it->second[i]->IsEnabled() ){
+                it->second[i]->EarlyUpdate(dt);
+            }
 		}
 	}
 }
-*/
 
 void GameObject::Update(float dt){
-	for(uint i=0; i < components.size(); i++){
-		if(components[i]->IsEnabled() ){
-			components[i]->Update(dt);
+	for(auto it = components.begin(); it != components.end(); it++){
+		for(unsigned int i = 0; i < it->second.size(); i++){
+            if(it->second[i]->IsEnabled() ){
+                it->second[i]->Update(dt);
+            }
 		}
 	}
 }
 
 void GameObject::LateUpdate(float dt){
-	for(uint i=0; i < components.size(); i++){
-		if(components[i]->IsEnabled() ){
-			components[i]->LateUpdate(dt);
+	for(auto it = components.begin(); it != components.end(); it++){
+		for(unsigned int i = 0; i < it->second.size(); i++){
+            if(it->second[i]->IsEnabled() ){
+                it->second[i]->LateUpdate(dt);
+            }
 		}
 	}
 	clicked = false;
@@ -111,9 +111,11 @@ void GameObject::LateUpdate(float dt){
 }
 
 void GameObject::Render(void){
-	for(uint i = 0; i < components.size(); i++){
-		if(components[i]->IsEnabled() ){
-			components[i]->Render();
+	for(auto it = components.begin(); it != components.end(); it++){
+		for(unsigned int i = 0; i < it->second.size(); i++){
+            if(it->second[i]->IsEnabled() ){
+                it->second[i]->Render();
+            }
 		}
 	}
 }
@@ -138,31 +140,7 @@ bool GameObject::Is(string type){
 Rect GameObject::GetWorldRenderedRect(void) const{
 	return Camera::WorldToScreen(box);
 }
-
-void GameObject::AddComponent(Component* component){
-	components.emplace_back(component);
-}
-
-void GameObject::RemoveComponent(unsigned int type){
-	for(uint i = 0; i < components.size();i++){
-		if(components[i]->Is(type)){
-			delete components[i];
-			components.erase(components.begin() + i);
-			return;
-		}
-	}
-}
-
-void GameObject::RemoveComponent(Component* component){
-	for(uint i = 0; i < components.size();i++){
-		if(components[i] == component){
-			delete components[i];
-			components.erase(components.begin() + i);
-			return;
-		}
-	}
-}
-
+/*
 Component& GameObject::GetComponent(unsigned int type) const{
     DEBUG_PRINT("type: " << type);
 	for(uint i = 0; i < components.size();i++){
@@ -173,13 +151,15 @@ Component& GameObject::GetComponent(unsigned int type) const{
 	}
 	Error("Component not found!");
 }
-
+*/
 std::vector<Component *> GameObject::GetComponents(unsigned int type) const{
 	std::vector<Component *> ret;
 	for(uint i = 0; i < components.size();i++){
+		/*
 		if(components[i]->Is(type)){
 			ret.push_back(components[i] );
 		}
+		*/
 	}
 	return ret;
 }
@@ -187,7 +167,7 @@ std::vector<Component *> GameObject::GetComponents(unsigned int type) const{
 void GameObject::UpdateActive(void){
 	active= newActive;//Não é necessário ter um if.
 	for(uint i = 0; i < components.size();i++){
-		components[i]->UpdateEnable();
+		//components[i]->UpdateEnable();
 	}
 }
 
