@@ -113,9 +113,9 @@ void GameObject::LateUpdate(float dt){
 void GameObject::Render(void){
 	for(auto it = components.begin(); it != components.end(); it++){
 		for(unsigned int i = 0; i < it->second.size(); i++){
-            if(it->second[i]->IsEnabled() ){
+            //if(it->second[i]->IsEnabled() ){
                 it->second[i]->Render();
-            }
+            //}
 		}
 	}
 }

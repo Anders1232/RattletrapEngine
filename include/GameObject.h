@@ -273,11 +273,14 @@ T& GameObject::GetComponent() const{
 template<typename T>
 void GameObject::AddComponent(T* component){
 	static_assert(std::is_base_of<Component, T>::value, "Given object must be component (or extend it)." );
-	auto it = components.find(TYPE(component));
+	DEBUG_PRINT("Adding to GameObject [ " << this << " ]" << ": " << typeid(T).name());
+	auto it = components.find(TYPE(T));
 	if(it == components.end()){
+        DEBUG_PRINT("First component of this type. Creating vector..");
         components[TYPE(T)] =  *new std::vector<std::shared_ptr<Component>>();
 	}
 	components[TYPE(T)].emplace_back(component);
+	DEBUG_PRINT(typeid(T).name() << " added to object.");
 }
 
 template<typename T>
