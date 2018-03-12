@@ -7,6 +7,7 @@
 #include "Error.h"
 
 using std::vector;
+using std::string;
 
 Button::Callback::Callback( ButtonCallbackFunc callbackFunc, void* caller)
 						: callbackFunc( callbackFunc )
@@ -18,8 +19,9 @@ void Button::Callback::Call() {
 	}
 }
 
-Button::Button( GameObject& associated, Button::State initialState, bool interactOnBoundingBox )
+Button::Button( GameObject& associated, string name, Button::State initialState, bool interactOnBoundingBox )
 			: Component(associated)
+			, name(name)
 			, interactOnBoundingBox(interactOnBoundingBox)
 			, actualState(initialState)
 {
@@ -118,6 +120,7 @@ void Button::Click() {
 
 bool Button::AddObserver(Component* observer){
     DEBUG_PRINT("inicio");
+    DEBUG_PRINT("observer: [ " << observer << " ]");
     vector<Component*>::iterator it = find(observers.begin(), observers.end(), observer);
     if(it != observers.end()){
         DEBUG_PRINT("fim");
@@ -132,6 +135,7 @@ bool Button::AddObserver(Component* observer){
 bool Button::Notify(){
     DEBUG_PRINT("inicio");
     for(uint i = 0; i < observers.size(); i++){
+        DEBUG_PRINT("observer: [ " << observers[i] << " ]");
         observers[i]->ButtonObserver(this);
     }
     DEBUG_PRINT("fim");

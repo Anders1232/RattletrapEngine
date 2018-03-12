@@ -8,8 +8,6 @@
 #include <limits>
 #include <algorithm>
 #include <memory>
-using std::shared_ptr;
-using std::endl;
 
 #include "NearestFinder.h"
 #include "Component.h"
@@ -40,6 +38,7 @@ class AStarWeight{
 /**
 	\todo Que o define da camada de colisão se torne um inteiro ou lista de inteiros, que é lida do arquivo
 */
+class BaseTile;
 template<class T>
 class TileMap : public Component{//, NearestFinder<T>{
 	public:
@@ -79,7 +78,7 @@ class TileMap : public Component{//, NearestFinder<T>{
 		int mapWidth;
 		int mapHeight;
 		int mapDepth;
-		std::vector<shared_ptr<T>> tileMatrix;
+		std::vector<std::shared_ptr<T>> tileMatrix;
 		std::vector<float> parallaxWeight;
 		std::vector<TileSet*> tileSets;
 		std::vector<TileMapObserver*> observers;
@@ -114,7 +113,7 @@ void TileMap<T>::Load(std::string const &file) {
 	int aux;
 	for(int count = 0; count < numbersToRead; count++) {
 		fscanf(arq, " %d,", &aux);
-		tileMatrix[count] = shared_ptr<T> (new T(aux));
+		tileMatrix[count] = std::shared_ptr<T> (new T(aux));
 	}
 	layersVisibility= std::vector<bool>(mapDepth, true);
 	DEBUG_CONSTRUCTOR("fim");
@@ -122,6 +121,7 @@ void TileMap<T>::Load(std::string const &file) {
 
 template<class T>
 TileMap<T>::TileMap(GameObject &associated, std::string const &file, TileSet *tileSet): Component(associated), currentTileSet(0){
+	static_assert(std::is_base_of<BaseTile, T>::value, "Given object must be BaseTile (or extend it)." );
 	DEBUG_CONSTRUCTOR("inicio");
 	Load(file);
 	DEBUG_CONSTRUCTOR("mapWidth: " << mapWidth);
@@ -260,19 +260,19 @@ int TileMap<T>::GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int 
 	int tileWidth = tileSize.x;
 	int tileHeight = tileSize.y;
 	if(position.x < 0){
-		std::cerr << WHERE << "Devo lançar exceção aqui?(-1)" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-1)" << std::endl;
 		return -1;
 	}
 	if(position.y < 0){
-		std::cerr << WHERE << "Devo lançar exceção aqui?(-2)" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-2)" << std::endl;
 		return -2;
 	}
 	if(position.x >= (GetWidth()-1)* tileWidth ){
-		std::cerr << WHERE << "Devo lançar exceção aqui?(-3)" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-3)" << std::endl;
 		return -3;
 	}
 	if(position.y >= (GetHeight()-1)* tileHeight ){
-		std::cerr << WHERE << "Devo lançar exceção aqui?(-4)" << endl;
+		std::cerr << WHERE << "Devo lançar exceção aqui?(-4)" << std::endl;
 		return -4;
 	}
 	while(1){//uma simplesBusca binária

@@ -25,7 +25,7 @@ class Button : public Component {
 			void Call();
 		};
 
-		Button(GameObject& associated, Button::State initialState = Button::State::ENABLED, bool interactOnBoundingBox = true);
+		Button(GameObject& associated, std::string name = "", Button::State initialState = Button::State::ENABLED, bool interactOnBoundingBox = true);
 		~Button();
 
 		void EarlyUpdate( float dt );
@@ -42,6 +42,7 @@ class Button : public Component {
 
 		bool AddObserver(Component* observer);
 		bool interactOnBoundingBox;
+		std::string name;
 
 	private:
 	    bool Notify();

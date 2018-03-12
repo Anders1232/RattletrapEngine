@@ -43,3 +43,11 @@ void Rect::SetWidthAndHeight(Vec2 const &vec) {
 Rect Rect::operator*(float const zoom) const {
 	return Rect(x*zoom, y*zoom, w*zoom, h*zoom);
 }
+
+bool Rect::IsPointInside(Vec2 point){
+    if(x <= point.x && point.x <= x + w &&
+       y <= point.y && point.y <= y + h){
+        return true;
+    }
+    return false;
+}

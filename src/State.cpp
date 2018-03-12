@@ -47,6 +47,7 @@ void State::EarlyUpdate(float dt) {
 }
 
 void State::Update(float dt) {
+    DEBUG_UPDATE("inicioSuper");
 #ifdef USE_THREADING
 	Rattletrap::Threading::Update(objectArray);
 #else
@@ -56,6 +57,7 @@ void State::Update(float dt) {
 		}
 	}
 #endif
+    DEBUG_UPDATE("fimSuper");
 }
 
 void State::LateUpdate(float dt) {

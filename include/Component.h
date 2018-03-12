@@ -74,7 +74,7 @@ class Component{
 		*/
 		virtual ~Component(void){};
 		virtual void Render(void) const {};
-		virtual void ButtonObserver(Component* btn){};
+		virtual void ButtonObserver(Component* btn);
 
 	protected:
 		GameObject &associated;

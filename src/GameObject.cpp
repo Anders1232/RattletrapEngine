@@ -18,11 +18,13 @@ GameObject::GameObject(string tag, State* context):
 
 
 GameObject::~GameObject(){
-	REPORT_I_WAS_HERE;
+	//REPORT_I_WAS_HERE;
+	DEBUG_PRINT("Deleting " << tag << ":");
 	for(auto it = components.begin(); it != components.end();) {
 		it->second.clear();
 		it = components.erase(it);
 	}
+	DEBUG_PRINT(tag << " deleted;");
 }
 
 void GameObject::SetParent(GameObject& parent, int xrelative, int yrelative){
@@ -89,6 +91,7 @@ void GameObject::EarlyUpdate(float dt){
 }
 
 void GameObject::Update(float dt){
+    DEBUG_UPDATE("inicio");
 	for(auto it = components.begin(); it != components.end(); it++){
 		for(unsigned int i = 0; i < it->second.size(); i++){
             if(it->second[i]->IsEnabled() ){
@@ -96,6 +99,7 @@ void GameObject::Update(float dt){
             }
 		}
 	}
+	DEBUG_UPDATE("fim");
 }
 
 void GameObject::LateUpdate(float dt){
