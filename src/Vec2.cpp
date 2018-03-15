@@ -36,14 +36,22 @@ Vec2& Vec2::operator=(Vec2 const &b) {
 }
 
 float Vec2::Magnitude(void)const {
+    if(x == 0 && y == 0 ) return 0;
 	return sqrt(x*x+ y*y);
 }
 
-Vec2 Vec2::Normalize(void) {
+Vec2 Vec2::Normalized(void) const{
 	float norm= Magnitude();
-	x=x/norm;
-	y=y/norm;
+	if(norm == 0) return Vec2(0,0);
 	return Vec2(x/norm, y/norm);
+}
+
+void Vec2::Normalize(void) {
+	float norm= Magnitude();
+	if(norm != 0){
+        x=x/norm;
+        y=y/norm;
+	}
 }
 
 float Vec2::DistanceTo(Vec2 const &b) const {
@@ -130,6 +138,20 @@ bool Vec2::operator==(Vec2 const &b) const {
 
 bool Vec2::operator!=(Vec2 const &b) const {
 	return !(*this == b);
+}
+
+void Vec2::Floor(){
+    x = floor(x);
+    y = floor(y);
+}
+
+void Vec2::Ceil(){
+    x = ceil(x);
+    y = ceil(y);
+}
+
+int Vec2::Orientation(){
+    return x+y;
 }
 
 #include "Error_footer.h"

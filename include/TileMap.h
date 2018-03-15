@@ -554,15 +554,15 @@ Vec2 TileMap<T>::MapToPixel(Vec2 position){
 
 template<class T>
 Vec2 TileMap<T>::PixelToMap(int x, int y){
-    Vec2 v(x / tileSets[currentTileSet]->GetTileSize().x,
-            y / tileSets[currentTileSet]->GetTileSize().y);
+    Vec2 v(floor(x / tileSets[currentTileSet]->GetTileSize().x),
+            floor(y / tileSets[currentTileSet]->GetTileSize().y));
     return v;
 }
 
 template<class T>
 Vec2 TileMap<T>::PixelToMap(Vec2 position){
-    Vec2 v( (int)position.x / tileSets[currentTileSet]->GetTileSize().x,
-            (int)position.y / tileSets[currentTileSet]->GetTileSize().y);
+    Vec2 v( floor((int)position.x / tileSets[currentTileSet]->GetTileSize().x),
+            floor((int)position.y / tileSets[currentTileSet]->GetTileSize().y));
     return v;
 }
 
