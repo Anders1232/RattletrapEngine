@@ -65,8 +65,8 @@ namespace RattletrapEngine {
 			inline Vec2 GetVec2Coord(int pos);
 			void SetLayerVisibility(int layer, bool visibility);
 			bool IsLayerVisible(int layer);
-			Vec2 GetTileSize(void);
-		private:
+            Vec2 GetTileSize(void);
+        private:
 			int mapWidth;
 			int mapHeight;
 			int mapDepth;
@@ -94,7 +94,7 @@ namespace RattletrapEngine {
 	#include "Camera.h"
 
 namespace RattletrapEngine {
-	
+
 	template<class T>
 	void TileMap<T>::Load(std::string const &file) {
 		FILE *arq = fopen(file.c_str(), "r");
@@ -272,7 +272,7 @@ namespace RattletrapEngine {
 	T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 		T* chosen= nullptr;
 		float chosenTillNow= range;
-		for(int i=0; i < tileMatrix.size();i++){
+        for(int i=0; i < tileMatrix.size();i++){
 			float tempRes= finder(tileMatrix[i]);
 			if(tempRes < chosenTillNow){
 				chosen= (T*)&(tileMatrix[i]);
@@ -285,7 +285,7 @@ namespace RattletrapEngine {
 	template<class T>
 	std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
 		std::vector<T*> *chosen= new std::vector<T*>();
-		for(int i=0; i < tileMatrix.size();i++){
+        for(int i=0; i < tileMatrix.size();i++){
 			if(finder(tileMatrix[i]) < range){
 				chosen->push_back((T*) &(tileMatrix[i]) );
 			}
