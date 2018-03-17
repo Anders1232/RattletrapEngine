@@ -10,21 +10,7 @@ namespace RattletrapEngine {
 		Foi colocado em um arquivo separado por problemas de inclusão circular entre GameObject e Component.
 	*/
 	enum ComponentType{
-		HIT_POINTS=0,
-		AI_GO_DOWN,
-		AI_GO_TO,
-		AI_PRINT_PATH,
-		AI_ART,
-		AI_MEDIC,
-		AI_QUIMIC,
-		AI_ENGINEER,
-		WAVE_MANAGER,
-		SHOOTER,
-		STUN_AURA,
-		SLOW_AURA,
-		HEAL_AURA,
-		PLAYER_DATA,
-		SPRITE,
+		SPRITE=0,
 		TILEMAP,
 		TILESET,
 		RECT_TRANSFORM,
