@@ -111,7 +111,7 @@ frelease: FLAGS += -O3 -mtune=native
 frelease: objects
 
 objects: $(OBJ_FILES)
-	echo "Arquivos objeto do jogo compilados."
+	@echo "Arquivos objeto da engine compilados."
 
 unused: FLAGS -= -Wno-unused-parameter
 

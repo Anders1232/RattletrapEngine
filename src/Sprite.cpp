@@ -60,6 +60,7 @@ namespace RattletrapEngine {
 	}
 
 	void Sprite::Render() {
+		// REPORT_DEBUG2(true, "\tbox = {" << associated.box.x << ", " << associated.box.y<< ", " << associated.box.w << ", " << associated.box.h << "}")
 		Game& game = Game::GetInstance();
 		{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 			Vec2 screenSize = game.GetWindowDimensions();

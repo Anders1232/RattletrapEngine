@@ -31,7 +31,7 @@ namespace RattletrapEngine {
 
 	void Text::Render(){
 		if( nullptr == texture ) {
-			REPORT_DEBUG( "Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
+			REPORT_DEBUG( " Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
 			return;
 		}
 
@@ -89,9 +89,9 @@ namespace RattletrapEngine {
 	void Text::RemakeTexture() {
 		{
 			bool skip = false;
-			REPORT_DEBUG2( ( skip |= text.empty(), text.empty() ), "Textura de texto nao sera refeita pois o texto e invalido (vazio)." );
-			REPORT_DEBUG2( ( skip |= 0 >= fontSize, fontSize ), "Textura de texto nao sera refeita pois o tamanho da fonte e invalido (menor ou igual a zero)." );
-			REPORT_DEBUG2( ( skip |= fontFile.empty(), fontFile.empty() ), "Textura de texto nao sera refeita pois nao possui fonte assimilada." );
+			REPORT_DEBUG2( ( skip |= text.empty(), text.empty() ), " Textura de texto nao sera refeita pois o texto e invalido (vazio)." );
+			REPORT_DEBUG2( ( skip |= 0 >= fontSize, 0 >= fontSize ), " Textura de texto nao sera refeita pois o tamanho da fonte e invalido (menor ou igual a zero)." );
+			REPORT_DEBUG2( ( skip |= fontFile.empty(), fontFile.empty() ), " Textura de texto nao sera refeita pois nao possui fonte assimilada." );
 			if( skip ) return;
 		}
 
@@ -123,7 +123,8 @@ namespace RattletrapEngine {
 		int h = 0;
 		SDL_QueryTexture( texture, nullptr, nullptr, &w, &h );
 		fontDimensions = Vec2( w, h );
-		dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
+		RectTransform *rt = dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) );
+		if( nullptr != rt ) rt->SetKernelSize( fontDimensions );
 	}
 
 }
