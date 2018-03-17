@@ -162,7 +162,7 @@ namespace RattletrapEngine {
 		box.h = multiplier.y*(box.h);
 		box.x = boundingBox.x + (boundingBox.w - box.w)*centerPin.x;
 		box.y = boundingBox.y + (boundingBox.h - box.h)*centerPin.y;
-
+        REPORT_DEBUG2(true,"w:"<< box.w << " h:" << box.h);
 		return box;
 	}
 
