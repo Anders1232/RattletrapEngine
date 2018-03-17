@@ -47,7 +47,7 @@ namespace RattletrapEngine {
 			void Update(float dt=0);
 			void LateUpdate(float dt =0);
 			void Render(void) const;
-			bool Is(ComponentType type) const;
+			bool Is(int componentType) const;
 			T& At(int x, int y, int z=0);
 			T& AtLayer(int index2D, int layer);
 			int GetWidth(void) const;
@@ -61,12 +61,12 @@ namespace RattletrapEngine {
 			void ReportChanges(int tileChanged);
 			void ObserveMapChanges(TileMapObserver *);
 			void RemoveObserver(TileMapObserver *);
-			std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap);
+			std::list<int>* AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> *weightMap);
 			inline Vec2 GetVec2Coord(int pos);
 			void SetLayerVisibility(int layer, bool visibility);
 			bool IsLayerVisible(int layer);
-			Vec2 GetTileSize(void);
-		private:
+            Vec2 GetTileSize(void);
+        private:
 			int mapWidth;
 			int mapHeight;
 			int mapDepth;
@@ -94,7 +94,7 @@ namespace RattletrapEngine {
 	#include "Camera.h"
 
 namespace RattletrapEngine {
-	
+
 	template<class T>
 	void TileMap<T>::Load(std::string const &file) {
 		FILE *arq = fopen(file.c_str(), "r");
@@ -168,8 +168,8 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	bool TileMap<T>::Is(ComponentType type) const{
-		return type == ComponentType::TILEMAP;
+	bool TileMap<T>::Is(int componentType) const{
+		return componentType == ComponentType::TILEMAP;
 	}
 
 	//mudanaça: o método abaixo pode lançar exceção
@@ -272,10 +272,10 @@ namespace RattletrapEngine {
 	T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 		T* chosen= nullptr;
 		float chosenTillNow= range;
-		for(int i=0; i < tileMatrix.size();i++){
+        for(int i=0; i < tileMatrix.size();i++){
 			float tempRes= finder(tileMatrix[i]);
 			if(tempRes < chosenTillNow){
-				chosen= &(tileMatrix[i]);
+				chosen= (T*)&(tileMatrix[i]);
 				chosenTillNow= tempRes;
 			}
 		}
@@ -285,7 +285,7 @@ namespace RattletrapEngine {
 	template<class T>
 	std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
 		std::vector<T*> *chosen= new std::vector<T*>();
-		for(int i=0; i < tileMatrix.size();i++){
+        for(int i=0; i < tileMatrix.size();i++){
 			if(finder(tileMatrix[i]) < range){
 				chosen->push_back((T*) &(tileMatrix[i]) );
 			}
@@ -380,7 +380,7 @@ namespace RattletrapEngine {
 	template<class T>
 	class AStarCompare{
 		public:
-			AStarCompare(std::vector<int64_t> const &guessedCost, std::vector<int64_t> const &accumulatedCost):
+			AStarCompare(std::vector<float> const &guessedCost, std::vector<float> const &accumulatedCost):
 				accumulatedCost(accumulatedCost),
 				guessedCost(guessedCost){}
 			bool operator()(int64_t a, int64_t b){
@@ -395,8 +395,8 @@ namespace RattletrapEngine {
 				}
 			}
 		private:
-			std::vector<int64_t> const &guessedCost;
-			std::vector<int64_t> const &accumulatedCost;
+			std::vector<float> const &guessedCost;
+			std::vector<float> const &accumulatedCost;
 	};
 
 	inline std::list<int>* MakePath(int origin, int dest, std::vector<int64_t> const &antecessor){
@@ -411,7 +411,7 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	std::list<int>* TileMap<T>::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> weightMap){
+	std::list<int>* TileMap<T>::AStar(int originTile,int destTile, AStarHeuristic* heuristic, AStarWeight<T> *weightMap){
 		std::vector<int64_t> closedSet;
 		std::vector<int64_t> openSet;//esse vetor deve ser ordenado
 		openSet.push_back(originTile);
@@ -430,7 +430,7 @@ namespace RattletrapEngine {
 			std::vector<int64_t> neightbors= GetNeighbours(current);
 			for(int i=0; i < neightbors.size(); i++){
 				int64_t currentNeightbor= neightbors[i];
-				if(!weightMap.IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
+				if(!weightMap->IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
 					continue;
 				}
 				if(std::binary_search(closedSet.begin(), closedSet.end(), currentNeightbor) ){
@@ -440,7 +440,7 @@ namespace RattletrapEngine {
 					openSet.push_back(currentNeightbor);
 					std::sort(openSet.begin(), openSet.end(), AStarCompare<T>(guessedCost, accumulatedCost));
 				}
-				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap.CalculateCost(currentNeightbor);
+				float tentativeDistance= ELEMENT_ACESS(accumulatedCost, current) + weightMap->CalculateCost(tileMatrix[currentNeightbor]);
 				if(tentativeDistance < accumulatedCost[currentNeightbor ] ){
 					antecessor[currentNeightbor]= current;
 					accumulatedCost[currentNeightbor]= tentativeDistance;

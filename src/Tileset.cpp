@@ -57,8 +57,8 @@ namespace RattletrapEngine {
 		return tileSize;
 	}
 
-	bool TileSet::Is(ComponentType type) const{
-		return ComponentType::TILESET == type;
+	bool TileSet::Is(int componentType) const{
+		return ComponentType::TILESET == componentType;
 	}
 
 }

@@ -54,8 +54,8 @@ namespace RattletrapEngine {
 				for( int i = 0; i < numCols; i++, x+=delta.x+pad.x ) {
 					index = i+j*numCols;
 					if(index >= n) return;
-					RectTransform& rt = dynamic_cast<RectTransform&>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
-					rt.SetAnchors( {x, y},
+                    RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
+                    rt->SetAnchors( {x, y},
 								{x+delta.x, y+delta.y} );
 				}
 			}
@@ -64,8 +64,8 @@ namespace RattletrapEngine {
 
 	void Grouper::LateUpdate( float dt ) {}
 
-	bool Grouper::Is( ComponentType type ) const {
-		return ComponentType::GROUPER == type;
+	bool Grouper::Is( int componentType ) const {
+		return ComponentType::GROUPER == componentType;
 	}
 
 	void Grouper::MakeGridGroup( Grouper::ConstraintType ctype, int num, Grouper::BehaviorOnLess bol ) {

@@ -65,7 +65,7 @@ namespace RattletrapEngine {
 			
 				Retorna verdadeiro se o componente for do tipo type, falso caso contrário.
 			*/
-			virtual bool Is(ComponentType type) const =0;
+			virtual bool Is(int componentType) const =0;
 			/**
 				\brief Destrutor
 			
@@ -73,6 +73,7 @@ namespace RattletrapEngine {
 			*/
 			virtual ~Component(void){};
 			virtual void Render(void){};
+			virtual void NotifyCollision(Component &a){};
 		protected:
 			GameObject &associated;
 			bool enabled;/**<Informa Se o gameObject está ativo ou não*/

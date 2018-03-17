@@ -21,7 +21,7 @@ namespace RattletrapEngine {
 			void Render(int index, Rect pos) const;
 			uint GetSize(void) const;
 			Vec2 GetTileSize(void) const;
-			bool Is(ComponentType type) const;
+			bool Is(int componentType) const;
 		private:
 			std::vector<Sprite> sprites;
 			Vec2 tileSize;

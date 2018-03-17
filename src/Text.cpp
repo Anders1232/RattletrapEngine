@@ -48,8 +48,8 @@ namespace RattletrapEngine {
 		}
 	}
 
-	bool Text::Is( ComponentType type ) const {
-		return ComponentType::TEXT == type;
+	bool Text::Is( int componentType ) const {
+		return ComponentType::TEXT == componentType;
 	}
 
 	void Text::SetText( string text ) {
@@ -123,7 +123,7 @@ namespace RattletrapEngine {
 		int h = 0;
 		SDL_QueryTexture( texture, nullptr, nullptr, &w, &h );
 		fontDimensions = Vec2( w, h );
-		dynamic_cast<RectTransform&>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) ).SetKernelSize( fontDimensions );
+        dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
 	}
 
 }

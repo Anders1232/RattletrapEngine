@@ -172,8 +172,8 @@ namespace RattletrapEngine {
 		this->frameTime=frameTime;
 	}
 
-	bool Sprite::Is(ComponentType type) const{
-		return ComponentType::SPRITE == type;
+	bool Sprite::Is(int componentType) const{
+		return ComponentType::SPRITE == componentType;
 	}
 
 	void Sprite::EarlyUpdate(float dt){}

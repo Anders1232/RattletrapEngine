@@ -73,9 +73,9 @@ namespace RattletrapEngine {
 		components.emplace_back(component);
 	}
 
-	void GameObject::RemoveComponent(ComponentType type){
+	void GameObject::RemoveComponent(int componentType){
 		for(uint i = 0; i < components.size();i++){
-			if(components[i]->Is(type)){
+			if(components[i]->Is(componentType)){
 				delete components[i];
 				components.erase(components.begin() + i);
 				return;
@@ -93,19 +93,19 @@ namespace RattletrapEngine {
 		}
 	}
 
-	Component& GameObject::GetComponent(ComponentType type) const{
+    Component* GameObject::GetComponent(int componentType) const{
 		for(uint i = 0; i < components.size();i++){
-			if(components[i]->Is(type)){
-				return *(components[i]);
+			if(components[i]->Is(componentType)){
+                return components[i];
 			}
 		}
-		Error("Component not found!");
+        return(nullptr);
 	}
 
-	std::vector<Component *> GameObject::GetComponents(ComponentType type) const{
+	std::vector<Component *> GameObject::GetComponents(int componentType) const{
 		std::vector<Component *> ret;
 		for(uint i = 0; i < components.size();i++){
-			if(components[i]->Is(type)){
+			if(components[i]->Is(componentType)){
 				ret.push_back(components[i] );
 			}
 		}
