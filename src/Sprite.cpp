@@ -85,15 +85,9 @@ namespace RattletrapEngine {
 
 		if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 			CHECK_SDL_ERROR;
-		}
-        SDL_Rect dst;
-        RectTransform* brotherRect = associated.GetComponent(ComponentType::RECT_TRANSFORM);
-
-        if(nullptr != brotherRect){
-            dst = brotherRect->ComputeBox(brotherRect->ComputeBoundingBox(associated.box));
         }
-        else{SDL_Rect dst = associated.box;}
 
+        SDL_Rect dst = associated.box;
 		if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){
 			Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
 									(colorMultiplier.g + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.g + HIGHLIGHT),
