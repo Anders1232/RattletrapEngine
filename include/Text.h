@@ -25,14 +25,14 @@ namespace RattletrapEngine {
 			uma diferença perceptível.*/
 			};
 		
-			Text(GameObject associated);
+			Text(GameObject& associated);
 			~Text();
 		
 			void EarlyUpdate( float dt );
 			void Update( float dt );
 			void LateUpdate( float dt );
 			bool Is( int componentType ) const;
-			void Render() const;
+			void Render();
 		
 			/**
 				\brief Altera o texto.

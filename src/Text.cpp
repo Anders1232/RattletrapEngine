@@ -6,7 +6,7 @@
 
 namespace RattletrapEngine {
 		
-	Text::Text( GameObject associated )
+	Text::Text( GameObject& associated )
 				: Component( associated )
 				, texture( nullptr )
 				, text( " " )
@@ -29,7 +29,7 @@ namespace RattletrapEngine {
 
 	void Text::LateUpdate( float dt ) {}
 
-	void Text::Render() const {
+	void Text::Render(){
 		if( nullptr == texture ) {
 			REPORT_DEBUG( "Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
 			return;
@@ -123,7 +123,7 @@ namespace RattletrapEngine {
 		int h = 0;
 		SDL_QueryTexture( texture, nullptr, nullptr, &w, &h );
 		fontDimensions = Vec2( w, h );
-        dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
+		dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
 	}
 
 }

@@ -11,6 +11,7 @@
 #include "Component.h"
 #include "Color.h"
 #include "Rect.h"
+#include "RectTransform.h"
 
 #define ALPHA_BLEND SDL_BLENDMODE_BLEND
 #define ADDITIVE SDL_BLENDMODE_ADD
@@ -55,7 +56,7 @@ namespace RattletrapEngine {
 				Os valores do retângulo serão convertidos do mundo para tela se isCoordOnWorld for verdadeiro.
 				É realizado uma otimização para que, se a Sprite não possuir nenhuma coordenada na tela, ela não será renderizada.
 			*/
-			void Render() const;
+			void Render();
 			/**
 				\brief Informa a largura do sprite
 				Retorna a largura do sprite, no caso do sprite sheet é retornado a largura de um único sprite do sprite sheet.

@@ -51,7 +51,7 @@ namespace RattletrapEngine {
 				
 				Se não existir um componente do tipo informado Error() será chamado
 			*/
-            Component* GetComponent(int componentType) const;
+			Component* GetComponent(int componentType) const;
 			/**
 				\brief Obtém componentes
 				\param type tipo do componente a ser buscado.

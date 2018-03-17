@@ -54,8 +54,8 @@ namespace RattletrapEngine {
 				for( int i = 0; i < numCols; i++, x+=delta.x+pad.x ) {
 					index = i+j*numCols;
 					if(index >= n) return;
-                    RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
-                    rt->SetAnchors( {x, y},
+					RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
+					rt->SetAnchors( {x, y},
 								{x+delta.x, y+delta.y} );
 				}
 			}

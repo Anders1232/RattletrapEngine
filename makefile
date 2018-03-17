@@ -75,11 +75,11 @@ INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(EXTRA_INC_PATH))
 
 all: $(OBJ_FILES)
 
-$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATHS)/%.h | folders
+$(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp $(INC_PATH)/%.h | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 $(DEP_PATH)/%.d: $(SRC_PATH)/%.cpp | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
-$(DEP_PATH)/%.d: $(SRC_PATH)/%.h | folders
+$(DEP_PATH)/%.d: $(INC_PATH)/%.h | folders
 	$(COMPILER) $(INC_PATHS) $< $(DEP_FLAGS) $(FLAGS)
 
 $(BIN_PATH)/%.o: $(SRC_PATH)/%.cpp $(DEP_PATH)/%.d | folders
@@ -115,8 +115,6 @@ objects: $(OBJ_FILES)
 
 unused: FLAGS -= -Wno-unused-parameter
 
--include $$(DEP_FILES)
-
 doc: dclean
 	doxygen Doxyfile
 
@@ -135,3 +133,6 @@ help:
 	@echo - coverage: Builds a version to use with gcov (not implemented)
 	@echo - help:     Shows this help
 	@echo.
+
+.SECONDEXPANSION:
+-include $$(DEP_FILES)
