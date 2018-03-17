@@ -23,7 +23,6 @@ namespace RattletrapEngine {
 	void RectTransform::EarlyUpdate( float dt ) {}
 
 	void RectTransform::Update( float dt ) {
-		REPORT_DEBUG2(true,"")
 		Rect parentCanvas;
 		if( nullptr == GOparent ) {
 			parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};

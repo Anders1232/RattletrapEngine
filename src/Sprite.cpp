@@ -61,7 +61,6 @@ namespace RattletrapEngine {
 
 	void Sprite::Render() {
 		Game& game = Game::GetInstance();
-		REPORT_DEBUG2(true,"Rect");
 		{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 			Vec2 screenSize = game.GetWindowDimensions();
 			float points[4] = {associated.box.x, associated.box.y, associated.box.x+associated.box.w, associated.box.y+associated.box.h};
@@ -96,7 +95,7 @@ namespace RattletrapEngine {
 				CHECK_SDL_ERROR;
 			}
 		}
-		REPORT_DEBUG2(true,"Rect|" << dst.x << ":" << dst.y << ":" << dst.w << ":" << dst.h);
+		REPORT_DEBUG("Rect|" << dst.x << ":" << dst.y << ":" << dst.w << ":" << dst.h);
 		if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 			// Verifica se haverá erro
 			Error(SDL_GetError());
