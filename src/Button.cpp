@@ -50,7 +50,7 @@ namespace RattletrapEngine {
 
 	void Button::LateUpdate( float dt ) {}
 
-	void Button::Render() const {}
+    void Button::Render(){}
 
 	bool Button::Is( int componentType ) const {
 		return ComponentType::BUTTON == componentType;

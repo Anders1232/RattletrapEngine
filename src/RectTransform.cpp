@@ -39,7 +39,7 @@ namespace RattletrapEngine {
 
 	void RectTransform::LateUpdate( float dt ) {}
 
-	void RectTransform::Render() const {
+    void RectTransform::Render() {
 		if (debugRender) {
 			SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Anchors em Vermelho
 			SDL_Rect anch = Rect( boundingBox.x - offsets.x, boundingBox.y - offsets.y, boundingBox.w - offsets.w + offsets.x, boundingBox.h - offsets.h + offsets.y );

@@ -6,7 +6,7 @@
 
 namespace RattletrapEngine {
 		
-	Text::Text( GameObject associated )
+    Text::Text( GameObject& associated )
 				: Component( associated )
 				, texture( nullptr )
 				, text( " " )
@@ -29,7 +29,7 @@ namespace RattletrapEngine {
 
 	void Text::LateUpdate( float dt ) {}
 
-	void Text::Render() const {
+    void Text::Render(){
 		if( nullptr == texture ) {
 			REPORT_DEBUG( "Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
 			return;

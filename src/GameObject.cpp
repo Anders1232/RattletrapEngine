@@ -40,9 +40,10 @@ namespace RattletrapEngine {
 	}
 
 	void GameObject::Render(void){
-		REPORT_DEBUG("\t GameObject::Render called!");
+        REPORT_DEBUG2(true,"\t GameObject::Render called!");
 		for(uint i=0; i < components.size(); i++){
 			if(components[i]->IsEnabled() ){
+                REPORT_DEBUG2(true,"\t GameObject::Render called!" << (components[i]->Is(ComponentType::SPRITE)?"Sprite":"Não Sprite"));
 				components[i]->Render();
 			}
 		}

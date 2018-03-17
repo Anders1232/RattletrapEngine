@@ -17,8 +17,8 @@ namespace RattletrapEngine {
 			void Update(float dt);
 			void EarlyUpdate(float dt);
 			void LateUpdate(float dt);
-			void Render() const;
-			void Render(int index, Rect pos) const;
+            void Render();
+            void Render(int index, Rect pos);
 			uint GetSize(void) const;
 			Vec2 GetTileSize(void) const;
 			bool Is(int componentType) const;

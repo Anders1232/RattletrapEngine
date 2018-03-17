@@ -41,11 +41,11 @@ namespace RattletrapEngine {
 		}
 	}
 
-	void TileSet::Render() const{
+    void TileSet::Render(){
 		printf("[WARNING] TileSet::Render(void) should not be called.\n");
 	}
 
-	void TileSet::Render(int index, Rect pos) const{
+    void TileSet::Render(int index, Rect pos){
 		sprites[index].Render();
 	}
 
