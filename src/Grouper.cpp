@@ -20,6 +20,7 @@ namespace RattletrapEngine {
 		const unsigned int n = groupedElements.size();
 		if( n > 0 ) {
 			Vec2 pad = Vec2( padding.x/associated.box.w, padding.y/associated.box.h );
+			// REPORT_DEBUG2(true, "\tpad = {" << pad.x << ", " << pad.y << "}")
 			int numRows = (Grouper::ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)n/number);
 			int numCols = (Grouper::ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)n/number);
 			Vec2 delta = Vec2( ( 1. - pad.x*(numCols-1) ) / numCols, ( 1. - pad.y*(numRows-1) ) / numRows);
@@ -54,8 +55,8 @@ namespace RattletrapEngine {
 				for( int i = 0; i < numCols; i++, x+=delta.x+pad.x ) {
 					index = i+j*numCols;
 					if(index >= n) return;
-                    RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
-                    rt->SetAnchors( {x, y},
+					RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
+					rt->SetAnchors( {x, y},
 								{x+delta.x, y+delta.y} );
 				}
 			}

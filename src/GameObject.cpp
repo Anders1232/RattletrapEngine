@@ -40,10 +40,9 @@ namespace RattletrapEngine {
 	}
 
 	void GameObject::Render(void){
-        REPORT_DEBUG2(true,"\t GameObject::Render called!");
+		REPORT_DEBUG("\t GameObject::Render called!");
 		for(uint i=0; i < components.size(); i++){
 			if(components[i]->IsEnabled() ){
-                REPORT_DEBUG2(true,"\t GameObject::Render called!" << (components[i]->Is(ComponentType::SPRITE)?"Sprite":"Não Sprite"));
 				components[i]->Render();
 			}
 		}
@@ -94,13 +93,13 @@ namespace RattletrapEngine {
 		}
 	}
 
-    Component* GameObject::GetComponent(int componentType) const{
+	Component* GameObject::GetComponent(int componentType) const{
 		for(uint i = 0; i < components.size();i++){
 			if(components[i]->Is(componentType)){
-                return components[i];
+				return components[i];
 			}
 		}
-        return(nullptr);
+		return(nullptr);
 	}
 
 	std::vector<Component *> GameObject::GetComponents(int componentType) const{
