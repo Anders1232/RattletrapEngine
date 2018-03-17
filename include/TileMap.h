@@ -65,8 +65,8 @@ namespace RattletrapEngine {
 			inline Vec2 GetVec2Coord(int pos);
 			void SetLayerVisibility(int layer, bool visibility);
 			bool IsLayerVisible(int layer);
-            Vec2 GetTileSize(void);
-        private:
+			Vec2 GetTileSize(void);
+		private:
 			int mapWidth;
 			int mapHeight;
 			int mapDepth;
@@ -272,7 +272,7 @@ namespace RattletrapEngine {
 	T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
 		T* chosen= nullptr;
 		float chosenTillNow= range;
-        for(uint i=0; i < tileMatrix.size();i++){
+		for(uint i=0; i < tileMatrix.size();i++){
 			float tempRes= finder(tileMatrix[i]);
 			if(tempRes < chosenTillNow){
 				chosen= (T*)&(tileMatrix[i]);
@@ -285,7 +285,7 @@ namespace RattletrapEngine {
 	template<class T>
 	std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
 		std::vector<T*> *chosen= new std::vector<T*>();
-        for(uint i=0; i < tileMatrix.size();i++){
+		for(uint i=0; i < tileMatrix.size();i++){
 			if(finder(tileMatrix[i]) < range){
 				chosen->push_back((T*) &(tileMatrix[i]) );
 			}
@@ -395,7 +395,7 @@ namespace RattletrapEngine {
 				}
 			}
 		private:
-            std::vector<float> const &accumulatedCost;
+			std::vector<float> const &accumulatedCost;
 			std::vector<float> const &guessedCost;
 	};
 
@@ -428,7 +428,7 @@ namespace RattletrapEngine {
 			openSet.erase(openSet.begin());
 			OrderedInsertion(closedSet,current);//verificar se aqui precisa de adição ordenada
 			std::vector<int64_t> neightbors= GetNeighbours(current);
-            for(uint i=0; i < neightbors.size(); i++){
+			for(uint i=0; i < neightbors.size(); i++){
 				int64_t currentNeightbor= neightbors[i];
 				if(!weightMap->IsTraversable(ELEMENT_ACESS(tileMatrix,current) ) ){
 					continue;
@@ -451,7 +451,7 @@ namespace RattletrapEngine {
 		//se chegar aqui é pq não achou um caminho da origem ao destino
 		std::vector<int64_t> bestPaths;
 		float minimumCostFound= std::numeric_limits<float>::max();
-        for(uint i=0; i< guessedCost.size(); i++){
+		for(uint i=0; i< guessedCost.size(); i++){
 			if(guessedCost[i] < minimumCostFound){
 				bestPaths.clear();
 				bestPaths.push_back(i);
@@ -462,7 +462,7 @@ namespace RattletrapEngine {
 			}
 		}
 		int chosenPath=0;
-        for(uint i=1; i< bestPaths.size(); i++){
+		for(uint i=1; i< bestPaths.size(); i++){
 			if(accumulatedCost[i] > accumulatedCost[chosenPath]){
 				chosenPath= i;
 			}

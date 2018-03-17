@@ -71,7 +71,7 @@ namespace RattletrapEngine {
 
 	void State::Render(void) const {
 		REPORT_I_WAS_HERE;
-        REPORT_DEBUG2(true,"Entrou em Render de State");
+		REPORT_DEBUG2(true,"Entrou em Render de State");
 	#ifdef RENDER_FOWARD
 		for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 	#else

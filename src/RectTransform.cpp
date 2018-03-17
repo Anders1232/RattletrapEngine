@@ -23,7 +23,7 @@ namespace RattletrapEngine {
 	void RectTransform::EarlyUpdate( float dt ) {}
 
 	void RectTransform::Update( float dt ) {
-        REPORT_DEBUG2(true,"")
+		REPORT_DEBUG2(true,"")
 		Rect parentCanvas;
 		if( nullptr == GOparent ) {
 			parentCanvas = {0., 0., Game::GetInstance().GetWindowDimensions().x, Game::GetInstance().GetWindowDimensions().y};
@@ -31,7 +31,7 @@ namespace RattletrapEngine {
 			parentCanvas = GOparent->box;
 		}
 		boundingBox = ComputeBoundingBox(parentCanvas);
-        associated.box = ComputeBox(boundingBox);
+		associated.box = ComputeBox(boundingBox);
 		boundingBox.x += parentCanvas.x;
 		boundingBox.y += parentCanvas.y;
 		associated.box.x += parentCanvas.x;
@@ -40,7 +40,7 @@ namespace RattletrapEngine {
 
 	void RectTransform::LateUpdate( float dt ) {}
 
-    void RectTransform::Render() {
+	void RectTransform::Render() {
 		if (debugRender) {
 			SDL_SetRenderDrawColor(Game::GetInstance().GetRenderer(), 255, 0, 0, 255); // Anchors em Vermelho
 			SDL_Rect anch = Rect( boundingBox.x - offsets.x, boundingBox.y - offsets.y, boundingBox.w - offsets.w + offsets.x, boundingBox.h - offsets.h + offsets.y );
