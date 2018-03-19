@@ -73,6 +73,7 @@ class TileMap : public Component{//, NearestFinder<T>{
 		Vec2 PixelToMap(int x, int y);
 		Vec2 PixelToMap(Vec2 position);
 		Vec2 AdjustToMap(Vec2 position);
+		bool NearCellCenter(Vec2 position, float delta);
 
 	private:
 		int mapWidth;
@@ -567,12 +568,31 @@ Vec2 TileMap<T>::PixelToMap(Vec2 position){
 }
 
 template<class T>
+bool TileMap<T>::NearCellCenter(Vec2 position, float delta){
+    //celula onde se encontra o position
+    Vec2 v(floor(position.x / tileSets[currentTileSet]->GetTileSize().x),
+           floor(position.y / tileSets[currentTileSet]->GetTileSize().y));
+
+    //centro da celula
+    v = Vec2(tileSets[currentTileSet]->GetTileSize().x * (v.x + 0.5),
+             tileSets[currentTileSet]->GetTileSize().y * (v.y + 0.5));
+
+    if(v.x - delta <= position.x && position.x <= v.x + delta &&
+       v.y - delta <= position.y && position.y <= v.y + delta){
+        return true;
+    }else return false;
+}
+
+
+template<class T>
 Vec2 TileMap<T>::AdjustToMap(Vec2 position){
     Vec2 tileSize = tileSets[currentTileSet]->GetTileSize();
     Vec2 v( tileSize.x * (int)(position.x / tileSize.x),
             tileSize.y * (int)(position.y / tileSize.y));
     return v;
 }
+
+
 
 
 #endif // TILEMAP_H
