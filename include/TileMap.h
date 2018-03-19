@@ -68,8 +68,8 @@ class TileMap : public Component{//, NearestFinder<T>{
 		void SetLayerVisibility(int layer, bool visibility);
 		bool IsLayerVisible(int layer);
 		Vec2 GetTileSize(void);
-		Vec2 MapToPixel(int x, int y);
-		Vec2 MapToPixel(Vec2 position);
+		Vec2 CellCenterToPixel(int x, int y);
+		Vec2 CellCenterToPixel(Vec2 position);
 		Vec2 PixelToMap(int x, int y);
 		Vec2 PixelToMap(Vec2 position);
 		Vec2 AdjustToMap(Vec2 position);
@@ -539,16 +539,16 @@ Vec2 TileMap<T>::GetTileSize(void){
 
 
 template<class T>
-Vec2 TileMap<T>::MapToPixel(int x, int y){
-    Vec2 v(x * tileSets[currentTileSet]->GetTileSize().x,
-            y * tileSets[currentTileSet]->GetTileSize().y);
+Vec2 TileMap<T>::CellCenterToPixel(int x, int y){
+    Vec2 v( tileSets[currentTileSet]->GetTileSize().x * (x + 0.5),
+            tileSets[currentTileSet]->GetTileSize().y * (y + 0.5));
     return v;
 }
 
 template<class T>
-Vec2 TileMap<T>::MapToPixel(Vec2 position){
-    Vec2 v(position.x * tileSets[currentTileSet]->GetTileSize().x,
-            position.y * tileSets[currentTileSet]->GetTileSize().y);
+Vec2 TileMap<T>::CellCenterToPixel(Vec2 position){
+    Vec2 v(tileSets[currentTileSet]->GetTileSize().x * (position.x + 0.5),
+            tileSets[currentTileSet]->GetTileSize().y * (position.y + 0.5));
     return v;
 }
 

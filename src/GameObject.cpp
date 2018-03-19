@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "Game.h"
+#include "Sprite.h"
 #include "Camera.h"
 #include "Error.h"
 
@@ -115,6 +116,14 @@ void GameObject::LateUpdate(float dt){
 }
 
 void GameObject::Render(void){
+/*  //Otimização
+	auto it = components.find(TYPE(Sprite));
+    if(it != components.end()){//typeid(*components[i]) == typeid(T)){//if(components[i]->Is(type)){
+        for(auto itt = it->second.begin();itt != it->second.end(); itt++){
+            (*itt)->Render();
+        }
+    }
+*/
 	for(auto it = components.begin(); it != components.end(); it++){
 		for(unsigned int i = 0; i < it->second.size(); i++){
             //if(it->second[i]->IsEnabled() ){
@@ -192,6 +201,15 @@ void GameObject::SetPosition(Vec2 v){
     box.x = v.x;
     box.y = v.y;
 }
+
+void GameObject::SetCenterPosition(Vec2 v){
+    DEBUG_PRINT("v:" << v.x << ", " << v.y);
+    box.x = v.x - box.w/2;
+    box.y = v.y - box.h/2;
+    DEBUG_PRINT("box:" << box.x << ", " << box.y);
+}
+
+
 void GameObject::SetPosition(int x, int y){
     DEBUG_PRINT(tag << ": Ignoring parent to set position");
     DEBUG_PRINT("v:" << x << ", " << y);
@@ -245,6 +263,4 @@ State* GameObject::GetContext(){
 Vec2 GameObject::GetPosition(){
     return Vec2(box.x, box.y);
 }
-
-
 #include "Error_footer.h"

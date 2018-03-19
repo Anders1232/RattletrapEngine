@@ -142,6 +142,7 @@ void Sprite::Render() const{
 
         SDL_SetRenderDrawColor(game.GetRenderer(), 255, 0, 0, 100);
         SDL_RenderDrawRect(game.GetRenderer(), &dst);
+        SDL_RenderDrawPoint(game.GetRenderer(), dst.x + dst.w/2, dst.y + dst.h/2);
 	}
 	DEBUG_RENDER("fim");
 }

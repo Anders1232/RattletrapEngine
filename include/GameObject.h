@@ -215,6 +215,8 @@ class GameObject{
 			\param v Vetor contendo posição x, y que serão atribuidas.
 		*/
 		void SetPosition(Vec2 v);
+		void SetCenterPosition(Vec2 v);
+
 		/**
             \brief Retorna true caso haja um click dentro da área do rect.
         */
