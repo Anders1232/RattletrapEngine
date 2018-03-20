@@ -46,7 +46,7 @@ namespace RattletrapEngine {
 			void EarlyUpdate(float dt=0);
 			void Update(float dt=0);
 			void LateUpdate(float dt =0);
-			void Render(void) const;
+            void Render(void);
 			bool Is(int componentType) const;
 			T& At(int x, int y, int z=0);
 			T& AtLayer(int index2D, int layer);
@@ -134,7 +134,7 @@ namespace RattletrapEngine {
 	void TileMap<T>::LateUpdate(float dt){}
 
 	template<class T>
-	void TileMap<T>::Render(void) const {
+    void TileMap<T>::Render(void){
 		for(int count = 0; count < mapDepth; count++) {
 			if(layersVisibility[count]) {
 				RenderLayer(count);

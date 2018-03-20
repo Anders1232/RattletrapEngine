@@ -46,6 +46,7 @@ namespace RattletrapEngine {
 	}
 
 	void TileSet::Render(int index, Rect pos){
+        REPORT_DEBUG2(true,"Entrou em render de tile")
 		sprites[index].Render();
 	}
 
