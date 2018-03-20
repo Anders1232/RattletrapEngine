@@ -462,6 +462,9 @@ namespace RattletrapEngine {
 			}
 		}
 		int chosenPath=0;
+        if(0 == bestPaths.size()){
+            return MakePath(originTile, originTile, antecessor);
+        }
 		for(uint i=1; i< bestPaths.size(); i++){
 			if(accumulatedCost[i] > accumulatedCost[chosenPath]){
 				chosenPath= i;
