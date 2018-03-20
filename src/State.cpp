@@ -4,6 +4,7 @@
 #include "Threading.h"
 
 //#define USE_THREADING
+#define RENDER_FOWARD
 
 namespace RattletrapEngine {
 
