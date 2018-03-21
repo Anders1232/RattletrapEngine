@@ -61,14 +61,17 @@ namespace RattletrapEngine {
 	
 	void* Threading::EarlyUpdateThread(void *nothing){
 		UpdateThread(early,EarlyUpdate);
+		return nullptr;
 	}
 	
 	void* Threading::MidUpdateThread(void *nothing){
 		UpdateThread(mid,Update);
+		return nullptr;
 	}
 	
 	void* Threading::LateUpdateThread(void *nothing){
 		UpdateThread(late,LateUpdate);
+		return nullptr;
 	}
 	
 	#undef UpdateThread
