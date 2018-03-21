@@ -470,7 +470,8 @@ namespace RattletrapEngine {
 				chosenPath= i;
 			}
 		}
-		return MakePath(originTile, chosenPath, antecessor);
+        REPORT_DEBUG2(true,"Best path:" << chosenPath)
+        return MakePath(originTile, bestPaths[chosenPath], antecessor);
 	}
 
 	template<class T>
