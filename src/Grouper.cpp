@@ -32,10 +32,10 @@ namespace RattletrapEngine {
 			Vec2 delta = Vec2( ( 1. - pad.x*(numCols-1) ) / numCols, ( 1. - pad.y*(numRows-1) ) / numRows);
 
 			float y = 0;
-			unsigned int index = 0;
+			int index = -1;
 			for( int j = 0; j < numRows; j++, y+=delta.y+pad.y ) {
 				float x = 0;
-				int rem = (n - 1) - index;
+				int rem = (n-1) - index;
 
 				if( rem < numCols ) {
 					switch( behaviorOnLess ) {
@@ -60,7 +60,7 @@ namespace RattletrapEngine {
 
 				for( int i = 0; i < numCols; i++, x+=delta.x+pad.x ) {
 					index = i+j*numCols;
-					if(index >= n) return;
+					if((unsigned int)index >= n) return;
 					RectTransform* rt = dynamic_cast<RectTransform*>( groupedElements[index]->GetComponent( ComponentType::RECT_TRANSFORM ) );
 					rt->SetAnchors( {x, y},
 								{x+delta.x, y+delta.y} );
