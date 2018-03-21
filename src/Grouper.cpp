@@ -8,7 +8,7 @@ namespace RattletrapEngine {
 
 	Grouper::Grouper( GameObject& associated )
 				: Component( associated )
-				, constraint( Grouper::ConstraintType::FIXED_N_COLS )
+				, constraint( Grouper::ConstraintType::SQUARE )
 				, number( 3 )
 				, behaviorOnLess( Grouper::BehaviorOnLess::CENTER ) {}
 
@@ -20,9 +20,15 @@ namespace RattletrapEngine {
 		const unsigned int n = groupedElements.size();
 		if( n > 0 ) {
 			Vec2 pad = Vec2( padding.x/associated.box.w, padding.y/associated.box.h );
-			// REPORT_DEBUG2(true, "\tpad = {" << pad.x << ", " << pad.y << "}")
-			int numRows = (Grouper::ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)n/number);
-			int numCols = (Grouper::ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)n/number);
+			int numRows, numCols;
+			if( Grouper::ConstraintType::SQUARE == constraint ) {
+				float sqr = std::sqrt(n);
+				numRows = std::floor(sqr);
+				numCols = std::ceil(sqr);
+			} else {
+				numRows = (Grouper::ConstraintType::FIXED_N_ROWS == constraint) ? number : std::ceil((float)n/number);
+				numCols = (Grouper::ConstraintType::FIXED_N_COLS == constraint) ? number : std::ceil((float)n/number);
+			}
 			Vec2 delta = Vec2( ( 1. - pad.x*(numCols-1) ) / numCols, ( 1. - pad.y*(numRows-1) ) / numRows);
 
 			float y = 0;
