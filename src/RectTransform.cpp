@@ -8,7 +8,8 @@ namespace RattletrapEngine {
 		
 	RectTransform::RectTransform( GameObject &associated, GameObject *GOparent ) : Component( associated ) {
 		this->GOparent = GOparent;
-		debugRender = true;
+		// debugRender = true;
+		debugRender = false;
 		SetAnchors( {0.5, 0.5}, {0.5, 0.5} );
 		SetOffsets( 0, 0, 0, 0 );
 		SetCenterPin();

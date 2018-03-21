@@ -158,6 +158,10 @@ namespace RattletrapEngine {
 		}
 	}
 
+	void Sprite::SetImage(std::string file) {
+		texture = Resources::GetImage(file);
+	}
+
 	void Sprite::SetFrame(int frame) {
 		currentFrame = frame%frameCount;
 		int newXRect = currentFrame*(width/frameCount);

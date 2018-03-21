@@ -89,6 +89,7 @@ namespace RattletrapEngine {
 					- Se o timeElapsed for maior que o tempo em que cada frame deve estar na tela(frametime) atribuimos ao currentFrame o valor do próximo frame e alteramos o valor x do clipRect para refletir essa operação. Colocando-o para o próximo sprite.
 			*/
 			void Update(float dt);
+			void SetImage(std::string file);
 			/**
 				\brief Força a animação a ficar num frame específico.
 				\param frame Frame que deve ser colocado.
