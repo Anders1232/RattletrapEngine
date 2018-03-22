@@ -13,6 +13,9 @@ class Event{
 	protected:
 		typedef void (*EventHandler)(SourceType *source, EventArgType eventArg, void* context);
 
+		//SubscriberRecord encapsula:
+		// - qual objeto que se inscreveu,
+		// - qual o método que deve ser chamado
 		class SubscriberRecord{
 			private:
 				EventHandler handlerProc;//método a ser chamado

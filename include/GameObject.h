@@ -243,7 +243,8 @@ class GameObject{
 	    bool clicked;
 	    bool released;
 	    Vec2 parentRelative;
-		std::unordered_map< std::type_index,  std::vector< std::shared_ptr<Component> > > components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
+	    typedef std::unordered_map< std::type_index,  std::vector< std::shared_ptr<Component> > >ComponentMap;
+		ComponentMap components;/**< Vetor de componentes, que provêem funcionalidades adicionais.*/
 		bool dead;/**<Booleano informado se o GameObject deve ser destruído. Faz-se necessário para que a mecânia de RequestDelete e IsDead funcione num GameObject. */
 		bool active;/**<Informa Se o gameObject está ativo ou não*/
 		bool newActive;/**< Informa se esse GO estará ativo no próximo frame. Feito para que o GO não mude de ativo para inativo no decorrer de um frame*/
@@ -268,6 +269,11 @@ T& GameObject::GetComponent() const{
     if(components.find(TYPE(T)) != components.end()){//typeid(*components[i]) == typeid(T)){//if(components[i]->Is(type)){
         return dynamic_cast<T&> (*(components.at(TYPE(T)) )[0]) ;
     }else{
+        for(auto it = components.begin(); it != components.end(); it++){
+            if(T* component = dynamic_cast<T*>(it->second[0].get()) ){
+                return *component;
+            }
+        }
         Error("No " << typeid(T).name() << " in GameObject!");
     }
 }
