@@ -8,6 +8,7 @@
 #include "GameObject.h"
 #include "RectTransform.h"
 #include "InputManager.h"
+//#include "Event.h"
 
 class Button : public Component {
 	public:
@@ -43,6 +44,7 @@ class Button : public Component {
 		bool AddObserver(Component* observer);
 		bool interactOnBoundingBox;
 		std::string name;
+		//Event<PlayerUnityPath, int&> buttonClicked;
 
 	private:
 	    bool Notify();

@@ -33,7 +33,8 @@ Button::~Button() {}
 
 void Button::EarlyUpdate( float dt ) {
     DEBUG_UPDATE("inicio");
-    if(associated.Released()){
+    if(InputManager::GetInstance().GetMousePos().IsInRect(associated.box) &&
+       InputManager::GetInstance().MouseRelease(LEFT_MOUSE_BUTTON) ){//associated.Released()){
         Notify();
         //DEBUG_PRINT("associated.box: (" << associated.box.w << "," << associated.box.h << ")" );
     }
