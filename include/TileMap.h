@@ -56,8 +56,8 @@ namespace RattletrapEngine {
 			int GetCoordTilePos(Vec2 const &coordPos, bool affecteedByZoom, int layer) const;
 	//		void Parallax(bool parallax);
 			void SetParallaxLayerIntensity(int layer, float intensity);
-			T* FindNearest(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
-			std::vector<T*>* FindNearests(Vec2 origin, Finder<T> &finder, float range= std::numeric_limits<float>::max()) const;
+			T* FindNearest(Vec2 origin, Finder<T>* finder, float range= std::numeric_limits<float>::max()) const;
+			std::vector<T*>* FindNearests(Vec2 origin, Finder<T>* finder, float range= std::numeric_limits<float>::max()) const;
 			void ReportChanges(int tileChanged);
 			void ObserveMapChanges(TileMapObserver *);
 			void RemoveObserver(TileMapObserver *);
@@ -269,11 +269,11 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	T* TileMap<T>::FindNearest(Vec2 origin, Finder<T> &finder, float range) const{
+	T* TileMap<T>::FindNearest(Vec2 origin, Finder<T>* finder, float range) const{
 		T* chosen= nullptr;
 		float chosenTillNow= range;
 		for(uint i=0; i < tileMatrix.size();i++){
-			float tempRes= finder(tileMatrix[i]);
+			float tempRes= (*finder)(const_cast<T*>(&tileMatrix[i]));
 			if(tempRes < chosenTillNow){
 				chosen= (T*)&(tileMatrix[i]);
 				chosenTillNow= tempRes;
@@ -283,10 +283,10 @@ namespace RattletrapEngine {
 	}
 
 	template<class T>
-	std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T> &finder, float range) const{
+	std::vector<T*>* TileMap<T>::FindNearests(Vec2 origin, Finder<T>* finder, float range) const{
 		std::vector<T*> *chosen= new std::vector<T*>();
 		for(uint i=0; i < tileMatrix.size();i++){
-			if(finder(tileMatrix[i]) < range){
+			if((*finder)(const_cast<T*>(&tileMatrix[i])) < range){
 				chosen->push_back((T*) &(tileMatrix[i]) );
 			}
 		}
