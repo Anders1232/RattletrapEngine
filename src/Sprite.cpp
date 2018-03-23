@@ -60,11 +60,15 @@ namespace RattletrapEngine {
 	}
 
 	void Sprite::Render() {
+		DirectRender(associated.box, associated.rotation);
+	}
+	
+	void Sprite::DirectRender( Rect pos, float rotation ) {
 		// REPORT_DEBUG2(true, "\tbox = {" << associated.box.x << ", " << associated.box.y<< ", " << associated.box.w << ", " << associated.box.h << "}")
 		Game& game = Game::GetInstance();
 		{// Se todas as coordenadas do Rect estão fora da tela, não precisa renderizar
 			Vec2 screenSize = game.GetWindowDimensions();
-			float points[4] = {associated.box.x, associated.box.y, associated.box.x+associated.box.w, associated.box.y+associated.box.h};
+			float points[4] = {pos.x, pos.y, pos.x+pos.w, pos.y+pos.h};
 			
 			bool isOutOfBounds = true;
 			isOutOfBounds = isOutOfBounds && (0 > points[0] || screenSize.x < points[0]);
@@ -86,7 +90,7 @@ namespace RattletrapEngine {
 		if( -1 == SDL_SetTextureColorMod( texture.get(), colorMultiplier.r, colorMultiplier.g, colorMultiplier.b ) ) {
 			CHECK_SDL_ERROR;
 		}
-		SDL_Rect dst = associated.box;
+		SDL_Rect dst = pos;
 
 		if(highlightable && InputManager::GetInstance().GetMousePos().IsInRect(dst)){
 			Color colorHighlighted(	(colorMultiplier.r + HIGHLIGHT) > 255 ? 255 : (colorMultiplier.r + HIGHLIGHT),
@@ -97,7 +101,7 @@ namespace RattletrapEngine {
 			}
 		}
 		REPORT_DEBUG("Rect|" << dst.x << ":" << dst.y << ":" << dst.w << ":" << dst.h);
-		if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, associated.rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
+		if(SDL_RenderCopyEx(game.GetRenderer(), texture.get(), &clipRect, &dst, rotation, NULL, SDL_FLIP_NONE) ){//verifica se haverá erro
 			// Verifica se haverá erro
 			Error(SDL_GetError());
 		}

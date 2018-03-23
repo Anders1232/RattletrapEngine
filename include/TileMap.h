@@ -148,12 +148,11 @@ namespace RattletrapEngine {
 			for (int y = 0; y < mapHeight; y++) {
 				int index = At(x, y, layer).GetTileSetIndex();
 				if (0 <= index) {
-					Rect destination;
-					Vec2 tileSize= (tileSets[currentTileSet])->GetTileSize();
-					Vec2 tilePos(tileSize);
-					destination = CalculateParallaxScrolling(tilePos, associated.box, parallaxWeight[layer]);
+					Vec2 tileSize = (tileSets[currentTileSet])->GetTileSize()*Camera::GetLinearZoom();
+					Vec2 tilePos(tileSize.x*x, tileSize.y*y);
+					Rect destination = CalculateParallaxScrolling(tilePos, associated.box, parallaxWeight[layer]);
 					Rect tile(destination.x, destination.y, tileSize.x, tileSize.y);
-					tileSets[currentTileSet]->Render(index, destination);
+					tileSets[currentTileSet]->Render(index, tile);
 				}
 			}
 		}
