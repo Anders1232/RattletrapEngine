@@ -1,5 +1,8 @@
 #include "Threading.h"
 #include "Game.h"
+#include "Error.h"
+
+#define DEBUG_THREADING 0
 
 namespace RattletrapEngine {
 	
@@ -27,9 +30,17 @@ namespace RattletrapEngine {
 		early.fw= NewFowardList();
 		mid.fw= NewFowardList();
 		late.fw= NewFowardList();
+		
+		CreateEarlyThreadPool();
+		CreateMidThreadPool();
+		CreateLateThreadPool();
 	}
 	
 	void Threading::Destroy(void){
+		DestroyEarlyThreadPool();
+		DestroyMidThreadPool();
+		DestroyLateThreadPool();
+		
 		pthread_mutex_destroy(&(early.mutex) );
 		pthread_mutex_destroy(&(mid.mutex) );
 		pthread_mutex_destroy(&(late.mutex) );
@@ -52,6 +63,7 @@ namespace RattletrapEngine {
 			}\
 			pthread_mutex_lock(&( contex .mutex));\
 			( contex .remainingGOsCounter)--;\
+			REPORT_DEBUG2(DEBUG_THREADING, "\tremainingGOsCounter= " << contex .remainingGOsCounter);\
 			if(0 >=  contex .remainingGOsCounter){\
 				sem_post(&( contex .mutexForEndInform) );\
 			}\
@@ -145,6 +157,7 @@ namespace RattletrapEngine {
 	void Threading::Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects){
 		unsigned int goCount= gameObjects.size();
 		contex.remainingGOsCounter= goCount;
+		REPORT_DEBUG2(DEBUG_THREADING, "goCount= " << goCount)
 		for(unsigned int i=0; i< goCount; i++){
 			FowardListAddElement(contex.fw, &( *(gameObjects[i]) ) );
 		}
