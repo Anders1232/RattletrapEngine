@@ -36,7 +36,7 @@ namespace RattletrapEngine {
 
 				Aqui deve ser colocado o código que atualiza o estado do jogo, utilizando dos dados contidos no inputManager, câmera e outras coisas que forem julgadas necessárias.
 			*/
-			virtual void Update(float dt)=0;
+			virtual void Update(float dt);
 			/**
 				\brief Atualiza os estado do jogo
 				\param dt intervalo de tempo transcorrido desde o último frame.

@@ -3,7 +3,7 @@
 #include "Camera.h"
 #include "Threading.h"
 
-//#define USE_THREADING
+#define USE_THREADING
 
 namespace RattletrapEngine {
 
@@ -35,7 +35,7 @@ namespace RattletrapEngine {
 
 	void State::EarlyUpdate(float dt) {
 	#ifdef USE_THREADING
-		Rattletrap::Threading::EarlyUpdate(objectArray);
+		RattletrapEngine::Threading::EarlyUpdate(objectArray);
 	#else
 		for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 			if(objectArray[cont]->IsActive()){
@@ -47,7 +47,7 @@ namespace RattletrapEngine {
 
 	void State::Update(float dt) {
 	#ifdef USE_THREADING
-		Rattletrap::Threading::Update(objectArray);
+		RattletrapEngine::Threading::Update(objectArray);
 	#else
 		for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 			if(objectArray[cont]->IsActive()){
@@ -59,7 +59,7 @@ namespace RattletrapEngine {
 
 	void State::LateUpdate(float dt) {
 	#ifdef USE_THREADING
-		Rattletrap::Threading::LateUpdate(objectArray);
+		RattletrapEngine::Threading::LateUpdate(objectArray);
 	#else
 		for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
 			if(objectArray[cont]->IsActive()){
