@@ -1,6 +1,14 @@
 var menudata={children:[
 {text:"Página Principal",url:"index.html"},
 {text:"Páginas relacionadas",url:"pages.html"},
+{text:"Namespaces",url:"namespaces.html",children:[
+{text:"Lista de Namespaces",url:"namespaces.html"},
+{text:"Membros do Namespace",url:"namespacemembers.html",children:[
+{text:"Todos",url:"namespacemembers.html"},
+{text:"Funções",url:"namespacemembers_func.html"},
+{text:"Definições de Tipos",url:"namespacemembers_type.html"},
+{text:"Enumerações",url:"namespacemembers_enum.html"},
+{text:"Valores de enumerações",url:"namespacemembers_eval.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Lista de Componentes",url:"annotated.html"},
 {text:"Índice dos Componentes",url:"classes.html"},
@@ -90,18 +98,15 @@ var menudata={children:[
 {text:"Membros dos Arquivos",url:"globals.html",children:[
 {text:"Todos",url:"globals.html",children:[
 {text:"a",url:"globals.html#index_a"},
-{text:"b",url:"globals.html#index_b"},
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
 {text:"f",url:"globals.html#index_f"},
-{text:"g",url:"globals.html#index_g"},
 {text:"h",url:"globals.html#index_h"},
 {text:"i",url:"globals.html#index_i"},
 {text:"l",url:"globals.html#index_l"},
 {text:"m",url:"globals.html#index_m"},
-{text:"o",url:"globals.html#index_o"},
-{text:"p",url:"globals.html#index_p"},
+{text:"n",url:"globals.html#index_n"},
 {text:"r",url:"globals.html#index_r"},
 {text:"s",url:"globals.html#index_s"},
 {text:"t",url:"globals.html#index_t"},
@@ -109,17 +114,13 @@ var menudata={children:[
 {text:"v",url:"globals.html#index_v"},
 {text:"w",url:"globals.html#index_w"}]},
 {text:"Funções",url:"globals_func.html"},
-{text:"Variáveis",url:"globals_vars.html"},
 {text:"Definições de Tipos",url:"globals_type.html"},
-{text:"Enumerações",url:"globals_enum.html"},
-{text:"Valores de enumerações",url:"globals_eval.html"},
 {text:"Definições e Macros",url:"globals_defs.html",children:[
 {text:"a",url:"globals_defs.html#index_a"},
 {text:"c",url:"globals_defs.html#index_c"},
 {text:"d",url:"globals_defs.html#index_d"},
 {text:"e",url:"globals_defs.html#index_e"},
 {text:"f",url:"globals_defs.html#index_f"},
-{text:"g",url:"globals_defs.html#index_g"},
 {text:"h",url:"globals_defs.html#index_h"},
 {text:"i",url:"globals_defs.html#index_i"},
 {text:"l",url:"globals_defs.html#index_l"},

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rattletrap: Referência da Classe RattletrapEngine::StateData</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Rattletrap
+   </div>
+   <div id="projectbrief">ASDL2GameEngine</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceRattletrapEngine.html">RattletrapEngine</a></li><li class="navelem"><a class="el" href="classRattletrapEngine_1_1StateData.html">StateData</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="classRattletrapEngine_1_1StateData-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Classe RattletrapEngine::StateData<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interface de comunicação entre States.  
+ <a href="classRattletrapEngine_1_1StateData.html#details">Mais...</a></p>
+
+<p><code>#include &lt;StateData.h&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos Públicos</h2></td></tr>
+<tr class="memitem:a43bbef3c56d5baac997376db66ac2fb1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRattletrapEngine_1_1StateData.html#a43bbef3c56d5baac997376db66ac2fb1">Is</a> (<a class="el" href="namespaceRattletrapEngine.html#aa33c7037b7a217162a8c63f0d0653a54">StateDataType</a> typeToCheck) const =0</td></tr>
+<tr class="memdesc:a43bbef3c56d5baac997376db66ac2fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Informa o tipo do <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a>.  <a href="#a43bbef3c56d5baac997376db66ac2fb1">Mais...</a><br /></td></tr>
+<tr class="separator:a43bbef3c56d5baac997376db66ac2fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Interface de comunicação entre States. </p>
+<p>O objetivo dessa classe é conter informações para um state a ser construído. Para um <a class="el" href="classRattletrapEngine_1_1State.html" title="Classe virtual que modela um estado do jogo. ">State</a> conseguir saber que informações o <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a> tem, existe o método Is, que irá identificar o <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a>. Isso permite então o cast do <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a> para o tipo correto. </p>
+</div><h2 class="groupheader">Métodos</h2>
+<a id="a43bbef3c56d5baac997376db66ac2fb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bbef3c56d5baac997376db66ac2fb1">&#9670;&nbsp;</a></span>Is()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool RattletrapEngine::StateData::Is </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceRattletrapEngine.html#aa33c7037b7a217162a8c63f0d0653a54">StateDataType</a>&#160;</td>
+          <td class="paramname"><em>typeToCheck</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Informa o tipo do <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a>. </p>
+<p>Iidentifica o tipo de <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a> da instância. Isso permite então o cast correto do <a class="el" href="classRattletrapEngine_1_1StateData.html" title="Interface de comunicação entre States. ">StateData</a> para o tipo desejado. </p>
+
+</div>
+</div>
+<hr/>A documentação para esta classe foi gerada a partir do seguinte arquivo:<ul>
+<li>include/<a class="el" href="StateData_8h.html">StateData.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Quinta, 17 de Janeiro de 2019 19:50:00 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

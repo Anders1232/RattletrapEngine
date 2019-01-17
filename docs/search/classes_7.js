@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['manhattandistance',['ManhattanDistance',['../classManhattanDistance.html',1,'']]],
-  ['music',['Music',['../classMusic.html',1,'']]]
+  ['nearestfinder',['NearestFinder',['../classRattletrapEngine_1_1NearestFinder.html',1,'RattletrapEngine']]],
+  ['nearestgofinder',['NearestGOFinder',['../classRattletrapEngine_1_1NearestGOFinder.html',1,'RattletrapEngine']]]
 ];

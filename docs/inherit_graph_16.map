@@ -1,3 +1,11 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$classResources.html" title="Classe estática responsável por gestão dos recursos em memória. " alt="" coords="5,5,91,32"/>
+<area shape="rect" id="node1" href="$classRattletrapEngine_1_1Component.html" title="Modela os componentes. " alt="" coords="5,157,200,184"/>
+<area shape="rect" id="node2" href="$classRattletrapEngine_1_1Button.html" title="RattletrapEngine::Button" alt="" coords="273,5,438,32"/>
+<area shape="rect" id="node3" href="$classRattletrapEngine_1_1Grouper.html" title="RattletrapEngine::Grouper" alt="" coords="269,56,442,83"/>
+<area shape="rect" id="node4" href="$classRattletrapEngine_1_1RectTransform.html" title="RattletrapEngine::RectTransform" alt="" coords="248,107,463,133"/>
+<area shape="rect" id="node5" href="$classRattletrapEngine_1_1Sprite.html" title="Classe que modela uma sprite. Sprite é uma imagem carregada na memória. Essa classe também traz uma s..." alt="" coords="275,157,436,184"/>
+<area shape="rect" id="node6" href="$classRattletrapEngine_1_1Text.html" title="RattletrapEngine::Text" alt="" coords="279,208,432,235"/>
+<area shape="rect" id="node7" href="$classRattletrapEngine_1_1TileMap.html" title="RattletrapEngine::TileMap\&lt; T \&gt;" alt="" coords="253,309,458,336"/>
+<area shape="rect" id="node8" href="$classRattletrapEngine_1_1TileSet.html" title="RattletrapEngine::TileSet" alt="" coords="271,259,439,285"/>
+<area shape="rect" id="node9" href="$classRattletrapEngine_1_1NearestFinder.html" title="RattletrapEngine::Nearest\lFinder\&lt; T \&gt;" alt="" coords="16,302,189,343"/>
 </map>

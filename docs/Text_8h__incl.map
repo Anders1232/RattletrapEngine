@@ -1,10 +1,10 @@
 <map id="include/Text.h" name="include/Text.h">
-<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="261,379,368,405"/>
-<area shape="rect" id="node4" href="$Color_8h.html" title="Color.h" alt="" coords="5,304,69,331"/>
-<area shape="rect" id="node5" href="$Component_8h.html" title="Component.h" alt="" coords="363,80,463,107"/>
-<area shape="rect" id="node6" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="437,229,566,256"/>
-<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="272,155,379,181"/>
-<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="435,304,498,331"/>
-<area shape="rect" id="node13" href="$Error_8h.html" title="Error.h" alt="" coords="697,80,759,107"/>
-<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="351,229,412,256"/>
+<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="244,379,351,405"/>
+<area shape="rect" id="node4" href="$Color_8h.html" title="Color.h" alt="" coords="619,304,683,331"/>
+<area shape="rect" id="node5" href="$Component_8h.html" title="Component.h" alt="" coords="326,80,426,107"/>
+<area shape="rect" id="node6" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="414,229,543,256"/>
+<area shape="rect" id="node7" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="244,155,351,181"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="63,304,126,331"/>
+<area shape="rect" id="node13" href="$Error_8h.html" title="Error.h" alt="" coords="671,80,732,107"/>
+<area shape="rect" id="node10" href="$Rect_8h.html" title="Rect.h" alt="" coords="199,229,260,256"/>
 </map>

@@ -1,10 +1,12 @@
 <map id="include/State.h" name="include/State.h">
-<area shape="rect" id="node2" href="$Game_8h.html" title="include/Game.h" alt="" coords="378,80,491,107"/>
-<area shape="rect" id="node9" href="$State_8cpp.html" title="src/State.cpp" alt="" coords="515,80,615,107"/>
-<area shape="rect" id="node3" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="5,155,120,181"/>
-<area shape="rect" id="node4" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="144,155,248,181"/>
-<area shape="rect" id="node5" href="$RectTransform_8cpp.html" title="src/RectTransform.cpp" alt="" coords="273,155,429,181"/>
-<area shape="rect" id="node6" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="453,155,585,181"/>
-<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="609,155,711,181"/>
-<area shape="rect" id="node8" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="735,155,830,181"/>
+<area shape="rect" id="node2" href="$Game_8h.html" title="include/Game.h" alt="" coords="464,80,577,107"/>
+<area shape="rect" id="node10" href="$Threading_8h.html" title="include/Threading.h" alt="" coords="115,80,249,107"/>
+<area shape="rect" id="node11" href="$State_8cpp.html" title="src/State.cpp" alt="" coords="5,155,105,181"/>
+<area shape="rect" id="node3" href="$Camera_8cpp.html" title="src/Camera.cpp" alt="" coords="529,155,643,181"/>
+<area shape="rect" id="node4" href="$Game_8cpp.html" title="src/Game.cpp" alt="" coords="130,155,234,181"/>
+<area shape="rect" id="node5" href="$RectTransform_8cpp.html" title="src/RectTransform.cpp" alt="" coords="668,155,824,181"/>
+<area shape="rect" id="node6" href="$Resources_8cpp.html" title="src/Resources.cpp" alt="" coords="848,155,980,181"/>
+<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="1004,155,1107,181"/>
+<area shape="rect" id="node8" href="$Text_8cpp.html" title="src/Text.cpp" alt="" coords="409,155,504,181"/>
+<area shape="rect" id="node9" href="$Threading_8cpp.html" title="src/Threading.cpp" alt="" coords="259,155,385,181"/>
 </map>

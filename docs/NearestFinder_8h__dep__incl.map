@@ -1,4 +1,5 @@
 <map id="include/NearestFinder.h" name="include/NearestFinder.h">
-<area shape="rect" id="node2" href="$TileMap_8h.html" title="include/TileMap.h" alt="" coords="23,80,147,107"/>
-<area shape="rect" id="node3" href="$DragAndDrop_8h.html" title="include/DragAndDrop.h" alt="" coords="7,155,164,181"/>
+<area shape="rect" id="node2" href="$TileMap_8h.html" title="include/TileMap.h" alt="" coords="39,80,163,107"/>
+<area shape="rect" id="node3" href="$ManhattanDistance_8h.html" title="include/ManhattanDistance.h" alt="" coords="5,155,196,181"/>
+<area shape="rect" id="node4" href="$ManhattanDistance_8cpp.html" title="src/ManhattanDistance.cpp" alt="" coords="9,229,192,256"/>
 </map>

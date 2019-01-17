@@ -1,7 +1,8 @@
 <map id="include/Music.h" name="include/Music.h">
-<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="122,229,229,256"/>
-<area shape="rect" id="node5" href="$Resources_8h.html" title="Resources.h" alt="" coords="349,80,445,107"/>
-<area shape="rect" id="node7" href="$Error_8h.html" title="Error.h" alt="" coords="613,80,674,107"/>
-<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="154,80,266,107"/>
-<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="109,155,172,181"/>
+<area shape="rect" id="node2" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="6,304,113,331"/>
+<area shape="rect" id="node5" href="$Resources_8h.html" title="Resources.h" alt="" coords="312,80,408,107"/>
+<area shape="rect" id="node7" href="$Error_8h.html" title="Error.h" alt="" coords="576,80,637,107"/>
+<area shape="rect" id="node10" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="100,80,212,107"/>
+<area shape="rect" id="node11" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="124,155,187,181"/>
+<area shape="rect" id="node12" href="$Rect_8h.html" title="Rect.h" alt="" coords="125,229,186,256"/>
 </map>

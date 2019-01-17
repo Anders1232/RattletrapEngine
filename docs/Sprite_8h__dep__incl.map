@@ -1,9 +1,8 @@
 <map id="include/Sprite.h" name="include/Sprite.h">
-<area shape="rect" id="node2" href="$Animation_8h.html" title="include/Animation.h" alt="" coords="5,80,141,107"/>
-<area shape="rect" id="node4" href="$Tileset_8h.html" title="include/Tileset.h" alt="" coords="165,80,283,107"/>
-<area shape="rect" id="node8" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="307,80,410,107"/>
-<area shape="rect" id="node3" href="$Animation_8cpp.html" title="src/Animation.cpp" alt="" coords="10,155,137,181"/>
-<area shape="rect" id="node5" href="$TileMap_8h.html" title="include/TileMap.h" alt="" coords="161,155,285,181"/>
-<area shape="rect" id="node7" href="$Tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="309,155,417,181"/>
-<area shape="rect" id="node6" href="$DragAndDrop_8h.html" title="include/DragAndDrop.h" alt="" coords="144,229,301,256"/>
+<area shape="rect" id="node2" href="$Tileset_8h.html" title="include/Tileset.h" alt="" coords="111,80,229,107"/>
+<area shape="rect" id="node7" href="$Sprite_8cpp.html" title="src/Sprite.cpp" alt="" coords="253,80,356,107"/>
+<area shape="rect" id="node3" href="$TileMap_8h.html" title="include/TileMap.h" alt="" coords="39,155,163,181"/>
+<area shape="rect" id="node6" href="$Tileset_8cpp.html" title="src/Tileset.cpp" alt="" coords="187,155,295,181"/>
+<area shape="rect" id="node4" href="$ManhattanDistance_8h.html" title="include/ManhattanDistance.h" alt="" coords="5,229,196,256"/>
+<area shape="rect" id="node5" href="$ManhattanDistance_8cpp.html" title="src/ManhattanDistance.cpp" alt="" coords="9,304,192,331"/>
 </map>

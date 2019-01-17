@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['report_5fdebug',['REPORT_DEBUG',['../Error_8h.html#aed4d6f4696003d289daa853688d238ef',1,'Error.h']]],
-  ['report_5fdebug2',['REPORT_DEBUG2',['../Error_8h.html#a468d7d0988cf3f74291cf0421aabbfa8',1,'Error.h']]],
-  ['report_5fi_5fwas_5fhere',['REPORT_I_WAS_HERE',['../Error_8h.html#a15a48a3e28c4eb425e3340eae40894c5',1,'Error.h']]],
-  ['right_5farrow_5fkey',['RIGHT_ARROW_KEY',['../InputManager_8h.html#ad0c8af7976bcbad226a5227851560eeb',1,'InputManager.h']]],
-  ['right_5fmouse_5fbutton',['RIGHT_MOUSE_BUTTON',['../InputManager_8h.html#a752bf1e116b4c25c5543855013c8c6eb',1,'InputManager.h']]]
+  ['sdl_5fassert',['SDL_ASSERT',['../Error_8h.html#a5e03114cdb9780c937e89ed7cb527ae1',1,'Error.h']]],
+  ['sprite_5fopen_5fx',['SPRITE_OPEN_X',['../Sprite_8cpp.html#a633a5f76ec79ff55de6e3d689349b42f',1,'Sprite.cpp']]],
+  ['sprite_5fopen_5fy',['SPRITE_OPEN_Y',['../Sprite_8cpp.html#a501ecbc025c08ea8b7557299a7eac6cd',1,'Sprite.cpp']]]
 ];
