@@ -1,0 +1,5 @@
+<map id="RattletrapEngine::Game" name="RattletrapEngine::Game">
+<area shape="rect" id="node10" href="$classRattletrapEngine_1_1Vec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="119,447,276,473"/>
+<area shape="rect" id="node4" href="$classRattletrapEngine_1_1State.html" title="Classe virtual que modela um estado do jogo. " alt="" coords="500,153,659,180"/>
+<area shape="rect" id="node9" href="$classRattletrapEngine_1_1InputManager.html" title="Classe que organiza entradas do usuário. " alt="" coords="476,460,683,487"/>
+</map>

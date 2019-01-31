@@ -1,5 +1,6 @@
 <map id="include/ActionManager.h" name="include/ActionManager.h">
-<area shape="rect" id="node2" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="92,80,204,107"/>
-<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="5,229,112,256"/>
-<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="62,155,125,181"/>
+<area shape="rect" id="node2" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="120,80,232,107"/>
+<area shape="rect" id="node3" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="5,304,112,331"/>
+<area shape="rect" id="node4" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="90,155,153,181"/>
+<area shape="rect" id="node5" href="$Rect_8h.html" title="Rect.h" alt="" coords="116,229,177,256"/>
 </map>

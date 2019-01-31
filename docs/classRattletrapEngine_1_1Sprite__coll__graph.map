@@ -1,0 +1,6 @@
+<map id="RattletrapEngine::Sprite" name="RattletrapEngine::Sprite">
+<area shape="rect" id="node2" href="$classRattletrapEngine_1_1Component.html" title="Modela os componentes. " alt="" coords="731,145,925,172"/>
+<area shape="rect" id="node4" href="$classRattletrapEngine_1_1GameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="405,145,605,172"/>
+<area shape="rect" id="node7" href="$classRattletrapEngine_1_1Rect.html" title="Classe que modela um rect. " alt="" coords="121,231,275,257"/>
+<area shape="rect" id="node11" href="$structRattletrapEngine_1_1Color.html" title="Struct para armazenar informações de cor. " alt="" coords="749,501,907,528"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="RattletrapEngine::RectTransform" name="RattletrapEngine::RectTransform">
+<area shape="rect" id="node2" href="$classRattletrapEngine_1_1Component.html" title="Modela os componentes. " alt="" coords="816,128,1011,155"/>
+<area shape="rect" id="node4" href="$classRattletrapEngine_1_1GameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="487,141,687,168"/>
+<area shape="rect" id="node7" href="$classRattletrapEngine_1_1Rect.html" title="Classe que modela um rect. " alt="" coords="121,248,275,275"/>
+<area shape="rect" id="node9" href="$classRattletrapEngine_1_1Vec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="305,327,463,353"/>
+</map>

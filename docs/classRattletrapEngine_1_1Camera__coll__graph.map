@@ -1,0 +1,5 @@
+<map id="RattletrapEngine::Camera" name="RattletrapEngine::Camera">
+<area shape="rect" id="node4" href="$classRattletrapEngine_1_1Vec2.html" title="Classe que modela um vetor(no sentido físico) " alt="" coords="128,242,285,269"/>
+<area shape="rect" id="node5" href="$classRattletrapEngine_1_1GameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="324,331,524,357"/>
+<area shape="rect" id="node7" href="$classRattletrapEngine_1_1Rect.html" title="Classe que modela um rect. " alt="" coords="532,146,687,173"/>
+</map>

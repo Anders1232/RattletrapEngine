@@ -1,5 +1,5 @@
 <map id="include/Collision.h" name="include/Collision.h">
-<area shape="rect" id="node4" href="$Rect_8h.html" title="Rect.h" alt="" coords="139,80,200,107"/>
-<area shape="rect" id="node5" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="116,229,223,256"/>
-<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="173,155,235,181"/>
+<area shape="rect" id="node4" href="$Rect_8h.html" title="Rect.h" alt="" coords="155,80,216,107"/>
+<area shape="rect" id="node5" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="97,229,204,256"/>
+<area shape="rect" id="node6" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="154,155,217,181"/>
 </map>

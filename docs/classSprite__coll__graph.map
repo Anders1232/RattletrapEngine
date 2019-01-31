@@ -1,6 +1,0 @@
-<map id="Sprite" name="Sprite">
-<area shape="rect" id="node2" href="$classComponent.html" title="Modela os componentes. " alt="" coords="382,423,471,449"/>
-<area shape="rect" id="node3" href="$classGameObject.html" title="Classe virtual que especifica o funcionamento de um GameObject. " alt="" coords="242,273,337,300"/>
-<area shape="rect" id="node5" href="$classRect.html" title="Classe que modela um rect. " alt="" coords="317,139,368,165"/>
-<area shape="rect" id="node12" href="$structColor.html" title="Struct para armazenar informações de cor. " alt="" coords="1100,423,1153,449"/>
-</map>

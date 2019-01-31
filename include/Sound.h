@@ -38,7 +38,7 @@ namespace RattletrapEngine {
 			Sound(string file);
 			/**
 				\brief Toca o som.
-				\param times Número de vezes que a música deve repetir.
+				\param times Número de vezes que a música deve tocar.
 
 				Toca o som, num canal arbritário. Caso essa instância de Sound já esteja com um som sendo tocado, esse som é interrompido.
 				Caso times seja 0, o sem será tocado indefinidamente.

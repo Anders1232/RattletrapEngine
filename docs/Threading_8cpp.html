@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rattletrap: Referência do Arquivo src/Threading.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Rattletrap
+   </div>
+   <div id="projectbrief">ASDL2GameEngine</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo Threading.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="Threading_8h.html">Threading.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Game_8h.html">Game.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Error_8h.html">Error.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para Threading.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="Threading_8cpp__incl.svg" width="1231" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespaceRattletrapEngine"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRattletrapEngine.html">RattletrapEngine</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:ac677fbca8137d5ac991f3ea0540c8d4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Threading_8cpp.html#ac677fbca8137d5ac991f3ea0540c8d4c">DEBUG_THREADING</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ac677fbca8137d5ac991f3ea0540c8d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b19b61d61b5cd1dab93987ec51f669"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Threading_8cpp.html#aa1b19b61d61b5cd1dab93987ec51f669">UpdateThread</a>(contex,  updateFunc)</td></tr>
+<tr class="separator:aa1b19b61d61b5cd1dab93987ec51f669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a2e19f5159496d41ece0c6544452ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Threading_8cpp.html#a69a2e19f5159496d41ece0c6544452ac">CreateThreadPool</a>(vector,  updateMethod)</td></tr>
+<tr class="separator:a69a2e19f5159496d41ece0c6544452ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535e6b7ee848330e19a3313e41bf993c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Threading_8cpp.html#a535e6b7ee848330e19a3313e41bf993c">DestroyThreadPool</a>(contex,  vector)</td></tr>
+<tr class="separator:a535e6b7ee848330e19a3313e41bf993c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a235a04636c80b4ca586f289587452d22"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceRattletrapEngine.html#a235a04636c80b4ca586f289587452d22">RattletrapEngine::hardware_concurrency</a> ()</td></tr>
+<tr class="separator:a235a04636c80b4ca586f289587452d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a69a2e19f5159496d41ece0c6544452ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a2e19f5159496d41ece0c6544452ac">&#9670;&nbsp;</a></span>CreateThreadPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CreateThreadPool</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">vector, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">updateMethod&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numThreads= <a class="code" href="namespaceRattletrapEngine.html#a235a04636c80b4ca586f289587452d22">std::thread::hardware_concurrency</a>();\</div><div class="line">        if(0 == numThreads){\</div><div class="line">            numThreads= <a class="code" href="namespaceRattletrapEngine.html#a235a04636c80b4ca586f289587452d22">hardware_concurrency</a>();\</div><div class="line">        }\</div><div class="line">        vector.resize(numThreads);\</div><div class="line">        for(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i &lt; numThreads; i++){\</div><div class="line">            pthread_create(&amp;(vector[i]), NULL, updateMethod , NULL);\</div><div class="line">        }</div><div class="ttc" id="namespaceRattletrapEngine_html_a235a04636c80b4ca586f289587452d22"><div class="ttname"><a href="namespaceRattletrapEngine.html#a235a04636c80b4ca586f289587452d22">RattletrapEngine::hardware_concurrency</a></div><div class="ttdeci">static unsigned hardware_concurrency()</div><div class="ttdef"><b>Definition:</b> Threading.cpp:90</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac677fbca8137d5ac991f3ea0540c8d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac677fbca8137d5ac991f3ea0540c8d4c">&#9670;&nbsp;</a></span>DEBUG_THREADING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEBUG_THREADING&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a535e6b7ee848330e19a3313e41bf993c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535e6b7ee848330e19a3313e41bf993c">&#9670;&nbsp;</a></span>DestroyThreadPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DestroyThreadPool</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">contex, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">vector&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numThreads= vector.size();\</div><div class="line">        for(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt; numThreads; i++){\</div><div class="line">            FowardListAddElement( contex .fw, NULL);\</div><div class="line">        }\</div><div class="line">        for(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt; numThreads; i++){\</div><div class="line">            pthread_join(vector[i], NULL);\</div><div class="line">        }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="aa1b19b61d61b5cd1dab93987ec51f669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b19b61d61b5cd1dab93987ec51f669">&#9670;&nbsp;</a></span>UpdateThread</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UpdateThread</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">contex, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">updateFunc&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valor:</b><div class="fragment"><div class="line">GameObject *goToUpdate;\</div><div class="line">        while(NULL != (goToUpdate= (GameObject*)<a class="code" href="FowardList_8c.html#a5b4dc7a93258ceb17971f3fdf7b98242">FowardListGetElement</a>( contex .fw) ) ){\</div><div class="line">            if(goToUpdate-&gt;IsActive() ){\</div><div class="line">                goToUpdate-&gt; updateFunc (Game::GetInstance().GetDeltaTime());\</div><div class="line">            }\</div><div class="line">            pthread_mutex_lock(&amp;( contex .mutex));\</div><div class="line">            ( contex .remainingGOsCounter)--;\</div><div class="line">            REPORT_DEBUG2(<a class="code" href="Threading_8cpp.html#ac677fbca8137d5ac991f3ea0540c8d4c">DEBUG_THREADING</a>, <span class="stringliteral">&quot;\tremainingGOsCounter= &quot;</span> &lt;&lt; contex .remainingGOsCounter);\</div><div class="line">            if(0 &gt;=  contex .remainingGOsCounter){\</div><div class="line">                sem_post(&amp;( contex .mutexForEndInform) );\</div><div class="line">            }\</div><div class="line">            pthread_mutex_unlock(&amp;( contex .mutex));\</div><div class="line">        }\</div><div class="line">        pthread_exit(NULL);</div><div class="ttc" id="FowardList_8c_html_a5b4dc7a93258ceb17971f3fdf7b98242"><div class="ttname"><a href="FowardList_8c.html#a5b4dc7a93258ceb17971f3fdf7b98242">FowardListGetElement</a></div><div class="ttdeci">void * FowardListGetElement(FowardList *fw)</div><div class="ttdef"><b>Definition:</b> FowardList.c:51</div></div>
+<div class="ttc" id="Threading_8cpp_html_ac677fbca8137d5ac991f3ea0540c8d4c"><div class="ttname"><a href="Threading_8cpp.html#ac677fbca8137d5ac991f3ea0540c8d4c">DEBUG_THREADING</a></div><div class="ttdeci">#define DEBUG_THREADING</div><div class="ttdef"><b>Definition:</b> Threading.cpp:5</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Quinta, 17 de Janeiro de 2019 19:50:00 para Rattletrap por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

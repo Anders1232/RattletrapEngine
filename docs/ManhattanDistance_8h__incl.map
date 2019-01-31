@@ -1,5 +1,19 @@
 <map id="include/ManhattanDistance.h" name="include/ManhattanDistance.h">
-<area shape="rect" id="node2" href="$AStarHeuristic_8h.html" title="AStarHeuristic.h" alt="" coords="41,80,160,107"/>
-<area shape="rect" id="node3" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="69,155,132,181"/>
-<area shape="rect" id="node4" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="47,229,154,256"/>
+<area shape="rect" id="node2" href="$TileMap_8h.html" title="TileMap.h" alt="" coords="384,80,462,107"/>
+<area shape="rect" id="node8" href="$NearestFinder_8h.html" title="NearestFinder.h" alt="" coords="172,155,287,181"/>
+<area shape="rect" id="node13" href="$Component_8h.html" title="Component.h" alt="" coords="740,379,840,405"/>
+<area shape="rect" id="node18" href="$Tileset_8h.html" title="Tileset.h" alt="" coords="616,155,688,181"/>
+<area shape="rect" id="node19" href="$Error_8h.html" title="Error.h" alt="" coords="1582,229,1643,256"/>
+<area shape="rect" id="node29" href="$TileMapObserver_8h.html" title="TileMapObserver.h" alt="" coords="816,155,948,181"/>
+<area shape="rect" id="node30" href="$Camera_8h.html" title="Camera.h" alt="" coords="713,155,792,181"/>
+<area shape="rect" id="node9" href="$Vec2_8h.html" title="Vec2.h" alt="" coords="1249,379,1312,405"/>
+<area shape="rect" id="node10" href="$SDL__include_8h.html" title="SDL_include.h" alt="" coords="1035,603,1142,629"/>
+<area shape="rect" id="node11" href="$Rect_8h.html" title="Rect.h" alt="" coords="1187,528,1248,555"/>
+<area shape="rect" id="node14" href="$ComponentType_8h.html" title="ComponentType.h" alt="" coords="794,528,924,555"/>
+<area shape="rect" id="node15" href="$GameObject_8h.html" title="GameObject.h" alt="" coords="707,453,814,480"/>
+<area shape="rect" id="node22" href="$Sprite_8h.html" title="Sprite.h" alt="" coords="919,229,986,256"/>
+<area shape="rect" id="node23" href="$Color_8h.html" title="Color.h" alt="" coords="1015,453,1079,480"/>
+<area shape="rect" id="node24" href="$RectTransform_8h.html" title="RectTransform.h" alt="" coords="892,304,1012,331"/>
+<area shape="rect" id="node26" href="$InputManager_8h.html" title="InputManager.h" alt="" coords="1387,304,1499,331"/>
+<area shape="rect" id="node31" href="$ActionManager_8h.html" title="ActionManager.h" alt="" coords="1438,229,1558,256"/>
 </map>
