@@ -19,6 +19,10 @@ namespace RattletrapEngine {
 		TEXT,
 		COMPONENT_TYPE_SIZE
 	};
+	
+	namespace Components {
+		void ShowComponentsSize(void);
+	}
 
 }
 
