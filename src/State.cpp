@@ -15,8 +15,9 @@ namespace RattletrapEngine {
 		objectArray.clear();
 	}
 
-	void State::AddObject(GameObject *object) {
-		objectArray.push_back(std::unique_ptr<GameObject>(object));
+	GameObject& State::NewGameObject(void) {
+		objectArray.emplace_back();
+		return objectArray.back();
 	}
 
 	bool State::PopRequested(void) {
@@ -29,7 +30,7 @@ namespace RattletrapEngine {
 
 	void State::UpdateActive() {
 		for(unsigned int cont = 0; cont < objectArray.size(); cont++) {
-			objectArray[cont]->UpdateActive();
+			objectArray[cont].UpdateActive();
 		}
 	}
 
@@ -76,8 +77,8 @@ namespace RattletrapEngine {
 	#else
 		for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
 	#endif
-			if(objectArray[cont]->IsActive()){
-				objectArray[cont]->Render();
+			if(objectArray[cont].IsActive()){
+				objectArray[cont].Render();
 			}
 		}
 	}
@@ -85,7 +86,7 @@ namespace RattletrapEngine {
 	void State::DeleteRequested(void){
 		//loop deletando os objetos
 		for(int64_t cont = ((int64_t)objectArray.size()) -1; 0 <= cont ; cont--) {
-			if(objectArray[cont]->IsDead()) {
+			if(objectArray[cont].IsDead()) {
 				objectArray.erase(objectArray.begin()+cont);
 			}
 		}

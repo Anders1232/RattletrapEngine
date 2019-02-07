@@ -39,7 +39,7 @@ namespace RattletrapEngine {
 		}
 	}
 
-	void GameObject::Render(void){
+	void GameObject::Render(void) const{
 		REPORT_DEBUG("\t GameObject::Render called!");
 		for(uint i=0; i < components.size(); i++){
 			if(components[i]->IsEnabled() ){

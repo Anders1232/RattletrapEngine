@@ -25,13 +25,13 @@ namespace RattletrapEngine {
 		public:
 			static void Init(void);
 			static void Destroy(void);
-			static void EarlyUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects);
-			static void Update(std::vector<std::unique_ptr<GameObject>> &gameObjects);
-			static void LateUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void EarlyUpdate(std::vector<GameObject> &gameObjects);
+			static void Update(std::vector<GameObject> &gameObjects);
+			static void LateUpdate(std::vector<GameObject> &gameObjects);
 		private:
 			struct ThreadContex{
 				pthread_mutex_t mutex;
-				int remainingGOsCounter;
+				size_t remainingGOsCounter;
 				sem_t mutexForEndInform;
 				FowardList* fw;
 			};
@@ -49,7 +49,7 @@ namespace RattletrapEngine {
 			static void DestroyMidThreadPool(void);
 			static void DestroyLateThreadPool(void);
 			
-			static void Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects);
+			static void Update(ThreadContex &contex, std::vector<GameObject> &gameObjects);
 			
 			static std::vector<pthread_t> earlyThreads;
 			static std::vector<pthread_t> midThreads;

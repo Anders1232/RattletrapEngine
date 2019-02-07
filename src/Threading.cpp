@@ -154,23 +154,23 @@ namespace RattletrapEngine {
 		DestroyThreadPool(late,lateThreads);
 	}
 	
-	void Threading::Update(ThreadContex &contex, std::vector<std::unique_ptr<GameObject>> &gameObjects){
-		unsigned int goCount= gameObjects.size();
+	void Threading::Update(ThreadContex &contex, std::vector<GameObject> &gameObjects){
+		size_t goCount= gameObjects.size();
 		contex.remainingGOsCounter= goCount;
 		REPORT_DEBUG2(DEBUG_THREADING, "goCount= " << goCount)
-		for(unsigned int i=0; i< goCount; i++){
-			FowardListAddElement(contex.fw, &( *(gameObjects[i]) ) );
+		for(unsigned long int i=0; i< goCount; i++){
+			FowardListAddElement(contex.fw, &( (gameObjects[i]) ) );
 		}
 		sem_wait(&(contex.mutexForEndInform) );
 	}
 	
-	void Threading::EarlyUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::EarlyUpdate(std::vector<GameObject> &gameObjects){
 		Update(early, gameObjects);
 	}
-	void Threading::Update(std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::Update(std::vector<GameObject> &gameObjects){
 		Update(mid, gameObjects);
 	}
-	void Threading::LateUpdate(std::vector<std::unique_ptr<GameObject>> &gameObjects){
+	void Threading::LateUpdate(std::vector<GameObject> &gameObjects){
 		Update(late, gameObjects);
 	}
 	
