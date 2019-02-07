@@ -89,7 +89,7 @@ namespace RattletrapEngine {
 
 				No processo o ponteiro para esse gameobject é transformado em um unique_ptr.
 			*/
-			virtual void AddObject(GameObject *object);
+			GameObject& NewGameObject(void);
 			/**
 				\brief Informa se o state deve ser desempilhado.
 
@@ -111,7 +111,7 @@ namespace RattletrapEngine {
 		protected:
 			bool popRequested;/**< Armazena a informação se o state solicitou desempilhamento.*/
 			bool quitRequested;/**< Armazena a informação se o state solicitou que o jogo seja fechado.*/
-			std::vector<std::unique_ptr<GameObject>> objectArray;/**< Vetor de GameObjects.*/
+			std::vector<GameObject> objectArray;/**< Vetor de GameObjects.*/
 	};
 
 }

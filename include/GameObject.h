@@ -110,7 +110,7 @@ namespace RattletrapEngine {
 				
 				Basicamente percorre os Componentes chamando o Render deles.
 			*/
-			virtual void Render(void);
+			virtual void Render(void) const;
 			/**
 				\brief Informa se esse gameObject não precisa mais existir.
 				\return Verdadeiro se esse GameObject não é mais necessário, false caso contrário.

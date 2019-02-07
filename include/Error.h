@@ -24,6 +24,10 @@ using std::endl;
 #define ASSERT2(exp,msg)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";exit(1);}
 #define SDL_ASSERT(exp)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed:" << SDL_GetError()<<END_LINE;exit(1);}
 
+#define Warning(msg)std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<msg<<END_LINE;
+#define WASSERT(exp)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed."<<END_LINE;}
+#define WASSERT2(exp,msg)if(!(exp)){std::cerr<<"[ERROR] "<<WHERE<<"\t\tAssertion Failed." <<msg<< "\n";}
+
 #define WHERE __FILE__<<" | "<<__func__<<":"<<__LINE__
 
 #define CHECK_SDL_ERROR std::cerr<<"[ERROR] "<<WHERE<<"\t\t"<<SDL_GetError()<<END_LINE
