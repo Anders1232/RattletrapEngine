@@ -8,7 +8,7 @@ namespace RattletrapEngine {
 		
 	Text::Text( GameObject& associated )
 				: Component( associated )
-				, texture( nullptr )
+				, texture()
 				, text( " " )
 				, style( TextStyle::BLENDED )
 				, fontSize( 12 )
@@ -17,10 +17,6 @@ namespace RattletrapEngine {
 				, fontFile( "" ) {}
 
 	Text::~Text() {
-		if( nullptr != texture ) {
-			SDL_DestroyTexture( texture );
-			texture = nullptr;
-		}
 	}
 
 	void Text::EarlyUpdate( float dt ) {}
@@ -30,7 +26,7 @@ namespace RattletrapEngine {
 	void Text::LateUpdate( float dt ) {}
 
 	void Text::Render(){
-		if( nullptr == texture ) {
+		if( !texture ) {
 			REPORT_DEBUG( "Texto nao sera renderizado pois nao foi corretamente (ou totalmente) configurado." );
 			return;
 		}
@@ -42,7 +38,7 @@ namespace RattletrapEngine {
 			srcRect.w = fontDimensions.x;
 			srcRect.h = fontDimensions.y;
 			SDL_Rect destRect = associated.box;
-			if( 0 != SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture, &srcRect, &destRect) ) {
+			if( 0 != SDL_RenderCopy(Game::GetInstance().GetRenderer(), texture.get(), &srcRect, &destRect) ) {
 				Error( "Render error: " << SDL_GetError() );
 			}
 		}
@@ -95,8 +91,9 @@ namespace RattletrapEngine {
 			if( skip ) return;
 		}
 
-		if( nullptr != texture ) {
-			SDL_DestroyTexture( texture );
+		if( texture ) {
+			texture.reset();
+//			SDL_DestroyTexture( texture );
 		}
 
 		font = Resources::GetFont( fontFile, fontSize );
@@ -112,16 +109,29 @@ namespace RattletrapEngine {
 		if( nullptr == temp ) {
 			REPORT_DEBUG2( true, " " << TTF_GetError() );
 		}
+		
+		SDL_Texture *textureTemp= SDL_CreateTextureFromSurface( Game::GetInstance().GetRenderer(), temp );
+		if( nullptr == textureTemp ) {
+			REPORT_DEBUG2( true, " " << SDL_GetError() );
+		}
 
-		texture = SDL_CreateTextureFromSurface( Game::GetInstance().GetRenderer(), temp );
-		if( nullptr == texture ) {
+		texture = std::shared_ptr<SDL_Texture>
+				(
+					textureTemp,
+					[](SDL_Texture *texture) {
+						SDL_DestroyTexture(texture);
+					}
+				);
+				
+				
+		if( !texture ) {
 			REPORT_DEBUG( " Cuidado! Nao foi possivel se criar uma textura de texto:\t" << SDL_GetError() << "\n\t\t\t\t\t Se crashar, esse talvez seja o motivo..." );
 		}
 		
 		SDL_FreeSurface( temp );
 		int w = 0;
 		int h = 0;
-		SDL_QueryTexture( texture, nullptr, nullptr, &w, &h );
+		SDL_QueryTexture( texture.get(), nullptr, nullptr, &w, &h );
 		fontDimensions = Vec2( w, h );
 		dynamic_cast<RectTransform*>( associated.GetComponent( ComponentType::RECT_TRANSFORM ) )->SetKernelSize( fontDimensions );
 	}
