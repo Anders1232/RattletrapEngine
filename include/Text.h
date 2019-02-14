@@ -80,7 +80,7 @@ namespace RattletrapEngine {
 		private:
 			void RemakeTexture(void);
 			std::shared_ptr<TTF_Font> font;
-			SDL_Texture* texture;
+			std::shared_ptr<SDL_Texture> texture;
 			std::string text;
 			TextStyle style;
 			int fontSize;
